@@ -6,7 +6,6 @@
 
 > **From Pixels to AI**: A comprehensive educational pathway that bridges fundamental NumPy operations with modern AI-driven generative art, inspired by artists like Refik Anadol.
 
-![Title Image](images/title.png)
 
 ## 🎯 Project Vision
 
