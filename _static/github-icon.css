@@ -1,0 +1,28 @@
+/* Inline GitHub icon placed alongside header controls */
+.github-float-link {
+  position: static;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  margin-left: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+.github-float-link:hover { background: rgba(255, 255, 255, 0.12); }
+.github-float-link svg { width: 18px; height: 18px; fill: currentColor; color: #cbd5e1; }
+
+/* Fallback when appended to body */
+.github-float-fixed {
+  position: fixed;
+  top: 14px;
+  right: 18px;
+  z-index: 1000;
+}
+
+@media (max-width: 768px) {
+  .github-float-link { width: 32px; height: 32px; margin-left: 8px; }
+  .github-float-fixed { top: 12px; right: 12px; }
+} 
