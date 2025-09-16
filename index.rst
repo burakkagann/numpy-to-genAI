@@ -35,11 +35,11 @@ First Steps
 .. toctree::
    :maxdepth: 1
 
-   grayscale/README.rst
-   rgb/README.rst
-   random_tiles/README.rst
-   flags/README.rst
-   repeat/README.rst
+   first_steps/grayscale/README.rst
+   first_steps/rgb/README.rst
+   first_steps/random_tiles/README.rst
+   first_steps/flags/README.rst
+   first_steps/repeat/README.rst
 
 ----
 
@@ -49,14 +49,14 @@ Elementary Geometry
 .. toctree::
    :maxdepth: 1
 
-   stars/README.rst
-   lines/README.rst
-   gradient/README.rst
-   triangles/README.rst
-   circles/README.rst
-   spiral/README.rst
-   mask/README.rst
-   memegen/README.rst
+   elementary_geometry/stars/README.rst
+   elementary_geometry/lines/README.rst
+   elementary_geometry/gradient/README.rst
+   elementary_geometry/triangles/README.rst
+   elementary_geometry/circles/README.rst
+   elementary_geometry/spiral/README.rst
+   elementary_geometry/mask/README.rst
+   elementary_geometry/memegen/README.rst
 
 ----
 
@@ -66,10 +66,10 @@ Machine Learning
 .. toctree::
    :maxdepth: 1
 
-   kmeans/README.rst
-   dtree/README.rst
-   convolution/README.rst
-   montecarlo/README.rst
+   machine_learning/kmeans/README.rst
+   machine_learning/dtree/README.rst
+   machine_learning/convolution/README.rst
+   machine_learning/montecarlo/README.rst
 
 ----
 
@@ -79,13 +79,13 @@ Effects
 .. toctree::
    :maxdepth: 1
 
-   rotate/README.rst
-   shadow/README.rst
-   warhol/README.rst
-   puzzle/README.rst
-   contour/README.rst
-   sobel/README.rst
-   hexpanda/README.rst
+   effects/rotate/README.rst
+   effects/shadow/README.rst
+   effects/warhol/README.rst
+   effects/puzzle/README.rst
+   effects/contour/README.rst
+   effects/sobel/README.rst
+   effects/hexpanda/README.rst
 
 Fractals
 --------
@@ -93,9 +93,9 @@ Fractals
 .. toctree::
    :maxdepth: 1
 
-   fractal_square/README.rst
-   dragon_curve/README.rst
-   mandelbrot/README.rst
+   fractals/fractal_square/README.rst
+   fractals/dragon_curve/README.rst
+   fractals/mandelbrot/README.rst
 
 ----
 
@@ -105,12 +105,12 @@ Animations
 .. toctree::
    :maxdepth: 1
 
-   flower_movie/README.rst
-   vortex/README.rst
-   sand/README.rst
-   starwars/README.rst
-   blossom/README.rst
-   thank_you/README.rst
+   animations/flower_movie/README.rst
+   animations/vortex/README.rst
+   animations/sand/README.rst
+   animations/starwars/README.rst
+   animations/blossom/README.rst
+   animations/thank_you/README.rst
 
 ----
 
