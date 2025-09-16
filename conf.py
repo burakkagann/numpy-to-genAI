@@ -8,7 +8,7 @@
 
 project = 'NumPy Graphics'
 copyright = '2024, Kristian Rother'
-author = 'Kristian Rother'
+author = 'Burak Kağan Yılmazer'
 release = '1.0'
 html_title = f"{project}"
 
@@ -32,8 +32,8 @@ language = 'en'
 
 html_theme = 'furo'
 html_static_path = ['_static']
-html_logo = "_static/academis_logo.png"
-html_favicon = "_static/favicon.ico"
+html_logo = None
+html_favicon = None
 
 html_css_files = [
     "academis.css",
