@@ -13,69 +13,71 @@ Creating an educational pathway into AI-driven generative art that bridges mathe
    :maxdepth: 1
    :hidden:
 
-   first_steps/grayscale/README.rst
-   first_steps/rgb/README.rst
-   first_steps/random_tiles/README.rst
-   first_steps/flags/README.rst
-   first_steps/repeat/README.rst
+   content/first_steps/grayscale/README.rst
+   content/first_steps/rgb/README.rst
+   content/first_steps/random_tiles/README.rst
+   content/first_steps/flags/README.rst
+   content/first_steps/repeat/README.rst
 
 .. toctree::
    :caption: Elementary Geometry
    :maxdepth: 1
    :hidden:
 
-   elementary_geometry/stars/README.rst
-   elementary_geometry/lines/README.rst
-   elementary_geometry/gradient/README.rst
-   elementary_geometry/triangles/README.rst
-   elementary_geometry/circles/README.rst
-   elementary_geometry/spiral/README.rst
-   elementary_geometry/mask/README.rst
-   elementary_geometry/memegen/README.rst
+   content/elementary_geometry/stars/README.rst
+   content/elementary_geometry/lines/README.rst
+   content/elementary_geometry/gradient/README.rst
+   content/elementary_geometry/triangles/README.rst
+   content/elementary_geometry/circles/README.rst
+   content/elementary_geometry/spiral/README.rst
+   content/elementary_geometry/mask/README.rst
+   content/elementary_geometry/memegen/README.rst
 
 .. toctree::
    :caption: Machine Learning
    :maxdepth: 1
    :hidden:
 
-   machine_learning/kmeans/README.rst
-   machine_learning/dtree/README.rst
-   machine_learning/convolution/README.rst
-   machine_learning/montecarlo/README.rst
+   content/machine_learning/kmeans/README.rst
+   content/machine_learning/dtree/README.rst
+   content/machine_learning/convolution/README.rst
+   content/machine_learning/montecarlo/README.rst
 
 .. toctree::
    :caption: Effects
    :maxdepth: 1
    :hidden:
 
-   effects/rotate/README.rst
-   effects/shadow/README.rst
-   effects/warhol/README.rst
-   effects/puzzle/README.rst
-   effects/contour/README.rst
-   effects/sobel/README.rst
-   effects/hexpanda/README.rst
+   content/effects/rotate/README.rst
+   content/effects/shadow/README.rst
+   content/effects/warhol/README.rst
+   content/effects/puzzle/README.rst
+   content/effects/contour/README.rst
+   content/effects/sobel/README.rst
+   content/effects/hexpanda/README.rst
 
 .. toctree::
    :caption: Fractals
    :maxdepth: 1
    :hidden:
 
-   fractals/fractal_square/README.rst
-   fractals/dragon_curve/README.rst
-   fractals/mandelbrot/README.rst
+   content/fractals/fractal_square/README.rst
+   content/fractals/dragon_curve/README.rst
+   content/fractals/mandelbrot/README.rst
 
 .. toctree::
    :caption: Animations
    :maxdepth: 1
    :hidden:
 
-   animations/flower_movie/README.rst
-   animations/vortex/README.rst
-   animations/sand/README.rst
-   animations/starwars/README.rst
-   animations/blossom/README.rst
-   animations/thank_you/README.rst
+   content/animations/flower_movie/README.rst
+   content/animations/vortex/README.rst
+   content/animations/sand/README.rst
+   content/animations/starwars/README.rst
+   content/animations/blossom/README.rst
+   content/animations/thank_you/README.rst
+   content/animations/bouncing_ball/README.rst
+   content/animations/image_transformations/README.rst
 
 
 Installation
@@ -91,21 +93,17 @@ Install them with:
 If you are using the `Anaconda distribution <https://www.anaconda.com/>`__,
 you should have all necessary libraries already.
 
-----
-
 First Steps
 -----------
 
 .. toctree::
    :maxdepth: 1
 
-   first_steps/grayscale/README.rst
-   first_steps/rgb/README.rst
-   first_steps/random_tiles/README.rst
-   first_steps/flags/README.rst
-   first_steps/repeat/README.rst
-
-----
+   content/first_steps/grayscale/README.rst
+   content/first_steps/rgb/README.rst
+   content/first_steps/random_tiles/README.rst
+   content/first_steps/flags/README.rst
+   content/first_steps/repeat/README.rst
 
 Elementary Geometry
 -------------------
@@ -113,16 +111,14 @@ Elementary Geometry
 .. toctree::
    :maxdepth: 1
 
-   elementary_geometry/stars/README.rst
-   elementary_geometry/lines/README.rst
-   elementary_geometry/gradient/README.rst
-   elementary_geometry/triangles/README.rst
-   elementary_geometry/circles/README.rst
-   elementary_geometry/spiral/README.rst
-   elementary_geometry/mask/README.rst
-   elementary_geometry/memegen/README.rst
-
-----
+   content/elementary_geometry/stars/README.rst
+   content/elementary_geometry/lines/README.rst
+   content/elementary_geometry/gradient/README.rst
+   content/elementary_geometry/triangles/README.rst
+   content/elementary_geometry/circles/README.rst
+   content/elementary_geometry/spiral/README.rst
+   content/elementary_geometry/mask/README.rst
+   content/elementary_geometry/memegen/README.rst
 
 Machine Learning
 ----------------
@@ -130,12 +126,10 @@ Machine Learning
 .. toctree::
    :maxdepth: 1
 
-   machine_learning/kmeans/README.rst
-   machine_learning/dtree/README.rst
-   machine_learning/convolution/README.rst
-   machine_learning/montecarlo/README.rst
-
-----
+   content/machine_learning/kmeans/README.rst
+   content/machine_learning/dtree/README.rst
+   content/machine_learning/convolution/README.rst
+   content/machine_learning/montecarlo/README.rst
 
 Effects
 -------
@@ -143,15 +137,13 @@ Effects
 .. toctree::
    :maxdepth: 1
 
-   effects/rotate/README.rst
-   effects/shadow/README.rst
-   effects/warhol/README.rst
-   effects/puzzle/README.rst
-   effects/contour/README.rst
-   effects/sobel/README.rst
-   effects/hexpanda/README.rst
-
-----
+   content/effects/rotate/README.rst
+   content/effects/shadow/README.rst
+   content/effects/warhol/README.rst
+   content/effects/puzzle/README.rst
+   content/effects/contour/README.rst
+   content/effects/sobel/README.rst
+   content/effects/hexpanda/README.rst
 
 Fractals
 --------
@@ -159,11 +151,9 @@ Fractals
 .. toctree::
    :maxdepth: 1
 
-   fractals/fractal_square/README.rst
-   fractals/dragon_curve/README.rst
-   fractals/mandelbrot/README.rst
-
-----
+   content/fractals/fractal_square/README.rst
+   content/fractals/dragon_curve/README.rst
+   content/fractals/mandelbrot/README.rst
 
 Animations
 ----------
@@ -171,25 +161,46 @@ Animations
 .. toctree::
    :maxdepth: 1
 
-   animations/flower_movie/README.rst
-   animations/vortex/README.rst
-   animations/sand/README.rst
-   animations/starwars/README.rst
-   animations/blossom/README.rst
-   animations/thank_you/README.rst
+   content/animations/flower_movie/README.rst
+   content/animations/vortex/README.rst
+   content/animations/sand/README.rst
+   content/animations/starwars/README.rst
+   content/animations/blossom/README.rst
+   content/animations/thank_you/README.rst
+   content/animations/bouncing_ball/README.rst
+   content/animations/image_transformations/README.rst
 
-----
 
-.. topic:: License
+.. raw:: html
 
-   © 2024 Dr. Kristian Rother (`kristian.rother@posteo.de`)
-   © 2025 Burak Kagan Yilmazer ('burak.kagan@protonmail.com')
+   <div class="doc-footer">
 
-   Usable under the conditions of the MIT License.
-   See :download:`LICENSE` for details.
+.. rubric:: License
 
-.. topic:: References
+This work is licensed under the MIT License.
 
-   `The Brandenburg Gate
-   image <https://commons.wikimedia.org/wiki/File:Brandenburger_Tor_abends.jpg>`__
-   is by Thomas Wolf, www.foto-tw.de / Wikimedia Commons / CC BY-SA 3.0
+- Dr. Kristian Rother (2024) — kristian.rother@posteo.de
+- Burak Kağan Yılmazer (2025) — burak.kagan@protonmail.com
+
+See :download:`LICENSE` for full license terms.
+
+.. rubric:: References
+
+.. rubric:: Images
+
+- `Brandenburg Gate image <https://commons.wikimedia.org/wiki/File:Brandenburger_Tor_abends.jpg>`__ by Thomas Wolf, www.foto-tw.de / Wikimedia Commons / CC BY-SA 3.0
+
+.. rubric:: Libraries
+
+- NumPy — Harris, C.R., et al. (2020). Array programming with NumPy. Nature 585, 357–362
+- Pillow — Clark, A. (2015). Pillow (PIL Fork) Documentation
+- OpenCV — Bradski, G. (2000). The OpenCV Library. Dr. Dobb's Journal of Software Tools
+
+.. rubric:: Inspiration
+
+- Generative Art — Pearson, M. (2011). Generative Art: A Practical Guide Using Processing
+- Creative Coding — Reas, C. & Fry, B. (2014). Processing: A Programming Handbook for Visual Designers
+
+.. raw:: html
+
+   </div>

@@ -37,6 +37,8 @@ html_favicon = None
 
 html_css_files = [
     'github-icon.css',
+    'footer.css',
+    'content.css',
 ]
 html_js_files = [
     'github-icon.js',
