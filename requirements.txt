@@ -4,3 +4,10 @@ pandas
 numpy
 scikit-learn
 opencv-python>=4.4
+
+# Documentation build dependencies
+sphinx>=8
+pydata-sphinx-theme
+sphinx-design
+sphinx-copybutton
+myst-parser
