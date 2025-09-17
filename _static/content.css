@@ -5,4 +5,9 @@ main .toctree-wrapper ul {
 }
 main .toctree-wrapper ul li {
   margin: 0.2rem 0;
-} 
+}
+
+/* Separate navbar from page content */
+.bd-header {
+  border-bottom: 1px solid var(--pst-color-border, rgba(255, 255, 255, 0.1));
+}

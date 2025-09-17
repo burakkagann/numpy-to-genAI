@@ -1,0 +1,28 @@
+{% set dropdown_prefix = "chapter-dropdown-" %}
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    {% for group in chapter_nav or [] %}
+      {% set ns = namespace(active=False) %}
+      {% for item in group['items'] %}
+        {% if item['ref'] == pagename %}
+          {% set ns.active = True %}
+        {% endif %}
+      {% endfor %}
+      {% set dropdown_id = dropdown_prefix ~ loop.index %}
+      <li class="nav-item dropdown{% if ns.active %} current active{% endif %}">
+        <a class="nav-link dropdown-toggle" href="#" id="{{ dropdown_id }}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          {{ group['title'] }}
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="{{ dropdown_id }}">
+          {% for item in group['items'] %}
+          <li>
+            <a class="dropdown-item nav-internal{% if item['ref'] == pagename %} active{% endif %}" href="{{ pathto(item['ref']) }}"{% if item['ref'] == pagename %} aria-current="page"{% endif %}>
+              {{ item['title'] }}
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </li>
+    {% endfor %}
+  </ul>
+</nav>
