@@ -8,7 +8,7 @@
 
 from sphinx.addnodes import toctree as TocTreeNode
 
-project = 'NumPy to GenAI'
+project = 'Pixels to GenAI'
 copyright = '2025, Kristian Rother & Burak Kagan Yilmazer'
 author = 'Kristian Rother & Burak Kağan Yılmazer'
 release = '2.0'
@@ -89,7 +89,7 @@ html_theme_options = {
     "source_branch": "main",
     "source_directory": "",
     "logo": {
-        "text": "NumPy to GenAI",
+        "text": "Pixels to GenAI",
         "image_light": "favicon-192x192.png",
         "image_dark": "favicon-192x192.png",
     },

@@ -9,9 +9,8 @@ self-paced study.
 
 ## Highlights
 
-- **Progressive curriculum** – five themed tracks (First Steps, Elementary
-  Geometry, Machine Learning, Effects, Fractals, Animations) that build on each
-  other.
+- **Progressive curriculum** – 15 comprehensive modules that build from basic
+  pixel manipulation to advanced generative AI applications.
 - **Creative coding focus** – every lesson pairs concepts with runnable Python
   scripts and illustrative output images or GIFs.
 - **Ready-to-teach documentation** – the site is powered by Sphinx with the
@@ -19,27 +18,25 @@ self-paced study.
 - **Open and extensible** – organised content folders, solutions, and
   experimental areas invite adaptation for new workshops or courses.
 
-## Repository Layout
+## Learning Modules
 
-```
-├── conf.py                  # Sphinx configuration (PyData theme + custom navbar)
-├── index.rst                # Landing page wiring top-level chapters
-├── content/                 # Lesson material grouped by chapter
-│   ├── 01_first_steps/      # NumPy basics: grayscale, RGB, tiling, flags…
-│   ├── 02_elementary_geometry/
-│   ├── 03_machine_learning/
-│   ├── 04_effects/
-│   ├── 05_fractals/
-│   └── 06_animations/
-├── images/                  # Shared illustration assets
-├── solutions/               # Reference solutions for selected challenges
-├── _static/                 # Custom CSS/JS, favicon, logo assets
-├── _templates/              # Template overrides (navbar dropdowns)
-├── build/                   # Generated HTML (ignored in deployments)
-├── requirements.txt         # Runtime dependencies for the examples
-├── dev_requirements.txt     # Docs build / authoring dependencies
-└── Makefile                 # Convenience wrapper around `sphinx-build`
-```
+The curriculum is structured as 15 progressive modules:
+
+- **Module 0**: Python NumPy Fundamentals
+- **Module 1**: Pixel Fundamentals
+- **Module 2**: Geometry Mathematics
+- **Module 3**: Noise Patterns
+- **Module 4**: Image Processing Filters
+- **Module 5**: Fractals Self-Similarity
+- **Module 6**: Advanced Mathematical Art
+- **Module 7**: Animation Motion Graphics
+- **Module 8**: Real-Time Interactive Systems
+- **Module 9**: Data Visualization Techniques
+- **Module 10**: Machine Learning Foundations
+- **Module 11**: Neural Networks Computer Vision
+- **Module 12**: Generative AI Art Creation
+- **Module 13**: Advanced AI Applications
+- **Module 14**: Capstone Projects
 
 ## Getting Started
 
@@ -91,7 +88,7 @@ Every subfolder in `content/` contains a `README.rst` tutorial, Python scripts,
 images, and (for animations) GIFs. To experiment with a lesson:
 
 ```bash
-python content/03_machine_learning/kmeans/decolorize.py
+python content/Module_01_pixel_fundamentals/1.1_grayscale_color_basics/1.1.1_color_basics/rgb/rgb.py
 ```
 
 Most scripts rely only on the packages from `requirements.txt`. Some notebooks
