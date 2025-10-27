@@ -39,7 +39,7 @@ Let's begin by understanding which technology powers different creative systems.
 
 **Scenario C:** You type the prompt "a surreal landscape in the style of Salvador Dali" into Nano Banana. The AI model generates a completely new image that never existed before, combining learned concepts of "surreal," "landscape," and Dali's aesthetic.
 
-.. admonition:: Quick Question 🤔
+.. admonition:: Quick Question
    
    Which scenario uses: (A) traditional algorithms, (B) machine learning, or (C) advanced AI? Can you identify the key distinguishing features?
 
@@ -84,7 +84,7 @@ What is an Algorithm?
 
 **In generative art**, algorithms define the rules and procedures that create visual, auditory, or interactive outputs. The artist programs explicit instructions, and the computer executes them precisely.
 
-.. dropdown:: 💡 Algorithms in Context
+.. dropdown:: Algorithms in Context
 
    **Daily life examples:**
    

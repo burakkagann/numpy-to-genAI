@@ -46,7 +46,7 @@ Let's start by understanding what makes art "generative." Consider these three s
 
 **Scenario C:** An artist uses AI to transform a photograph into the style of Van Gogh's "Starry Night."
 
-.. admonition:: Quick Question 🤔
+.. admonition:: Quick Question
    
    Which of these is generative art? Take a moment to think before reading on.
 
@@ -123,7 +123,7 @@ Historical context: 70 years of generative art
 * **2001**: Casey Reas and Ben Fry launch Processing, democratizing creative coding
 * **2021**: Art Blocks creates blockchain based generative art platform, spawning a billion-dollar market
 
-.. admonition:: Did You Know? 🎨
+.. admonition:: Did You Know?
    
    Vera Molnár (1924-2023) developed her "machine imaginaire" in 1959, long *before* she had access to computers. She executed algorithms by hand, following step by step instructions to create series of drawings. This demonstrates that generative art is fundamentally about **systematic process**, not technology (Molnár, 1990).
 
@@ -147,7 +147,7 @@ In generative art, the creative act shifts from making individual pieces to **de
 * Aesthetic decisions embedded in the system
 
 
-.. admonition:: Did You Know? 🧠
+.. admonition:: Did You Know?
    
    Philip Galanter's research positions generative art within **complexity theory**, suggesting the most aesthetically interesting work balances order and disorder. Pure order is boring (perfectly repeating patterns), pure disorder is chaos (random noise), but the sweet spot between them creates "effective complexity", which is now considered as the hallmark of compelling generative art (Galanter, 2003).
 
@@ -255,7 +255,7 @@ Generative art often explores the balance between order and disorder. Examine th
 2. Which pattern likely creates the most aesthetically interesting result?
 3. Why might pure order or pure disorder be less compelling?
 
-.. dropdown:: 💡 Analysis & Answers
+.. dropdown:: Analysis & Answers
    
    **Ranking (Order to Disorder):**
    
@@ -303,7 +303,7 @@ Now think like a generative artist: design a rule-based system (no coding requir
 
 "Start at the center. Draw a circle of random size (50-150px). Move in a random direction for 100px. Draw another circle of random size. Repeat 20 times. Circles can overlap."
 
-.. dropdown:: 💡 Example Solutions
+.. dropdown:: Example Solutions
    
    **Solution 1: "Radial Scatter"**
    
@@ -321,8 +321,6 @@ Now think like a generative artist: design a rule-based system (no coding requir
    * Has structure: 8-wedge organization prevents pure chaos
    
    
-   **Challenge extension:** Add one more rule that makes your system more interesting. Could you introduce rotation? Pattern breaks? Size variation? Color transitions?
-
 .. figure:: /content/Module_00_foundations_definitions/0.1_what_is_generative_art/random_circles.png
    :width: 500px
    :align: center
