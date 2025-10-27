@@ -4,9 +4,9 @@
 1.1.1 - Images as Arrays & RGB
 =====================================
 
-:Duration: 15-20 minutes
+:Duration: 15-18 minutes
 :Level: Beginner
-:Prerequisites: Basic Python knowledge
+:Prerequisites: Module 0
 
 .. contents:: Contents
    :local:
@@ -37,25 +37,22 @@ Let's start with something visual. Run this code to create a simple image:
    
    import numpy as np
    from PIL import Image
-   import matplotlib.pyplot as plt
-   
+
    # Create a 200x200 image with 3 color channels (RGB)
    image = np.zeros((200, 200, 3), dtype=np.uint8)
-   
+
    # Top half: cyan (green + blue light)
    image[:100, :, 1] = 255  # Green channel
    image[:100, :, 2] = 255  # Blue channel
-   
+
    # Bottom half: magenta (red + blue light)
    image[100:, :, 0] = 255  # Red channel
    image[100:, :, 2] = 255  # Blue channel
-   
-   # Display it
-   plt.figure(figsize=(5, 5))
-   plt.imshow(image)
-   plt.axis('off')
-   plt.title('Cyan and Magenta')
-   plt.show()
+
+   # Convert to PIL and display
+   pil_image = Image.fromarray(image)
+   pil_image.show()  # Opens in default image viewer
+   pil_image.save('cyan_magenta.png')  # Save as PNG
 
 .. figure:: ../../../../../images/cyan_magenta_example.png
    :width: 300px
@@ -92,7 +89,7 @@ The fundamental insight
    
    Array indexing uses `image[y, x, channel]`. Did you notice **y comes first** (row), then x (column)? This follows matrix notation, where the origin (0, 0) is at the **top-left corner**. 
 
-.. admonition:: Did You Know? 🌈
+.. admonition:: Did You Know? 
    
    Your display screen doesn't actually show "any color" per pixel! Each pixel contains three tiny subpixels, one red, one green, one blue arranged side by side. They're so small your eye blends them into a single perceived color. If you can, try viewing your screen through a magnifying glass to see the RGB stripe pattern!
 
@@ -101,11 +98,11 @@ The RGB color model
 
 RGB is an **additive color model**, meaning we start with darkness (black) and add colored light: 
 
-* **Red (255, 0, 0)** — Pure red light
-* **Green (0, 255, 0)** — Pure green light  
-* **Blue (0, 0, 255)** — Pure blue light
-* **White (255, 255, 255)** — All three at maximum
-* **Black (0, 0, 0)** — No light
+* **Red (255, 0, 0)** -> Pure red light
+* **Green (0, 255, 0)** -> Pure green light  
+* **Blue (0, 0, 255)** -> Pure blue light
+* **White (255, 255, 255)** -> All three at maximum
+* **Black (0, 0, 0)** -> No light
 
 Each channel stores values from **0 to 255** (8 bits = 256 possible values), giving us **16,777,216 total colors** (256³).  This is called "24-bit true color"  and closely matches the approximately 10 million colors the human eye can discriminate. 
 
@@ -134,7 +131,7 @@ Understanding these patterns helps you think in RGB:
 * **Pastels**: High values across all channels (light colors)
 * **Dark colors**: Low values across all channels
 
-.. admonition:: Did You Know? 🧠
+.. admonition:: Did You Know? 
    
    The human eye has three types of cone cells for color vision, but they're NOT actually "red," "green," and "blue" receptors! The L-cones peak around 570nm (greenish-yellow), M-cones around 540nm (green), and S-cones around 440nm (blue-violet).  RGB is a computational convenience that *approximately* matches this trichromatic vision system (Gonzalez & Woods, 2007; Hunt, 2004).
 
@@ -156,21 +153,19 @@ Run the following code and observe the output. Try to predict what color you'll 
    
    import numpy as np
    from PIL import Image
-   import matplotlib.pyplot as plt
-   
+
    # Create a 150x150 image
    image = np.zeros((150, 150, 3), dtype=np.uint8)
-   
+
    # Set all pixels to the same color
    image[:, :, 0] = 255  # Red channel
-   image[:, :, 1] = 128  # Green channel  
+   image[:, :, 1] = 128  # Green channel
    image[:, :, 2] = 0    # Blue channel
-   
-   # Display
-   plt.imshow(image)
-   plt.axis('off')
-   plt.title('What color is this?')
-   plt.show()
+
+   # Convert to PIL and display
+   pil_image = Image.fromarray(image)
+   pil_image.show()
+   pil_image.save('exercise1_color.png')
 
 **Reflection questions:**
 
@@ -178,7 +173,7 @@ Run the following code and observe the output. Try to predict what color you'll 
 * What would happen if you set all three channels to 255?
 * What would `(0, 0, 0)` look like?
 
-.. dropdown:: 💡 Solution & Explanation
+.. dropdown:: Solution & Explanation
    
    **Answer:** Orange (or orange-red)
    
@@ -200,7 +195,7 @@ Modify the code from Exercise 1 to create each of these colors. Change only the 
 2. Create a medium gray
 3. Create a dark purple
 
-.. dropdown:: 💡 Solutions
+.. dropdown:: Solutions
    
    **1. Pure cyan:**
    
@@ -255,20 +250,19 @@ Now create something from scratch: a horizontal color gradient that transitions 
    :caption: Exercise 3 starter code
    
    import numpy as np
-   import matplotlib.pyplot as plt
-   
+   from PIL import Image
+
    # Create image
    height, width = 200, 200
    image = np.zeros((height, width, 3), dtype=np.uint8)
-   
+
    # Your code here: fill the image with a gradient
    # Loop over columns and set red and blue channels
-   
-   # Display
-   plt.imshow(image)
-   plt.axis('off')
-   plt.title('Red to Blue Gradient')
-   plt.show()
+
+   # Convert to PIL and display
+   pil_image = Image.fromarray(image)
+   pil_image.show() 
+   pil_image.save('gradient.png')
 
 .. dropdown:: 💡 Complete Solution
    
@@ -278,24 +272,22 @@ Now create something from scratch: a horizontal color gradient that transitions 
       :emphasize-lines: 10-12
       
       import numpy as np
-      import matplotlib.pyplot as plt
-      
+      from PIL import Image
+
       # Create image
       height, width = 200, 200
       image = np.zeros((height, width, 3), dtype=np.uint8)
-      
+
       # Create gradient from red (left) to blue (right)
       for col in range(width):
           image[:, col, 0] = 255 - (col * 255 // width)  # Red decreases
           image[:, col, 2] = col * 255 // width          # Blue increases
           # Green channel stays 0
-      
-      # Display
-      plt.figure(figsize=(6, 6))
-      plt.imshow(image)
-      plt.axis('off')
-      plt.title('Red to Blue Gradient')
-      plt.show()
+
+      # Convert to PIL and display
+      pil_image = Image.fromarray(image)
+      pil_image.show() 
+      pil_image.save('red_to_blue_gradient.png') 
    
    **How it works:**
    
@@ -358,6 +350,5 @@ References
 
 .. [PillowDocs] Clark, A. (2015). *Pillow (PIL Fork) Documentation*. https://pillow.readthedocs.io/ [Image manipulation with Python]
 
-.. [MatplotlibDocs] Hunter, J.D. (2007). "Matplotlib: A 2D graphics environment." *Computing in Science & Engineering*, 9(3), 90-95. https://doi.org/10.1109/MCSE.2007.55
 
 .. [Woo2024] Woo, Tom. "The Truth: Can RGB Lights Make White?" *Unitop LED Strip*, 4 May 2024, www.unitopledstrip.com/es/can-rgb-lights-make-white/. [RGB additive color mixing diagram]
