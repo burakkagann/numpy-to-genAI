@@ -106,4 +106,10 @@ venv.bak/
 # mypy
 .mypy_cache/
 
+# Project-specific files
+PROGRESS.md
+.mcp.json
+templates/
+scripts/
+
 
