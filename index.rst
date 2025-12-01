@@ -112,7 +112,7 @@ Learning Modules
       :maxdepth: 1
 
       content/Module_01_pixel_fundamentals/1.1_grayscale_color_basics/1.1.1_color_basics/rgb/README.rst
-      content/Module_01_pixel_fundamentals/1.1_grayscale_color_basics/1.1.2_color_theory_spaces/README.rst
+
 
    **1.2 Pixel Manipulation Patterns**
 

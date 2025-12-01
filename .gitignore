@@ -122,6 +122,10 @@ thesis_notes/
 proposal-forms/
 project_status.md
 
+# Project-specific files
+PROGRESS.md
+.mcp.json
+
 # Development scripts and templates (local development only)
 scripts/
 templates/
