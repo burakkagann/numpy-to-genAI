@@ -155,7 +155,7 @@ Learning Modules
 
       content/Module_02_geometry_mathematics/2.2_coordinate_systems_fields/2.2.1_gradient/gradient/README.rst
       content/Module_02_geometry_mathematics/2.2_coordinate_systems_fields/2.2.2_spiral/spiral/README.rst
-      content/Module_02_geometry_mathematics/2.2_coordinate_systems_fields/2.2.3_vector_fields/README.rst
+      content/Module_02_geometry_mathematics/2.2_coordinate_systems_fields/2.2.3_vector_fields/vector_fields/README.rst
       content/Module_02_geometry_mathematics/2.2_coordinate_systems_fields/2.2.4_distance_fields/README.rst
 
    **2.3 Mathematical Art**

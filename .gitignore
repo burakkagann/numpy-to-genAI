@@ -43,12 +43,12 @@ htmlcov/
 .cache
 nosetests.xml
 coverage.xml
-CLAUDE.md
 build/
-.claude/
 *.cover
 .hypothesis/
 .pytest_cache/
+skills/
+skills/public/
 
 # Translations
 *.mo
@@ -105,5 +105,25 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# Syncthing
+.stfolder/
+
+# macOS metadata
+.DS_Store
+
+# Claude Code session files (local development tools)
+.claude/
+CLAUDE.md
+master-prompt-claude-code.md
+
+# Thesis and project management (local tracking only)
+thesis_notes/
+proposal-forms/
+project_status.md
+
+# Development scripts and templates (local development only)
+scripts/
+templates/
 
 
