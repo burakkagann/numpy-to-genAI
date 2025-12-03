@@ -222,7 +222,7 @@ of three-dimensional space.
 Hands-On Exercises
 ==================
 
-Exercise 1: Execute and Explore (3 minutes)
+Exercise 1: Execute and Explore
 -------------------------------------------
 
 Run the ``simple_star.py`` script from the Quick Start section and observe
@@ -249,7 +249,7 @@ the output. Then answer these reflection questions:
       ``NUM_STARS = 500`` creates more stars, ``NUM_STARS = 50`` creates fewer.
 
 
-Exercise 2: Modify to Achieve Goals (4 minutes)
+Exercise 2: Modify to Achieve Goals
 -----------------------------------------------
 
 Starting with the Quick Start code, complete these modification tasks:
@@ -259,7 +259,7 @@ Starting with the Quick Start code, complete these modification tasks:
 Modify the code to use Gaussian distribution instead of uniform distribution.
 Center the cluster at position (200, 200) with a spread of 60 pixels.
 
-.. dropdown:: Hint for Task A
+.. dropdown:: Hint
 
    Replace ``np.random.randint()`` with ``np.random.normal()``:
 
@@ -270,7 +270,7 @@ Center the cluster at position (200, 200) with a spread of 60 pixels.
 
    Remember to clip and convert to integers afterward.
 
-.. dropdown:: Solution for Task A
+.. dropdown:: Solution
 
    .. code-block:: python
 
@@ -299,7 +299,7 @@ Center the cluster at position (200, 200) with a spread of 60 pixels.
 After creating the first cluster, add a second cluster at position (100, 300)
 with 80 stars and a tighter spread of 30 pixels.
 
-.. dropdown:: Hint for Task B
+.. dropdown:: Hint
 
    Generate a second set of coordinates and place them on the same canvas:
 
@@ -312,7 +312,7 @@ with 80 stars and a tighter spread of 30 pixels.
       y2 = np.clip(y2, 0, CANVAS_SIZE - 1).astype(int)
       canvas[y2, x2] = 255
 
-.. dropdown:: Solution for Task B
+.. dropdown:: Solution
 
    .. code-block:: python
 
@@ -339,7 +339,7 @@ with 80 stars and a tighter spread of 30 pixels.
       Image.fromarray(canvas, mode='L').save('two_clusters.png')
 
 
-Exercise 3: Create from Scratch - Multi-Cluster Galaxy (5 minutes)
+Exercise 3: Create from Scratch - Multi-Cluster Galaxy 
 ------------------------------------------------------------------
 
 Create a **galaxy-like image** with multiple star clusters. Each cluster
