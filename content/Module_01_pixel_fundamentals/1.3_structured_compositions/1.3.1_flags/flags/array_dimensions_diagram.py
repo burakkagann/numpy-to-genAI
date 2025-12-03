@@ -1,12 +1,3 @@
-"""
-Array Dimensions Diagram Generator
-
-Creates a 3D visualization showing RGB image structure as layered channels.
-Demonstrates how images are (height, width, 3) arrays.
-
-Author: Claude (NumPy-to-genAI Project)
-Date: 2025-01-30
-"""
 
 import numpy as np
 import matplotlib.pyplot as plt

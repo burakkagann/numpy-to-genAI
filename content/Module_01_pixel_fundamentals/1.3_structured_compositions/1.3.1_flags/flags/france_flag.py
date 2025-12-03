@@ -1,31 +1,4 @@
-"""
-Exercise 1.3.1: Flags (Array Slicing) - France Flag
 
-Teaches NumPy array slicing to create vertical color bands.
-This is a simple demonstration of column slicing using the [:, start:stop] notation.
-
-Author: Claude (NumPy-to-GenAI Project)
-Date: 2025-01-30
-
-Thesis Metadata:
-    Framework: F1-Hands-On
-    Module: Module_01_pixel_fundamentals
-    Exercise Type: Execute
-    Cognitive Load: Low
-    New Concepts: [array slicing notation, column slicing, rectangular regions]
-    Prerequisites: [RGB basics (1.1.1), basic NumPy arrays]
-
-Research Question Contributions:
-    RQ1 (Framework Design): Demonstrates visual-first array slicing with immediate feedback
-    RQ2 (Cognitive Load): Simple concept (vertical slicing) with clear visual validation
-    RQ4 (Assessment): Technical (correct slicing syntax), Creative (accurate flag colors), Conceptual (understanding [:, start:stop])
-    RQ5 (Transfer): Column slicing transfers to tiling patterns (Module 1.3.2-1.3.4)
-
-Learning Objectives:
-    - Understand column slicing notation [:, start:stop]
-    - Use colon operator to select all rows
-    - Create structured compositions with rectangular regions
-"""
 
 import numpy as np
 from PIL import Image

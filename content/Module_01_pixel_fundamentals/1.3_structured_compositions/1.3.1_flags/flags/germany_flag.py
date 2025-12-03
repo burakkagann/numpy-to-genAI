@@ -1,31 +1,4 @@
-"""
-Exercise 1.3.1: Flags (Array Slicing) - Germany Flag
 
-Demonstrates horizontal slicing to create row-based color bands.
-This is the solution for Exercise 2 (Modify phase).
-
-Author: Claude (NumPy-to-GenAI Project)
-Date: 2025-01-30
-
-Thesis Metadata:
-    Framework: F1-Hands-On
-    Module: Module_01_pixel_fundamentals
-    Exercise Type: Modify
-    Cognitive Load: Low
-    New Concepts: [row slicing, horizontal bands]
-    Prerequisites: [Exercise 1 (France flag), column slicing]
-
-Research Question Contributions:
-    RQ1 (Framework Design): Shows transfer from column to row slicing
-    RQ2 (Cognitive Load): Builds on previous knowledge (column slicing → row slicing)
-    RQ4 (Assessment): Tests ability to transfer slicing pattern to different dimension
-    RQ5 (Transfer): Reinforces dimensional understanding for future transformations
-
-Learning Objectives:
-    - Apply row slicing notation [start:stop, :]
-    - Understand dimension differences (rows vs columns)
-    - Transfer vertical slicing knowledge to horizontal slicing
-"""
 
 import numpy as np
 from PIL import Image

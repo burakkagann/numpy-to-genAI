@@ -1,13 +1,3 @@
-"""
-Exercise 1.3.1: Flags (Array Slicing) - Switzerland Flag (Starter Code)
-
-This is the starter code for Exercise 3 (Re-code phase).
-Students will fill in the TODO sections to create the Swiss flag.
-
-Author: Claude (NumPy-to-GenAI Project)
-Date: 2025-01-30
-"""
-
 import numpy as np
 from PIL import Image
 

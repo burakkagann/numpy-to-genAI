@@ -1,12 +1,4 @@
-"""
-Slicing Syntax Diagram Generator
 
-Creates a visual diagram explaining NumPy array slicing notation.
-Shows a 5x5 grid with highlighted region demonstrating [1:4, 2:5] syntax.
-
-Author: Claude (NumPy-to-GenAI Project)
-Date: 2025-01-30
-"""
 
 import numpy as np
 import matplotlib.pyplot as plt

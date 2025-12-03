@@ -181,7 +181,7 @@ a powerful pattern for selective array modification [Harris2020]_.
 Hands-On Exercises
 ==================
 
-Exercise 1: Execute and Explore (3 minutes)
+Exercise 1: Execute and Explore
 -------------------------------------------
 
 Run the ``circle.py`` script from the Quick Start section and observe the output.
@@ -209,7 +209,7 @@ Then answer these reflection questions:
       any values greater than 256). The circle's center shifts accordingly.
 
 
-Exercise 2: Modify to Achieve Goals (4 minutes)
+Exercise 2: Modify to Achieve Goals 
 -----------------------------------------------
 
 Starting with the Quick Start code, complete these modification tasks:
@@ -220,7 +220,7 @@ Starting with the Quick Start code, complete these modification tasks:
 - Center: approximately (100, 100)
 - Color: Keep orange or choose your own
 
-.. dropdown:: Hint for Task A
+.. dropdown:: Hint
    :class: tip
 
    Change these three lines:
@@ -230,7 +230,7 @@ Starting with the Quick Start code, complete these modification tasks:
       CENTER_X, CENTER_Y = 100, 100
       RADIUS = 50
 
-.. dropdown:: Solution for Task A
+.. dropdown:: Solution
    :class: note
 
    .. code-block:: python
@@ -243,7 +243,7 @@ Starting with the Quick Start code, complete these modification tasks:
 
 - Change the color to blue (hint: blue is the third channel in RGB)
 
-.. dropdown:: Solution for Task B
+.. dropdown:: Solution
    :class: note
 
    .. code-block:: python
@@ -257,7 +257,7 @@ Starting with the Quick Start code, complete these modification tasks:
 - Green circle on the right (center around x=360)
 - Both with radius 100
 
-.. dropdown:: Hint for Task C
+.. dropdown:: Hint
    :class: tip
 
    You'll need to draw two circles. The easiest way is to create two masks
@@ -275,7 +275,7 @@ Starting with the Quick Start code, complete these modification tasks:
       mask2 = dist2 < 100 ** 2
       canvas[mask2] = [0, 255, 0]  # Green
 
-.. dropdown:: Complete Solution for Task C
+.. dropdown:: Solution
    :class: note
 
    .. code-block:: python
@@ -306,7 +306,7 @@ Starting with the Quick Start code, complete these modification tasks:
    and multiple circles on a single canvas.
 
 
-Exercise 3: Create from Scratch - Concentric Circles (5 minutes)
+Exercise 3: Create from Scratch - Concentric Circles 
 ----------------------------------------------------------------
 
 Create a **bulls-eye pattern** with 5 concentric circles using alternating

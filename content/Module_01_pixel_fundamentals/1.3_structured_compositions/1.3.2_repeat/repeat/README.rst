@@ -494,13 +494,6 @@ Create a 10×10 grid with **random colors** for each tile. This introduces rando
 
    Random color grid challenge output. Each of the 100 tiles has independently generated RGB values.
 
-**Extension ideas:**
-
-* **Color themes**: Restrict color ranges to create cohesive palettes (e.g., ``np.random.randint(100, 200)`` for muted colors)
-* **Partial randomness**: Alternate between random and calculated colors to create patterns within chaos
-* **Larger grids**: Try 20×20 or 30×30 to create mosaic-like effects
-* **Gradient + noise**: Combine the gradient formula with random offsets for organic variation
-
 Summary
 =======
 
@@ -522,8 +515,6 @@ Summary
 
 The tiling patterns you created here are the foundation for:
 
-* **Module 1.3.3 (Truchet Tiles)**: Use the same nested loop structure but vary tile *patterns* (rotated curves) instead of colors to create mazes and organic textures
-* **Module 1.3.4 (Wang Tiles)**: Extend grid logic with edge-matching constraints for non-repeating procedural textures
 * **Module 4 (Fractals)**: Replace fixed loops with recursive subdivision using the same position calculation principles
 * **Module 6 (Noise & Procedural Generation)**: Replace gradient formulas with Perlin noise sampling to create natural-looking terrain and textures
 

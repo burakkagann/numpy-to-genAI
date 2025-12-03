@@ -15,7 +15,7 @@
 Overview
 ========
 
-Lines are the fundamental building blocks of computer graphics. From the earliest vector displays to modern GPUs, the ability to draw a line between two points remains essential. But how do we represent something continuous—like a mathematical line—using discrete pixels?
+Lines are the fundamental building blocks of computer graphics. From the earliest vector displays to modern GPUs, the ability to draw a line between two points remains essential. But how do we represent something continuous like a mathematical line using discrete pixels?
 
 In this exercise, you will learn how computers draw lines by interpolating points between endpoints. You will implement line drawing using NumPy, understand the mathematics behind it, and discover how simple lines can create complex generative art patterns. By the end, you will see how geometric primitives become artistic tools.
 
@@ -91,7 +91,7 @@ The earliest computers faced this challenge when creating vector displays and pe
 
 1. **DDA (Digital Differential Analyzer)**: Incremental algorithm that steps through one coordinate and calculates the other. Simple but requires floating-point arithmetic.
 
-2. **Bresenham's Line Algorithm**: Integer-only algorithm invented in 1962 by Jack Bresenham for IBM plotters. Uses only addition, subtraction, and bit shifts—crucial for early hardware with no floating-point units [Bresenham1965]_.
+2. **Bresenham's Line Algorithm**: Integer-only algorithm invented in 1962 by Jack Bresenham for IBM plotters. Uses only addition, subtraction, and bit shifts crucial for early hardware with no floating-point units [Bresenham1965]_.
 
 .. admonition:: Did You Know?
 

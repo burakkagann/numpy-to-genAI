@@ -15,9 +15,9 @@
 Overview
 ========
 
-Triangles are the fundamental building blocks of computer graphics. Every 3D model you see in video games, movies, and simulations is ultimately composed of triangles. But why triangles? Because they are the simplest polygon—three points always define a unique plane, making them mathematically elegant and computationally efficient.
+Triangles are the fundamental building blocks of computer graphics. Every 3D model you see in video games, movies, and simulations is ultimately composed of triangles. But why triangles? Because they are the simplest polygon three points always define a unique plane, making them mathematically elegant and computationally efficient.
 
-In this exercise, you will learn two approaches to drawing filled triangles: the intuitive **line equation method** (understanding triangles as intersections of half-planes) and the elegant **matrix operations method** (using NumPy's broadcasting). By the end, you will create a mountain landscape using multiple overlapping triangles—demonstrating how simple primitives combine into complex imagery.
+In this exercise, you will learn two approaches to drawing filled triangles: the intuitive **line equation method** (understanding triangles as intersections of half-planes) and the elegant **matrix operations method** (using NumPy's broadcasting). By the end, you will create a mountain landscape using multiple overlapping triangles demonstrating how simple primitives combine into complex imagery.
 
 **Learning Objectives**
 
@@ -119,7 +119,7 @@ Consider a triangle ABC. The edge from A to B creates a half-plane containing C.
 
    inside = (edge(v1, v2) <= 0) & (edge(v2, v3) <= 0) & (edge(v3, v1) <= 0)
 
-This algorithm is remarkably efficient because each edge test is independent—perfect for NumPy's vectorized operations [Shirley2009]_.
+This algorithm is remarkably efficient because each edge test is independent perfect for NumPy's vectorized operations [Shirley2009]_.
 
 .. admonition:: Did You Know?
 
@@ -146,7 +146,7 @@ What happens here? NumPy broadcasts:
 * ``x.T`` has shape (1, 400)
 * The sum has shape (400, 400), where element [i, j] = i + j
 
-This creates a matrix where each element equals the sum of its row and column indices—naturally forming diagonal boundaries!
+This creates a matrix where each element equals the sum of its row and column indices naturally forming diagonal boundaries!
 
 .. code-block:: python
    :caption: triangle_matrix.py - Triangle using matrix operations
@@ -218,7 +218,7 @@ Run both ``simple_triangle.py`` and ``triangle_matrix.py``. Compare the outputs 
 
 .. dropdown:: Solution & Explanation
 
-   **Answer to Question 1:** The ``x + x.T`` pattern creates a matrix where element [i, j] = i + j. Setting a threshold like ``i + j <= 400`` creates a boundary along the diagonal from (0, 400) to (400, 0). This is always a right triangle because the boundary is a straight line at 45 degrees. The matrix method cannot create arbitrary triangles—only axis-aligned right triangles.
+   **Answer to Question 1:** The ``x + x.T`` pattern creates a matrix where element [i, j] = i + j. Setting a threshold like ``i + j <= 400`` creates a boundary along the diagonal from (0, 400) to (400, 0). This is always a right triangle because the boundary is a straight line at 45 degrees. The matrix method cannot create arbitrary triangles only axis-aligned right triangles.
 
    **Answer to Question 2:** Reversing vertex order (counterclockwise instead of clockwise) inverts the edge function signs. Points that were "inside" become "outside" and vice versa. To fix this, change ``<= 0`` to ``>= 0`` in all three edge tests. The output would be the same triangle, but the algorithm's internal logic is inverted.
 
@@ -389,7 +389,7 @@ Create a mountain landscape with at least 3 overlapping triangles and a gradient
 
    * **Lines 28-30**: The gradient is created by linear interpolation between two colors. The parameter ``t`` varies from 0 (top) to 1 (bottom).
 
-   * **Lines 55-58**: Drawing from back to front ensures closer mountains correctly overlap distant ones. This is called the **painter's algorithm**—draw distant objects first, then paint over them with closer objects.
+   * **Lines 55-58**: Drawing from back to front ensures closer mountains correctly overlap distant ones. This is called the **painter's algorithm** draw distant objects first, then paint over them with closer objects.
 
    **Challenge Extension:** Add a sun (circle) in the sky, or create a reflection by flipping the mountains and drawing them with reduced opacity below a "water line."
 
@@ -398,7 +398,7 @@ Create a mountain landscape with at least 3 overlapping triangles and a gradient
    :align: center
    :alt: Mountain silhouette with gradient sky
 
-   The completed mountain landscape. Four triangular mountains of varying depths create a layered silhouette against a gradient sunset sky. Simple primitives combine to create evocative imagery.
+   Output Image
 
 Summary
 =======
@@ -409,7 +409,7 @@ In 17 minutes, you have mastered two approaches to triangle rasterization.
 
 * Triangles are **intersections of three half-planes**, each defined by an edge
 * The **edge function** :math:`E(x,y) = (x-x_1)(y_2-y_1) - (y-y_1)(x_2-x_1)` determines which side of a line a point lies on
-* The ``x + x.T`` pattern creates matrices with diagonal boundaries—elegant for right triangles
+* The ``x + x.T`` pattern creates matrices with diagonal boundaries elegant for right triangles
 * **Vertex winding order** (clockwise vs counterclockwise) determines inside/outside orientation
 * The **painter's algorithm** (back to front) handles overlapping shapes correctly
 
@@ -425,7 +425,7 @@ Triangles are the foundation of 3D graphics. Every mesh in video games and CGI i
 Next Steps
 ==========
 
-Continue to **Module 2.1.3: Circles** to learn how distance functions create curved shapes. You will discover that circles use similar principles—testing whether points satisfy a mathematical condition—but with Euclidean distance instead of edge functions.
+Continue to **Module 2.1.3: Circles** to learn how distance functions create curved shapes. You will discover that circles use similar principles testing whether points satisfy a mathematical condition but with Euclidean distance instead of edge functions.
 
 :doc:`Continue to Module 2.1.3 - Circles </content/Module_02_geometry_mathematics/2.1_basic_shapes_primitives/2.1.3_circles/circles/README>`
 
