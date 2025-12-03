@@ -1,7 +1,7 @@
 .. _module_2.1.3:
 
 ==============================================
-2.1.3 - Drawing Circles with NumPy
+2.1.3 - Drawing Circles
 ==============================================
 
 :Duration: 18 minutes

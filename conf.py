@@ -80,9 +80,11 @@ html_css_files = [
     'github-icon.css',
     'footer.css',
     'content.css',
+    'scroll-progress.css',
 ]
 html_js_files = [
     'github-icon.js',
+    'scroll-progress.js',
 ]
 html_theme_options = {
     "source_repository": "https://github.com/burakkagann/numpy-to-genAI",

@@ -1,7 +1,7 @@
 .. _module_2.1.4:
 
 ==============================================
-2.1.4 - Creating Star Fields with NumPy
+2.1.4 - Creating Star Fields
 ==============================================
 
 :Duration: 18 minutes

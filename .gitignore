@@ -115,7 +115,6 @@ venv.bak/
 # Claude Code session files (local development tools)
 .claude/
 CLAUDE.md
-master-prompt-claude-code.md
 
 # Thesis and project management (local tracking only)
 thesis_notes/
