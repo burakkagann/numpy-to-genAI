@@ -8,14 +8,17 @@
 :Level: Beginner
 :Prerequisites: Module 0.2.1 - Defining AI, ML, and Algorithms
 
-.. contents:: Contents
-   :local:
-   :depth: 2
-
 Overview
 ========
 
 Digital images are arrays of numbers. Understanding this fundamental concept is essential for algorithmic art, machine learning, and AI powered art generation. In this module, you'll learn how to create grayscale images using NumPy arrays, setting the foundation for all image manipulation throughout this course.
+
+.. figure:: /content/Module_00_foundations_definitions/0.3_images_as_data/0.3.1_creating_images/grayscale/grayscale.png
+   :width: 400px
+   :align: center
+   :alt: A simple gray square created from a NumPy array
+
+   A 200×200 grayscale image created with code
 
 **Learning Objectives**
 
@@ -26,13 +29,6 @@ By completing this module, you will:
 * Manipulate array dimensions, shape, and data types correctly
 * Recognize the relationship between array values (0-255) and brightness
 * Write code that generates basic grayscale patterns
-
-.. figure:: /content/Module_00_foundations_definitions/0.3_images_as_data/0.3.1_creating_images/grayscale/grayscale.png
-   :width: 400px
-   :align: center
-   :alt: A simple gray square created from a NumPy array
-
-   A 200×200 grayscale image created with code
 
 Quick Start: Your First Image
 ===============================

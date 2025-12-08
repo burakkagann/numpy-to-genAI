@@ -8,10 +8,6 @@
 :Level: Beginner
 :Prerequisites: Python 3.8+ installed on your system
 
-.. contents:: Contents
-   :local:
-   :depth: 2
-
 Overview
 ========
 
@@ -323,21 +319,6 @@ Congratulations! You've successfully set up a complete development environment f
 .. tip::
 
    **Remember to activate your environment**: Always run `source .venv/bin/activate` (or equivalent) before working on course exercises to ensure you're using the correct libraries.
-
-Next Steps
-==========
-
-Now that your environment is ready, you can begin creating! Your next modules will guide you through:
-
-* **Module 1**: Understanding images as NumPy arrays and creating your first generative patterns
-* **Module 2**: Mathematical foundations for algorithmic art
-* **Module 3**: Noise and randomness for organic-looking generative systems
-
-Continue to **Module 1: Pixel Fundamentals** to start your hands-on journey into generative art creation.
-
-.. admonition:: Keep Learning! 
-
-   Your environment will evolve as we progress through the course. Some advanced modules may introduce additional specialized libraries, but the foundation you've built here will support everything we create together.
 
 References
 ==========

@@ -8,15 +8,17 @@
 :Level: Beginner
 :Prerequisites: None
 
-.. contents:: Contents
-   :local:
-   :depth: 2
-
 Overview
 ========
 
 Generative art allowed traditional artists to transform into system designers by creating autonomous process that generate endless original artworks through code, algorithms, and change operations. In this module, you will discover how generative art has evolved from 1960s computer pioneers to today's AI driven platforms and understand the core principles that define this revolutionary creative practice.
 
+.. figure:: /content/Module_00_foundations_definitions/0.1_what_is_generative_art/fidenza.png
+   :width: 600px
+   :align: center
+   :alt: "Fidenza" by Tyler Hobbs (2021)
+
+   "Fidenza" by Tyler Hobbs (2021) [Hobbs2021]_
 
 **Learning Objectives**
 
@@ -27,13 +29,6 @@ By completing this module, you will:
 * Identify examples of generative art from different historical periods
 * Grasp the concept of system based creation and autonomous processes
 * Appreciate how generative art balances control and surprise
-
-.. figure:: /content/Module_00_foundations_definitions/0.1_what_is_generative_art/fidenza.png
-   :width: 600px
-   :align: center
-   :alt: "Fidenza" by Tyler Hobbs (2021)
-
-   "Fidenza" by Tyler Hobbs (2021)
 
 Quick Start: Identifying Generative Art
 =========================================
@@ -72,21 +67,30 @@ The traditional definition
 2. **Functional autonomy**: The system operates independently once initiated, making decisions without continious artist intervention.
 3. **Transfer of control**: The artist gives up direct control over specific outcomes, embracing surprise and emergence.
 
+In generative art, the creative act shifts from making individual pieces to **designing systems that explore possibility spaces**. Tyler Hobbs explains this clearly: *"You're not working towards a singular goal anymore, you're trying to develop a whole system, a whole process for constructing good images."*
+
 .. code-block:: text
    :caption: The Generative Art Equation
-   
+
    Traditional Art:     Artist → Creates → Artwork
+                        - Direct creation of each element
+                        - Complete control over final outcome
+                        - Produces single or few artworks
+
    Generative Art:      Artist → Designs System → System Creates → Artworks
+                        - Designs rules and parameters
+                        - Partial control - system makes decisions
+                        - Produces potentially infinite variations
 
 .. important::
-   
+
    Generative art is **technology agnostic** and it's not limited to computers. Islamic geometric patterns, Bach's algorithmic compositions, and even Sol LeWitt's instruction guided wall drawings all contain generative principles, despite being created without digital technology.
 
 .. figure:: /content/Module_00_foundations_definitions/0.1_what_is_generative_art/specturm.png
    :width: 600px
    :align: center
    :alt: Spectrum showing traditional art to generative art
-   
+
    The spectrum from direct creation to system-based generation (Adapted from Galanter, 2003)
 
 Why autonomy matters
@@ -127,28 +131,8 @@ Historical context: 70 years of generative art
    
    Vera Molnár (1924-2023) developed her "machine imaginaire" in 1959, long *before* she had access to computers. She executed algorithms by hand, following step by step instructions to create series of drawings. This demonstrates that generative art is fundamentally about **systematic process**, not technology (Molnár, 1990).
 
-The artist as system designer
-------------------------------
-
-In generative art, the creative act shifts from making individual pieces to **designing systems that explore possibility spaces**. Tyler Hobbs explains this clearly: *"You're not working towards a singular goal anymore, you're trying to develop a whole system, a whole process for constructing good images."*
-
-**Traditional artist role:**
-
-* Direct creation of each element
-* Complete control over final outcome
-* Produces single or few artworks
-* Aesthetic decisions made moment by moment
-
-**Generative artist role:**
-
-* Designs rules and parameters
-* Partial control system makes decisions
-* Produces potentially infinite variations
-* Aesthetic decisions embedded in the system
-
-
 .. admonition:: Did You Know?
-   
+
    Philip Galanter's research positions generative art within **complexity theory**, suggesting the most aesthetically interesting work balances order and disorder. Pure order is boring (perfectly repeating patterns), pure disorder is chaos (random noise), but the sweet spot between them creates "effective complexity", which is now considered as the hallmark of compelling generative art (Galanter, 2003).
 
 Generative vs. computational art
@@ -193,7 +177,7 @@ Review and examine each artwork description and determine whether it's generativ
    :align: center
    :alt: Sol LeWitt's Wall Drawing #118
 
-Instructions: "On a wall surface, any continuous stretch of wall, using a hard pencil, place fifty points at random. The points should be evenly distributed over the area of the wall. All of the points should be connected by straight lines."
+   Sol LeWitt's *Wall Drawing #118* (1971) [LeWitt1967]_. Instructions: "On a wall surface, any continuous stretch of wall, using a hard pencil, place fifty points at random. The points should be evenly distributed over the area of the wall. All of the points should be connected by straight lines."
 
 **Artwork 2:** Refik Anadol's *Unsupervised* (2022)
 
@@ -202,7 +186,7 @@ Instructions: "On a wall surface, any continuous stretch of wall, using a hard p
    :align: center
    :alt: Refik Anadol's Unsupervised
 
-A machine learning algorithm processes MoMA's 138,000-artwork collection, continuously generating unique abstract compositions displayed on a 7×7 meters screen. Real time environmental data (light, sound, movement) influences the output.
+   Refik Anadol, *Unsupervised* (2022) at MoMA [Anadol2022]_. A machine learning algorithm processes MoMA's 138,000-artwork collection, continuously generating unique abstract compositions displayed on a 7×7 meters screen.
 
 **Artwork 3:** David Hockney's *A Bigger Grand Canyon* (1998)
 
@@ -211,7 +195,7 @@ A machine learning algorithm processes MoMA's 138,000-artwork collection, contin
    :align: center
    :alt: David Hockney's A Bigger Grand Canyon
 
-A large scale painting created over three weeks, with the artist making every mark and color choice directly.
+   David Hockney, *A Bigger Grand Canyon* (1998) [Hockney2001]_. A large scale painting created over three weeks, with the artist making every mark and color choice directly.
 
 .. dropdown:: 💡 Analysis & Answers
    
@@ -342,12 +326,6 @@ In this module, we have covered the fundamental nature of generative art. A revo
 * **Complexity theory explains aesthetics:** The most interesting work balances order and disorder ("effective complexity")
 * **Historical depth matters:** from Islamic patterns to blockchain platforms, generative thinking has evolved across centuries
 
-Next Steps
-==========
-
-Continue to Module 0.2 to understand the definitions of AI, Machine Learning, and Algorithms. The computational foundations that power modern generative art systems.
-
-
 References
 ==========
 
@@ -370,3 +348,7 @@ References
 .. [Whitelaw2004] Whitelaw, Mitchell. "Metacreation: Art and Artificial Life." MIT Press, 2004.
 
 .. [LeWitt1967] LeWitt, Sol. "Paragraphs on Conceptual Art." *Artforum*, Vol. 5, No. 10 (Summer 1967), pp. 79-83.
+
+.. [Anadol2022] Museum of Modern Art. "Refik Anadol: Unsupervised." *MoMA Exhibition*, November 2022 - October 2023. https://www.moma.org/calendar/exhibitions/5535 [AI-driven generative art installation using MoMA's collection data]
+
+.. [Hockney2001] Hockney, David. *David Hockney: A Bigger Picture*. Royal Academy of Arts, 2012. ISBN: 978-1-907533-18-0 [Includes discussion of "A Bigger Grand Canyon" (1998), a large-scale traditional oil painting]

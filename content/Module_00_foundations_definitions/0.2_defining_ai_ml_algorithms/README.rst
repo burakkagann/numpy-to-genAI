@@ -8,14 +8,17 @@
 :Level: Beginner to Intermediate
 :Prerequisites: Module 0.1.1 - What Is Generative Art
 
-.. contents:: Contents
-   :local:
-   :depth: 2
-
 Overview
 ========
 
-Artificial Intelligence, Machine Learning and Algorithms is the core of modern generative art. Understanding these concepts and the relationships between them is essential for successfully navigating from traditional algorithmic art to AI driven art generation. In this module, you wiill learn the clear definitions for each term, discover how they relate to hierarchically and understand their unique roles in creative space. 
+Artificial Intelligence, Machine Learning and Algorithms is the core of modern generative art. Understanding these concepts and the relationships between them is essential for successfully navigating from traditional algorithmic art to AI driven art generation. In this module, you wiill learn the clear definitions for each term, discover how they relate to hierarchically and understand their unique roles in creative space.
+
+.. figure:: /content/Module_00_foundations_definitions/0.2_defining_ai_ml_algorithms/ai-ml-algorithms.png
+   :width: 600px
+   :align: center
+   :alt: Hierarchical diagram showing the relationship between AI, ML, and Algorithms
+
+   The hierarchical relationship: Algorithms form the foundation, ML is a subset of AI, and AI is the broadest concept
 
 **Learning Objectives**
 
@@ -40,7 +43,7 @@ Let's begin by understanding which technology powers different creative systems.
 **Scenario C:** You type the prompt "a surreal landscape in the style of Salvador Dali" into Nano Banana. The AI model generates a completely new image that never existed before, combining learned concepts of "surreal," "landscape," and Dali's aesthetic.
 
 .. admonition:: Quick Question
-   
+
    Which scenario uses: (A) traditional algorithms, (B) machine learning, or (C) advanced AI? Can you identify the key distinguishing features?
 
 **Answers:**
@@ -50,7 +53,7 @@ Let's begin by understanding which technology powers different creative systems.
 * **Scenario C** uses **generative AI** where the system creates novel content from high-level prompts.
 
 .. tip::
-   
+
    The key progression: **Algorithms** are explicit instructions. **Machine Learning** learns from data to make predictions. **Artificial Intelligence** contain systems that exhibit intelligent behavior including learning, reasoning, and creativity.
 
 Understanding the Three Concepts
@@ -66,7 +69,7 @@ What is an Algorithm?
    :align: center
    :alt: Vera Molnár - "(Des)Ordres" (1974)
 
-   Vera Molnár - "(Des)Ordres" (1974)
+   Vera Molnár, "(Des)Ordres" (1974) [Molnar1974]_. An early example of algorithmic art created using explicit computational rules that introduce controlled randomness into geometric compositions.
 
 **Core characteristics:**
 
@@ -77,7 +80,7 @@ What is an Algorithm?
 
 .. code-block:: text
    :caption: Algorithm Structure
-   
+
    INPUT: Starting data or parameters
    PROCESS: Step by step instructions with clear logic
    OUTPUT: Resulting data or outcome
@@ -87,21 +90,21 @@ What is an Algorithm?
 .. dropdown:: Algorithms in Context
 
    **Daily life examples:**
-   
+
    * **Making coffee**: Boil water → Add grounds → Pour water → Wait → Enjoy
    * **GPS navigation**: Calculate shortest route based on traffic and destination
-   
+
    **Algorithmic art example:**
 
    .. code-block:: python
-      :caption: Run below script to view the simple algorithmic gradient 
-      
+      :caption: Run below script to view the simple algorithmic gradient
+
       import numpy as np
       from PIL import Image
-      
+
       width, height = 800, 600
       image = np.zeros((height, width, 3))
-      
+
       for x in range(width):
           color_value = x / width  # Position determines color
           image[:, x, :] = color_value
@@ -109,15 +112,15 @@ What is an Algorithm?
        # Convert to PIL Image and save
        image_pil = Image.fromarray((image * 255).astype(np.uint8))
        image_pil.save("gradient_output.png")
-      
+
       # Result: Smooth black-to-white gradient
 
-      
+
 
    This is **deterministic** run it twice, get identical results. The artist explicitly programs every rule.
 
 .. important::
-   
+
    Algorithms pre-date computers by more than a millennia! The term comes from 9th century Persian mathematician Muhammad ibn Musa al-Khwarizmi.
 
 What is Machine Learning (ML)?
@@ -133,10 +136,10 @@ In simpler terms: **ML systems get better at tasks by learning from examples** r
 
 .. code-block:: text
    :caption: ML vs. Traditional Programming
-   
+
    Traditional Programming:
    INPUT: Data + Explicit Rules → OUTPUT: Answers
-   
+
    Machine Learning:
    INPUT: Data + Answers → OUTPUT: Learned Rules
 
@@ -145,28 +148,27 @@ In simpler terms: **ML systems get better at tasks by learning from examples** r
 .. dropdown:: Deep Dive: Three Types of Machine Learning
 
    **1. Supervised Learning** (Learning with a teacher)
-   
+
    * System learns from labeled data with known factual answers.
    * **Art example**: Style transfer train on labeled artistic styles and then apply to new images.
-   
+
    **2. Unsupervised Learning** (Learning without teacher)
-   
+
    * System finds patterns in data without being told what to look for.
    * **Art example**: Discovering visual motifs across large image datasets.
-   
+
    **3. Reinforcement Learning** (Learning by trial and error)
-   
+
    * System learns through rewards/penalties based on actions.
    * **Art example**: Training systems to generate aesthetically pleasing compositions through iterative feedback.
 
-ML in generative art: A practical example
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**ML in generative art: A practical example**
 
 **Traditional Algorithm Approach:**
 
 .. code-block:: python
    :caption: Explicit flower instructions
-   
+
    def draw_flower():
        # Artist must program every detail
        draw_circle(x, y, size, color)  # Step 1
@@ -180,13 +182,13 @@ ML in generative art: A practical example
 
 .. code-block:: python
    :caption: ML-learned flower generation
-   
+
    # Train on thousands of flower images
    model = train_on_flower_dataset(flower_images)
-   
+
    # Generate new flowers
    new_flower = model.generate()
-   
+
    # System learned what makes something "flower-like"
    # Can generate infinite variations
 
@@ -206,7 +208,7 @@ What is Artificial Intelligence (AI)?
 
 .. code-block:: text
    :caption: Evolution from Algorithms to AI
-   
+
    ALGORITHMS:        Follow explicit rules
                       ↓
    MACHINE LEARNING:  Learn rules from data
@@ -219,16 +221,16 @@ What is Artificial Intelligence (AI)?
 .. dropdown:: 📚 Historical Context: AI Evolution
 
    **Key milestones:**
-   
+
    * **1950**: Alan Turing proposes the Turing Test
    * **1956**: John McCarthy coins "Artificial Intelligence" at Dartmouth Conference
    * **1997**: IBM's Deep Blue defeats chess champion Garry Kasparov
    * **2016**: DeepMind's AlphaGo defeats Go champion Lee Sedol
    * **2022**: ChatGPT demonstrates conversational AI capabilities
    * **2022-2023**: Midjourney, DALL-E 2, Stable Diffusion bring AI art to millions
-   
+
    **In creative applications:**
-   
+
    * **2015**: DeepDream—neural network visualization
    * **2017**: Neural Style Transfer applying artistic styles via deep learning
    * **2019**: GANs creating photorealistic faces (ThisPersonDoesNotExist)
@@ -238,16 +240,6 @@ The Hierarchical Relationship
 ==============================
 
 Understanding how these three concepts relate is crucial:
-
-.. figure:: /content/Module_00_foundations_definitions/0.2_defining_ai_ml_algorithms/ai-ml-algorithms.png
-   :width: 600px
-   :align: center
-   :alt: Hierarchical diagram showing the relationship between AI, ML, and Algorithms
-
-   The hierarchical relationship: Algorithms form the foundation, ML is a subset of AI, and AI is the broadest concept
-
-The hierarchy explained
------------------------
 
 **Algorithms** = **The Foundation**
 
@@ -261,22 +253,26 @@ ML is a specialized *type* of algorithm that learns from data rather than follow
 
 AI is the broadest concept. It encompasses ML, traditional algorithms, and other approaches. An AI system might use ML for some tasks, rule based algorithms for others, and combine multiple techniques.
 
+.. figure:: /content/Module_00_foundations_definitions/0.2_defining_ai_ml_algorithms/ai-ml-algorithms.png
+   :width: 600px
+   :align: center
+   :alt: Hierarchical diagram showing the relationship between AI, ML, and Algorithms
+
+   The hierarchical relationship: Algorithms form the foundation, ML is a subset of AI, and AI is the broadest concept
+
 .. tip::
-   
+
    **Think of it like cooking:**
-   
+
    * **Algorithms** = Individual recipes (step-by-step instructions)
    * **Machine Learning** = Learning to cook by tasting many dishes and understanding patterns
    * **Artificial Intelligence** = A chef who creates new recipes, adapts to dietary restrictions, and combines different techniques creatively
 
-Real-world example: Spam filtering
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**Real-world example: Spam filtering**
 
-**Traditional Algorithm:** Explicit rules programmed by humans (if "FREE MONEY" in subject → spam)
-
-**Machine Learning:** System learns patterns from thousands of labeled examples (spam/not spam)
-
-**Artificial Intelligence:** Comprehensive system combining ML patterns + rule-based checks + natural language understanding + adaptive learning from user feedback
+* **Traditional Algorithm:** Explicit rules programmed by humans (if "FREE MONEY" in subject → spam)
+* **Machine Learning:** System learns patterns from thousands of labeled examples (spam/not spam)
+* **Artificial Intelligence:** Comprehensive system combining ML patterns + rule-based checks + natural language understanding + adaptive learning from user feedback
 
 This comprehensive approach exhibits "intelligence" by handling novel situations, adapting to changes, and improving over time.
 
@@ -296,7 +292,7 @@ Artists wrote explicit code defining every creative decision.
 
 .. code-block:: python
    :caption: Traditional algorithmic art
-   
+
    # Explicit rules for creating a composition
    for i in range(100):
        x = random.randint(0, width)
@@ -316,13 +312,13 @@ Systems learned patterns from existing artworks and applied them.
 
 .. code-block:: python
    :caption: ML-enhanced art (style transfer)
-   
+
    # System learns artistic styles from examples
    style_model = load_pretrained_model('neural_style_transfer')
-   
+
    content_image = load_image('photo.jpg')
    style_reference = load_image('van_gogh.jpg')
-   
+
    stylized_output = style_model.transfer(content_image, style_reference)
 
 The artist doesn't program "how to paint like Van Gogh", instead the system learns from examples.
@@ -337,10 +333,10 @@ High level prompts generate entirely novel artworks.
 
 .. code-block:: python
    :caption: AI art generation
-   
+
    # High-level creative intent, not explicit rules
    prompt = "A surreal landscape with floating islands, golden hour lighting, digital art"
-   
+
    generated_image = diffusion_model.generate(
        prompt=prompt,
        steps=50,
@@ -357,7 +353,7 @@ Distinguishing the approaches
    .. list-table:: Algorithmic Art vs. ML/AI Art
       :widths: 20 40 40
       :header-rows: 1
-   
+
       * - Aspect
         - Algorithmic Generative Art
         - ML/AI Generative Art
@@ -384,11 +380,11 @@ Distinguishing the approaches
         - Potentially unbounded creativity
 
 .. admonition:: Critical Distinction 🎯
-   
+
    **Traditional generative art**: Artist creates the algorithm → System executes rules
-   
+
    **AI-generated art**: Artist uses pre-trained AI model → Provides prompts/guidance
-   
+
    Both are valid creative practices with different relationships between artist, tool, and outcome.
 
 Summary
@@ -407,20 +403,8 @@ In this module, we've established the conceptual foundation for understanding mo
 * **Your course journey**: You'll work with all three approaches, learning when each is most appropriate.
 
 .. tip::
-   
+
    **The Right Tool for the Job:** Just as a painter chooses between oils, watercolors, or digital tools based on creative intent, you'll choose between algorithms, ML, and AI based on your needs for control, learning capability, and creative exploration.
-
-Next Steps
-==========
-
-Now that you understand these foundational concepts, you're ready to begin creating:
-
-* **Module 1** introduces algorithmic creation with pixel arrays and color manipulation
-* **Modules 6-10** will teach you to work with machine learning for style transfer and feature learning
-* **Modules 11-14** will explore advanced AI systems including GANs and Diffusion Models
-* **Module 15** brings it all together in your capstone project where you'll choose the right technology for your creative vision
-
-Continue to **Module 1: Pixel Fundamentals** to begin your hands-on journey from NumPy arrays to AI-powered generative art.
 
 References
 ==========
@@ -458,3 +442,5 @@ References
 .. [McCarthy2004] McCarthy, John. "What Is Artificial Intelligence?" Stanford University, 2004. http://jmc.stanford.edu/articles/whatisai/
 
 .. [Turing1950] Turing, Alan M. "Computing Machinery and Intelligence." *Mind* 59.236 (1950): 433-460.
+
+.. [Molnar1974] Molnár, Vera. "(Des)Ordres" (1974). Plotter drawing, ink on paper. Collection of the artist. [Seminal work demonstrating algorithmic art principles with controlled disorder in geometric compositions]
