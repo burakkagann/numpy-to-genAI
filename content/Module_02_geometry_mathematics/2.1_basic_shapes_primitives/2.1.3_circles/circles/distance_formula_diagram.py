@@ -1,13 +1,3 @@
-"""
-Distance Formula Diagram Generator
-
-Creates an educational diagram illustrating how the Euclidean distance
-formula determines which pixels fall inside a circle. This visualization
-helps learners understand the mathematical foundation of circle rendering.
-
-Author: Claude (NumPy-to-GenAI Project)
-Date: 2025-01-30
-"""
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -195,6 +185,3 @@ plt.tight_layout()
 plt.savefig('distance_formula_diagram.png', dpi=DPI, bbox_inches='tight',
             facecolor='white', edgecolor='none')
 plt.close()
-
-print("Distance formula diagram created successfully!")
-print("Output saved as: distance_formula_diagram.png")

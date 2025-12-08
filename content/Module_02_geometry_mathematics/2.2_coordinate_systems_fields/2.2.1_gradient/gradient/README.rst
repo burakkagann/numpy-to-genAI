@@ -4,20 +4,16 @@
 2.2.1 - Gradient
 =====================================
 
-:Duration: 18-20 minutes
+:Duration: 20 minutes
 :Level: Beginner
 :Prerequisites: Module 1.1.1 (RGB Color Basics), Module 2.1 (Basic Shapes)
-
-.. contents:: Contents
-   :local:
-   :depth: 2
 
 Overview
 ========
 
-Gradients are one of the most fundamental building blocks in generative art and digital imaging [Galanter2016]_. A gradient is a smooth transition between values, whether those values represent colors, brightness levels, or any other visual property. Understanding how to create gradients programmatically opens the door to countless creative possibilities, from simple backgrounds to complex procedural textures.
+Gradients are smooth transitions between values, forming a fundamental building block in digital imaging [Galanter2016]_. In this exercise, you will learn how NumPy's ``np.linspace()`` function generates evenly spaced values for creating smooth visual transitions.
 
-In this exercise, you will learn how NumPy's ``np.linspace()`` function generates evenly spaced values that can be mapped to pixel coordinates to create smooth visual transitions. This concept of mapping mathematical values to spatial positions is foundational to all coordinate-based generative art techniques.
+This concept of mapping mathematical values to pixel coordinates is foundational to coordinate-based generative art techniques, from simple backgrounds to complex procedural textures.
 
 **Learning Objectives**
 
@@ -59,7 +55,7 @@ Let's create something visual right away. Run this code to generate a horizontal
    :align: center
    :alt: A horizontal grayscale gradient transitioning from black on the left to white on the right
 
-   Output: A horizontal gradient from black (left) to white (right). Notice how the transition is perfectly smooth with no visible banding.
+   A horizontal gradient from black (left) to white (right). The transition is perfectly smooth with no visible banding.
 
 .. tip::
 
@@ -98,7 +94,7 @@ This linear interpolation ensures perfectly even spacing between all generated v
    :align: center
    :alt: Diagram showing how np.linspace generates evenly spaced values along a number line, with each value mapping to a grayscale shade
 
-   Visual representation of np.linspace(0, 255, 9). Each generated value maps directly to a shade of gray in the gradient.
+   Visual representation of np.linspace(0, 255, 9). Each generated value maps directly to a shade of gray in the gradient. Diagram generated with Claude Code.
 
 .. important::
 
@@ -174,9 +170,7 @@ These exercises follow a progressive pattern: first observe, then modify, then c
 Exercise 1: Execute and Explore
 -------------------------------
 
-**Time estimate:** 3-4 minutes
-
-Run the ``simple_gradient.py`` script and observe the output carefully.
+Run the :download:`simple_gradient.py` script and observe the output carefully.
 
 .. code-block:: python
    :caption: Exercise 1 - Run and observe
@@ -218,8 +212,6 @@ Run the ``simple_gradient.py`` script and observe the output carefully.
 
 Exercise 2: Modify to Achieve Goals
 -----------------------------------
-
-**Time estimate:** 4-5 minutes
 
 Starting with the basic gradient code, modify it to achieve each goal:
 
@@ -275,8 +267,6 @@ Starting with the basic gradient code, modify it to achieve each goal:
 
 Exercise 3: Create a Diagonal Gradient
 --------------------------------------
-
-**Time estimate:** 5-6 minutes
 
 Create a 400x400 grayscale image with a diagonal gradient that transitions from black in the top-left corner to white in the bottom-right corner.
 
@@ -367,7 +357,7 @@ Create a 400x400 grayscale image with a diagonal gradient that transitions from 
 Summary
 =======
 
-In just 18 minutes, you've learned the fundamentals of gradient creation:
+In this exercise, you learned the fundamentals of gradient creation:
 
 **Key takeaways:**
 
@@ -384,11 +374,6 @@ In just 18 minutes, you've learned the fundamentals of gradient creation:
 * When combining gradients, divide by the number of components to keep values in range
 
 This foundational knowledge of coordinate-based value mapping prepares you for more advanced techniques like spirals, vector fields, and distance fields in upcoming modules.
-
-Next Steps
-==========
-
-Continue to :doc:`../2.2.2_spiral/spiral/README` to learn about polar coordinates and spiral generation, where you'll apply gradient concepts in a radial coordinate system.
 
 References
 ==========

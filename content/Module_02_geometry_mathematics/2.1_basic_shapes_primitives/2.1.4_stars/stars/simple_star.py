@@ -1,16 +1,3 @@
-"""
-Simple Star Field - Integer Array Indexing Demo
-
-This script demonstrates how to place individual pixels at random locations
-using NumPy's integer array indexing (also called "fancy indexing").
-
-Framework: Framework 1 (Hands-On Discovery)
-Cognitive Load: Low (single new concept - integer indexing)
-RQ Contributions: RQ1 (framework design), RQ2 (cognitive scaffolding)
-
-Author: NumPy-to-GenAI Project
-Date: 2025-01-30
-"""
 
 import numpy as np
 from PIL import Image
@@ -36,5 +23,3 @@ canvas[y_coords, x_coords] = STAR_BRIGHTNESS
 # Step 4: Save the result
 image = Image.fromarray(canvas, mode='L')  # 'L' for grayscale
 image.save('simple_star.png')
-print(f"Created star field with {NUM_STARS} stars")
-print("Saved as simple_star.png")

@@ -21,6 +21,4 @@ flag[200:300, :, :] = [255, 206, 0]  # German gold (#FFCE00)
 result = Image.fromarray(flag, mode='RGB')
 result.save('germany_flag.png')
 
-print("Germany flag created successfully!")
-print(f"Output saved as: germany_flag.png")
-print(f"Flag dimensions: {flag.shape} (height, width, channels)")
+

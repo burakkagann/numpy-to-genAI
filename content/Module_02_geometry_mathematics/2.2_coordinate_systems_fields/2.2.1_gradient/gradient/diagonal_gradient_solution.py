@@ -1,20 +1,3 @@
-"""
-Exercise 3 Solution: Diagonal Gradient
-
-Creates a 400x400 grayscale diagonal gradient by combining horizontal
-and vertical gradient components.
-
-Author: Claude (NumPy-to-GenAI Project)
-Date: 2025-01-30
-
-Thesis Metadata:
-    Framework: F1-Hands-On
-    Module: Module_02_geometry_mathematics
-    Exercise Type: Re-code (create from scratch)
-    Cognitive Load: Medium
-    New Concepts: Combining gradients, coordinate averaging
-    Prerequisites: np.linspace(), broadcasting
-"""
 
 import numpy as np
 from PIL import Image
@@ -43,8 +26,3 @@ gradient_image = diagonal.astype(np.uint8)
 output = Image.fromarray(gradient_image, mode='L')
 output.save('diagonal_gradient.png')
 
-print(f"Created diagonal gradient: {size}x{size} pixels")
-print(f"Top-left corner value: {gradient_image[0, 0]}")
-print(f"Bottom-right corner value: {gradient_image[-1, -1]}")
-print(f"Center value: {gradient_image[size//2, size//2]}")
-print("Image saved as diagonal_gradient.png")

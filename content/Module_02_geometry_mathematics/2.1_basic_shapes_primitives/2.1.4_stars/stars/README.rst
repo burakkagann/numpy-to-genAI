@@ -4,27 +4,20 @@
 2.1.4 - Creating Star Fields
 ==============================================
 
-:Duration: 18 minutes
+:Duration: 20 minutes
 :Level: Beginner
 :Prerequisites: :ref:`Module 1.1.1 <module_1.1.1>` (RGB Basics), Module 2.1.3 (Circles)
-
-.. contents:: Table of Contents
-   :local:
-   :depth: 2
 
 Overview
 ========
 
-In this exercise, you will learn how to create star fields and point patterns
-using NumPy's integer array indexing, also known as "fancy indexing." Unlike
-the boolean masking technique used for circles, integer array indexing allows
-you to place individual pixels at arbitrary locations specified by coordinate
-arrays.
+This exercise teaches you how to create star fields using NumPy's integer
+array indexing. This technique places individual pixels at specific
+coordinates, making it useful for particle systems and scatter plots.
 
-This technique is fundamental for particle systems, scatter plots, and
-procedural point cloud generation. By controlling the distribution of
-random coordinates, you can create effects ranging from uniform star fields
-to clustered galaxies.
+You will learn how different random distributions affect the visual result.
+Uniform distribution scatters stars evenly, while Gaussian distribution
+creates natural-looking clusters.
 
 **Learning Objectives:**
 
@@ -73,7 +66,7 @@ Let's create a simple star field. Run this script to see the result:
    :align: center
    :alt: White dots randomly scattered on a black background representing stars
 
-   Output: A star field with 150 randomly placed white pixels on a 400x400
+   A star field with 150 randomly placed white pixels on a 400x400
    black canvas. Each star occupies exactly one pixel.
 
 .. tip::
@@ -225,7 +218,7 @@ Hands-On Exercises
 Exercise 1: Execute and Explore
 -------------------------------------------
 
-Run the ``simple_star.py`` script from the Quick Start section and observe
+Run the :download:`simple_star.py` script from the Quick Start section and observe
 the output. Then answer these reflection questions:
 
 **Reflection Questions:**
@@ -453,8 +446,8 @@ should have different positions, sizes (number of stars), and spreads.
    :align: center
    :alt: Multiple star clusters resembling a simplified galaxy view
 
-   Expected output: A galaxy-like pattern with multiple clusters of varying
-   density. The central cluster is largest, with smaller satellite clusters
+   A galaxy-like pattern with multiple clusters of varying density.
+   The central cluster is largest, with smaller satellite clusters
    and sparse background stars.
 
 
@@ -544,21 +537,6 @@ Summary
    - **Duplicate positions:** If two stars land on the same pixel, only
      the last brightness value is kept. For dense fields, this is usually
      acceptable.
-
-
-Next Steps
-==========
-
-You have now learned three fundamental shape techniques:
-
-- **Lines** (Module 2.1.1): Parametric interpolation
-- **Circles** (Module 2.1.3): Distance formula with boolean masking
-- **Stars** (Module 2.1.4): Integer array indexing with random distributions
-
-Continue to **Module 2.2 (Coordinate Systems)** to learn how polar coordinates
-and coordinate transformations enable more complex patterns like spirals,
-radial grids, and rotational symmetry.
-
 
 References
 ==========

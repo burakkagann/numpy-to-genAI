@@ -1,12 +1,3 @@
-"""
-Exercise 1.2.3: Gray-Scott Reaction-Diffusion
-
-Demonstrates how chemical reactions create organic patterns like spots and stripes.
-This simple implementation shows Turing pattern formation using the Gray-Scott model.
-
-Author: Claude (NumPy-to-GenAI Project)
-Date: 2024-10-31
-"""
 
 import numpy as np
 from PIL import Image
@@ -45,6 +36,3 @@ chemical_v += diffusion_v * laplacian_v + reaction_term - (feed_rate + kill_rate
 pattern_image = (chemical_v * 255).astype(np.uint8)
 result_image = Image.fromarray(pattern_image)
 result_image.save('gray_scott_basic.png')
-
-print("Gray-Scott pattern created!")
-print(f"Pattern range: {chemical_v.min():.3f} to {chemical_v.max():.3f}")

@@ -24,7 +24,3 @@ flag[:, 300:450, 2] = 53   # Blue channel
 # Step 3: Save the flag
 result = Image.fromarray(flag, mode='RGB')
 result.save('france_flag.png')
-
-print("France flag created successfully!")
-print(f"Output saved as: france_flag.png")
-print(f"Flag dimensions: {flag.shape} (height, width, channels)")

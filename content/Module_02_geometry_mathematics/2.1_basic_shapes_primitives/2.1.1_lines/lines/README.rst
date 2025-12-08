@@ -4,20 +4,14 @@
 2.1.1 - Drawing Lines
 =====================================
 
-:Duration: 18 minutes
+:Duration: 20 minutes
 :Level: Beginner
 :Prerequisites: Module 1.1.1 (RGB Color Basics), Module 0.3.1 (Images as Data)
-
-.. contents:: Contents
-   :local:
-   :depth: 2
 
 Overview
 ========
 
-Lines are the fundamental building blocks of computer graphics. From the earliest vector displays to modern GPUs, the ability to draw a line between two points remains essential. But how do we represent something continuous like a mathematical line using discrete pixels?
-
-In this exercise, you will learn how computers draw lines by interpolating points between endpoints. You will implement line drawing using NumPy, understand the mathematics behind it, and discover how simple lines can create complex generative art patterns. By the end, you will see how geometric primitives become artistic tools.
+Lines are the basic building blocks of computer graphics. Drawing a line between two points seems simple, but how do we represent a continuous line using discrete pixels? In this exercise, you will learn to draw lines with NumPy and use them to create generative art patterns.
 
 **Learning Objectives**
 
@@ -81,7 +75,7 @@ Core Concept 1: Line Drawing Algorithms
 The Challenge of Discrete Lines
 --------------------------------
 
-In mathematics, a line is defined by the equation :math:`y = mx + b` or parametrically as :math:`(x(t), y(t))`. These are **continuous** functions—they exist at every point along the infinite real number line. But computer screens are **discrete grids** of pixels with integer coordinates.
+In mathematics, a line is defined by the equation :math:`y = mx + b` or parametrically as :math:`(x(t), y(t))`. These are **continuous** functions that exist at every point along the infinite real number line. But computer screens are **discrete grids** of pixels with integer coordinates.
 
 How do we convert a continuous line into discrete pixels? This is the fundamental challenge of **rasterization**: converting vector graphics (mathematical descriptions) into raster graphics (pixel grids).
 
@@ -95,12 +89,12 @@ The earliest computers faced this challenge when creating vector displays and pe
 
 .. admonition:: Did You Know?
 
-   Bresenham's algorithm was invented for pen plotters—mechanical devices that physically drew on paper. The algorithm needed to be extremely efficient because it controlled physical motors [Bresenham1965]_.
+   Bresenham's algorithm was invented for pen plotters, which were mechanical devices that physically drew on paper. The algorithm needed to be extremely efficient because it controlled physical motors [Bresenham1965]_.
 
 NumPy's Linspace as Interpolator
 ---------------------------------
 
-In modern Python, we do not need to implement Bresenham's algorithm from scratch (though it is instructive to do so). Instead, NumPy provides ``linspace``—a function that creates evenly-spaced points along a line.
+In modern Python, we do not need to implement Bresenham's algorithm from scratch (though it is instructive to do so). Instead, NumPy provides ``linspace``, a function that creates evenly-spaced points along a line.
 
 .. code-block:: python
 
@@ -194,7 +188,7 @@ While line drawing was born from engineering necessity, artists quickly recogniz
 
 * **Vera Molnár** (1960s-present): Used plotters to create geometric line compositions, exploring systematically varied parameters [Molnar1974]_.
 
-* **Sol LeWitt** (1960s-2000s): Created "wall drawings" based on simple line-drawing instructions executed by others—a conceptual approach that parallels algorithmic art [LeWitt1967]_.
+* **Sol LeWitt** (1960s-2000s): Created "wall drawings" based on simple line-drawing instructions executed by others. This conceptual approach parallels algorithmic art [LeWitt1967]_.
 
 * **Naum Gabo** (1920s-1970s): Though working with physical materials, created sculptural "constructions" using strings and lines that anticipate computational line art.
 
@@ -230,9 +224,7 @@ Hands-On Exercises
 Exercise 1: Execute and Explore
 --------------------------------
 
-**Time estimate:** 3 minutes
-
-Run ``simple_line.py`` and observe the output. This introduces you to the basic line drawing function.
+Run :download:`simple_line.py` and observe the output. This introduces you to the basic line drawing function.
 
 **Reflection Questions:**
 
@@ -256,8 +248,6 @@ Run ``simple_line.py`` and observe the output. This introduces you to the basic 
 
 Exercise 2: Modify Parameters
 ------------------------------
-
-**Time estimate:** 4 minutes
 
 Modify ``simple_line.py`` to achieve these goals:
 
@@ -316,8 +306,6 @@ Modify ``simple_line.py`` to achieve these goals:
 
 Exercise 3: Create a Sunburst Pattern
 --------------------------------------
-
-**Time estimate:** 6 minutes
 
 Create a "sunburst" pattern: lines radiating from the center to evenly-spaced points on the canvas edge.
 
@@ -414,7 +402,7 @@ Create a "sunburst" pattern: lines radiating from the center to evenly-spaced po
 Summary
 =======
 
-In just 18 minutes, you have learned the fundamentals of line drawing in computer graphics.
+In this exercise, you have learned the fundamentals of line drawing in computer graphics.
 
 **Key Takeaways:**
 
@@ -432,13 +420,6 @@ In just 18 minutes, you have learned the fundamentals of line drawing in compute
 * **Using the wrong data type:** Images require ``dtype=np.uint8`` for 0-255 pixel values.
 
 This foundational knowledge prepares you for more complex geometric primitives. Lines combine to form triangles, polygons, and curves. The parametric thinking you have learned here extends to Bézier curves, splines, and transformations.
-
-Next Steps
-==========
-
-Continue to **Module 2.1.2: Triangles** to learn how three lines create closed shapes. You will explore triangle drawing, filling algorithms, and how triangles form the basis of 3D graphics.
-
-:doc:`Continue to Module 2.1.2 - Triangles <../2.1.2_triangles/triangles/README>`
 
 References
 ==========

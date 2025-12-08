@@ -8,7 +8,7 @@ import matplotlib.patches as mpatches
 N_TILES = 4
 TILE_SIZE = 100
 BOTTOM_MARGIN = 120
-TOP_MARGIN = 80
+TOP_MARGIN = 120
 SIDE_MARGIN = 60
 FIG_WIDTH = N_TILES * TILE_SIZE + 2 * SIDE_MARGIN
 FIG_HEIGHT = N_TILES * TILE_SIZE + BOTTOM_MARGIN + TOP_MARGIN
@@ -21,7 +21,7 @@ ax.set_aspect('equal')
 ax.axis('off')
 
 # Title
-ax.text(FIG_WIDTH / 2, FIG_HEIGHT - 30,
+ax.text(FIG_WIDTH / 2, FIG_HEIGHT - 20,
         'Nested Loop Execution Order',
         ha='center', va='top', fontsize=16, fontweight='bold')
 
@@ -102,7 +102,7 @@ for y in range(N_TILES - 1):
 # Inner loop annotation (top)
 ax.annotate(
     'Inner loop (x = 0 to 3)',
-    xy=(SIDE_MARGIN + TILE_SIZE * 2, FIG_HEIGHT - TOP_MARGIN + 30),
+    xy=(SIDE_MARGIN + TILE_SIZE * 2, FIG_HEIGHT - TOP_MARGIN + 60),
     fontsize=11,
     ha='center',
     va='bottom',
@@ -111,7 +111,7 @@ ax.annotate(
 )
 
 # Add arrows showing inner loop progression for first row
-arrow_y = FIG_HEIGHT - TOP_MARGIN + 35
+arrow_y = FIG_HEIGHT - TOP_MARGIN + 55
 for x in range(N_TILES - 1):
     arrow_x = SIDE_MARGIN + (x + 0.5) * TILE_SIZE
     ax.annotate(
@@ -144,7 +144,3 @@ ax.text(
 plt.tight_layout()
 plt.savefig('nested_loop_execution.png', dpi=150, bbox_inches='tight', facecolor='white')
 plt.close()
-
-print("Nested loop execution diagram created successfully!")
-print("Output saved as: nested_loop_execution.png")
-print(f"Total iterations shown: {N_TILES * N_TILES}")

@@ -1,12 +1,3 @@
-"""
-Conceptual Diagram: Gradient Variations
-
-Creates a 2x2 comparison grid showing horizontal, vertical, and diagonal
-gradients to demonstrate how coordinate mapping affects gradient direction.
-
-Author: Claude (NumPy-to-GenAI Project)
-Date: 2025-01-30
-"""
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -53,4 +44,4 @@ plt.savefig('gradient_variations.png', dpi=150, bbox_inches='tight',
             facecolor='white', edgecolor='none')
 plt.close()
 
-print("Created gradient_variations.png")
+

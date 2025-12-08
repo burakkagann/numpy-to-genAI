@@ -1,17 +1,4 @@
-"""
-Circle Variations - Comparison Grid
 
-Creates a 2x2 grid showing how different parameters affect circle rendering:
-- Different radii
-- Different positions
-- Different colors
-- Multiple circles
-
-This visualization helps learners understand the effect of each parameter.
-
-Author: Claude (NumPy-to-GenAI Project)
-Date: 2025-01-30
-"""
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -74,6 +61,3 @@ plt.tight_layout()
 plt.savefig('circle_variations.png', dpi=150, bbox_inches='tight',
             facecolor='white', edgecolor='none')
 plt.close()
-
-print("Circle variations comparison grid created!")
-print("Output saved as: circle_variations.png")

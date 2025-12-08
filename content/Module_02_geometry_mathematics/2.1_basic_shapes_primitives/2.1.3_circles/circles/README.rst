@@ -4,25 +4,18 @@
 2.1.3 - Drawing Circles
 ==============================================
 
-:Duration: 18 minutes
+:Duration: 20 minutes
 :Level: Beginner
 :Prerequisites: :ref:`Module 1.1.1 <module_1.1.1>` (RGB Basics), Module 2.1.1 (Lines)
-
-.. contents:: Table of Contents
-   :local:
-   :depth: 2
 
 Overview
 ========
 
-In this exercise, you will learn how to draw perfect circles using mathematics
-rather than pixel-by-pixel plotting. This technique forms the foundation for
-rendering many curved shapes in generative art, from simple dots to complex
-organic forms.
-
-The core idea is elegant: a circle is defined as all points equidistant from
-a center. By calculating the distance from every pixel to a center point, we
-can determine which pixels fall inside the circle and color them accordingly.
+This exercise teaches you how to draw circles using distance calculations instead
+of plotting individual pixels. You will learn the mathematical definition of a
+circle: all points at a fixed distance from a center. By measuring how far each
+pixel is from a center point, we can decide which pixels belong inside the circle
+and color them.
 
 **Learning Objectives:**
 
@@ -116,7 +109,7 @@ A pixel is **inside** the circle if ``d < radius``.
 
    Visualizing the distance formula: Gold pixels are inside the circle (d < r),
    gray pixels are outside (d >= r). The dx and dy components combine via the
-   Pythagorean theorem to give the total distance d.
+   Pythagorean theorem to give the total distance d. Diagram generated with Claude Code.
 
 
 Concept 2: Coordinate Grids with np.ogrid
@@ -184,7 +177,7 @@ Hands-On Exercises
 Exercise 1: Execute and Explore
 -------------------------------------------
 
-Run the ``circle.py`` script from the Quick Start section and observe the output.
+Run :download:`circle.py` and observe the output.
 Then answer these reflection questions:
 
 **Reflection Questions:**
@@ -482,15 +475,6 @@ incrementally: first distance, then grids, then masking [Paas2020]_.
    - **Integer overflow:** For very large canvases, ``(X - CENTER)² + (Y - CENTER)²``
      can overflow if using ``np.int32``. Use ``np.int64`` or ``np.float64`` for
      safety.
-
-
-Next Steps
-==========
-
-Continue to **Module 2.1.4 (Stars)** to learn how to create pointed shapes
-using polar coordinates and angle-based calculations. The distance formula
-you learned here will be extended to create radial patterns and star shapes.
-
 
 References
 ==========

@@ -1,24 +1,3 @@
-"""
-Exercise 2.1.2: Simple Triangle using Line Equations
-
-This script demonstrates the intuitive approach to drawing triangles:
-a triangle is simply the intersection of three half-planes defined by lines.
-
-Author: Claude (NumPy-to-GenAI Project)
-Date: 2025-01-30
-
-Thesis Metadata:
-    Framework: F1-Hands-On
-    Module: Module_02_geometry_mathematics
-    Exercise Type: Quick Start / Execute
-    Cognitive Load: Low-Medium
-    New Concepts: half-planes, boolean masking, coordinate grids
-
-Learning Objectives:
-    - Understand triangles as intersections of half-planes
-    - Use boolean array operations to define regions
-    - Apply coordinate grid creation with meshgrid
-"""
 
 import numpy as np
 from PIL import Image
@@ -81,8 +60,3 @@ canvas[triangle_mask] = 255
 
 # Save result
 Image.fromarray(canvas).save('simple_triangle.png')
-
-print("Triangle created successfully!")
-print(f"Output saved as: simple_triangle.png")
-print(f"Canvas dimensions: {canvas.shape} (height, width)")
-print(f"Triangle vertices: {v1}, {v2}, {v3}")

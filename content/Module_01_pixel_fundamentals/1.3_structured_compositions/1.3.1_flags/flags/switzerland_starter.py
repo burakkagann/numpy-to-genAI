@@ -27,5 +27,3 @@ flag = np.zeros((size, size, 3), dtype=np.uint8)
 result = Image.fromarray(flag, mode='RGB')
 result.save('switzerland_flag.png')
 
-print("Switzerland flag created!")
-print(f"Output saved as: switzerland_flag.png")

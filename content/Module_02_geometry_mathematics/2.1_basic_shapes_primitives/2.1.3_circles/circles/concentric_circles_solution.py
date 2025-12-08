@@ -1,26 +1,3 @@
-"""
-Exercise 3 Complete Solution: Concentric Circles (Bulls-eye Pattern)
-
-This script creates a classic bulls-eye pattern with 5 concentric circles
-using alternating red and white colors. The key insight is to draw circles
-from largest to smallest so smaller circles overlay larger ones.
-
-Author: Claude (NumPy-to-GenAI Project)
-Date: 2025-01-30
-
-Thesis Metadata:
-    Framework: F1-Hands-On
-    Module: Module_02_geometry_mathematics
-    Exercise Type: Re-code
-    Cognitive Load: Medium
-    New Concepts: Multiple circles, layering order, loop-based generation
-    Prerequisites: Exercise 2.1.3 main script
-
-Learning Objectives:
-    - Apply circle rendering to create composite patterns
-    - Understand the importance of drawing order (back-to-front)
-    - Use loops to systematically generate multiple shapes
-"""
 
 import numpy as np
 from PIL import Image
@@ -77,9 +54,3 @@ for i, (radius, color) in enumerate(zip(RADII, COLORS)):
 # =============================================================================
 output_image = Image.fromarray(canvas, mode='RGB')
 output_image.save('concentric_circles.png')
-
-print("\nConcentric circles (bulls-eye) created successfully!")
-print(f"  Canvas size: {CANVAS_SIZE}x{CANVAS_SIZE}")
-print(f"  Number of rings: {len(RADII)}")
-print(f"  Center: ({CENTER_X}, {CENTER_Y})")
-print(f"  Output saved as: concentric_circles.png")

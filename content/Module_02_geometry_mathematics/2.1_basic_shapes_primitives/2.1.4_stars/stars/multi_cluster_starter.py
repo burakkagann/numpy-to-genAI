@@ -1,17 +1,3 @@
-"""
-Multi-Cluster Galaxy - Starter Code (Exercise 3)
-
-Your task: Create a galaxy-like image with multiple star clusters.
-Each cluster should have different positions, sizes, and spreads.
-
-Requirements:
-1. Create at least 3 star clusters at different positions
-2. Vary the number of stars in each cluster
-3. Use different spread values for each cluster
-
-Author: NumPy-to-GenAI Project
-Date: 2025-01-30
-"""
 
 import numpy as np
 from PIL import Image
@@ -67,4 +53,3 @@ def add_cluster(canvas, center_x, center_y, num_stars, spread):
 # Save the result
 image = Image.fromarray(canvas, mode='L')
 image.save('multi_cluster.png')
-print("Saved as multi_cluster.png")

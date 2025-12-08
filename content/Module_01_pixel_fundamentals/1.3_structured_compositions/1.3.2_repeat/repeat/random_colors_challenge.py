@@ -1,16 +1,3 @@
-"""
-Challenge: Random Color Grid
-
-Creates a grid of tiles with random colors.
-Demonstrates introducing randomness into tiling patterns.
-
-This extends the parametric variation concept by using random values
-instead of calculated gradients.
-
-Author: Claude (NumPy-to-GenAI Project)
-Date: 2025-01-30
-"""
-
 import numpy as np
 from PIL import Image
 
@@ -54,10 +41,3 @@ for y in range(N_TILES):
 result = Image.fromarray(canvas, mode='RGB')
 result.save('repeat_challenge.png')
 
-print(f"Success! Created {N_TILES}x{N_TILES} grid with random colors")
-print(f"Output saved as: repeat_challenge.png")
-print("\nChallenge extensions:")
-print("- Try different N_TILES values (15, 20, 30)")
-print("- Experiment with color ranges: np.random.randint(100, 256) for brighter colors")
-print("- Create patterns: alternate between random and calculated colors")
-print("- Add color themes: restrict RGB ranges to create cohesive palettes")

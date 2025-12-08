@@ -1,14 +1,3 @@
-"""
-Exercise 3 Starter Code: Create a Diagonal Gradient
-
-Your task: Create a 400x400 grayscale diagonal gradient that transitions
-from black (top-left corner) to white (bottom-right corner).
-
-Hint: A diagonal gradient combines horizontal and vertical gradients.
-
-Author: Claude (NumPy-to-GenAI Project)
-Date: 2025-01-30
-"""
 
 import numpy as np
 from PIL import Image
@@ -36,4 +25,3 @@ gradient_image = None  # Replace with your code
 # Save the result
 output = Image.fromarray(gradient_image, mode='L')
 output.save('my_diagonal_gradient.png')
-print("Saved as my_diagonal_gradient.png")

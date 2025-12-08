@@ -1,17 +1,3 @@
-"""
-Distribution Comparison - Uniform vs. Gaussian
-
-This script creates a side-by-side comparison showing the visual difference
-between uniform random distribution and Gaussian (normal) distribution
-for placing stars. This helps learners understand when to use each approach.
-
-Framework: Framework 1 (Hands-On Discovery)
-Cognitive Load: Medium (comparing two approaches)
-RQ Contributions: RQ1 (framework design), RQ5 (transfer learning)
-
-Author: NumPy-to-GenAI Project
-Date: 2025-01-30
-"""
 
 import numpy as np
 from PIL import Image
@@ -50,7 +36,3 @@ comparison[:, PANEL_SIZE - 1:PANEL_SIZE + 1] = 80  # Gray divider
 # Save the comparison image
 image = Image.fromarray(comparison, mode='L')
 image.save('distribution_comparison.png')
-print("Created distribution comparison:")
-print("  Left panel:  Uniform distribution (scattered)")
-print("  Right panel: Gaussian distribution (clustered)")
-print("Saved as distribution_comparison.png")

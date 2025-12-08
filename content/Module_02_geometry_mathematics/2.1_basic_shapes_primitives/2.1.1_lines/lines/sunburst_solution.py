@@ -1,27 +1,3 @@
-"""
-Exercise 2.1.1: Sunburst Pattern (Exercise 3 Solution)
-
-Creates a radial "sunburst" pattern with lines emanating from the center
-to evenly-spaced points on the canvas edge. This exercise combines
-line drawing with trigonometry to create symmetrical generative art.
-
-Author: Claude (NumPy-to-GenAI Project)
-Date: 2025-01-30
-
-Thesis Metadata:
-    Framework: F1 (Hands-On Discovery)
-    Module: Module_02_geometry_mathematics
-    Exercise Type: Re-code (Exercise 3)
-    Cognitive Load: MEDIUM
-    New Concepts: Polar coordinates, trigonometry in generative art
-    Prerequisites: Line drawing, basic trigonometry
-
-Research Question Contributions:
-    RQ1 (Framework Design): Re-code exercise requires synthesis
-    RQ2 (Cognitive Load): Scaffolded approach reduces complexity
-    RQ4 (Assessment): Creative dimension - design aesthetic patterns
-    RQ5 (Transfer): Radial thinking transfers to spirals, mandalas
-"""
 
 import numpy as np
 from PIL import Image
@@ -58,11 +34,7 @@ for angle in angles:
 
     # Draw line from center to calculated endpoint
     draw_line(canvas, center_x, center_y, end_x, end_y)
-
-print("Sunburst pattern saved as sunburst_example.png")
-print(f"Created {num_rays} rays radiating from ({center_x}, {center_y})")
-print(f"Radius: {radius} pixels")
-
+    
 # Step 6: Save result
 output_image = Image.fromarray(canvas)
 output_image.save('sunburst_example.png')

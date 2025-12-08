@@ -1,17 +1,3 @@
-"""
-Tiling Variations Demonstration
-
-Creates three side-by-side variations to demonstrate parameter exploration:
-1. Dense grid (6x6 tiles with smaller spacing)
-2. Seamless tiles (spacing = 0, preview for Truchet tiles)
-3. Blue diagonal gradient (modified color formula)
-
-This demonstrates how changing parameters creates different visual effects.
-
-Author: Claude (NumPy-to-GenAI Project)
-Date: 2025-01-30
-"""
-
 import numpy as np
 from PIL import Image
 import matplotlib.pyplot as plt
@@ -91,10 +77,3 @@ for idx, var in enumerate(variations):
 plt.tight_layout()
 plt.savefig('tiling_variations.png', dpi=150, bbox_inches='tight', facecolor='white')
 plt.close()
-
-print("Tiling variations created successfully!")
-print("Output saved as: tiling_variations.png")
-print("\nVariations demonstrated:")
-print("1. Dense grid with more tiles (6x6 vs 4x4)")
-print("2. Seamless tiles (spacing=0) for continuous patterns")
-print("3. Blue diagonal gradient (modified color formula)")

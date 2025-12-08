@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 from mpl_toolkits.mplot3d import Axes3D
 
-# Create figure with 3D projection
-fig = plt.figure(figsize=(12, 8), dpi=150)
+# Create figure with 3D projection (larger size to prevent cutoff)
+fig = plt.figure(figsize=(14, 10), dpi=150)
 ax = fig.add_subplot(111, projection='3d')
 
 # Define small array dimensions for visualization
@@ -52,17 +52,17 @@ ax.text(-1.5, height / 2, -0.5, 'Height\n(rows)',
         fontsize=12, fontweight='bold', color='#333333',
         ha='center', va='center')
 
-ax.text(width + 1, height + 1, channel_spacing,
+ax.text(width + 0.5, height + 0.5, channel_spacing,
         'Channels\n(RGB)',
         fontsize=12, fontweight='bold', color='#333333',
         ha='left', va='center')
 
-# Add indexing example
-ax.text(width / 2, height + 2, channel_spacing * 2 + 0.5,
+# Add indexing example (repositioned to avoid cutoff)
+ax.text(width / 2 - 1, height + 1.5, channel_spacing * 2 + 1,
         'Shape: (height, width, 3)\nIndexing: image[row, col, channel]',
-        fontsize=13, fontweight='bold', color='#0066CC',
+        fontsize=12, fontweight='bold', color='#0066CC',
         ha='center', va='bottom',
-        bbox=dict(boxstyle='round,pad=0.8', facecolor='white', edgecolor='#0066CC', linewidth=2))
+        bbox=dict(boxstyle='round,pad=0.6', facecolor='white', edgecolor='#0066CC', linewidth=2))
 
 # Add example pixel
 example_row, example_col = 1, 2
@@ -83,10 +83,10 @@ ax.set_xlabel('Column (x)', fontsize=11, fontweight='bold')
 ax.set_ylabel('Row (y)', fontsize=11, fontweight='bold')
 ax.set_zlabel('Channel', fontsize=11, fontweight='bold')
 
-# Set axis limits
-ax.set_xlim(-1, width + 1)
-ax.set_ylim(-2, height + 1)
-ax.set_zlim(-0.5, channel_spacing * 2 + 1)
+# Set axis limits (expanded to prevent label cutoff)
+ax.set_xlim(-2, width + 2)
+ax.set_ylim(-2.5, height + 2.5)
+ax.set_zlim(-0.5, channel_spacing * 2 + 2)
 
 # Title
 ax.set_title('RGB Image as 3D NumPy Array', fontsize=16, fontweight='bold', pad=20)
@@ -101,6 +101,3 @@ ax.zaxis.pane.fill = False
 plt.tight_layout()
 plt.savefig('array_dimensions_diagram.png', dpi=150, bbox_inches='tight', facecolor='white')
 plt.close()
-
-print("Array dimensions diagram created successfully!")
-print("Output saved as: array_dimensions_diagram.png")

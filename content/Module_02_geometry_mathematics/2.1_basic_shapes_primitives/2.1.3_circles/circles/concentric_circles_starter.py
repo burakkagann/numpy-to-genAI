@@ -1,17 +1,3 @@
-"""
-Exercise 3 Starter Code: Concentric Circles (Bulls-eye Pattern)
-
-Your task: Create a bulls-eye pattern with 5 concentric circles,
-using alternating red and white colors.
-
-Hints:
-- Start with the largest (outermost) circle and work inward
-- Each circle should have a smaller radius than the previous one
-- The innermost circle should be small but visible
-
-Author: Your Name
-Date: [Today's Date]
-"""
 
 import numpy as np
 from PIL import Image
@@ -64,5 +50,3 @@ canvas = np.zeros((CANVAS_SIZE, CANVAS_SIZE, 3), dtype=np.uint8)
 # =============================================================================
 output_image = Image.fromarray(canvas, mode='RGB')
 output_image.save('concentric_circles.png')
-print("Concentric circles created!")
-print("Output saved as: concentric_circles.png")

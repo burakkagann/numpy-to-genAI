@@ -12,9 +12,9 @@ TILE_SIZE = 0  # TODO: Calculate based on desired canvas size (512 pixels)
 SIZE = 0  # TODO: Calculate total canvas size
 
 # TODO: Define colors
-# Hint: BLACK = [0, 0, 0], WHITE = [255, 255, 255]
+# Hint: BLACK = [0, 0, 0], GREEN = [83, 168, 139] (inspired by Tanjiro's haori from Demon Slayer)
 BLACK = None  # TODO: Set black color
-WHITE = None  # TODO: Set white color
+GREEN = None  # TODO: Set green color
 
 # TODO: Create canvas
 # Hint: Use np.zeros((SIZE, SIZE, 3), dtype=np.uint8)
@@ -25,7 +25,7 @@ canvas = None  # TODO: Create blank canvas
 #           for x in range(N_TILES):
 
     # TODO: Determine color using alternation logic
-    # Hint: if (x + y) % 2 == 0, use BLACK, else use WHITE
+    # Hint: if (x + y) % 2 == 0, use BLACK, else use GREEN
 
     # TODO: Calculate slice positions
     # Hint: When spacing = 0, formula simplifies to:
@@ -38,6 +38,3 @@ canvas = None  # TODO: Create blank canvas
 # TODO: Save result
 # Hint: result = Image.fromarray(canvas, mode='RGB')
 #       result.save('my_checkerboard.png')
-
-print("Checkerboard creation complete!")
-print("Check your output image to verify the pattern.")

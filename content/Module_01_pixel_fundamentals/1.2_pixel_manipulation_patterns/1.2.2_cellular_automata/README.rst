@@ -6,10 +6,6 @@
 :Level: Beginner
 :Prerequisites: Module 1.2.1 (Random Patterns)
 
-.. contents:: Contents
-   :local:
-   :depth: 2
-
 Overview
 ========
 

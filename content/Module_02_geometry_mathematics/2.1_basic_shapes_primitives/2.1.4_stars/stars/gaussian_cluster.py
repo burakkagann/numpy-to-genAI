@@ -1,17 +1,3 @@
-"""
-Gaussian Star Cluster - Normal Distribution Demo
-
-This script demonstrates how to create clustered star patterns using
-Gaussian (normal) distribution instead of uniform random placement.
-Stars cluster around a center point with controllable spread.
-
-Framework: Framework 1 (Hands-On Discovery)
-Cognitive Load: Low-Medium (builds on integer indexing, adds distribution concept)
-RQ Contributions: RQ1 (framework design), RQ2 (cognitive scaffolding)
-
-Author: NumPy-to-GenAI Project
-Date: 2025-01-30
-"""
 
 import numpy as np
 from PIL import Image
@@ -45,6 +31,3 @@ canvas[y_coords, x_coords] = 255
 # Step 5: Save the result
 image = Image.fromarray(canvas, mode='L')
 image.save('gaussian_cluster.png')
-print(f"Created Gaussian cluster with {NUM_STARS} stars")
-print(f"Center: ({CENTER_X}, {CENTER_Y}), Spread: {SPREAD}")
-print("Saved as gaussian_cluster.png")

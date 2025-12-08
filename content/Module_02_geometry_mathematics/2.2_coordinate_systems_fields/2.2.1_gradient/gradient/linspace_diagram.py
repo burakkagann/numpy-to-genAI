@@ -1,18 +1,11 @@
-"""
-Conceptual Diagram: Understanding np.linspace()
-
-Creates a visual diagram showing how np.linspace() generates evenly spaced
-values for gradient creation.
-
-Author: Claude (NumPy-to-GenAI Project)
-Date: 2025-01-30
-"""
+# Diagram generated with Claude Code
+# Visualizes np.linspace() for educational purposes
 
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Create figure
-fig, axes = plt.subplots(2, 1, figsize=(10, 6), gridspec_kw={'height_ratios': [1, 2]})
+# Create figure with increased height for better spacing
+fig, axes = plt.subplots(2, 1, figsize=(10, 7), gridspec_kw={'height_ratios': [1.2, 2]})
 
 # Top subplot: Number line visualization
 ax1 = axes[0]
@@ -22,19 +15,19 @@ values = np.linspace(0, 255, 9)  # 9 points for clear visualization
 ax1.axhline(y=0, color='black', linewidth=2)
 ax1.plot(values, [0]*len(values), 'o', color='#2196F3', markersize=12, zorder=5)
 
-# Add value labels
+# Add value labels (increased offset for better spacing)
 for i, v in enumerate(values):
     ax1.annotate(f'{int(v)}', (v, 0), textcoords="offset points",
-                 xytext=(0, 15), ha='center', fontsize=10, fontweight='bold')
+                 xytext=(0, 20), ha='center', fontsize=10, fontweight='bold')
 
-# Add position labels below
+# Add position labels below (increased offset for better spacing)
 positions = ['0', '1', '2', '3', '4', '5', '6', '7', '8']
 for i, (v, p) in enumerate(zip(values, positions)):
     ax1.annotate(f'[{p}]', (v, 0), textcoords="offset points",
-                 xytext=(0, -20), ha='center', fontsize=9, color='gray')
+                 xytext=(0, -25), ha='center', fontsize=9, color='gray')
 
 ax1.set_xlim(-20, 275)
-ax1.set_ylim(-0.8, 0.8)
+ax1.set_ylim(-1.0, 1.0)  # Expanded for better text spacing
 ax1.set_title('np.linspace(0, 255, 9) generates 9 evenly spaced values',
               fontsize=12, fontweight='bold', pad=10)
 ax1.axis('off')
@@ -70,9 +63,8 @@ fig.text(0.5, 0.02,
          ha='center', fontsize=10, style='italic', color='#666666')
 
 plt.tight_layout()
-plt.subplots_adjust(bottom=0.1)
+plt.subplots_adjust(bottom=0.12)  # Increased for formula text
 plt.savefig('linspace_diagram.png', dpi=150, bbox_inches='tight',
             facecolor='white', edgecolor='none')
 plt.close()
 
-print("Created linspace_diagram.png")

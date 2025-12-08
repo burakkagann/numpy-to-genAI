@@ -1,25 +1,3 @@
-"""
-Exercise 2.1.2: Mountain Silhouette
-
-This script creates a mountain landscape using multiple triangles of varying
-sizes and positions. It demonstrates how simple geometric primitives can
-combine to create visually interesting compositions.
-
-Author: Claude (NumPy-to-GenAI Project)
-Date: 2025-01-30
-
-Thesis Metadata:
-    Framework: F1-Hands-On
-    Module: Module_02_geometry_mathematics
-    Exercise Type: Re-code (Exercise 3)
-    Cognitive Load: Medium-High
-    New Concepts: layered composition, gradient backgrounds, multiple triangles
-
-Requirements:
-    - At least 3 mountains of varying heights
-    - A gradient sky background
-    - Mountains should overlap naturally (back to front)
-"""
 
 import numpy as np
 from PIL import Image
@@ -128,10 +106,3 @@ for mountain in mountains:
 # Step 4: Save result
 Image.fromarray(canvas).save('triangle_mountain.png')
 
-print("Mountain silhouette created successfully!")
-print(f"Output saved as: triangle_mountain.png")
-print(f"Canvas dimensions: {canvas.shape}")
-print(f"Number of mountains: {len(mountains)}")
-print()
-print("This demonstrates how simple triangles, when layered and colored")
-print("thoughtfully, can create evocative landscape imagery.")

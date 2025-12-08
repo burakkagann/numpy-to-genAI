@@ -1,17 +1,4 @@
-"""
-Multi-Cluster Galaxy - Complete Solution (Exercise 3)
 
-This script creates a galaxy-like image with multiple star clusters,
-each with different positions, sizes, and spreads. The result resembles
-a simplified view of a star field with distinct stellar groups.
-
-Framework: Framework 1 (Hands-On Discovery)
-Cognitive Load: Medium (combines concepts from Quick Start and Concept 2)
-RQ Contributions: RQ1 (framework design), RQ5 (transfer to complex patterns)
-
-Author: NumPy-to-GenAI Project
-Date: 2025-01-30
-"""
 
 import numpy as np
 from PIL import Image
@@ -65,6 +52,3 @@ add_cluster(canvas, center_x=256, center_y=256, num_stars=100, spread=200)
 # Save the result
 image = Image.fromarray(canvas, mode='L')
 image.save('multi_cluster.png')
-print("Created multi-cluster galaxy with 5 clusters")
-print("Total stars: 660")
-print("Saved as multi_cluster.png")

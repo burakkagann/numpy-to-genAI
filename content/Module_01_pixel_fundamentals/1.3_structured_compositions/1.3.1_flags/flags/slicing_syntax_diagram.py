@@ -78,6 +78,3 @@ ax.set_title('NumPy Array Slicing Syntax', fontsize=18, fontweight='bold', pad=2
 plt.tight_layout()
 plt.savefig('slicing_syntax_diagram.png', dpi=150, bbox_inches='tight', facecolor='white')
 plt.close()
-
-print("Slicing syntax diagram created successfully!")
-print("Output saved as: slicing_syntax_diagram.png")

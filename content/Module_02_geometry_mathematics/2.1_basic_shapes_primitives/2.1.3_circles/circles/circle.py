@@ -1,33 +1,3 @@
-"""
-Exercise 2.1.3: Drawing Circles with Distance Calculations
-
-This exercise teaches how to render circles mathematically using the
-Euclidean distance formula. Instead of drawing pixel-by-pixel, we
-calculate which pixels fall inside the circle using vectorized NumPy
-operations - a fundamental technique for generative art.
-
-Author: Claude (NumPy-to-GenAI Project)
-Date: 2025-01-30
-
-Thesis Metadata:
-    Framework: F1-Hands-On
-    Module: Module_02_geometry_mathematics
-    Exercise Type: Execute
-    Cognitive Load: Low
-    New Concepts: Distance formula, np.ogrid coordinate grids, boolean masking
-    Prerequisites: Module 1.1.1 (RGB Basics), Module 2.1.1 (Lines)
-
-Research Question Contributions:
-    RQ1 (Framework Design): Demonstrates mathematical-to-visual pattern
-    RQ2 (Cognitive Load): Simple script introduces one core algorithm
-    RQ4 (Assessment): Technical accuracy + creative parameter exploration
-    RQ5 (Transfer): Masking technique applies to ellipses, rings, gradients
-
-Learning Objectives:
-    - Understand how circles are defined by distance from center
-    - Use np.ogrid to create coordinate grids efficiently
-    - Apply boolean masking to select pixels inside a shape
-"""
 
 import numpy as np
 from PIL import Image
@@ -76,11 +46,3 @@ canvas[inside_circle] = CIRCLE_COLOR
 # =============================================================================
 output_image = Image.fromarray(canvas, mode='RGB')
 output_image.save('circle.png')
-
-# Provide feedback to the user
-print("Circle created successfully!")
-print(f"  Center: ({CENTER_X}, {CENTER_Y})")
-print(f"  Radius: {RADIUS} pixels")
-print(f"  Color: RGB{tuple(CIRCLE_COLOR)}")
-print(f"  Canvas size: {CANVAS_SIZE}x{CANVAS_SIZE}")
-print(f"  Output saved as: circle.png")

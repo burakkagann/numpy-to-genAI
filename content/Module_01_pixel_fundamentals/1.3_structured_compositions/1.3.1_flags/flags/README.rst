@@ -2,13 +2,8 @@
 1.3.1 - Flags (Array Slicing)
 =====================================
 
-:Duration: 20 minutes
 :Level: Beginner
 :Prerequisites: Module 1.1.1 (RGB Basics)
-
-.. contents:: Contents
-   :local:
-   :depth: 2
 
 Overview
 ========
@@ -109,7 +104,7 @@ The fundamental rules:
    :align: center
    :alt: Visual diagram showing array slicing notation with highlighted region
 
-   Array slicing notation: `image[1:4, 2:5]` selects rows 1-3 and columns 2-4 (start inclusive, stop exclusive)
+   Array slicing notation: `image[1:4, 2:5]` selects rows 1-3 and columns 2-4 (start inclusive, stop exclusive). Diagram generated with Claude Code.
 
 .. important::
 
@@ -153,15 +148,13 @@ RGB images are **3D arrays** with shape `(height, width, 3)`. The third dimensio
    :align: center
    :alt: 3D visualization showing RGB array structure with layered red, green, and blue channels
 
-   RGB images as 3D arrays: `(height, width, channels)`. Each pixel has three values stored in the third dimension.
+   RGB images as 3D arrays: `(height, width, channels)`. Each pixel has three values stored in the third dimension. Diagram generated with Claude Code.
 
 Hands-On Exercises
 ==================
 
 Exercise 1: Execute and Explore
 --------------------------------
-
-**Time estimate:** 3 minutes
 
 Run the France flag code from the Quick Start section and observe the output. Then answer these reflection questions:
 
@@ -172,7 +165,6 @@ Run the France flag code from the Quick Start section and observe the output. Th
 3. How would you modify the code to create **horizontal** stripes instead of vertical ones?
 
 .. dropdown:: Solution & Explanation
-   :class: note
 
    **Answers:**
 
@@ -198,8 +190,6 @@ Run the France flag code from the Quick Start section and observe the output. Th
 Exercise 2: Modify to Achieve Goals
 ------------------------------------
 
-**Time estimate:** 4 minutes
-
 Modify the France flag code to create the **flag of Germany** (horizontal stripes: black on top, red in middle, gold on bottom).
 
 **Your goals:**
@@ -215,13 +205,11 @@ Modify the France flag code to create the **flag of Germany** (horizontal stripe
 **Hints:**
 
 .. dropdown:: Hint 1: Switching from columns to rows
-   :class: tip
 
    Column slicing uses `[:, start:stop]` (all rows, specific columns).
    Row slicing uses `[start:stop, :]` (specific rows, all columns).
 
 .. dropdown:: Hint 2: Calculating stripe positions
-   :class: tip
 
    Divide the height into thirds:
 
@@ -232,7 +220,6 @@ Modify the France flag code to create the **flag of Germany** (horizontal stripe
    For height=300: 0-100, 100-200, 200-300
 
 .. dropdown:: Solution
-   :class: note
 
    .. code-block:: python
       :caption: Germany flag solution
@@ -259,14 +246,11 @@ Modify the France flag code to create the **flag of Germany** (horizontal stripe
       result.save('germany_flag.png')
 
 .. dropdown:: Extension Challenge
-   :class: tip
 
    Try creating the **flag of the Netherlands** (horizontal stripes: red, white, blue). Use official colors: Red `[174, 28, 40]`, White `[255, 255, 255]`, Blue `[33, 70, 139]`.
 
 Exercise 3: Create a Complex Flag
 ----------------------------------
-
-**Time estimate:** 5 minutes
 
 Create the **flag of Switzerland** (red field with white cross) from scratch. This requires combining both horizontal and vertical slicing.
 
@@ -306,7 +290,6 @@ Create the **flag of Switzerland** (red field with white cross) from scratch. Th
    result.save('switzerland_flag.png')
 
 .. dropdown:: Hint 1: Red background
-   :class: tip
 
    To fill the entire array with red, use:
 
@@ -317,7 +300,6 @@ Create the **flag of Switzerland** (red field with white cross) from scratch. Th
    This selects all rows and all columns, then broadcasts the RGB value.
 
 .. dropdown:: Hint 2: Centering calculations
-   :class: tip
 
    For a bar with width `bar_width` centered in dimension `size`:
 
@@ -330,7 +312,6 @@ Create the **flag of Switzerland** (red field with white cross) from scratch. Th
    So the vertical bar occupies columns 120-179 (centered).
 
 .. dropdown:: Complete Solution
-   :class: note
 
    .. code-block:: python
       :caption: Switzerland flag complete solution
@@ -370,7 +351,6 @@ Challenge Extension
 Create the **flag of the United Kingdom**. This challenging project requires diagonal lines, which you can create using loops and individual pixel manipulation.
 
 .. dropdown:: Advanced Challenge Hints
-   :class: warning
 
    The Union Jack contains diagonal red and white stripes. Here's a strategy:
 
@@ -419,11 +399,6 @@ The rectangular slicing you learned here is the foundation for:
 * **Module 1.3.3-1.3.4**: Truchet and Wang tiles (complex tiling systems)
 * **Module 3**: Image transformations and masking (selecting regions for effects)
 * **Module 7**: Image segmentation (dividing images into regions)
-
-Next Steps
-==========
-
-Continue to :doc:`../../1.3.2_repeat/repeat/README` to learn about creating tiling patterns by repeating sliced elements across an image.
 
 References
 ==========

@@ -1,5 +1,3 @@
-
-
 import numpy as np
 from PIL import Image
 
@@ -49,6 +47,3 @@ for y in range(N_TILES):
 result = Image.fromarray(canvas, mode='RGB')
 result.save('repeat.png')
 
-print(f"\nSuccess! Created {N_TILES}x{N_TILES} grid")
-print(f"Total tiles placed: {N_TILES * N_TILES}")
-print(f"Output saved as: repeat.png")

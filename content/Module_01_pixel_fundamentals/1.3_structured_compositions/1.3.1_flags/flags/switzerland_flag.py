@@ -1,5 +1,3 @@
-
-
 import numpy as np
 from PIL import Image
 
@@ -27,8 +25,3 @@ flag[top:bottom, :, :] = 255  # White horizontal bar
 # Step 5: Save the flag
 result = Image.fromarray(flag, mode='RGB')
 result.save('switzerland_flag.png')
-
-print("Switzerland flag created successfully!")
-print(f"Output saved as: switzerland_flag.png")
-print(f"Flag dimensions: {flag.shape} (height, width, channels)")
-print(f"Cross dimensions: {bar_height}x{bar_width} pixels")

@@ -1,24 +1,3 @@
-"""
-Exercise 2.2.1: Simple Horizontal Gradient
-
-Creates a horizontal grayscale gradient using np.linspace() to generate
-evenly spaced values across the image width.
-
-Author: Claude (NumPy-to-GenAI Project)
-Date: 2025-01-30
-
-Thesis Metadata:
-    Framework: F1-Hands-On
-    Module: Module_02_geometry_mathematics
-    Exercise Type: Quick Start / Execute
-    Cognitive Load: Low
-    New Concepts: np.linspace(), gradient creation, broadcasting
-    Prerequisites: Module 1.1.1 (RGB basics), Module 2.1 (basic shapes)
-
-Research Question Contributions:
-    RQ1: Visual-first approach - immediate gradient output before theory
-    RQ2: Single concept introduction (linear interpolation)
-"""
 
 import numpy as np
 from PIL import Image
@@ -39,6 +18,3 @@ gradient_image = np.tile(gradient_values, (height, 1))
 output = Image.fromarray(gradient_image, mode='L')  # 'L' mode for grayscale
 output.save('simple_gradient.png')
 
-print(f"Created horizontal gradient: {width}x{height} pixels")
-print(f"Value range: {gradient_values[0]} (left) to {gradient_values[-1]} (right)")
-print("Image saved as simple_gradient.png")

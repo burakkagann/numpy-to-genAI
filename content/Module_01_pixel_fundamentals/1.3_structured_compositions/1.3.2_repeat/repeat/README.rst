@@ -2,13 +2,8 @@
 1.3.2 - Repeat (Tiling Patterns)
 =====================================
 
-:Duration: 18 minutes
 :Level: Beginner
 :Prerequisites: Module 1.3.1 (Flags - Array Slicing)
-
-.. contents:: Contents
-   :local:
-   :depth: 2
 
 Overview
 ========
@@ -107,7 +102,7 @@ Where ``i`` is the loop variable (0, 1, 2, 3, ...). This formula ensures:
    :align: center
    :alt: Diagram showing formula breakdown for 4 tiles with measurements
 
-   Position calculation formula visualized. Each tile's start position is computed as ``spacing + (i * tile_width)``.
+   Position calculation formula visualized. Each tile's start position is computed as ``spacing + (i * tile_width)``. Diagram generated with Claude Code.
 
 **Example calculation** for the second tile (i=1):
 
@@ -154,7 +149,7 @@ A **nested loop** is a loop inside another loop. For 2D grids, the outer loop co
    :align: center
    :alt: 4x4 grid showing numbered iteration order from 0 to 15
 
-   Nested loop execution order. Numbers show when each tile is processed. Notice the inner loop completes (0→3) before the outer loop advances.
+   Nested loop execution order. Numbers show when each tile is processed. Notice the inner loop completes (0→3) before the outer loop advances. Diagram generated with Claude Code.
 
 This execution pattern is critical for understanding how loops traverse 2D structures (OpenStax, 2024). Students often confuse the order, expecting tiles to be processed diagonally or in some other pattern. Visualizing the iteration sequence demystifies nested loops and builds intuition for more complex algorithms.
 
@@ -186,7 +181,7 @@ The result is a **two-dimensional gradient** (Galanter, 2016). By changing the f
    if (x + y) % 2 == 0:
        color = [0, 0, 0]  # Black
    else:
-       color = [255, 255, 255]  # White
+       color = [83, 168, 139]  # Green
 
 **Diagonal gradient**:
 
@@ -214,8 +209,6 @@ Hands-On Exercises
 Exercise 1: Execute and Explore
 --------------------------------
 
-**Time estimate:** 3 minutes
-
 Run the tiling pattern script from the Quick Start section and observe the output. Then answer these reflection questions:
 
 **Reflection Questions**:
@@ -225,7 +218,6 @@ Run the tiling pattern script from the Quick Start section and observe the outpu
 3. If you set ``SPACING = 0``, what happens to the visual appearance? Try it!
 
 .. dropdown:: Solution & Explanation
-   :class: note
 
    **Answers:**
 
@@ -238,8 +230,6 @@ Run the tiling pattern script from the Quick Start section and observe the outpu
 Exercise 2: Modify to Achieve Goals
 ------------------------------------
 
-**Time estimate:** 4 minutes
-
 Modify the tiling pattern code to create different visual effects. Complete at least two of these tasks:
 
 **Task A: Create a denser grid**
@@ -247,7 +237,6 @@ Modify the tiling pattern code to create different visual effects. Complete at l
 Change ``N_TILES`` to 6 to create a 6×6 grid. Adjust ``TILE_WIDTH`` to fit the tiles in a 512×512 canvas.
 
 .. dropdown:: Hint: Canvas size calculation
-   :class: tip
 
    If you want a 512×512 canvas with 6 tiles and spacing, calculate:
 
@@ -275,7 +264,6 @@ Modify the color formula to create a diagonal blue gradient. Replace:
 with a formula that increases blue intensity diagonally.
 
 .. dropdown:: Hint: Diagonal direction
-   :class: tip
 
    Use ``(x + y)`` to increase diagonally from top-left to bottom-right:
 
@@ -286,7 +274,6 @@ with a formula that increases blue intensity diagonally.
    The ``min(255, ...)`` ensures the value never exceeds 255.
 
 .. dropdown:: Solutions
-   :class: note
 
    **Task A: Dense 6×6 grid**
 
@@ -322,16 +309,14 @@ with a formula that increases blue intensity diagonally.
 Exercise 3: Create a Checkerboard from Scratch
 -----------------------------------------------
 
-**Time estimate:** 5 minutes
-
-Create a classic 8×8 checkerboard pattern with alternating black and white squares. This exercise tests your understanding of nested loops, position calculation, and alternation logic.
+Create a classic 8×8 checkerboard pattern with alternating black and green squares. This exercise tests your understanding of nested loops, position calculation, and alternation logic.
 
 **Requirements:**
 
 * 8×8 grid (standard chess/checkers board)
 * No spacing between tiles (seamless)
 * 64×64 pixel tiles (creates 512×512 canvas)
-* Alternating black [0,0,0] and white [255,255,255] squares
+* Alternating black [0,0,0] and green [83,168,139] squares
 
 **Starter code:**
 
@@ -349,7 +334,7 @@ Create a classic 8×8 checkerboard pattern with alternating black and white squa
 
    # Define colors
    BLACK = np.array([0, 0, 0], dtype=np.uint8)
-   WHITE = np.array([255, 255, 255], dtype=np.uint8)
+   GREEN = np.array([83, 168, 139], dtype=np.uint8)  # Inspired by Tanjiro's haori (Demon Slayer)
 
    # Create canvas
    canvas = np.zeros((SIZE, SIZE, 3), dtype=np.uint8)
@@ -371,17 +356,15 @@ Create a classic 8×8 checkerboard pattern with alternating black and white squa
    result.save('my_checkerboard.png')
 
 .. dropdown:: Hint 1: Alternation logic
-   :class: tip
 
    The modulo operator ``%`` gives the remainder after division. For alternation:
 
    * ``(x + y) % 2 == 0`` → even sum → use BLACK
-   * ``(x + y) % 2 == 1`` → odd sum → use WHITE
+   * ``(x + y) % 2 == 1`` → odd sum → use GREEN
 
    This creates a checkerboard because adjacent tiles always have different sums (e.g., (0,0)=0, (1,0)=1, (0,1)=1, (1,1)=2).
 
 .. dropdown:: Hint 2: Position calculation without spacing
-   :class: tip
 
    When ``spacing = 0``, the formula simplifies:
 
@@ -395,7 +378,6 @@ Create a classic 8×8 checkerboard pattern with alternating black and white squa
    No spacing offset needed!
 
 .. dropdown:: Complete Solution
-   :class: note
 
    .. code-block:: python
       :caption: Checkerboard complete solution
@@ -410,7 +392,7 @@ Create a classic 8×8 checkerboard pattern with alternating black and white squa
       SIZE = N_TILES * TILE_SIZE
 
       BLACK = np.array([0, 0, 0], dtype=np.uint8)
-      WHITE = np.array([255, 255, 255], dtype=np.uint8)
+      GREEN = np.array([83, 168, 139], dtype=np.uint8)  # Inspired by Tanjiro's haori (Demon Slayer)
 
       canvas = np.zeros((SIZE, SIZE, 3), dtype=np.uint8)
 
@@ -420,7 +402,7 @@ Create a classic 8×8 checkerboard pattern with alternating black and white squa
               if (x + y) % 2 == 0:
                   color = BLACK
               else:
-                  color = WHITE
+                  color = GREEN
 
               # Position calculation (no spacing)
               row_start = y * TILE_SIZE
@@ -437,13 +419,13 @@ Create a classic 8×8 checkerboard pattern with alternating black and white squa
    **Key insights:**
 
    * **Lines 15-18**: The alternation logic uses ``(x + y) % 2`` to determine color. This works because adjacent tiles always have opposite parity (even/odd).
-   * **Lines 21-24**: Position calculation without spacing offset—the formula simplifies when tiles are seamless.
+   * **Lines 21-24**: Position calculation without spacing offset. The formula simplifies when tiles are seamless.
    * **Line 27**: NumPy broadcasting automatically expands the color array to fill the entire tile region.
 
 .. figure:: checkerboard.png
    :width: 400px
    :align: center
-   :alt: 8x8 black and white checkerboard pattern
+   :alt: 8x8 green and black checkerboard pattern
 
    The completed 8×8 checkerboard. Classic alternating pattern created using nested loops and modulo logic.
 
@@ -483,7 +465,6 @@ Create a 10×10 grid with **random colors** for each tile. This introduces rando
            # Rest of the code follows the same pattern...
 
 .. dropdown:: Complete Challenge Solution
-   :class: note
 
    Run the provided ``random_colors_challenge.py`` script to see the complete implementation. The output demonstrates how introducing randomness transforms systematic patterns into chaotic, visually dynamic compositions.
 
@@ -502,7 +483,7 @@ Summary
 * **Nested loops enable 2D grid iteration**: Outer loop controls rows, inner loop controls columns, creating systematic traversal of 2D space
 * **Algorithmic position calculation** transforms manual slicing into procedural generation using the formula ``start = spacing + (i * tile_width)``
 * **Parametric variation** uses mathematical formulas to create systematic color/property changes across repeated elements
-* **The same loop structure** creates vastly different outputs by changing the color formula—this is the foundation of generative art
+* **The same loop structure** creates vastly different outputs by changing the color formula. This is the foundation of generative art
 
 **Common Pitfalls:**
 
@@ -518,32 +499,27 @@ The tiling patterns you created here are the foundation for:
 * **Module 4 (Fractals)**: Replace fixed loops with recursive subdivision using the same position calculation principles
 * **Module 6 (Noise & Procedural Generation)**: Replace gradient formulas with Perlin noise sampling to create natural-looking terrain and textures
 
-Next Steps
-==========
-
-Continue to Module 1.3.3 (Truchet Tiles) to learn how the same nested loop structure creates infinitely varying mazes and patterns by rotating simple tile designs. You will discover how seamless tiling (spacing=0) enables continuous patterns that flow across tile boundaries.
-
 References
 ==========
 
-.. [CodeOrg2024] Code.org. (2024). Artist: Nested Loops. *Code.org Curriculum Course 2*. Retrieved January 30, 2025, from https://code.org/curriculum/course2/19/Teacher [Visual scaffolding approach for teaching nested loops with immediate feedback—reduces cognitive load through pattern drawing exercises]
+.. [CodeOrg2024] Code.org. (2024). Artist: Nested Loops. *Code.org Curriculum Course 2*. Retrieved January 30, 2025, from https://code.org/curriculum/course2/19/Teacher [Visual scaffolding approach for teaching nested loops with immediate feedback, which reduces cognitive load through pattern drawing exercises]
 
 .. [OpenStax2024] OpenStax. (2024). 5.3 Nested loops. *Introduction to Python Programming*. Retrieved January 30, 2025, from https://openstax.org/books/introduction-python-programming/pages/5-3-nested-loops [Educational scaffolding for nested loops: formal definition with beginner-friendly examples and execution order visualization]
 
-.. [Dummies2024] Dummies.com. (2024). How to Teach Kids to Code Nesting Loops. *For Dummies Technology*. Retrieved January 30, 2025, from https://www.dummies.com/article/technology/programming-web-design/coding/teach-kids-code-nesting-loops-253808/ [Pedagogical insight: nested loops seem complicated but are fundamentally "a loop within a loop"—iterative refinement approach]
+.. [Dummies2024] Dummies.com. (2024). How to Teach Kids to Code Nesting Loops. *For Dummies Technology*. Retrieved January 30, 2025, from https://www.dummies.com/article/technology/programming-web-design/coding/teach-kids-code-nesting-loops-253808/ [Pedagogical insight: nested loops seem complicated but are fundamentally "a loop within a loop", using iterative refinement approach]
 
-.. [CreativePinellas2024] Creative Pinellas. (2024). Grids in Nature, Design and Generative Art. *Creative Pinellas Magazine*. Retrieved January 30, 2025, from https://creativepinellas.org/magazine/grids-in-nature-design-and-generative-art/ [Historical context: Artist Ellsworth Kelly used chance operations for grid color assignment—foundational to algorithmic art]
+.. [CreativePinellas2024] Creative Pinellas. (2024). Grids in Nature, Design and Generative Art. *Creative Pinellas Magazine*. Retrieved January 30, 2025, from https://creativepinellas.org/magazine/grids-in-nature-design-and-generative-art/ [Historical context: Artist Ellsworth Kelly used chance operations for grid color assignment, foundational to algorithmic art]
 
-.. [MediumGenArt2024] Ibbotson, T. (2024). A gentle introduction to coding by making generative art. *Medium*. Retrieved January 30, 2025, from https://theibbster.medium.com/a-gentle-introduction-to-coding-by-making-generative-art-c7f0a7b744a6 [Generative art tutorials don't assume programming knowledge—use visual-first learning pedagogy]
+.. [MediumGenArt2024] Ibbotson, T. (2024). A gentle introduction to coding by making generative art. *Medium*. Retrieved January 30, 2025, from https://theibbster.medium.com/a-gentle-introduction-to-coding-by-making-generative-art-c7f0a7b744a6 [Generative art tutorials don't assume programming knowledge, using visual-first learning pedagogy]
 
-.. [Brookings2024] Brookings Institution. (2024). Creative patterns in the age of AI: Securing America's education edge. *Brookings Articles*. Retrieved January 30, 2025, from https://www.brookings.edu/articles/creative-patterns-in-the-age-of-ai-securing-americas-education-edge/ [Distinction between algorithmic patterns (procedural) and creative patterns (emergent)—relevant to generative art education]
+.. [Brookings2024] Brookings Institution. (2024). Creative patterns in the age of AI: Securing America's education edge. *Brookings Articles*. Retrieved January 30, 2025, from https://www.brookings.edu/articles/creative-patterns-in-the-age-of-ai-securing-americas-education-edge/ [Distinction between algorithmic patterns (procedural) and creative patterns (emergent), relevant to generative art education]
 
 .. [Harris2020] Harris, C. R., Millman, K. J., van der Walt, S. J., Gommers, R., Virtanen, P., Cournapeau, D., Wieser, E., Taylor, J., Berg, S., Smith, N. J., Kern, R., Picus, M., Hoyer, S., van Kerkwijk, M. H., Brett, M., Haldane, A., del Río, J. F., Wiebe, M., Peterson, P., ... Oliphant, T. E. (2020). Array programming with NumPy. *Nature*, 585(7825), 357–362. https://doi.org/10.1038/s41586-020-2649-2 [Foundational paper on NumPy array operations used in nested loop array slicing]
 
-.. [NumPyDocs2024] NumPy Developers. (2024). Indexing on ndarrays. *NumPy Documentation*. Retrieved January 30, 2025, from https://numpy.org/doc/stable/user/basics.indexing.html [Technical reference for array indexing in loop contexts—comprehensive guide to slice notation]
+.. [NumPyDocs2024] NumPy Developers. (2024). Indexing on ndarrays. *NumPy Documentation*. Retrieved January 30, 2025, from https://numpy.org/doc/stable/user/basics.indexing.html [Technical reference for array indexing in loop contexts. Comprehensive guide to slice notation]
 
 .. [Paas2020] Paas, F., & van Merriënboer, J. J. G. (2020). Cognitive-Load Theory: Methods to Manage Working Memory Load in the Learning of Complex Tasks. *Current Directions in Psychological Science*, 29(4), 394–398. https://doi.org/10.1177/0963721420922183 [Cognitive load management through scaffolding Execute → Modify → Re-code progression]
 
 .. [Galanter2016] Galanter, P. (2016). Generative art theory. In C. Paul (Ed.), *A Companion to Digital Art* (pp. 146-180). Wiley-Blackwell. https://doi.org/10.1002/9781118475249.ch8 [Theoretical foundation for parametric variation and algorithmic art generation]
 
-.. [Pearson2011] Pearson, M. (2011). *Generative Art: A Practical Guide Using Processing*. Manning Publications. ISBN: 978-1-935182-62-3 [Comprehensive guide to algorithmic pattern generation—"algorithms + parameters = infinite variations" principle]
+.. [Pearson2011] Pearson, M. (2011). *Generative Art: A Practical Guide Using Processing*. Manning Publications. ISBN: 978-1-935182-62-3 [Comprehensive guide to algorithmic pattern generation: "algorithms + parameters = infinite variations" principle]

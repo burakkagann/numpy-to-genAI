@@ -1,28 +1,3 @@
-"""
-Exercise 2.1.1: Line Pattern Generation
-
-Creates a radial line pattern to demonstrate how simple iteration with lines
-can produce complex, visually interesting compositions. This introduces the
-concept of lines as building blocks for generative art.
-
-Inspired by the work of Naum Gabo and other geometric abstractionists.
-
-Author: Claude (NumPy-to-GenAI Project)
-Date: 2025-01-30
-
-Thesis Metadata:
-    Framework: F1 (Hands-On Discovery)
-    Module: Module_02_geometry_mathematics
-    Exercise Type: Demonstration (Core Concepts visual example)
-    Cognitive Load: LOW
-    New Concepts: Iteration creates patterns, lines as artistic primitives
-    Prerequisites: Understanding of draw_line function
-
-Research Question Contributions:
-    RQ1 (Framework Design): Shows progression from utility to art
-    RQ2 (Cognitive Load): Visual demonstration reduces explanation load
-    RQ5 (Transfer): Pattern thinking transfers to fractals, recursion
-"""
 
 import numpy as np
 from PIL import Image
@@ -63,9 +38,6 @@ target_x = 350  # All lines end at x=350
 for target_y in range(0, 400, 50):
     draw_line(canvas, fixed_x, fixed_y, target_x, target_y)
 
-print("Line pattern saved as line_pattern.png")
-print(f"Created pattern with 9 radial lines")
-print(f"All lines emanate from ({fixed_x}, {fixed_y})")
 
 # Save result
 output_image = Image.fromarray(canvas)

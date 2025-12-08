@@ -1,18 +1,4 @@
-"""
-Brightness Variation - Depth Effect Challenge
 
-This script creates a star field where stars have varying brightness levels,
-simulating depth in a 3D star field. Brighter stars appear closer, while
-dimmer stars appear farther away. This technique is used in video games
-and simulations to create a sense of depth without true 3D rendering.
-
-Framework: Framework 1 (Hands-On Discovery) - Challenge Extension
-Cognitive Load: Medium-High (extends basic concept with brightness arrays)
-RQ Contributions: RQ5 (transfer to animation and simulation)
-
-Author: NumPy-to-GenAI Project
-Date: 2025-01-30
-"""
 
 import numpy as np
 from PIL import Image
@@ -63,6 +49,3 @@ for x, y in zip(x_bright, y_bright):
 # Save the result
 image = Image.fromarray(canvas, mode='L')
 image.save('brightness_variation.png')
-print(f"Created star field with {NUM_STARS} stars of varying brightness")
-print(f"Added {num_bright_stars} bright foreground stars")
-print("Saved as brightness_variation.png")

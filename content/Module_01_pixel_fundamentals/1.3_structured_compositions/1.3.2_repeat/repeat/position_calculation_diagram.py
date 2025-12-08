@@ -11,9 +11,9 @@ SPACING = 15
 CANVAS_HEIGHT = 80
 
 # Create figure
-fig, ax = plt.subplots(figsize=(12, 6), dpi=150)
+fig, ax = plt.subplots(figsize=(12, 7), dpi=150)
 ax.set_xlim(-20, SPACING + N_TILES * TILE_WIDTH + 40)
-ax.set_ylim(-30, 220)
+ax.set_ylim(-90, 220)
 ax.set_aspect('equal')
 ax.axis('off')
 
@@ -132,7 +132,7 @@ general_formula = (
 )
 ax.text(
     (SPACING + N_TILES * TILE_WIDTH) / 2,
-    -15,
+    -55,
     general_formula,
     ha='center',
     va='bottom',
@@ -156,7 +156,3 @@ ax.text(-10, ruler_y, 'Pixels:', ha='right', va='center', fontsize=8, style='ita
 plt.tight_layout()
 plt.savefig('position_calculation_diagram.png', dpi=150, bbox_inches='tight', facecolor='white')
 plt.close()
-
-print("Position calculation diagram created successfully!")
-print("Output saved as: position_calculation_diagram.png")
-print(f"Formula demonstrated: start = {SPACING} + (i * {TILE_WIDTH})")

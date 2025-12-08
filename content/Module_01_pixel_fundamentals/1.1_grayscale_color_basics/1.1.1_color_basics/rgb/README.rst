@@ -4,26 +4,23 @@
 1.1.1 - Images as Arrays & RGB
 =====================================
 
-:Duration: 15-18 minutes
+:Duration: 20-25 minutes
 :Level: Beginner
-:Prerequisites: Module 0
-
-.. contents:: Contents
-   :local:
-   :depth: 2
+:Prerequisites: Module 0.1, 0.2
 
 Overview
 ========
 
-In this module, you'll discover that digital images are simply arrays of numbers. Understanding this fundamental concept unlocks the door to AI driven generative art. We'll focus on RGB color representation and how to create and manipulate images using NumPy arrays.
+Digital images are arrays of numbers. This fundamental concept is essential for algorithmic art, machine learning, and AI-powered art generation. In this module, you'll start with grayscale images (2D arrays) and progress to RGB color images (3D arrays), establishing the foundation for all image manipulation throughout this course.
 
 **Learning Objectives**
 
 By completing this module, you will:
 
-* Understand images as 3D NumPy arrays with RGB channels
-* Create simple colored images from scratch
-* Manipulate RGB values to achieve desired colors
+* Understand that images are 2D arrays of numerical values (grayscale)
+* Recognize the relationship between array values (0-255) and brightness
+* Extend to 3D NumPy arrays with RGB channels for color images
+* Create and manipulate colored images from scratch
 * Grasp the additive color model and why computers use RGB
 
 Quick Start: Your First Colorful Image
@@ -62,16 +59,91 @@ Let's start with something visual. Run this code to create a simple image:
    Cyan (top half) and magenta (bottom half)
 
 .. tip::
-   
+
    Notice the shape `(200, 200, 3)`, respectively they are defined as  **(height, width, channels)**. The third dimension holds our red, green, and blue values.
+
+Grayscale: The Foundation
+=========================
+
+Before diving into color, let's understand the simplest form of digital images: grayscale.
+
+**A grayscale image is a 2D grid of pixels, where each pixel has a brightness value:**
+
+* **0** = black (no light)
+* **255** = white (maximum light)
+* **128** = medium gray (half intensity)
+
+.. code-block:: python
+   :caption: Creating a simple grayscale image
+
+   import numpy as np
+   from PIL import Image
+
+   # Create a 200x200 array filled with medium gray
+   array = np.zeros((200, 200), dtype=np.uint8)
+   array += 128
+
+   # Convert array to image and save
+   image = Image.fromarray(array)
+   image.save('gray.png')
+
+.. figure:: /content/Module_00_foundations_definitions/0.3_images_as_data/0.3.1_creating_images/grayscale/lincoln.png
+   :width: 700px
+   :align: center
+   :alt: Diagram showing how array values map to pixel brightness
+
+   Array values directly map to pixel brightness: 0=black, 255=white, intermediate values=grays. Lincoln portrait digitized by Leon Harmon at Bell Labs (1973) [Harmon1973]_.
+
+The ``uint8`` data type
+-----------------------
+
+The ``dtype=np.uint8`` parameter is crucial for image arrays:
+
+* **u** = unsigned (no negative numbers)
+* **int** = integer (whole numbers only)
+* **8** = 8 bits per value (range: 0 to 255)
+
+.. code-block:: python
+
+   # Correct: uint8 for standard images
+   array = np.zeros((100, 100), dtype=np.uint8)
+
+   # Wrong: without dtype specification
+   array = np.zeros((100, 100))  # Defaults to float64
+   # PIL may not handle floats correctly
+
+Array shape and coordinates
+---------------------------
+
+NumPy arrays use **[row, column]** indexing:
+
+* **row** = y-coordinate (vertical position, 0 at top)
+* **column** = x-coordinate (horizontal position, 0 at left)
+* **Shape**: ``(height, width)`` where height (rows) comes first
+
+.. code-block:: python
+
+   array = np.zeros((200, 300), dtype=np.uint8)  # 200 tall, 300 wide
+
+   # Set pixel at row 50, column 100 to white
+   array[50, 100] = 255
+
+   # Set bottom-right corner
+   array[199, 299] = 128
+
+.. tip::
+
+   **Remember:** ``array[y, x]`` not ``array[x, y]``. This follows matrix notation, opposite to many graphics systems.
 
 Understanding Digital Images
 ==============================
 
+Now that you understand grayscale (2D arrays), let's extend to color images with RGB channels.
+
 The fundamental insight
 ------------------------
 
-**An image is just a 3D array of numbers.** Each number represents the intensity of light for one color channel at one pixel location. In Python using NumPy, an RGB image has shape `(height, width, 3)`, where the three channels represent red, green, and blue intensities. 
+**An RGB image is a 3D array of numbers.** Each number represents the intensity of light for one color channel at one pixel location. In Python using NumPy, an RGB image has shape `(height, width, 3)`, where the three channels represent red, green, and blue intensities. 
 
 .. code-block:: python
 
@@ -328,11 +400,6 @@ In just 15-20 minutes, you've learned the foundational concept of digital image 
 
 This foundational knowledge prepares you for more advanced color manipulations, transformations, and eventually, generative AI art creation.
 
-Next Steps
-==========
-
-Continue to Module 1.2 to explore HSV color space, perceptual color models, and advanced color manipulations.
-
 References
 ==========
 
@@ -352,3 +419,5 @@ References
 
 
 .. [Woo2024] Woo, Tom. "The Truth: Can RGB Lights Make White?" *Unitop LED Strip*, 4 May 2024, www.unitopledstrip.com/es/can-rgb-lights-make-white/. [RGB additive color mixing diagram]
+
+.. [Harmon1973] Harmon, L.D. (1973). "The Recognition of Faces." *Scientific American*, 229(5), 70-82. [Lincoln portrait pixel demonstration - public domain historical image]

@@ -4,20 +4,16 @@
 2.1.2 - Drawing Triangles
 =====================================
 
-:Duration: 17 minutes
+:Duration: 20 minutes
 :Level: Beginner
 :Prerequisites: Module 2.1.1 (Drawing Lines), Module 1.1.1 (RGB Color Basics)
-
-.. contents:: Contents
-   :local:
-   :depth: 2
 
 Overview
 ========
 
-Triangles are the fundamental building blocks of computer graphics. Every 3D model you see in video games, movies, and simulations is ultimately composed of triangles. But why triangles? Because they are the simplest polygon three points always define a unique plane, making them mathematically elegant and computationally efficient.
+Triangles are the basic building blocks of computer graphics. Every 3D model in video games, movies, and simulations is made of triangles. Why? Three points always define a flat surface, making triangles simple to work with and fast to render.
 
-In this exercise, you will learn two approaches to drawing filled triangles: the intuitive **line equation method** (understanding triangles as intersections of half-planes) and the elegant **matrix operations method** (using NumPy's broadcasting). By the end, you will create a mountain landscape using multiple overlapping triangles demonstrating how simple primitives combine into complex imagery.
+In this exercise, you will learn two ways to draw filled triangles: the **edge function method** and the **matrix operations method**. You will also create a mountain landscape using overlapping triangles.
 
 **Learning Objectives**
 
@@ -206,9 +202,7 @@ Hands-On Exercises
 Exercise 1: Execute and Explore
 --------------------------------
 
-**Time estimate:** 3 minutes
-
-Run both ``simple_triangle.py`` and ``triangle_matrix.py``. Compare the outputs and observe the differences.
+Run both :download:`simple_triangle.py` and :download:`triangle_matrix.py`. Compare the outputs and observe the differences.
 
 **Reflection Questions:**
 
@@ -227,9 +221,7 @@ Run both ``simple_triangle.py`` and ``triangle_matrix.py``. Compare the outputs 
 Exercise 2: Modify Parameters
 ------------------------------
 
-**Time estimate:** 4 minutes
-
-Modify ``simple_triangle.py`` to achieve these goals:
+Modify :download:`simple_triangle.py` to achieve these goals:
 
 **Goals:**
 
@@ -285,8 +277,6 @@ Modify ``simple_triangle.py`` to achieve these goals:
 
 Exercise 3: Create Mountain Silhouette
 ---------------------------------------
-
-**Time estimate:** 5 minutes
 
 Create a mountain landscape with at least 3 overlapping triangles and a gradient sky background.
 
@@ -403,7 +393,7 @@ Create a mountain landscape with at least 3 overlapping triangles and a gradient
 Summary
 =======
 
-In 17 minutes, you have mastered two approaches to triangle rasterization.
+In this exercise, you have mastered two approaches to triangle rasterization.
 
 **Key Takeaways:**
 
@@ -421,13 +411,6 @@ In 17 minutes, you have mastered two approaches to triangle rasterization.
 * **Integer vs float coordinates:** Vertex coordinates should be integers for pixel-perfect triangles. Use ``int()`` or ``round()`` when calculating positions.
 
 Triangles are the foundation of 3D graphics. Every mesh in video games and CGI is composed of triangles because they are the simplest polygon that defines a unique plane. The edge function you learned here is implemented directly in GPU hardware for real-time rendering [Pineda1988]_.
-
-Next Steps
-==========
-
-Continue to **Module 2.1.3: Circles** to learn how distance functions create curved shapes. You will discover that circles use similar principles testing whether points satisfy a mathematical condition but with Euclidean distance instead of edge functions.
-
-:doc:`Continue to Module 2.1.3 - Circles </content/Module_02_geometry_mathematics/2.1_basic_shapes_primitives/2.1.3_circles/circles/README>`
 
 References
 ==========

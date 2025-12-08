@@ -6,10 +6,6 @@
 :Level: Beginner
 :Prerequisites: Module 1.1.1 (RGB Color Basics)
 
-.. contents:: Contents
-   :local:
-   :depth: 2
-
 Overview
 ========
 
