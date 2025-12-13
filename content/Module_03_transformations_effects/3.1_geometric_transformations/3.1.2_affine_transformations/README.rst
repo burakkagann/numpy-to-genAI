@@ -361,7 +361,6 @@ Run the transformation comparison script to observe how different transformation
                 fill=(230, 150, 50), outline=(255, 255, 255))
 
    pil.save('exercise1_output.png')
-   print("Observe: The orange triangle is 1.5x larger than the blue one")
 
 **Reflection questions:**
 
