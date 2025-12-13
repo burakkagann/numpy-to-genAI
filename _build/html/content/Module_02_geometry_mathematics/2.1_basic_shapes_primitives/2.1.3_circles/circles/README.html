@@ -1,0 +1,815 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>2.1.3 - Drawing Circles &#8212; Pixels to GenAI</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/github-icon.css?v=0979adda" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/footer.css?v=22df2544" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/content.css?v=ad41e33b" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/scroll-progress.css?v=46bcc4b9" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../../_static/documentation_options.js?v=60dbed4a"></script>
+    <script src="../../../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/Module_02_geometry_mathematics/2.1_basic_shapes_primitives/2.1.3_circles/circles/README';</script>
+    <script src="../../../../../_static/github-icon.js?v=54752c43"></script>
+    <script src="../../../../../_static/scroll-progress.js?v=9aba87dc"></script>
+    <link rel="icon" href="../../../../../_static/favicon-64x64.png"/>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+    <link rel="next" title="2.1.4 - Creating Star Fields" href="../../2.1.4_stars/stars/README.html" />
+    <link rel="prev" title="2.1.2 - Drawing Triangles" href="../../2.1.2_triangles/triangles/README.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../../_static/favicon-192x192.png" class="logo__image only-light" alt=""/>
+    <img src="../../../../../_static/favicon-192x192.png" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">Pixels to GenAI</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/burakkagann/numpy-to-genAI" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/burakkagann/numpy-to-genAI" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"></div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">2.1.3 - Drawing Circles</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="drawing-circles">
+<span id="module-2-1-3"></span><h1>2.1.3 - Drawing Circles<a class="headerlink" href="#drawing-circles" title="Link to this heading">#</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">Duration<span class="colon">:</span></dt>
+<dd class="field-odd"><p>20 minutes</p>
+</dd>
+<dt class="field-even">Level<span class="colon">:</span></dt>
+<dd class="field-even"><p>Beginner</p>
+</dd>
+<dt class="field-odd">Prerequisites<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="xref std std-ref">Module 1.1.1</span> (RGB Basics), Module 2.1.1 (Lines)</p>
+</dd>
+</dl>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>This exercise teaches you how to draw circles using distance calculations instead
+of plotting individual pixels. You will learn the mathematical definition of a
+circle: all points at a fixed distance from a center. By measuring how far each
+pixel is from a center point, we can decide which pixels belong inside the circle
+and color them.</p>
+<p><strong>Learning Objectives:</strong></p>
+<ol class="arabic simple">
+<li><p>Understand how the Euclidean distance formula defines circles mathematically</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">np.ogrid</span></code> to create efficient coordinate grids for vectorized calculations</p></li>
+<li><p>Apply boolean masking to select and color pixels inside a shape</p></li>
+<li><p>Extend the technique to create composite patterns with multiple circles</p></li>
+</ol>
+</section>
+<section id="quick-start">
+<h2>Quick Start<a class="headerlink" href="#quick-start" title="Link to this heading">#</a></h2>
+<p>Let’s jump straight in and create a circle. Run this script to see the result:</p>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">circle.py - Drawing a circle with distance calculations</span><a class="headerlink" href="#id7" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="c1"># Configuration</span>
+<span class="linenos"> 5</span><span class="n">CANVAS_SIZE</span> <span class="o">=</span> <span class="mi">512</span>
+<span class="linenos"> 6</span><span class="n">CENTER_X</span><span class="p">,</span> <span class="n">CENTER_Y</span> <span class="o">=</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">256</span>
+<span class="linenos"> 7</span><span class="n">RADIUS</span> <span class="o">=</span> <span class="mi">150</span>
+<span class="linenos"> 8</span><span class="n">CIRCLE_COLOR</span> <span class="o">=</span> <span class="p">[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># Orange</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="c1"># Step 1: Create coordinate grids</span>
+<span class="linenos">11</span><span class="n">Y</span><span class="p">,</span> <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ogrid</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">CANVAS_SIZE</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">CANVAS_SIZE</span><span class="p">]</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="c1"># Step 2: Calculate squared distance from center</span>
+<span class="linenos">14</span><span class="n">square_distance</span> <span class="o">=</span> <span class="p">(</span><span class="n">X</span> <span class="o">-</span> <span class="n">CENTER_X</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">Y</span> <span class="o">-</span> <span class="n">CENTER_Y</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="c1"># Step 3: Create mask for pixels inside the circle</span>
+<span class="linenos">17</span><span class="n">inside_circle</span> <span class="o">=</span> <span class="n">square_distance</span> <span class="o">&lt;</span> <span class="n">RADIUS</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span><span class="c1"># Step 4: Create canvas and apply color</span>
+<span class="linenos">20</span><span class="n">canvas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">CANVAS_SIZE</span><span class="p">,</span> <span class="n">CANVAS_SIZE</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+<span class="linenos">21</span><span class="n">canvas</span><span class="p">[</span><span class="n">inside_circle</span><span class="p">]</span> <span class="o">=</span> <span class="n">CIRCLE_COLOR</span>
+<span class="linenos">22</span>
+<span class="linenos">23</span><span class="c1"># Step 5: Save</span>
+<span class="linenos">24</span><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;RGB&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;circle.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<figure class="align-center" id="id8">
+<a class="reference internal image-reference" href="../../../../../_images/circle.png"><img alt="An orange circle centered on a black background" src="../../../../../_images/circle.png" style="width: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Output: A 150-pixel radius orange circle centered on a 512x512 canvas.</span><a class="headerlink" href="#id8" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>What you just did:</strong> You used the Pythagorean theorem to determine which
+pixels lie within 150 pixels of the center point (256, 256). Every pixel
+where <code class="docutils literal notranslate"><span class="pre">distance</span> <span class="pre">&lt;</span> <span class="pre">radius</span></code> gets colored orange. This vectorized approach
+processes all 262,144 pixels simultaneously, making it far more efficient
+than a nested loop checking each pixel individually.</p>
+</div>
+</section>
+<section id="core-concepts">
+<h2>Core Concepts<a class="headerlink" href="#core-concepts" title="Link to this heading">#</a></h2>
+<section id="concept-1-the-distance-formula">
+<h3>Concept 1: The Distance Formula<a class="headerlink" href="#concept-1-the-distance-formula" title="Link to this heading">#</a></h3>
+<p>A circle is mathematically defined as all points at a fixed distance (the
+<em>radius</em>) from a center point. For any pixel at position <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y)</span></code> and a
+circle centered at <code class="docutils literal notranslate"><span class="pre">(cx,</span> <span class="pre">cy)</span></code>, we calculate the Euclidean distance:</p>
+<div class="math notranslate nohighlight">
+\[d = \sqrt{(x - cx)^2 + (y - cy)^2}\]</div>
+<p>A pixel is <strong>inside</strong> the circle if <code class="docutils literal notranslate"><span class="pre">d</span> <span class="pre">&lt;</span> <span class="pre">radius</span></code>.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Optimization Trick:</strong> Computing square roots is computationally expensive.
+Since we only need to compare distances (not measure them), we can compare
+<em>squared</em> values instead:</p>
+<p><code class="docutils literal notranslate"><span class="pre">(x</span> <span class="pre">-</span> <span class="pre">cx)²</span> <span class="pre">+</span> <span class="pre">(y</span> <span class="pre">-</span> <span class="pre">cy)²</span> <span class="pre">&lt;</span> <span class="pre">radius²</span></code></p>
+<p>This is mathematically equivalent but avoids the costly <code class="docutils literal notranslate"><span class="pre">sqrt()</span></code> operation
+for every pixel. Early computer graphics used this optimization extensively
+due to limited hardware <a class="reference internal" href="#bresenham1977" id="id1"><span>[Bresenham1977]</span></a>.</p>
+</div>
+<figure class="align-center" id="id9">
+<a class="reference internal image-reference" href="../../../../../_images/distance_formula_diagram.png"><img alt="Diagram showing the distance formula with labeled dx, dy, and radius" src="../../../../../_images/distance_formula_diagram.png" style="width: 600px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Visualizing the distance formula: Gold pixels are inside the circle (d &lt; r),
+gray pixels are outside (d &gt;= r). The dx and dy components combine via the
+Pythagorean theorem to give the total distance d. Diagram generated with Claude Code.</span><a class="headerlink" href="#id9" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="concept-2-coordinate-grids-with-np-ogrid">
+<h3>Concept 2: Coordinate Grids with np.ogrid<a class="headerlink" href="#concept-2-coordinate-grids-with-np-ogrid" title="Link to this heading">#</a></h3>
+<p>To calculate distances for all pixels efficiently, we need arrays containing
+the X and Y coordinates of every pixel. NumPy’s <code class="docutils literal notranslate"><span class="pre">np.ogrid</span></code> creates these
+“open grids” in a memory-efficient way <a class="reference internal" href="#numpydocs2024" id="id2"><span>[NumPyDocs2024]</span></a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Y</span><span class="p">,</span> <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ogrid</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">512</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">512</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>This creates two arrays:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Y</span></code> is a column vector of shape <code class="docutils literal notranslate"><span class="pre">(512,</span> <span class="pre">1)</span></code> containing values 0 to 511</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">X</span></code> is a row vector of shape <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">512)</span></code> containing values 0 to 511</p></li>
+</ul>
+<p>When used in arithmetic operations, NumPy’s <em>broadcasting</em> automatically
+expands these to full 512x512 arrays, computing the result for every
+pixel coordinate combination.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Alternative approaches:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">np.meshgrid</span></code> creates full 2D arrays (uses more memory)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">np.indices</span></code> creates a 3D array of shape <code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">height,</span> <span class="pre">width)</span></code></p></li>
+</ul>
+<p>For most circle rendering, <code class="docutils literal notranslate"><span class="pre">np.ogrid</span></code> is the most memory-efficient choice.</p>
+</div>
+</section>
+<section id="concept-3-boolean-masking-for-shape-selection">
+<h3>Concept 3: Boolean Masking for Shape Selection<a class="headerlink" href="#concept-3-boolean-masking-for-shape-selection" title="Link to this heading">#</a></h3>
+<p>The comparison <code class="docutils literal notranslate"><span class="pre">square_distance</span> <span class="pre">&lt;</span> <span class="pre">RADIUS</span> <span class="pre">**</span> <span class="pre">2</span></code> produces a boolean array
+of the same shape as the canvas:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">inside_circle</span> <span class="o">=</span> <span class="n">square_distance</span> <span class="o">&lt;</span> <span class="n">RADIUS</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="c1"># Result: 2D array of True/False values</span>
+</pre></div>
+</div>
+<p>This “mask” acts like a stencil. When we write:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">canvas</span><span class="p">[</span><span class="n">inside_circle</span><span class="p">]</span> <span class="o">=</span> <span class="n">CIRCLE_COLOR</span>
+</pre></div>
+</div>
+<p>NumPy assigns <code class="docutils literal notranslate"><span class="pre">CIRCLE_COLOR</span></code> only to pixels where <code class="docutils literal notranslate"><span class="pre">inside_circle</span></code> is
+<code class="docutils literal notranslate"><span class="pre">True</span></code>. This is called <strong>boolean indexing</strong> or <strong>fancy indexing</strong> and is
+a powerful pattern for selective array modification <a class="reference internal" href="../../../2.2_coordinate_systems_fields/2.2.4_distance_fields/README.html#harris2020" id="id3"><span>[Harris2020]</span></a>.</p>
+<div class="admonition-did-you-know admonition">
+<p class="admonition-title">Did You Know?</p>
+<p>Boolean masking is the foundation for many image processing operations.
+Photo editing tools like “magic wand” selection use similar distance-based
+masks to select regions of similar color. In machine learning, masks are
+used to focus attention on specific parts of an image <a class="reference internal" href="../../../2.2_coordinate_systems_fields/2.2.4_distance_fields/README.html#gonzalez2018" id="id4"><span>[Gonzalez2018]</span></a>.</p>
+</div>
+</section>
+</section>
+<section id="hands-on-exercises">
+<h2>Hands-On Exercises<a class="headerlink" href="#hands-on-exercises" title="Link to this heading">#</a></h2>
+<section id="exercise-1-execute-and-explore">
+<h3>Exercise 1: Execute and Explore<a class="headerlink" href="#exercise-1-execute-and-explore" title="Link to this heading">#</a></h3>
+<p>Run <a class="reference download internal" download="" href="../../../../../_downloads/acbadaa50fd60fd649aec16cfbcab456/circle.py"><code class="xref download docutils literal notranslate"><span class="pre">circle.py</span></code></a> and observe the output.
+Then answer these reflection questions:</p>
+<p><strong>Reflection Questions:</strong></p>
+<ol class="arabic simple">
+<li><p>What happens if you change <code class="docutils literal notranslate"><span class="pre">RADIUS</span></code> from 150 to 50? To 250?</p></li>
+<li><p>Why do we compare <code class="docutils literal notranslate"><span class="pre">square_distance</span> <span class="pre">&lt;</span> <span class="pre">RADIUS</span> <span class="pre">**</span> <span class="pre">2</span></code> instead of calculating
+the actual distance with <code class="docutils literal notranslate"><span class="pre">sqrt()</span></code>?</p></li>
+<li><p>How would you move the circle to the bottom-right corner of the canvas?</p></li>
+</ol>
+</section>
+<section id="exercise-2-modify-to-achieve-goals">
+<h3>Exercise 2: Modify to Achieve Goals<a class="headerlink" href="#exercise-2-modify-to-achieve-goals" title="Link to this heading">#</a></h3>
+<p>Starting with the Quick Start code, complete these modification tasks:</p>
+<p><strong>Task A: Create a small circle in the top-left quadrant</strong></p>
+<ul class="simple">
+<li><p>Radius: 50 pixels</p></li>
+<li><p>Center: approximately (100, 100)</p></li>
+<li><p>Color: Keep orange or choose your own</p></li>
+</ul>
+<p><strong>Task B: Create a blue circle</strong></p>
+<ul class="simple">
+<li><p>Change the color to blue (hint: blue is the third channel in RGB)</p></li>
+</ul>
+<p><strong>Task C: Create two circles side by side</strong></p>
+<ul class="simple">
+<li><p>Red circle on the left (center around x=150)</p></li>
+<li><p>Green circle on the right (center around x=360)</p></li>
+<li><p>Both with radius 100</p></li>
+</ul>
+<figure class="align-center" id="id10">
+<a class="reference internal image-reference" href="../../../../../_images/circle_variations.png"><img alt="Four variations showing different circle parameters" src="../../../../../_images/circle_variations.png" style="width: 500px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Examples of circle parameter variations: different radii, positions,
+and multiple circles on a single canvas.</span><a class="headerlink" href="#id10" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="exercise-3-create-from-scratch-concentric-circles">
+<h3>Exercise 3: Create from Scratch - Concentric Circles<a class="headerlink" href="#exercise-3-create-from-scratch-concentric-circles" title="Link to this heading">#</a></h3>
+<p>Create a <strong>bulls-eye pattern</strong> with 5 concentric circles using alternating
+red and white colors.</p>
+<p><strong>Requirements:</strong></p>
+<ul class="simple">
+<li><p>Canvas size: 512x512 pixels</p></li>
+<li><p>Center: (256, 256)</p></li>
+<li><p>5 circles with radii: 200, 160, 120, 80, 40 pixels</p></li>
+<li><p>Alternating colors: red, white, red, white, red (outermost to innermost)</p></li>
+</ul>
+<p><strong>Starter code:</strong></p>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-text">concentric_circles_starter.py</span><a class="headerlink" href="#id11" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
+
+<span class="n">CANVAS_SIZE</span> <span class="o">=</span> <span class="mi">512</span>
+<span class="n">CENTER_X</span><span class="p">,</span> <span class="n">CENTER_Y</span> <span class="o">=</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">256</span>
+
+<span class="c1"># Define radii (largest to smallest)</span>
+<span class="n">RADII</span> <span class="o">=</span> <span class="p">[</span><span class="mi">200</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>
+
+<span class="c1"># Define colors (alternating red and white)</span>
+<span class="n">RED</span> <span class="o">=</span> <span class="p">[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">WHITE</span> <span class="o">=</span> <span class="p">[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">]</span>
+<span class="n">COLORS</span> <span class="o">=</span> <span class="p">[</span><span class="n">RED</span><span class="p">,</span> <span class="n">WHITE</span><span class="p">,</span> <span class="n">RED</span><span class="p">,</span> <span class="n">WHITE</span><span class="p">,</span> <span class="n">RED</span><span class="p">]</span>
+
+<span class="c1"># Create coordinate grids</span>
+<span class="n">Y</span><span class="p">,</span> <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ogrid</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">CANVAS_SIZE</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">CANVAS_SIZE</span><span class="p">]</span>
+<span class="n">square_distance</span> <span class="o">=</span> <span class="p">(</span><span class="n">X</span> <span class="o">-</span> <span class="n">CENTER_X</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">Y</span> <span class="o">-</span> <span class="n">CENTER_Y</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+
+<span class="n">canvas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">CANVAS_SIZE</span><span class="p">,</span> <span class="n">CANVAS_SIZE</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+
+<span class="c1"># TODO: Loop through RADII and COLORS to draw circles</span>
+<span class="c1"># Hint: Draw from largest to smallest so smaller circles overlay larger ones</span>
+
+<span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;RGB&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;concentric_circles.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<figure class="align-center" id="id12">
+<a class="reference internal image-reference" href="../../../../../_images/concentric_circles.png"><img alt="Bulls-eye pattern with alternating red and white concentric circles" src="../../../../../_images/concentric_circles.png" style="width: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Expected output: A bulls-eye pattern with 5 concentric circles in
+alternating red and white colors.</span><a class="headerlink" href="#id12" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="challenge-extension">
+<h2>Challenge Extension<a class="headerlink" href="#challenge-extension" title="Link to this heading">#</a></h2>
+<p>Ready for a creative challenge? These patterns are inspired by techniques used
+in generative art <a class="reference internal" href="../../../2.2_coordinate_systems_fields/2.2.4_distance_fields/README.html#pearson2011" id="id5"><span>[Pearson2011]</span></a>. Try recreating one of these advanced patterns:</p>
+<p><strong>Option A: Four-Circle Flower</strong></p>
+<p>Create a flower-like pattern by drawing 4 overlapping circles positioned at
+the top, bottom, left, and right of a central point. Use a gradient color
+scheme (dark red to bright yellow).</p>
+<p><strong>Option B: Gradient Rings</strong></p>
+<p>Modify the concentric circles to use a smooth color gradient from the outer
+edge (dark) to the center (bright). Instead of just 5 colors, use a loop
+to create many thin rings with incrementally changing colors.</p>
+<p><strong>Option C: Off-Center Tunnel</strong></p>
+<p>Create a “tunnel” effect by drawing concentric circles where each successive
+circle has a slightly shifted center point, creating a perspective illusion.</p>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<p><strong>Key Takeaways:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Circles are distance-defined:</strong> A pixel is inside a circle if its distance
+from the center is less than the radius.</p></li>
+<li><p><strong>Squared distance optimization:</strong> Avoid expensive <code class="docutils literal notranslate"><span class="pre">sqrt()</span></code> by comparing
+squared distances: <code class="docutils literal notranslate"><span class="pre">d²</span> <span class="pre">&lt;</span> <span class="pre">r²</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">d</span> <span class="pre">&lt;</span> <span class="pre">r</span></code>.</p></li>
+<li><p><strong>np.ogrid creates efficient coordinate grids</strong> that leverage NumPy’s
+broadcasting for vectorized calculations.</p></li>
+<li><p><strong>Boolean masking selects pixels:</strong> Comparison operations create True/False
+arrays that act as stencils for selective coloring.</p></li>
+<li><p><strong>Drawing order matters:</strong> For overlapping shapes, draw from back (largest)
+to front (smallest) to achieve proper layering.</p></li>
+</ol>
+<p>This exercise follows cognitive load principles by introducing concepts
+incrementally: first distance, then grids, then masking <a class="reference internal" href="#paas2020" id="id6"><span>[Paas2020]</span></a>.</p>
+<p><strong>Common Pitfalls:</strong></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<ul class="simple">
+<li><p><strong>Forgetting to square the radius:</strong> Using <code class="docutils literal notranslate"><span class="pre">square_dist</span> <span class="pre">&lt;</span> <span class="pre">RADIUS</span></code> instead
+of <code class="docutils literal notranslate"><span class="pre">square_dist</span> <span class="pre">&lt;</span> <span class="pre">RADIUS</span> <span class="pre">**</span> <span class="pre">2</span></code> will create a tiny circle.</p></li>
+<li><p><strong>Drawing circles in wrong order:</strong> For concentric patterns, always draw
+largest first; otherwise smaller circles get hidden.</p></li>
+<li><p><strong>Integer overflow:</strong> For very large canvases, <code class="docutils literal notranslate"><span class="pre">(X</span> <span class="pre">-</span> <span class="pre">CENTER)²</span> <span class="pre">+</span> <span class="pre">(Y</span> <span class="pre">-</span> <span class="pre">CENTER)²</span></code>
+can overflow if using <code class="docutils literal notranslate"><span class="pre">np.int32</span></code>. Use <code class="docutils literal notranslate"><span class="pre">np.int64</span></code> or <code class="docutils literal notranslate"><span class="pre">np.float64</span></code> for
+safety.</p></li>
+</ul>
+</div>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<div role="list" class="citation-list">
+<div class="citation" id="harris2020" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">Harris2020</a><span class="fn-bracket">]</span></span>
+<p>Harris, C. R., et al. (2020). Array programming with NumPy.
+<em>Nature</em>, 585(7825), 357-362. <a class="reference external" href="https://doi.org/10.1038/s41586-020-2649-2">https://doi.org/10.1038/s41586-020-2649-2</a>
+[Foundational paper on NumPy’s array operations and broadcasting]</p>
+</div>
+<div class="citation" id="gonzalez2018" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">Gonzalez2018</a><span class="fn-bracket">]</span></span>
+<p>Gonzalez, R. C., &amp; Woods, R. E. (2018). <em>Digital Image
+Processing</em> (4th ed.). Pearson. ISBN: 978-0-13-335672-4
+[Standard reference for image processing algorithms including distance transforms]</p>
+</div>
+<div class="citation" id="foley1990" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Foley1990<span class="fn-bracket">]</span></span>
+<p>Foley, J. D., van Dam, A., Feiner, S. K., &amp; Hughes, J. F. (1990).
+<em>Computer Graphics: Principles and Practice</em> (2nd ed.). Addison-Wesley.
+[Classic text on computer graphics including circle rasterization algorithms]</p>
+</div>
+<div class="citation" id="bresenham1977" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">Bresenham1977</a><span class="fn-bracket">]</span></span>
+<p>Bresenham, J. E. (1977). A linear algorithm for incremental
+digital display of circular arcs. <em>Communications of the ACM</em>, 20(2), 100-106.
+[Historical context: Bresenham’s efficient circle algorithm for early computers]</p>
+</div>
+<div class="citation" id="numpydocs2024" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">NumPyDocs2024</a><span class="fn-bracket">]</span></span>
+<p>NumPy Developers. (2024). numpy.ogrid documentation.
+<em>NumPy Reference</em>. Retrieved January 30, 2025, from
+<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ogrid.html">https://numpy.org/doc/stable/reference/generated/numpy.ogrid.html</a></p>
+</div>
+<div class="citation" id="pearson2011" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">Pearson2011</a><span class="fn-bracket">]</span></span>
+<p>Pearson, M. (2011). <em>Generative Art: A Practical Guide Using
+Processing</em>. Manning Publications. ISBN: 978-1-935182-62-5
+[Practical introduction to generative art techniques including shape rendering]</p>
+</div>
+<div class="citation" id="paas2020" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">Paas2020</a><span class="fn-bracket">]</span></span>
+<p>Paas, F., &amp; van Merriënboer, J. J. G. (2020). Cognitive-load theory:
+Methods to manage working memory load in the learning of complex tasks.
+<em>Current Directions in Psychological Science</em>, 29(4), 394-398.
+[Pedagogical research supporting scaffolded learning approach]</p>
+</div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../../2.1.2_triangles/triangles/README.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">2.1.2 - Drawing Triangles</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../2.1.4_stars/stars/README.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">2.1.4 - Creating Star Fields</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-start">Quick Start</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#core-concepts">Core Concepts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concept-1-the-distance-formula">Concept 1: The Distance Formula</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concept-2-coordinate-grids-with-np-ogrid">Concept 2: Coordinate Grids with np.ogrid</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concept-3-boolean-masking-for-shape-selection">Concept 3: Boolean Masking for Shape Selection</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hands-on-exercises">Hands-On Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-execute-and-explore">Exercise 1: Execute and Explore</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-modify-to-achieve-goals">Exercise 2: Modify to Achieve Goals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-create-from-scratch-concentric-circles">Exercise 3: Create from Scratch - Concentric Circles</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-extension">Challenge Extension</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../../_sources/content/Module_02_geometry_mathematics/2.1_basic_shapes_primitives/2.1.3_circles/circles/README.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Kristian Rother &amp; Burak Kagan Yilmazer.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1082 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Pixels to GenAI &#8212; Pixels to GenAI</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/github-icon.css?v=0979adda" />
+    <link rel="stylesheet" type="text/css" href="_static/footer.css?v=22df2544" />
+    <link rel="stylesheet" type="text/css" href="_static/content.css?v=ad41e33b" />
+    <link rel="stylesheet" type="text/css" href="_static/scroll-progress.css?v=46bcc4b9" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=60dbed4a"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
+    <script src="_static/github-icon.js?v=54752c43"></script>
+    <script src="_static/scroll-progress.js?v=9aba87dc"></script>
+    <link rel="icon" href="_static/favicon-64x64.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="0.1.1 - What Is Generative Art" href="content/Module_00_foundations_definitions/0.1_what_is_generative_art/README.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/favicon-192x192.png" class="logo__image only-light" alt=""/>
+    <img src="_static/favicon-192x192.png" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">Pixels to GenAI</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/burakkagann/numpy-to-genAI" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/burakkagann/numpy-to-genAI" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none"></div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="pixels-to-genai">
+<h1>Pixels to GenAI<a class="headerlink" href="#pixels-to-genai" title="Link to this heading">#</a></h1>
+<p>An open source educational platform that creates a comprehensive pathway into AI-driven generative art, bridging mathematical and visual foundations to modern creative AI techniques. This 15-module curriculum takes learners from fundamental pixel manipulation and NumPy operations through advanced generative models, neural networks, and real-time interactive systems.</p>
+<p><strong>paint things – create art – have fun!</strong></p>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="_images/challenge_rings.png"><img alt="Concentric rings pattern created using distance fields and sine functions" src="_images/challenge_rings.png" style="width: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-text"><em>Concentric rings from Module 2.2.4: Distance Fields</em></span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="project-at-a-glance">
+<h2>Project at a Glance<a class="headerlink" href="#project-at-a-glance" title="Link to this heading">#</a></h2>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-3 sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm pst-card docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<svg version="1.1" width="1.4em" height="1.4em" class="sd-octicon sd-octicon-book sd-text-secondary" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 1.75A.75.75 0 0 1 .75 1h4.253c1.227 0 2.317.59 3 1.501A3.743 3.743 0 0 1 11.006 1h4.245a.75.75 0 0 1 .75.75v10.5a.75.75 0 0 1-.75.75h-4.507a2.25 2.25 0 0 0-1.591.659l-.622.621a.75.75 0 0 1-1.06 0l-.622-.621A2.25 2.25 0 0 0 5.258 13H.75a.75.75 0 0 1-.75-.75Zm7.251 10.324.004-5.073-.002-2.253A2.25 2.25 0 0 0 5.003 2.5H1.5v9h3.757a3.75 3.75 0 0 1 1.994.574ZM8.755 4.75l-.004 7.322a3.752 3.752 0 0 1 1.992-.572H14.5v-9h-3.495a2.25 2.25 0 0 0-2.25 2.25Z"></path></svg> Educational Pathway</div>
+<p class="sd-card-text">Creating an approachable journey into AI-driven generative art that connects visual intuition with modern machine learning practice through 15 progressive modules.</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm pst-card docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<svg version="1.1" width="1.4em" height="1.4em" class="sd-octicon sd-octicon-mortar-board sd-text-secondary" viewBox="0 0 16 16" aria-hidden="true"><path d="M7.693 1.066a.747.747 0 0 1 .614 0l7.25 3.25a.75.75 0 0 1 0 1.368L13 6.831v2.794c0 1.024-.81 1.749-1.66 2.173-.893.447-2.075.702-3.34.702-.278 0-.55-.012-.816-.036a.75.75 0 0 1 .133-1.494c.22.02.45.03.683.03 1.082 0 2.025-.221 2.67-.543.69-.345.83-.682.83-.832V7.503L8.307 8.934a.747.747 0 0 1-.614 0L4 7.28v1.663c.296.105.575.275.812.512.438.438.688 1.059.688 1.796v3a.75.75 0 0 1-.75.75h-3a.75.75 0 0 1-.75-.75v-3c0-.737.25-1.358.688-1.796.237-.237.516-.407.812-.512V6.606L.443 5.684a.75.75 0 0 1 0-1.368ZM2.583 5 8 7.428 13.416 5 8 2.572ZM2.5 11.25v2.25H4v-2.25c0-.388-.125-.611-.25-.735a.697.697 0 0 0-.5-.203.707.707 0 0 0-.5.203c-.125.124-.25.347-.25.735Z"></path></svg> Designed for Learners</div>
+<p class="sd-card-text">Materials welcome semi-beginners through semi-experienced programmers, with optional guidance for newcomers willing to self-study foundational topics.</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm pst-card docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<svg version="1.1" width="1.4em" height="1.4em" class="sd-octicon sd-octicon-beaker sd-text-secondary" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458Zm-2.4 6.565a.75.75 0 0 0 .633 1.153h9.534a.75.75 0 0 0 .633-1.153L12.225 10.5h-8.45ZM9.5 2.5h-3V6c0 .143-.04.283-.117.403L4.73 9h6.54L9.617 6.403A.746.746 0 0 1 9.5 6Z"></path></svg> Theory Meets Practice</div>
+<p class="sd-card-text">Each module balances mathematical ideas, NumPy techniques, and creative coding projects so learners see how concepts translate into visuals and AI applications.</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm pst-card docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<svg version="1.1" width="1.4em" height="1.4em" class="sd-octicon sd-octicon-stack sd-text-secondary" viewBox="0 0 16 16" aria-hidden="true"><path d="M7.122.392a1.75 1.75 0 0 1 1.756 0l5.003 2.902c.83.481.83 1.68 0 2.162L8.878 8.358a1.75 1.75 0 0 1-1.756 0L2.119 5.456a1.251 1.251 0 0 1 0-2.162ZM8.125 1.69a.248.248 0 0 0-.25 0l-4.63 2.685 4.63 2.685a.248.248 0 0 0 .25 0l4.63-2.685ZM1.601 7.789a.75.75 0 0 1 1.025-.273l5.249 3.044a.248.248 0 0 0 .25 0l5.249-3.044a.75.75 0 0 1 .752 1.298l-5.248 3.044a1.75 1.75 0 0 1-1.756 0L1.874 8.814A.75.75 0 0 1 1.6 7.789Zm0 3.5a.75.75 0 0 1 1.025-.273l5.249 3.044a.248.248 0 0 0 .25 0l5.249-3.044a.75.75 0 0 1 .752 1.298l-5.248 3.044a1.75 1.75 0 0 1-1.756 0l-5.248-3.044a.75.75 0 0 1-.273-1.025Z"></path></svg> Progressive Curriculum</div>
+<p class="sd-card-text">Lessons build sequentially from image fundamentals through fractals, simulations, and generative AI, allowing confidence to grow alongside complexity.</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm pst-card docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<svg version="1.1" width="1.4em" height="1.4em" class="sd-octicon sd-octicon-people sd-text-secondary" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 5.5a3.5 3.5 0 1 1 5.898 2.549 5.508 5.508 0 0 1 3.034 4.084.75.75 0 1 1-1.482.235 4 4 0 0 0-7.9 0 .75.75 0 0 1-1.482-.236A5.507 5.507 0 0 1 3.102 8.05 3.493 3.493 0 0 1 2 5.5ZM11 4a3.001 3.001 0 0 1 2.22 5.018 5.01 5.01 0 0 1 2.56 3.012.749.749 0 0 1-.885.954.752.752 0 0 1-.549-.514 3.507 3.507 0 0 0-2.522-2.372.75.75 0 0 1-.574-.73v-.352a.75.75 0 0 1 .416-.672A1.5 1.5 0 0 0 11 5.5.75.75 0 0 1 11 4Zm-5.5-.5a2 2 0 1 0-.001 3.999A2 2 0 0 0 5.5 3.5Z"></path></svg> Creative Community Impact</div>
+<p class="sd-card-text">Supports programming teachers, self-learners, artists, and data scientists who want memorable exercises for classes, portfolios, or passion projects.</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm pst-card docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<svg version="1.1" width="1.4em" height="1.4em" class="sd-octicon sd-octicon-project sd-text-secondary" viewBox="0 0 16 16" aria-hidden="true"><path d="M1.75 0h12.5C15.216 0 16 .784 16 1.75v12.5A1.75 1.75 0 0 1 14.25 16H1.75A1.75 1.75 0 0 1 0 14.25V1.75C0 .784.784 0 1.75 0ZM1.5 1.75v12.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V1.75a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25ZM11.75 3a.75.75 0 0 1 .75.75v7.5a.75.75 0 0 1-1.5 0v-7.5a.75.75 0 0 1 .75-.75Zm-8.25.75a.75.75 0 0 1 1.5 0v5.5a.75.75 0 0 1-1.5 0ZM8 3a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 3Z"></path></svg> Use Cases &amp; Audiences</div>
+<p class="sd-card-text">Ideal for course builders, independent learners, curious engineers, and creatives exploring AI-enhanced artistry across classrooms and studios.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="repository">
+<h2>Repository<a class="headerlink" href="#repository" title="Link to this heading">#</a></h2>
+<p>The source code is available on GitHub:</p>
+<p><a class="github reference external" href="https://github.com/burakkagann/numpy-to-genAI">burakkagann/numpy-to-genAI</a></p>
+<p>Clone the repository:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/burakkagann/numpy-to-genAI.git
+<span class="nb">cd</span><span class="w"> </span>numpy-to-genAI
+</pre></div>
+</div>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h2>
+<p>To execute the examples, you need to install the libraries in <a class="reference download internal" download="" href="_downloads/b4ef698db8ca845e5845c4618278f29a/requirements.txt"><code class="xref download docutils literal notranslate"><span class="pre">requirements.txt</span></code></a>.
+Install them with:</p>
+<p>::</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>If you are using the <a class="reference external" href="https://www.anaconda.com/">Anaconda distribution</a>,
+you should have all necessary libraries already.</p>
+</section>
+<section id="learning-modules">
+<h2>Learning Modules<a class="headerlink" href="#learning-modules" title="Link to this heading">#</a></h2>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Module 0: Foundations &amp; Definitions</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Setting the conceptual and technical groundwork for generative art and AI.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_00_foundations_definitions/0.1_what_is_generative_art/README.html">0.1.1 - What Is Generative Art</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_00_foundations_definitions/0.2_defining_ai_ml_algorithms/README.html">0.2.1 - Defining AI, ML, and Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_00_foundations_definitions/0.4_setup_environment/README.html">0.4.1 - Setup Environment</a></li>
+</ul>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Module 1: Pixel Fundamentals</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Understanding images at the atomic level through color theory and manipulation patterns.</p>
+<p class="sd-card-text"><strong>1.1 - Grayscale &amp; Color Basics</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_01_pixel_fundamentals/1.1_grayscale_color_basics/1.1.1_color_basics/rgb/README.html">1.1.1 - Images as Arrays &amp; RGB</a></li>
+</ul>
+</div>
+<p class="sd-card-text"><strong>1.2 - Pixel Manipulation Patterns</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_01_pixel_fundamentals/1.2_pixel_manipulation_patterns/1.2.1_random_patterns/random_tiles/README.html">1.2.1: Random Pattern Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_01_pixel_fundamentals/1.2_pixel_manipulation_patterns/1.2.2_cellular_automata/README.html">1.2.2: Cellular Automata (Game of Life)</a></li>
+</ul>
+</div>
+<p class="sd-card-text"><strong>1.3 - Structured Compositions</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_01_pixel_fundamentals/1.3_structured_compositions/1.3.1_flags/flags/README.html">1.3.1 - Flags (Array Slicing)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_01_pixel_fundamentals/1.3_structured_compositions/1.3.2_repeat/repeat/README.html">1.3.2 - Repeat (Tiling Patterns)</a></li>
+</ul>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Module 2: Geometry &amp; Mathematics</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Mathematical foundations for generative art through shapes, coordinates, and mathematical patterns.</p>
+<p class="sd-card-text"><strong>2.1 - Basic Shapes &amp; Primitives</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_02_geometry_mathematics/2.1_basic_shapes_primitives/2.1.1_lines/lines/README.html">2.1.1 - Drawing Lines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_02_geometry_mathematics/2.1_basic_shapes_primitives/2.1.2_triangles/triangles/README.html">2.1.2 - Drawing Triangles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_02_geometry_mathematics/2.1_basic_shapes_primitives/2.1.3_circles/circles/README.html">2.1.3 - Drawing Circles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_02_geometry_mathematics/2.1_basic_shapes_primitives/2.1.4_stars/stars/README.html">2.1.4 - Creating Star Fields</a></li>
+</ul>
+</div>
+<p class="sd-card-text"><strong>2.2 - Coordinate Systems &amp; Fields</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_02_geometry_mathematics/2.2_coordinate_systems_fields/2.2.1_gradient/gradient/README.html">2.2.1 - Gradient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_02_geometry_mathematics/2.2_coordinate_systems_fields/2.2.2_spiral/spiral/README.html">2.2.2 - Spiral</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_02_geometry_mathematics/2.2_coordinate_systems_fields/2.2.3_vector_fields/vector_fields/README.html">2.2.3 - Vector Fields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_02_geometry_mathematics/2.2_coordinate_systems_fields/2.2.4_distance_fields/README.html">2.2.4 - Distance Fields</a></li>
+</ul>
+</div>
+<p class="sd-card-text"><strong>2.3 - Mathematical Art</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_02_geometry_mathematics/2.3_mathematical_art/2.3.2_rose_curves/README.html">2.3.2 - Rose Curves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_02_geometry_mathematics/2.3_mathematical_art/2.3.3_harmonograph_simulation/README.html">2.3.3 - Harmonograph Simulation</a></li>
+</ul>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Module 3: Transformations &amp; Effects</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Manipulating visual data through geometric transformations, masking, and artistic filters.</p>
+<p class="sd-card-text"><strong>3.1 - Geometric Transformations</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_03_transformations_effects/3.1_geometric_transformations/3.1.1_rotation/rotate/README.html">3.1.1 - Rotation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_03_transformations_effects/3.1_geometric_transformations/3.1.2_affine_transformations/README.html">3.1.2 - Affine Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_03_transformations_effects/3.1_geometric_transformations/3.1.3_nonlinear_distortions/README.html">3.1.3 - Nonlinear Distortions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_03_transformations_effects/3.1_geometric_transformations/3.1.4_kaleidoscope_effects/kaleidoscope/README.html">3.1.4 - Kaleidoscope Effects</a></li>
+</ul>
+</div>
+<p class="sd-card-text"><strong>3.2 - Masking &amp; Compositing</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_03_transformations_effects/3.2_masking_compositing/3.2.1_mask/mask/README.html">3.2.1 - Mask</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_03_transformations_effects/3.2_masking_compositing/3.2.2_memegen/memegen/README.html">3.2.2 - Meme Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_03_transformations_effects/3.2_masking_compositing/3.2.3_shadow/shadow/README.html">3.2.3 - Shadow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_03_transformations_effects/3.2_masking_compositing/3.2.4_blend_modes/README.html">3.2.4 - Blend Modes</a></li>
+</ul>
+</div>
+<p class="sd-card-text"><strong>3.3 - Artistic Filters</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_03_transformations_effects/3.3_artistic_filters/3.3.1_warhol/warhol/README.html">3.3.1 - Warhol Pop Art Effect</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_03_transformations_effects/3.3_artistic_filters/3.3.2_puzzle/puzzle/README.html">3.3.2 - Puzzle (Array Concatenation)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_03_transformations_effects/3.3_artistic_filters/3.3.3_hexpanda/hexpanda/README.html">3.3.3 - Hexpanda: Hexbin Art Filter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_03_transformations_effects/3.3_artistic_filters/3.3.4_voronoi_diagrams/README.html">3.3.4 - Voronoi Diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_03_transformations_effects/3.3_artistic_filters/3.3.5_delaunay_triangulation/README.html">3.3.5 - Delaunay Triangulation</a></li>
+</ul>
+</div>
+<p class="sd-card-text"><strong>3.4 - Signal Processing</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_03_transformations_effects/3.4_signal_processing/3.4.1_convolution/convolution/README.html">3.4.1 - Convolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_03_transformations_effects/3.4_signal_processing/3.4.2_edge_detection/sobel/README.html">3.4.2 - Edge Detection (Sobel Operator)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_03_transformations_effects/3.4_signal_processing/3.4.3_contour_lines/contour/README.html">3.4.3 - Contour Lines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_03_transformations_effects/3.4_signal_processing/3.4.4_fourier_art/README.html">3.4.4 - Fourier Art</a></li>
+</ul>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Module 4: Fractals &amp; Recursion</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Self-similarity and infinite complexity through classical fractals, natural patterns, and L-systems.</p>
+<p class="sd-card-text"><strong>4.1 - Classical Fractals</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_04_fractals_recursion/4.1_classical_fractals/4.1.1_fractal_square/fractal_square/README.html">3.4.1 - Fractal Square</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_04_fractals_recursion/4.1_classical_fractals/4.1.2_dragon_curve/dragon_curve/README.html">4.1.2 - Dragon Curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_04_fractals_recursion/4.1_classical_fractals/4.1.3_mandelbrot/mandelbrot/README.html">4.1.3 - Mandelbrot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_04_fractals_recursion/4.1_classical_fractals/4.1.4_julia_sets/README.html">4.1.4 - Julia Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_04_fractals_recursion/4.1_classical_fractals/4.1.5_sierpinski/README.html">4.1.5 - Sierpinski</a></li>
+</ul>
+</div>
+<p class="sd-card-text"><strong>4.2 - Natural Fractals</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_04_fractals_recursion/4.2_natural_fractals/4.2.1_fractal_trees/README.html">4.2.1 - Fractal Trees</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_04_fractals_recursion/4.2_natural_fractals/4.2.2_lightning_bolts/README.html">4.2.2 - Lightning Bolts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_04_fractals_recursion/4.2_natural_fractals/4.2.3_fractal_landscapes/README.html">4.2.3 - Fractal Landscapes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_04_fractals_recursion/4.2_natural_fractals/4.2.4_diffusion_limited_aggregation/README.html">4.2.4 - Diffusion Limited Aggregation</a></li>
+</ul>
+</div>
+<p class="sd-card-text"><strong>4.3 - L-Systems</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_04_fractals_recursion/4.3_l_systems/4.3.1_plant_generation/README.html">4.3.1 - Plant Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_04_fractals_recursion/4.3_l_systems/4.3.2_koch_snowflake/README.html">4.3.2 - Koch Snowflake</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_04_fractals_recursion/4.3_l_systems/4.3.3_penrose_tiling/README.html">4.3.3 - Penrose Tiling</a></li>
+</ul>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Module 5: Simulation &amp; Emergent Behavior</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Complex systems from simple rules: particle systems, flocking behavior, and physics simulations.</p>
+<p class="sd-card-text"><strong>5.1 - Particle Systems</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_05_simulation_emergent_behavior/5.1_particle_systems/5.1.1_sand/sand/README.html">5.1.1 - Sand blows away</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_05_simulation_emergent_behavior/5.1_particle_systems/5.1.2_vortex/vortex/README.html">5.1.2 - Vortex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_05_simulation_emergent_behavior/5.1_particle_systems/5.1.3_fireworks_simulation/README.html">5.1.3 - Fireworks Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_05_simulation_emergent_behavior/5.1_particle_systems/5.1.4_fluid_simulation/README.html">5.1.4 - Fluid Simulation</a></li>
+</ul>
+</div>
+<p class="sd-card-text"><strong>5.2 - Flocking &amp; Swarms</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_05_simulation_emergent_behavior/5.2_flocking_swarms/5.2.1_boids/README.html">5.2.1 - Boids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_05_simulation_emergent_behavior/5.2_flocking_swarms/5.2.2_fish_schooling/README.html">5.2.2 - Fish Schooling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_05_simulation_emergent_behavior/5.2_flocking_swarms/5.2.3_ant_colony_optimization/README.html">5.2.3 - Ant Colony Optimization</a></li>
+</ul>
+</div>
+<p class="sd-card-text"><strong>5.3 - Physics Simulations</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_05_simulation_emergent_behavior/5.3_physics_simulations/5.3.1_bouncing_ball/bouncing_ball/README.html">5.3.1 - Bouncing Ball Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_05_simulation_emergent_behavior/5.3_physics_simulations/5.3.2_nbody_planet_simulation/README.html">5.3.2 - Nbody Planet Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_05_simulation_emergent_behavior/5.3_physics_simulations/5.3.3_double_pendulum_chaos/README.html">5.3.3 - Double Pendulum Chaos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_05_simulation_emergent_behavior/5.3_physics_simulations/5.3.4_cloth_rope_simulation/README.html">5.3.4 - Cloth Rope Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_05_simulation_emergent_behavior/5.3_physics_simulations/5.3.5_magnetic_field_visualization/README.html">5.3.5 - Magnetic Field Visualization</a></li>
+</ul>
+</div>
+<p class="sd-card-text"><strong>5.4 - Growth &amp; Morphogenesis</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_05_simulation_emergent_behavior/5.4_growth_morphogenesis/5.4.1_eden_growth_model/README.html">5.4.1 - Eden Growth Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_05_simulation_emergent_behavior/5.4_growth_morphogenesis/5.4.2_differential_growth/README.html">5.4.2 - Differential Growth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_05_simulation_emergent_behavior/5.4_growth_morphogenesis/5.4.3_space_colonization_algorithm/README.html">5.4.3 - Space Colonization Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_05_simulation_emergent_behavior/5.4_growth_morphogenesis/5.4.4_turing_patterns/README.html">5.4.4 - Turing Patterns</a></li>
+</ul>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Module 6: Noise &amp; Procedural Generation</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Controlled randomness for natural effects: noise functions, terrain, textures, and wave patterns.</p>
+<p class="sd-card-text"><strong>6.1 - Noise Functions</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_06_noise_procedural_generation/6.1_noise_functions/6.1.1_perlin_noise/README.html">6.1.1 - Perlin Noise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_06_noise_procedural_generation/6.1_noise_functions/6.1.2_simplex_noise/README.html">6.1.2 - Simplex Noise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_06_noise_procedural_generation/6.1_noise_functions/6.1.3_worley_noise/README.html">6.1.3 - Worley Noise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_06_noise_procedural_generation/6.1_noise_functions/6.1.4_colored_noise/README.html">6.1.4 - Colored Noise</a></li>
+</ul>
+</div>
+<p class="sd-card-text"><strong>6.2 - Terrain Generation</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_06_noise_procedural_generation/6.2_terrain_generation/6.2.1_height_maps/README.html">6.2.1 - Height Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_06_noise_procedural_generation/6.2_terrain_generation/6.2.2_erosion_simulation/README.html">6.2.2 - Erosion Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_06_noise_procedural_generation/6.2_terrain_generation/6.2.3_cave_generation/README.html">6.2.3 - Cave Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_06_noise_procedural_generation/6.2_terrain_generation/6.2.4_island_generation/README.html">6.2.4 Island Generation</a></li>
+</ul>
+</div>
+<p class="sd-card-text"><strong>6.3 - Texture Synthesis</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_06_noise_procedural_generation/6.3_texture_synthesis/6.3.1_marble_wood_textures/README.html">6.3.1 - Marble Wood Textures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_06_noise_procedural_generation/6.3_texture_synthesis/6.3.2_cloud_generation/README.html">6.3.2 - Cloud Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_06_noise_procedural_generation/6.3_texture_synthesis/6.3.3_abstract_patterns/README.html">6.3.3 - Abstract Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_06_noise_procedural_generation/6.3_texture_synthesis/6.3.4_procedural_materials/README.html">6.3.4 - Procedural Materials</a></li>
+</ul>
+</div>
+<p class="sd-card-text"><strong>6.4 - Wave &amp; Interference Patterns</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_06_noise_procedural_generation/6.4_wave_interference_patterns/6.4.1_moire_patterns/README.html">6.4.1 - Moire Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_06_noise_procedural_generation/6.4_wave_interference_patterns/6.4.2_wave_interference/README.html">6.4.2 - Wave Interference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_06_noise_procedural_generation/6.4_wave_interference_patterns/6.4.3_cymatics_visualization/README.html">6.4.3 - Cymatics Visualization</a></li>
+</ul>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Module 7: Classical Machine Learning</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Traditional ML for creative applications: clustering, classification, and statistical methods.</p>
+<p class="sd-card-text"><strong>7.1 - Clustering &amp; Segmentation</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_07_classical_machine_learning/7.1_clustering_segmentation/7.1.1_kmeans_clustering/kmeans/README.html">7.1.1 - K-Means Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_07_classical_machine_learning/7.1_clustering_segmentation/7.1.2_meanshift_segmentation/README.html">7.1.2 - Meanshift Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_07_classical_machine_learning/7.1_clustering_segmentation/7.1.3_dbscan_pattern_detection/README.html">7.1.3 - Dbscan Pattern Detection</a></li>
+</ul>
+</div>
+<p class="sd-card-text"><strong>7.2 - Classification &amp; Recognition</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_07_classical_machine_learning/7.2_classification_recognition/7.2.1_decision_tree_classifier/dtree/README.html">7.2.1 - Decision Tree Classifier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_07_classical_machine_learning/7.2_classification_recognition/7.2.2_random_forests/README.html">7.2.2 - Random Forests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_07_classical_machine_learning/7.2_classification_recognition/7.2.3_svm_style_detection/README.html">7.2.3 - Svm Style Detection</a></li>
+</ul>
+</div>
+<p class="sd-card-text"><strong>7.3 - Dimensionality Reduction</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_07_classical_machine_learning/7.3_dimensionality_reduction/7.3.1_pca_color_palette/README.html">7.3.1 - Pca Color Palette</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_07_classical_machine_learning/7.3_dimensionality_reduction/7.3.2_tsne_visualization/README.html">7.3.2 - Tsne Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_07_classical_machine_learning/7.3_dimensionality_reduction/7.3.3_umap_visualizations/README.html">7.3.3 - Umap Visualizations</a></li>
+</ul>
+</div>
+<p class="sd-card-text"><strong>7.4 - Statistical Methods</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_07_classical_machine_learning/7.4_statistical_methods/7.4.1_monte_carlo_sampling/montecarlo/README.html">7.4.1 - Monte Carlo Sampling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_07_classical_machine_learning/7.4_statistical_methods/7.4.2_markov_chains/README.html">7.4.2 - Markov Chains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_07_classical_machine_learning/7.4_statistical_methods/7.4.3_hidden_markov_models/README.html">7.4.3 - Hidden Markov Models</a></li>
+</ul>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Module 8: Animation &amp; Time</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Adding the fourth dimension: animation fundamentals, organic motion, and cinematic effects.</p>
+<p class="sd-card-text"><strong>8.1 - Animation Fundamentals</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_08_animation_time/8.1_animation_fundamentals/8.1.1_image_transformations/image_transformations/README.html">8.1.1 - Image Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_08_animation_time/8.1_animation_fundamentals/8.1.2_easing_functions/README.html">8.1.2 - Easing Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_08_animation_time/8.1_animation_fundamentals/8.1.3_interpolation_techniques/README.html">8.1.3 - Interpolation Techniques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_08_animation_time/8.1_animation_fundamentals/8.1.4_sprite_sheets/README.html">8.1.4 - Sprite Sheets</a></li>
+</ul>
+</div>
+<p class="sd-card-text"><strong>8.2 - Organic Motion</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_08_animation_time/8.2_organic_motion/8.2.1_flower_assembly/flower_movie/README.html">8.2.1 - Flower Assembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_08_animation_time/8.2_organic_motion/8.2.2_infinite_blossom/blossom/README.html">8.2.2 - Infinite Blossom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_08_animation_time/8.2_organic_motion/8.2.3_walk_cycles/README.html">8.2.3 - Walk Cycles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_08_animation_time/8.2_organic_motion/8.2.4_breathing_pulsing/README.html">8.2.4 - Breathing Pulsing</a></li>
+</ul>
+</div>
+<p class="sd-card-text"><strong>8.3 - Cinematic Effects</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_08_animation_time/8.3_cinematic_effects/8.3.1_starwars_titles/starwars/README.html">8.3.1 - Star Wars Titles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_08_animation_time/8.3_cinematic_effects/8.3.2_thank_you/thank_you/README.html">8.3.2 - Thank You</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_08_animation_time/8.3_cinematic_effects/8.3.3_particle_text_reveals/README.html">8.3.3 - Particle Text Reveals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_08_animation_time/8.3_cinematic_effects/8.3.4_morphing_transitions/README.html">8.3.4 - Morphing Transitions</a></li>
+</ul>
+</div>
+<p class="sd-card-text"><strong>8.4 - Generative Animation</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_08_animation_time/8.4_generative_animation/8.4.1_music_visualization/README.html">8.4.1 - Music Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_08_animation_time/8.4_generative_animation/8.4.2_data_driven_animation/README.html">8.4.2 - Data Driven Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_08_animation_time/8.4_generative_animation/8.4.3_animated_fractals/README.html">8.4.3 - Animated Fractals</a></li>
+</ul>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Module 9: Introduction to Neural Networks</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Bridge to modern AI: neural network fundamentals, architectures, and training dynamics.</p>
+<p class="sd-card-text"><strong>9.1 - Neural Network Fundamentals</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_09_intro_neural_networks/9.1_neural_network_fundamentals/9.1.1_perceptron_scratch/README.html">9.1.1 - Perceptron Scratch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_09_intro_neural_networks/9.1_neural_network_fundamentals/9.1.2_backpropagation_visualization/README.html">9.1.2 - Backpropagation Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_09_intro_neural_networks/9.1_neural_network_fundamentals/9.1.3_activation_functions_art/README.html">9.1.3 - Activation Functions Art</a></li>
+</ul>
+</div>
+<p class="sd-card-text"><strong>9.2 - Network Architectures</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_09_intro_neural_networks/9.2_network_architectures/9.2.1_feedforward_networks/README.html">9.2.1 - Feedforward Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_09_intro_neural_networks/9.2_network_architectures/9.2.2_convolutional_networks_visualization/README.html">9.2.2 - Convolutional Networks Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_09_intro_neural_networks/9.2_network_architectures/9.2.3_recurrent_networks_sequences/README.html">9.2.3 - Recurrent Networks Sequences</a></li>
+</ul>
+</div>
+<p class="sd-card-text"><strong>9.3 - Training Dynamics</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_09_intro_neural_networks/9.3_training_dynamics/9.3.1_loss_landscape_visualization/README.html">9.3.1 - Loss Landscape Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_09_intro_neural_networks/9.3_training_dynamics/9.3.2_gradient_descent_animation/README.html">9.3.2 - Gradient Descent Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_09_intro_neural_networks/9.3_training_dynamics/9.3.3_overfitting_underfitting_demos/README.html">9.3.3 - Overfitting Underfitting Demos</a></li>
+</ul>
+</div>
+<p class="sd-card-text"><strong>9.4 - Feature Visualization</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_09_intro_neural_networks/9.4_feature_visualization/9.4.1_deepdream_implementation/README.html">9.4.1 - Deepdream Implementation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_09_intro_neural_networks/9.4_feature_visualization/9.4.2_feature_map_art/README.html">9.4.2 - Feature Map Art</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_09_intro_neural_networks/9.4_feature_visualization/9.4.3_network_attention_visualization/README.html">9.4.3 - Network Attention Visualization</a></li>
+</ul>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Module 10: TouchDesigner Fundamentals</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Real-time visual programming: TD environment, NumPy integration, and interactive controls.</p>
+<p class="sd-card-text"><strong>10.1 - TD Environment &amp; Workflow</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_10_touchdesigner_fundamentals/10.1_td_environment_workflow/10.1.1_node_networks/README.html">10.1.1 - Node Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_10_touchdesigner_fundamentals/10.1_td_environment_workflow/10.1.2_python_integration_basics/README.html">10.1.2 - Python Integration Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_10_touchdesigner_fundamentals/10.1_td_environment_workflow/10.1.3_performance_monitoring/README.html">10.1.3 - Performance Monitoring</a></li>
+</ul>
+</div>
+<p class="sd-card-text"><strong>10.2 - Recreating Static Exercises</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_10_touchdesigner_fundamentals/10.2_recreating_static_exercises/10.2.1_core_exercises_realtime/README.html">10.2.1 - Core Exercises Realtime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_10_touchdesigner_fundamentals/10.2_recreating_static_exercises/10.2.2_boids_flocking_td/README.html">10.2.2 - Boids Flocking Td</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_10_touchdesigner_fundamentals/10.2_recreating_static_exercises/10.2.3_planet_simulation_td/README.html">10.2.3 - Planet Simulation Td</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_10_touchdesigner_fundamentals/10.2_recreating_static_exercises/10.2.4_fractals_realtime/README.html">10.2.4 - Fractals Realtime</a></li>
+</ul>
+</div>
+<p class="sd-card-text"><strong>10.3 - NumPy to TD Pipeline</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_10_touchdesigner_fundamentals/10.3_numpy_td_pipeline/10.3.1_script_operators/README.html">10.3.1 - Script Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_10_touchdesigner_fundamentals/10.3_numpy_td_pipeline/10.3.2_array_processing/README.html">10.3.2 - Array Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_10_touchdesigner_fundamentals/10.3_numpy_td_pipeline/10.3.3_custom_components/README.html">10.3.3 - Custom Components</a></li>
+</ul>
+</div>
+<p class="sd-card-text"><strong>10.4 - Interactive Controls</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_10_touchdesigner_fundamentals/10.4_interactive_controls/10.4.1_ui_building/README.html">10.4.1 - UI Building</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_10_touchdesigner_fundamentals/10.4_interactive_controls/10.4.2_parameter_mapping/README.html">10.4.2 - Parameter Mapping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_10_touchdesigner_fundamentals/10.4_interactive_controls/10.4.3_preset_systems/README.html">10.4.3 - Preset Systems</a></li>
+</ul>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Module 11: Interactive Systems</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Sensors and real-time response: input devices, computer vision, and physical computing.</p>
+<p class="sd-card-text"><strong>11.1 - Input Devices</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_11_interactive_systems/11.1_input_devices/11.1.1_webcam_processing/README.html">11.1.1 - Webcam Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_11_interactive_systems/11.1_input_devices/11.1.2_audio_reactivity/README.html">11.1.2 - Audio Reactivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_11_interactive_systems/11.1_input_devices/11.1.3_midi_osc_control/README.html">11.1.3 - Midi Osc Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_11_interactive_systems/11.1_input_devices/11.1.4_kinect_leap_motion/README.html">11.1.4 - Kinect Leap Motion</a></li>
+</ul>
+</div>
+<p class="sd-card-text"><strong>11.2 - Computer Vision in TD</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_11_interactive_systems/11.2_computer_vision_td/11.2.1_motion_detection/README.html">11.2.1 - Motion Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_11_interactive_systems/11.2_computer_vision_td/11.2.2_blob_tracking/README.html">11.2.2 - Blob Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_11_interactive_systems/11.2_computer_vision_td/11.2.3_face_detection/README.html">11.2.3 - Face Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_11_interactive_systems/11.2_computer_vision_td/11.2.4_optical_flow/README.html">11.2.4 - Optical Flow</a></li>
+</ul>
+</div>
+<p class="sd-card-text"><strong>11.3 - Physical Computing</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_11_interactive_systems/11.3_physical_computing/11.3.1_arduino_integration/README.html">11.3.1 - Arduino Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_11_interactive_systems/11.3_physical_computing/11.3.2_dmx_lighting_control/README.html">11.3.2 - Dmx Lighting Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_11_interactive_systems/11.3_physical_computing/11.3.3_projection_mapping_basics/README.html">11.3.3 - Projection Mapping Basics</a></li>
+</ul>
+</div>
+<p class="sd-card-text"><strong>11.4 - Network Communication</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_11_interactive_systems/11.4_network_communication/11.4.1_multi_machine_setups/README.html">11.4.1 - Multi Machine Setups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_11_interactive_systems/11.4_network_communication/11.4.2_websocket_webrtc/README.html">11.4.2 - Websocket Webrtc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_11_interactive_systems/11.4_network_communication/11.4.3_remote_control_interfaces/README.html">11.4.3 - Remote Control Interfaces</a></li>
+</ul>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Module 12: Generative AI Models</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Modern generative techniques: GANs, VAEs, diffusion models, and language models for art.</p>
+<p class="sd-card-text"><strong>12.1 - Generative Adversarial Networks</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_12_generative_ai_models/12.1_generative_adversarial_networks/12.1.1_gan_architecture/README.html">12.1.1 - Gan Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_12_generative_ai_models/12.1_generative_adversarial_networks/12.1.2_dcgan_art/README.html">12.1.2 - Dcgan Art</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_12_generative_ai_models/12.1_generative_adversarial_networks/12.1.3_stylegan_exploration/README.html">12.1.3 - Stylegan Exploration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_12_generative_ai_models/12.1_generative_adversarial_networks/12.1.4_pix2pix_applications/README.html">12.1.4 - Pix2Pix Applications</a></li>
+</ul>
+</div>
+<p class="sd-card-text"><strong>12.2 - Variational Autoencoders</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_12_generative_ai_models/12.2_variational_autoencoders/12.2.1_latent_space_exploration/README.html">12.2.1 - Latent Space Exploration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_12_generative_ai_models/12.2_variational_autoencoders/12.2.2_interpolation_animations/README.html">12.2.2 - Interpolation Animations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_12_generative_ai_models/12.2_variational_autoencoders/12.2.3_conditional_vaes/README.html">12.2.3 - Conditional Vaes</a></li>
+</ul>
+</div>
+<p class="sd-card-text"><strong>12.3 - Diffusion Models</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_12_generative_ai_models/12.3_diffusion_models/12.3.1_ddpm_basics/README.html">12.3.1 - Ddpm Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_12_generative_ai_models/12.3_diffusion_models/12.3.2_stable_diffusion_integration/README.html">12.3.2 - Stable Diffusion Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_12_generative_ai_models/12.3_diffusion_models/12.3.3_controlnet_guided_generation/README.html">12.3.3 - Controlnet Guided Generation</a></li>
+</ul>
+</div>
+<p class="sd-card-text"><strong>12.4 - Language Models for Art</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_12_generative_ai_models/12.4_language_models_art/12.4.1_clip_guidance/README.html">12.4.1 - Clip Guidance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_12_generative_ai_models/12.4_language_models_art/12.4.2_prompt_engineering/README.html">12.4.2 - Prompt Engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_12_generative_ai_models/12.4_language_models_art/12.4.3_text_to_image_pipelines/README.html">12.4.3 - Text To Image Pipelines</a></li>
+</ul>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Module 13: AI + TouchDesigner Integration</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Combining AI with real-time systems: ML models in TD, real-time effects, and hybrid pipelines.</p>
+<p class="sd-card-text"><strong>13.1 - ML Models in TD</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_13_ai_touchdesigner_integration/13.1_ml_models_td/13.1.1_mediapipe_integration/README.html">13.1.1 - Mediapipe Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_13_ai_touchdesigner_integration/13.1_ml_models_td/13.1.2_runwayml_bridge/README.html">13.1.2 - Runwayml Bridge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_13_ai_touchdesigner_integration/13.1_ml_models_td/13.1.3_onnx_runtime/README.html">13.1.3 - Onnx Runtime</a></li>
+</ul>
+</div>
+<p class="sd-card-text"><strong>13.2 - Real-time AI Effects</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_13_ai_touchdesigner_integration/13.2_realtime_ai_effects/13.2.1_style_transfer_live/README.html">13.2.1 - Style Transfer Live</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_13_ai_touchdesigner_integration/13.2_realtime_ai_effects/13.2.2_realtime_segmentation/README.html">13.2.2 - Realtime Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_13_ai_touchdesigner_integration/13.2_realtime_ai_effects/13.2.3_pose_driven_effects/README.html">13.2.3 - Pose Driven Effects</a></li>
+</ul>
+</div>
+<p class="sd-card-text"><strong>13.3 - Generative Models Live</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_13_ai_touchdesigner_integration/13.3_generative_models_live/13.3.1_gan_inference_optimization/README.html">13.3.1 - Gan Inference Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_13_ai_touchdesigner_integration/13.3_generative_models_live/13.3.2_latent_space_navigation_ui/README.html">13.3.2 - Latent Space Navigation Ui</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_13_ai_touchdesigner_integration/13.3_generative_models_live/13.3.3_model_switching_systems/README.html">13.3.3 - Model Switching Systems</a></li>
+</ul>
+</div>
+<p class="sd-card-text"><strong>13.4 - Hybrid Pipelines</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_13_ai_touchdesigner_integration/13.4_hybrid_pipelines/13.4.1_preprocessing_td/README.html">13.4.1 - Preprocessing Td</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_13_ai_touchdesigner_integration/13.4_hybrid_pipelines/13.4.2_python_ml_processing/README.html">13.4.2 - Python Ml Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_13_ai_touchdesigner_integration/13.4_hybrid_pipelines/13.4.3_post_processing_chains/README.html">13.4.3 - Post Processing Chains</a></li>
+</ul>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Module 14: Data as Material</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Information visualization and sonification: data sources, visualization techniques, and physical sculptures.</p>
+<p class="sd-card-text"><strong>14.1 - Data Sources</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_14_data_as_material/14.1_data_sources/14.1.1_apis_scraping/README.html">14.1.1 - Apis Scraping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_14_data_as_material/14.1_data_sources/14.1.2_sensor_networks/README.html">14.1.2 - Sensor Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_14_data_as_material/14.1_data_sources/14.1.3_social_media_streams/README.html">14.1.3 - Social Media Streams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_14_data_as_material/14.1_data_sources/14.1.4_environmental_data/README.html">14.1.4 - Environmental Data</a></li>
+</ul>
+</div>
+<p class="sd-card-text"><strong>14.2 - Visualization Techniques</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_14_data_as_material/14.2_visualization_techniques/14.2.1_network_graphs/README.html">14.2.1 - Network Graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_14_data_as_material/14.2_visualization_techniques/14.2.2_flow_visualization/README.html">14.2.2 - Flow Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_14_data_as_material/14.2_visualization_techniques/14.2.3_multidimensional_scaling/README.html">14.2.3 - Multidimensional Scaling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_14_data_as_material/14.2_visualization_techniques/14.2.4_time_series_art/README.html">14.2.4 - Time Series Art</a></li>
+</ul>
+</div>
+<p class="sd-card-text"><strong>14.3 - Sonification</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_14_data_as_material/14.3_sonification/14.3.1_data_sound_mapping/README.html">14.3.1 - Data Sound Mapping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_14_data_as_material/14.3_sonification/14.3.2_granular_synthesis/README.html">14.3.2 - Granular Synthesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_14_data_as_material/14.3_sonification/14.3.3_rhythmic_patterns/README.html">14.3.3 - Rhythmic Patterns</a></li>
+</ul>
+</div>
+<p class="sd-card-text"><strong>14.4 - Physical Data Sculptures</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_14_data_as_material/14.4_physical_data_sculptures/14.4.1_3d_printing_preparation/README.html">14.4.1 - 3D Printing Preparation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_14_data_as_material/14.4_physical_data_sculptures/14.4.2_laser_cutting_patterns/README.html">14.4.2 - Laser Cutting Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_14_data_as_material/14.4_physical_data_sculptures/14.4.3_cnc_toolpaths/README.html">14.4.3 - Cnc Toolpaths</a></li>
+</ul>
+</div>
+</div>
+</details><div class="doc-footer"><p class="rubric">License</p>
+<p>This work is licensed under the MIT License.</p>
+<ul class="simple">
+<li><p>Burak Kağan Yılmazer (2025) — <a class="reference external" href="mailto:burak&#46;kagan&#37;&#52;&#48;protonmail&#46;com">burak<span>&#46;</span>kagan<span>&#64;</span>protonmail<span>&#46;</span>com</a></p></li>
+<li><p>Dr. Kristian Rother (2024) — <a class="reference external" href="mailto:kristian&#46;rother&#37;&#52;&#48;posteo&#46;de">kristian<span>&#46;</span>rother<span>&#64;</span>posteo<span>&#46;</span>de</a></p></li>
+</ul>
+<p>See <a class="reference download internal" download="" href="_downloads/9879d6db96fd29134fc802214163b95a/LICENSE"><code class="xref download docutils literal notranslate"><span class="pre">LICENSE</span></code></a> for full license terms.</p>
+<p class="rubric">References</p>
+<p class="rubric">Images</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://commons.wikimedia.org/wiki/File:Brandenburger_Tor_abends.jpg">Brandenburg Gate image</a> by Thomas Wolf, www.foto-tw.de / Wikimedia Commons / CC BY-SA 3.0</p></li>
+</ul>
+<p class="rubric">Libraries</p>
+<p><strong>Core Numerical Computing &amp; Data Science</strong></p>
+<ul class="simple">
+<li><p>NumPy — Harris, C.R., et al. (2020). Array programming with NumPy. Nature 585, 357–362</p></li>
+<li><p>SciPy — Virtanen, P., et al. (2020). SciPy 1.0: Fundamental Algorithms for Scientific Computing in Python. Nature Methods 17, 261–272</p></li>
+<li><p>pandas — McKinney, W. (2010). Data Structures for Statistical Computing in Python. Proceedings of the 9th Python in Science Conference, 56-61</p></li>
+</ul>
+<p><strong>Image Processing &amp; Computer Vision</strong></p>
+<ul class="simple">
+<li><p>Pillow — Clark, A. (2015). Pillow (PIL Fork) Documentation</p></li>
+<li><p>OpenCV — Bradski, G. (2000). The OpenCV Library. Dr. Dobb’s Journal of Software Tools</p></li>
+<li><p>ImageIO — Klein, A., et al. (2019). ImageIO: a Python library for reading and writing image data. Zenodo.</p></li>
+</ul>
+<p><strong>Machine Learning &amp; AI</strong></p>
+<ul class="simple">
+<li><p>scikit-learn — Pedregosa, F., et al. (2011). Scikit-learn: Machine Learning in Python. Journal of Machine Learning Research 12, 2825-2830</p></li>
+<li><p>PyTorch — Paszke, A., et al. (2019). PyTorch: An Imperative Style, High-Performance Deep Learning Library. Advances in Neural Information Processing Systems 32, 8024-8035</p></li>
+<li><p>TensorFlow — Abadi, M., et al. (2016). TensorFlow: Large-Scale Machine Learning on Heterogeneous Distributed Systems.</p></li>
+</ul>
+<p><strong>Visualization &amp; Interactive Computing</strong></p>
+<ul class="simple">
+<li><p>matplotlib — Hunter, J.D. (2007). Matplotlib: A 2D Graphics Environment. Computing in Science &amp; Engineering 9(3), 90-95</p></li>
+<li><p>Jupyter — Kluyver, T., et al. (2016). Jupyter Notebooks—a publishing format for reproducible computational workflows. Positioning and Power in Academic Publishing, 87-90</p></li>
+</ul>
+<p class="rubric">Inspiration</p>
+<ul class="simple">
+<li><p>Generative Art — Pearson, M. (2011). Generative Art: A Practical Guide Using Processing</p></li>
+<li><p>Creative Coding — Reas, C. &amp; Fry, B. (2014). Processing: A Programming Handbook for Visual Designers</p></li>
+</ul>
+</div></section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="right-next"
+       href="content/Module_00_foundations_definitions/0.1_what_is_generative_art/README.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">0.1.1 - What Is Generative Art</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-at-a-glance">Project at a Glance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repository">Repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-modules">Learning Modules</a><ul class="nav section-nav flex-column">
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Kristian Rother &amp; Burak Kagan Yilmazer.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

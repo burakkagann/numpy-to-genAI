@@ -1,0 +1,912 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>3.3.5 - Delaunay Triangulation &#8212; Pixels to GenAI</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/github-icon.css?v=0979adda" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/footer.css?v=22df2544" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/content.css?v=ad41e33b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/scroll-progress.css?v=46bcc4b9" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../_static/documentation_options.js?v=60dbed4a"></script>
+    <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/Module_03_transformations_effects/3.3_artistic_filters/3.3.5_delaunay_triangulation/README';</script>
+    <script src="../../../../_static/github-icon.js?v=54752c43"></script>
+    <script src="../../../../_static/scroll-progress.js?v=9aba87dc"></script>
+    <link rel="icon" href="../../../../_static/favicon-64x64.png"/>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="3.4.1 - Convolution" href="../../3.4_signal_processing/3.4.1_convolution/convolution/README.html" />
+    <link rel="prev" title="3.3.4 - Voronoi Diagrams" href="../3.3.4_voronoi_diagrams/README.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/favicon-192x192.png" class="logo__image only-light" alt=""/>
+    <img src="../../../../_static/favicon-192x192.png" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">Pixels to GenAI</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/burakkagann/numpy-to-genAI" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/burakkagann/numpy-to-genAI" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"></div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">3.3.5 - Delaunay Triangulation</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="delaunay-triangulation">
+<span id="module-3-3-5-delaunay"></span><h1>3.3.5 - Delaunay Triangulation<a class="headerlink" href="#delaunay-triangulation" title="Link to this heading">#</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">Duration<span class="colon">:</span></dt>
+<dd class="field-odd"><p>18 minutes</p>
+</dd>
+<dt class="field-even">Level<span class="colon">:</span></dt>
+<dd class="field-even"><p>Intermediate</p>
+</dd>
+<dt class="field-odd">Prerequisites<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Module 2.1 (Basic Shapes), NumPy array basics, matplotlib fundamentals</p>
+</dd>
+</dl>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>Delaunay triangulation is a fundamental technique in computational geometry that connects a set of points into triangles with remarkable properties. Named after the Russian mathematician Boris Delaunay who formalized it in 1934, this algorithm ensures that no point lies inside the circumcircle of any triangle, which naturally produces well-shaped triangles that avoid thin, elongated “slivers.”</p>
+<p>In generative art, Delaunay triangulation enables the creation of striking low-poly aesthetics, organic mosaic patterns, and mesh-based visualizations. By sampling colors from source images and filling triangles with averaged values, you can transform photographs into abstract geometric art with a distinctive crystalline appearance.</p>
+<p><strong>Learning Objectives</strong></p>
+<p>By completing this module, you will:</p>
+<ul class="simple">
+<li><p>Understand what Delaunay triangulation is and why it produces high-quality triangular meshes</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">scipy.spatial.Delaunay</span></code> to triangulate arbitrary point sets in Python</p></li>
+<li><p>Create colorful geometric art by filling triangles with sampled colors</p></li>
+<li><p>Transform procedural images into low-poly art style using color averaging techniques</p></li>
+</ul>
+</section>
+<section id="quick-start-your-first-triangulation">
+<h2>Quick Start: Your First Triangulation<a class="headerlink" href="#quick-start-your-first-triangulation" title="Link to this heading">#</a></h2>
+<p>Let’s start by seeing Delaunay triangulation in action. Run this code to generate a triangular mesh from random points:</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Simple Delaunay triangulation</span><a class="headerlink" href="#id1" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="linenos"> 2</span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="linenos"> 3</span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.spatial</span><span class="w"> </span><span class="kn">import</span> <span class="n">Delaunay</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="c1"># Generate random points</span>
+<span class="linenos"> 6</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="n">points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">400</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="c1"># Compute Delaunay triangulation</span>
+<span class="linenos">10</span><span class="n">triangulation</span> <span class="o">=</span> <span class="n">Delaunay</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="c1"># Visualize</span>
+<span class="linenos">13</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="linenos">14</span><span class="n">plt</span><span class="o">.</span><span class="n">triplot</span><span class="p">(</span><span class="n">points</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">points</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">triangulation</span><span class="o">.</span><span class="n">simplices</span><span class="p">,</span>
+<span class="linenos">15</span>            <span class="n">color</span><span class="o">=</span><span class="s1">&#39;steelblue&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="linenos">16</span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">points</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">points</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;coral&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="linenos">17</span><span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="linenos">18</span><span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="linenos">19</span><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;simple_delaunay.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+<span class="linenos">20</span><span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="../../../../_images/simple_delaunay.png"><img alt="A wireframe triangulation of 50 random points showing connected triangles" src="../../../../_images/simple_delaunay.png" style="width: 500px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Delaunay triangulation of 50 random points creates 87 non-overlapping triangles that fill the convex hull.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Notice how the triangles have relatively uniform shapes. Delaunay triangulation maximizes the minimum angle of all triangles, which avoids the long, thin “sliver” triangles that would result from naive triangulation approaches.</p>
+</div>
+</section>
+<section id="what-is-delaunay-triangulation">
+<h2>What is Delaunay Triangulation?<a class="headerlink" href="#what-is-delaunay-triangulation" title="Link to this heading">#</a></h2>
+<section id="the-circumcircle-property">
+<h3>The Circumcircle Property<a class="headerlink" href="#the-circumcircle-property" title="Link to this heading">#</a></h3>
+<p>The defining characteristic of Delaunay triangulation is the <strong>circumcircle property</strong>: for every triangle in the mesh, no other point from the point set lies inside that triangle’s circumcircle (the unique circle passing through all three vertices).</p>
+<p><strong>Circumcircle</strong> is the circle that passes through all three vertices of a triangle. The center of this circle is equidistant from all three vertices.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">circumcircle</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p3</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate circumcircle center and radius for a triangle.&quot;&quot;&quot;</span>
+    <span class="n">ax</span><span class="p">,</span> <span class="n">ay</span> <span class="o">=</span> <span class="n">p1</span>
+    <span class="n">bx</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="n">p2</span>
+    <span class="n">cx</span><span class="p">,</span> <span class="n">cy</span> <span class="o">=</span> <span class="n">p3</span>
+
+    <span class="n">d</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">ax</span> <span class="o">*</span> <span class="p">(</span><span class="n">by</span> <span class="o">-</span> <span class="n">cy</span><span class="p">)</span> <span class="o">+</span> <span class="n">bx</span> <span class="o">*</span> <span class="p">(</span><span class="n">cy</span> <span class="o">-</span> <span class="n">ay</span><span class="p">)</span> <span class="o">+</span> <span class="n">cx</span> <span class="o">*</span> <span class="p">(</span><span class="n">ay</span> <span class="o">-</span> <span class="n">by</span><span class="p">))</span>
+    <span class="n">ux</span> <span class="o">=</span> <span class="p">((</span><span class="n">ax</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">ay</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">by</span> <span class="o">-</span> <span class="n">cy</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">bx</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">by</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">cy</span> <span class="o">-</span> <span class="n">ay</span><span class="p">)</span> <span class="o">+</span>
+          <span class="p">(</span><span class="n">cx</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">cy</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">ay</span> <span class="o">-</span> <span class="n">by</span><span class="p">))</span> <span class="o">/</span> <span class="n">d</span>
+    <span class="n">uy</span> <span class="o">=</span> <span class="p">((</span><span class="n">ax</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">ay</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">cx</span> <span class="o">-</span> <span class="n">bx</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">bx</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">by</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">ax</span> <span class="o">-</span> <span class="n">cx</span><span class="p">)</span> <span class="o">+</span>
+          <span class="p">(</span><span class="n">cx</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">cy</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">bx</span> <span class="o">-</span> <span class="n">ax</span><span class="p">))</span> <span class="o">/</span> <span class="n">d</span>
+    <span class="n">radius</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">ax</span> <span class="o">-</span> <span class="n">ux</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">ay</span> <span class="o">-</span> <span class="n">uy</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">ux</span><span class="p">,</span> <span class="n">uy</span><span class="p">),</span> <span class="n">radius</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The circumcircle property is not just mathematical elegance; it has practical consequences. By ensuring no point lies inside any circumcircle, Delaunay triangulation maximizes the minimum angle across all triangles, producing meshes that are numerically stable for computations and visually pleasing for art.</p>
+</div>
+<div class="admonition-did-you-know admonition">
+<p class="admonition-title">Did You Know?</p>
+<p>Boris Delaunay first described this triangulation in his 1934 paper “Sur la sphere vide” (On the empty sphere). The same principle extends to 3D, where tetrahedra have circumspheres instead of circumcircles.</p>
+<p>(Delaunay, 1934)</p>
+</div>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../../../_images/delaunay_concept_diagram.png"><img alt="Four-panel diagram showing Delaunay triangulation concepts" src="../../../../_images/delaunay_concept_diagram.png" style="width: 600px;" />
+</a>
+</figure>
+</section>
+</section>
+<section id="point-distribution-strategies">
+<h2>Point Distribution Strategies<a class="headerlink" href="#point-distribution-strategies" title="Link to this heading">#</a></h2>
+<section id="how-points-affect-results">
+<h3>How Points Affect Results<a class="headerlink" href="#how-points-affect-results" title="Link to this heading">#</a></h3>
+<p>The placement of sample points dramatically affects the resulting triangulation and artistic output. Different strategies create different visual aesthetics:</p>
+<p><strong>Random distribution</strong> creates organic, natural-looking patterns with varied triangle sizes. This works well for abstract art and texture generation.</p>
+<p><strong>Grid-based distribution</strong> (with optional jitter) produces more regular, structured patterns. Adding small random offsets prevents perfectly aligned triangles while maintaining overall uniformity.</p>
+<p><strong>Edge-weighted distribution</strong> places more points along image edges and high-contrast regions. This preserves important features when creating low-poly art from photographs.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Random distribution</span>
+<span class="n">points_random</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">[</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">]</span>
+
+<span class="c1"># Grid with jitter</span>
+<span class="n">gx</span><span class="p">,</span> <span class="n">gy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+                     <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">points_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">([</span><span class="n">gx</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">gy</span><span class="o">.</span><span class="n">ravel</span><span class="p">()])</span>
+<span class="n">points_grid</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="o">*</span><span class="n">points_grid</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">*</span> <span class="mi">5</span>  <span class="c1"># Add jitter</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For low-poly art effects, start with 100-200 random points for a moderate level of abstraction. Fewer points (50-80) create more dramatic geometric shapes, while more points (300+) preserve more detail from the source image.</p>
+</div>
+</section>
+</section>
+<section id="creating-low-poly-art">
+<h2>Creating Low-Poly Art<a class="headerlink" href="#creating-low-poly-art" title="Link to this heading">#</a></h2>
+<section id="from-colors-to-triangles">
+<h3>From Colors to Triangles<a class="headerlink" href="#from-colors-to-triangles" title="Link to this heading">#</a></h3>
+<p>The magic of low-poly art comes from sampling colors from a source image and using those colors to fill the Delaunay triangles. The simplest approach samples the color at each triangle’s centroid.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">PolyCollection</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_triangle_color</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">vertices</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Sample color at triangle centroid.&quot;&quot;&quot;</span>
+    <span class="n">centroid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">vertices</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">cx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">centroid</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="n">source</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">cy</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">centroid</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="n">source</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="c1"># Note: image indexing is [y, x], not [x, y]!</span>
+    <span class="k">return</span> <span class="n">source</span><span class="p">[</span><span class="n">cy</span><span class="p">,</span> <span class="n">cx</span><span class="p">]</span> <span class="o">/</span> <span class="mf">255.0</span>
+
+<span class="c1"># Build colored triangles</span>
+<span class="n">triangles</span> <span class="o">=</span> <span class="p">[</span><span class="n">points</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">triangulation</span><span class="o">.</span><span class="n">simplices</span><span class="p">]</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="n">get_triangle_color</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">points</span><span class="p">[</span><span class="n">s</span><span class="p">])</span>
+          <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">triangulation</span><span class="o">.</span><span class="n">simplices</span><span class="p">]</span>
+
+<span class="c1"># Render with PolyCollection</span>
+<span class="n">collection</span> <span class="o">=</span> <span class="n">PolyCollection</span><span class="p">(</span><span class="n">triangles</span><span class="p">,</span> <span class="n">facecolors</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="../../../../_images/colored_triangulation.png"><img alt="Colorful triangulation with randomly colored filled triangles" src="../../../../_images/colored_triangulation.png" style="width: 500px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Random colors filling Delaunay triangles create abstract geometric art.</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Remember that NumPy image arrays use <code class="docutils literal notranslate"><span class="pre">[row,</span> <span class="pre">column]</span></code> indexing, which corresponds to <code class="docutils literal notranslate"><span class="pre">[y,</span> <span class="pre">x]</span></code> in spatial coordinates. This is a common source of bugs when sampling colors from images!</p>
+</div>
+</section>
+</section>
+<section id="hands-on-exercises">
+<h2>Hands-On Exercises<a class="headerlink" href="#hands-on-exercises" title="Link to this heading">#</a></h2>
+<p>These exercises follow the Execute, Modify, Re-code progression to build your triangulation skills step by step.</p>
+<section id="exercise-1-execute-and-explore">
+<h3>Exercise 1: Execute and Explore<a class="headerlink" href="#exercise-1-execute-and-explore" title="Link to this heading">#</a></h3>
+<p><strong>Time estimate:</strong> 3-4 minutes</p>
+<p>Run the <code class="docutils literal notranslate"><span class="pre">simple_delaunay.py</span></code> script and observe the triangulation output. Pay attention to the triangle shapes and how they connect the points.</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Exercise 1 - Run and observe</span><a class="headerlink" href="#id4" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="linenos"> 2</span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="linenos"> 3</span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.spatial</span><span class="w"> </span><span class="kn">import</span> <span class="n">Delaunay</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="linenos"> 6</span><span class="n">num_points</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="linenos"> 7</span><span class="n">points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">num_points</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">400</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="n">triangulation</span> <span class="o">=</span> <span class="n">Delaunay</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="linenos">12</span><span class="n">plt</span><span class="o">.</span><span class="n">triplot</span><span class="p">(</span><span class="n">points</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">points</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">triangulation</span><span class="o">.</span><span class="n">simplices</span><span class="p">,</span>
+<span class="linenos">13</span>            <span class="n">color</span><span class="o">=</span><span class="s1">&#39;steelblue&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="linenos">14</span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">points</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">points</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;coral&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="linenos">15</span><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">num_points</span><span class="si">}</span><span class="s1"> points, </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">triangulation</span><span class="o">.</span><span class="n">simplices</span><span class="p">)</span><span class="si">}</span><span class="s1"> triangles&#39;</span><span class="p">)</span>
+<span class="linenos">16</span><span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="linenos">17</span><span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="linenos">18</span><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;simple_delaunay.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+<span class="linenos">19</span><span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="linenos">20</span>
+<span class="linenos">21</span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Points: </span><span class="si">{</span><span class="n">num_points</span><span class="si">}</span><span class="s2">, Triangles: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">triangulation</span><span class="o">.</span><span class="n">simplices</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p><strong>Reflection questions:</strong></p>
+<ul class="simple">
+<li><p>How many triangles were created from 50 points? Can you find a pattern?</p></li>
+<li><p>Why do the triangles only cover the “convex hull” of the points rather than a rectangular region?</p></li>
+<li><p>Do you notice any extremely thin or elongated triangles? Why or why not?</p></li>
+</ul>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Solution &amp; Explanation</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><strong>Answer:</strong> 50 points create approximately 87-90 triangles (the exact number depends on point positions).</p>
+<p class="sd-card-text"><strong>Why:</strong></p>
+<ul class="simple">
+<li><p class="sd-card-text">For N points with H points on the convex hull, Delaunay triangulation creates approximately 2N - 2 - H triangles.</p></li>
+<li><p class="sd-card-text">The triangulation only covers the convex hull because Delaunay connects points without introducing new vertices.</p></li>
+<li><p class="sd-card-text">There are no thin slivers because Delaunay maximizes minimum angles by the circumcircle property.</p></li>
+</ul>
+</div>
+</details></section>
+<section id="exercise-2-modify-to-achieve-goals">
+<h3>Exercise 2: Modify to Achieve Goals<a class="headerlink" href="#exercise-2-modify-to-achieve-goals" title="Link to this heading">#</a></h3>
+<p><strong>Time estimate:</strong> 3-4 minutes</p>
+<p>Modify the colored triangulation to create different visual effects.</p>
+<p><strong>Goals:</strong></p>
+<ol class="arabic simple">
+<li><p>Create a triangulation with exactly 200 colored triangles (adjust num_points)</p></li>
+<li><p>Add white edges between triangles for a stained-glass effect</p></li>
+<li><p>Use a gradient color scheme instead of random colors</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Hints</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<ul class="simple">
+<li><p class="sd-card-text">For goal 1: More points means more triangles. Try increasing <code class="docutils literal notranslate"><span class="pre">num_points</span></code> until you get close to 200 triangles.</p></li>
+<li><p class="sd-card-text">For goal 2: Change <code class="docutils literal notranslate"><span class="pre">edgecolors='none'</span></code> to <code class="docutils literal notranslate"><span class="pre">edgecolors='white'</span></code> and set <code class="docutils literal notranslate"><span class="pre">linewidths=1</span></code>.</p></li>
+<li><p class="sd-card-text">For goal 3: Instead of <code class="docutils literal notranslate"><span class="pre">np.random.rand(3)</span></code>, calculate color based on position, e.g., <code class="docutils literal notranslate"><span class="pre">[x/width,</span> <span class="pre">y/height,</span> <span class="pre">0.5]</span></code>.</p></li>
+</ul>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Solutions</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><strong>1. Create ~200 triangles:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">num_points</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># Approximately doubles the triangle count</span>
+<span class="c1"># With corners added, this creates roughly 200 triangles</span>
+</pre></div>
+</div>
+<p class="sd-card-text"><strong>2. Stained-glass effect:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">collection</span> <span class="o">=</span> <span class="n">PolyCollection</span><span class="p">(</span><span class="n">triangles</span><span class="p">,</span> <span class="n">facecolors</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span>
+                            <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sd-card-text"><strong>3. Gradient colors:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">simplex</span> <span class="ow">in</span> <span class="n">triangulation</span><span class="o">.</span><span class="n">simplices</span><span class="p">:</span>
+    <span class="n">triangle</span> <span class="o">=</span> <span class="n">points</span><span class="p">[</span><span class="n">simplex</span><span class="p">]</span>
+    <span class="n">centroid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">triangle</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="c1"># Color based on position</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="p">[</span><span class="n">centroid</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">width</span><span class="p">,</span> <span class="n">centroid</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">height</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span>
+    <span class="n">colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details></section>
+<section id="exercise-3-create-low-poly-art-from-scratch">
+<h3>Exercise 3: Create Low-Poly Art from Scratch<a class="headerlink" href="#exercise-3-create-low-poly-art-from-scratch" title="Link to this heading">#</a></h3>
+<p><strong>Time estimate:</strong> 5-6 minutes</p>
+<p>Create a low-poly art effect by triangulating a procedural image and filling triangles with sampled colors.</p>
+<p><strong>Goal:</strong> Transform a generated gradient/pattern image into a geometric low-poly style artwork.</p>
+<p><strong>Requirements:</strong></p>
+<ul class="simple">
+<li><p>Generate a colorful procedural source image (gradient, circles, or patterns)</p></li>
+<li><p>Create 150+ sample points across the image</p></li>
+<li><p>Triangulate the points and fill each triangle with its centroid color</p></li>
+<li><p>Display both original and low-poly versions side by side</p></li>
+</ul>
+<p><strong>Hints:</strong></p>
+<ul class="simple">
+<li><p>Include corner points <code class="docutils literal notranslate"><span class="pre">[[0,0],</span> <span class="pre">[W,0],</span> <span class="pre">[W,H],</span> <span class="pre">[0,H]]</span></code> to cover the entire image</p></li>
+<li><p>Remember: image arrays use <code class="docutils literal notranslate"><span class="pre">[y,</span> <span class="pre">x]</span></code> indexing, not <code class="docutils literal notranslate"><span class="pre">[x,</span> <span class="pre">y]</span></code></p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">plt.ylim(HEIGHT,</span> <span class="pre">0)</span></code> to flip the Y-axis for correct image orientation</p></li>
+</ul>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">Exercise 3 starter code</span><a class="headerlink" href="#id5" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">PolyCollection</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.spatial</span><span class="w"> </span><span class="kn">import</span> <span class="n">Delaunay</span>
+
+<span class="n">WIDTH</span><span class="p">,</span> <span class="n">HEIGHT</span> <span class="o">=</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">400</span>
+
+<span class="c1"># TODO: Create a procedural source image (gradient or pattern)</span>
+<span class="n">source_image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">HEIGHT</span><span class="p">,</span> <span class="n">WIDTH</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+
+<span class="c1"># TODO: Generate sample points (random + corners)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">points</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Your code here</span>
+
+<span class="c1"># TODO: Compute triangulation</span>
+<span class="n">triangulation</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Your code here</span>
+
+<span class="c1"># TODO: Sample colors for each triangle</span>
+<span class="n">triangles</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c1"># Your code here</span>
+
+<span class="c1"># TODO: Visualize with PolyCollection</span>
+<span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Complete Solution</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">Low-poly art complete solution</span><a class="headerlink" href="#id6" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="linenos"> 2</span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="linenos"> 3</span><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">PolyCollection</span>
+<span class="linenos"> 4</span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.spatial</span><span class="w"> </span><span class="kn">import</span> <span class="n">Delaunay</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="n">WIDTH</span><span class="p">,</span> <span class="n">HEIGHT</span> <span class="o">=</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">400</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="c1"># Create procedural source image</span>
+<span class="linenos"> 9</span><span class="n">source_image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">HEIGHT</span><span class="p">,</span> <span class="n">WIDTH</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+<span class="linenos">10</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ogrid</span><span class="p">[:</span><span class="n">HEIGHT</span><span class="p">,</span> <span class="p">:</span><span class="n">WIDTH</span><span class="p">]</span>
+<span class="linenos">11</span><span class="n">source_image</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="mi">255</span> <span class="o">-</span> <span class="n">y</span> <span class="o">*</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+<span class="linenos">12</span><span class="n">source_image</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="mi">100</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="mf">0.02</span><span class="p">)</span> <span class="o">*</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+<span class="linenos">13</span><span class="n">source_image</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="mi">50</span> <span class="o">+</span> <span class="n">y</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="c1"># Add sun circle</span>
+<span class="linenos">16</span><span class="n">cx</span><span class="p">,</span> <span class="n">cy</span> <span class="o">=</span> <span class="n">WIDTH</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">HEIGHT</span> <span class="o">//</span> <span class="mi">3</span>
+<span class="linenos">17</span><span class="n">dist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">cx</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">cy</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos">18</span><span class="n">sun_mask</span> <span class="o">=</span> <span class="n">dist</span> <span class="o">&lt;</span> <span class="mi">80</span>
+<span class="linenos">19</span><span class="n">source_image</span><span class="p">[</span><span class="n">sun_mask</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">220</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
+<span class="hll"><span class="linenos">20</span>
+</span><span class="hll"><span class="linenos">21</span><span class="c1"># Generate sample points</span>
+</span><span class="hll"><span class="linenos">22</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+</span><span class="hll"><span class="linenos">23</span><span class="n">points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">[</span><span class="n">WIDTH</span><span class="p">,</span> <span class="n">HEIGHT</span><span class="p">]</span>
+</span><span class="hll"><span class="linenos">24</span><span class="n">corners</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="n">WIDTH</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="n">WIDTH</span><span class="p">,</span> <span class="n">HEIGHT</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">HEIGHT</span><span class="p">]])</span>
+</span><span class="linenos">25</span><span class="n">points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">points</span><span class="p">,</span> <span class="n">corners</span><span class="p">])</span>
+<span class="linenos">26</span>
+<span class="linenos">27</span><span class="c1"># Compute triangulation</span>
+<span class="linenos">28</span><span class="n">triangulation</span> <span class="o">=</span> <span class="n">Delaunay</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
+<span class="linenos">29</span>
+<span class="linenos">30</span><span class="c1"># Sample colors for each triangle</span>
+<span class="linenos">31</span><span class="n">triangles</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="linenos">32</span><span class="n">colors</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="linenos">33</span><span class="k">for</span> <span class="n">simplex</span> <span class="ow">in</span> <span class="n">triangulation</span><span class="o">.</span><span class="n">simplices</span><span class="p">:</span>
+<span class="linenos">34</span>    <span class="n">triangle</span> <span class="o">=</span> <span class="n">points</span><span class="p">[</span><span class="n">simplex</span><span class="p">]</span>
+<span class="linenos">35</span>    <span class="n">triangles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">triangle</span><span class="p">)</span>
+<span class="linenos">36</span>    <span class="n">centroid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">triangle</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos">37</span>    <span class="n">cx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">centroid</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="n">WIDTH</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+<span class="linenos">38</span>    <span class="n">cy</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">centroid</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="n">HEIGHT</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+<span class="linenos">39</span>    <span class="n">colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">source_image</span><span class="p">[</span><span class="n">cy</span><span class="p">,</span> <span class="n">cx</span><span class="p">]</span> <span class="o">/</span> <span class="mf">255.0</span><span class="p">)</span>
+<span class="hll"><span class="linenos">40</span>
+</span><span class="hll"><span class="linenos">41</span><span class="c1"># Visualize</span>
+</span><span class="hll"><span class="linenos">42</span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+</span><span class="hll"><span class="linenos">43</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">source_image</span><span class="p">)</span>
+</span><span class="hll"><span class="linenos">44</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Original&#39;</span><span class="p">)</span>
+</span><span class="hll"><span class="linenos">45</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+</span><span class="hll"><span class="linenos">46</span>
+</span><span class="hll"><span class="linenos">47</span><span class="n">collection</span> <span class="o">=</span> <span class="n">PolyCollection</span><span class="p">(</span><span class="n">triangles</span><span class="p">,</span> <span class="n">facecolors</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+</span><span class="hll"><span class="linenos">48</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">add_collection</span><span class="p">(</span><span class="n">collection</span><span class="p">)</span>
+</span><span class="linenos">49</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">WIDTH</span><span class="p">)</span>
+<span class="linenos">50</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">HEIGHT</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos">51</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="linenos">52</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Low-Poly Art&#39;</span><span class="p">)</span>
+<span class="linenos">53</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="linenos">54</span>
+<span class="linenos">55</span><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="linenos">56</span><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;lowpoly_art_output.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p class="sd-card-text"><strong>How it works:</strong></p>
+<ul class="simple">
+<li><p class="sd-card-text">Lines 20-24 generate random points plus corner points to ensure full coverage</p></li>
+<li><p class="sd-card-text">Lines 40-48 iterate through triangles, sampling color at each centroid</p></li>
+<li><p class="sd-card-text">The centroid is the average of the three vertices: <code class="docutils literal notranslate"><span class="pre">np.mean(triangle,</span> <span class="pre">axis=0)</span></code></p></li>
+<li><p class="sd-card-text">Y-axis is flipped with <code class="docutils literal notranslate"><span class="pre">set_ylim(HEIGHT,</span> <span class="pre">0)</span></code> to match image coordinates</p></li>
+</ul>
+<p class="sd-card-text"><strong>Challenge extension:</strong> Try adding edge detection to place more points along high-contrast boundaries for better feature preservation!</p>
+</div>
+</details><figure class="align-center" id="id7">
+<a class="reference internal image-reference" href="../../../../_images/lowpoly_art_output.png"><img alt="Side-by-side comparison of original procedural image and low-poly triangulated version" src="../../../../_images/lowpoly_art_output.png" style="width: 600px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Example output showing the procedural source image (left) transformed into low-poly art (right).</span><a class="headerlink" href="#id7" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<p>In just 18 minutes, you have learned how to create triangular meshes from point sets and transform images into geometric art:</p>
+<p><strong>Key takeaways:</strong></p>
+<ul class="simple">
+<li><p>Delaunay triangulation maximizes minimum angles, avoiding thin sliver triangles</p></li>
+<li><p>The circumcircle property ensures no point lies inside any triangle’s circumcircle</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scipy.spatial.Delaunay</span></code> makes triangulation simple: just pass an array of points</p></li>
+<li><p>Low-poly art is created by sampling colors at triangle centroids and filling with PolyCollection</p></li>
+</ul>
+<p><strong>Common pitfalls to avoid:</strong></p>
+<ul class="simple">
+<li><p>Forgetting corner points leaves triangulation only covering the convex hull, not the full canvas</p></li>
+<li><p>Using <code class="docutils literal notranslate"><span class="pre">[x,</span> <span class="pre">y]</span></code> indexing for images instead of <code class="docutils literal notranslate"><span class="pre">[y,</span> <span class="pre">x]</span></code> (row, column) ordering</p></li>
+<li><p>Not flipping the Y-axis when rendering results in an upside-down image</p></li>
+</ul>
+<p>This knowledge of mesh generation prepares you for more advanced topics like Voronoi diagrams, terrain generation, and 3D mesh processing.</p>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<div role="list" class="citation-list">
+<div class="citation" id="delaunay1934" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Delaunay1934<span class="fn-bracket">]</span></span>
+<p>Delaunay, B. (1934). Sur la sphere vide. <em>Bulletin de l’Academie des Sciences de l’URSS</em>, 6, 793-800. [Original paper establishing Delaunay triangulation]</p>
+</div>
+<div class="citation" id="deberg2008" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>deBerg2008<span class="fn-bracket">]</span></span>
+<p>de Berg, M., Cheong, O., van Kreveld, M., &amp; Overmars, M. (2008). <em>Computational Geometry: Algorithms and Applications</em> (3rd ed.). Springer. [Comprehensive textbook on computational geometry]</p>
+</div>
+<div class="citation" id="fortune1987" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Fortune1987<span class="fn-bracket">]</span></span>
+<p>Fortune, S. (1987). A sweepline algorithm for Voronoi diagrams. <em>Algorithmica</em>, 2(1), 153-174. [Efficient algorithm for computing Voronoi/Delaunay]</p>
+</div>
+<div class="citation" id="shewchuk2002" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Shewchuk2002<span class="fn-bracket">]</span></span>
+<p>Shewchuk, J. R. (2002). Delaunay refinement algorithms for triangular mesh generation. <em>Computational Geometry</em>, 22(1-3), 21-74. [Mesh quality and refinement]</p>
+</div>
+<div class="citation" id="aurenhammer1991" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Aurenhammer1991<span class="fn-bracket">]</span></span>
+<p>Aurenhammer, F. (1991). Voronoi diagrams: A survey of a fundamental geometric data structure. <em>ACM Computing Surveys</em>, 23(3), 345-405. [Voronoi-Delaunay duality explained]</p>
+</div>
+<div class="citation" id="scipydocs" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>SciPyDocs<span class="fn-bracket">]</span></span>
+<p>SciPy Developers. (2024). scipy.spatial.Delaunay. <em>SciPy Documentation</em>. <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.Delaunay.html">https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.Delaunay.html</a> [Official API reference]</p>
+</div>
+<div class="citation" id="shiffman2012" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Shiffman2012<span class="fn-bracket">]</span></span>
+<p>Shiffman, D. (2012). <em>The Nature of Code</em>. Self-published. <a class="reference external" href="https://natureofcode.com/">https://natureofcode.com/</a> [Creative coding applications of computational geometry]</p>
+</div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../3.3.4_voronoi_diagrams/README.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">3.3.4 - Voronoi Diagrams</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../3.4_signal_processing/3.4.1_convolution/convolution/README.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">3.4.1 - Convolution</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-start-your-first-triangulation">Quick Start: Your First Triangulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-delaunay-triangulation">What is Delaunay Triangulation?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-circumcircle-property">The Circumcircle Property</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#point-distribution-strategies">Point Distribution Strategies</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-points-affect-results">How Points Affect Results</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-low-poly-art">Creating Low-Poly Art</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-colors-to-triangles">From Colors to Triangles</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hands-on-exercises">Hands-On Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-execute-and-explore">Exercise 1: Execute and Explore</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-modify-to-achieve-goals">Exercise 2: Modify to Achieve Goals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-create-low-poly-art-from-scratch">Exercise 3: Create Low-Poly Art from Scratch</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../_sources/content/Module_03_transformations_effects/3.3_artistic_filters/3.3.5_delaunay_triangulation/README.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Kristian Rother &amp; Burak Kagan Yilmazer.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

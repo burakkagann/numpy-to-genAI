@@ -1,0 +1,1031 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>2.1.4 - Creating Star Fields &#8212; Pixels to GenAI</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/github-icon.css?v=0979adda" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/footer.css?v=22df2544" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/content.css?v=ad41e33b" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/scroll-progress.css?v=46bcc4b9" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../../_static/documentation_options.js?v=60dbed4a"></script>
+    <script src="../../../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/Module_02_geometry_mathematics/2.1_basic_shapes_primitives/2.1.4_stars/stars/README';</script>
+    <script src="../../../../../_static/github-icon.js?v=54752c43"></script>
+    <script src="../../../../../_static/scroll-progress.js?v=9aba87dc"></script>
+    <link rel="icon" href="../../../../../_static/favicon-64x64.png"/>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+    <link rel="next" title="2.2.1 - Gradient" href="../../../2.2_coordinate_systems_fields/2.2.1_gradient/gradient/README.html" />
+    <link rel="prev" title="2.1.3 - Drawing Circles" href="../../2.1.3_circles/circles/README.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../../_static/favicon-192x192.png" class="logo__image only-light" alt=""/>
+    <img src="../../../../../_static/favicon-192x192.png" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">Pixels to GenAI</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/burakkagann/numpy-to-genAI" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/burakkagann/numpy-to-genAI" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"></div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">2.1.4 - Creating Star Fields</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="creating-star-fields">
+<span id="module-2-1-4"></span><h1>2.1.4 - Creating Star Fields<a class="headerlink" href="#creating-star-fields" title="Link to this heading">#</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">Duration<span class="colon">:</span></dt>
+<dd class="field-odd"><p>20 minutes</p>
+</dd>
+<dt class="field-even">Level<span class="colon">:</span></dt>
+<dd class="field-even"><p>Beginner</p>
+</dd>
+<dt class="field-odd">Prerequisites<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="xref std std-ref">Module 1.1.1</span> (RGB Basics), Module 2.1.3 (Circles)</p>
+</dd>
+</dl>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>This exercise teaches you how to create star fields using NumPy’s integer
+array indexing. This technique places individual pixels at specific
+coordinates, making it useful for particle systems and scatter plots.</p>
+<p>You will learn how different random distributions affect the visual result.
+Uniform distribution scatters stars evenly, while Gaussian distribution
+creates natural-looking clusters.</p>
+<p><strong>Learning Objectives:</strong></p>
+<ol class="arabic simple">
+<li><p>Use integer array indexing to place individual pixels at arbitrary locations</p></li>
+<li><p>Generate random point distributions using NumPy’s random functions</p></li>
+<li><p>Compare uniform vs. Gaussian distributions for different visual effects</p></li>
+<li><p>Create multi-cluster star fields for galaxy-like patterns</p></li>
+</ol>
+</section>
+<section id="quick-start">
+<h2>Quick Start<a class="headerlink" href="#quick-start" title="Link to this heading">#</a></h2>
+<p>Let’s create a simple star field. Run this script to see the result:</p>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">simple_star.py - Creating a star field with integer array indexing</span><a class="headerlink" href="#id6" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="c1"># Configuration</span>
+<span class="linenos"> 5</span><span class="n">CANVAS_SIZE</span> <span class="o">=</span> <span class="mi">400</span>       <span class="c1"># Width and height in pixels</span>
+<span class="linenos"> 6</span><span class="n">NUM_STARS</span> <span class="o">=</span> <span class="mi">150</span>         <span class="c1"># Number of stars to place</span>
+<span class="linenos"> 7</span><span class="n">BACKGROUND</span> <span class="o">=</span> <span class="mi">0</span>          <span class="c1"># Black background (grayscale value)</span>
+<span class="linenos"> 8</span><span class="n">STAR_BRIGHTNESS</span> <span class="o">=</span> <span class="mi">255</span>   <span class="c1"># White stars (grayscale value)</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="c1"># Step 1: Create a black canvas (grayscale image)</span>
+<span class="linenos">11</span><span class="n">canvas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">CANVAS_SIZE</span><span class="p">,</span> <span class="n">CANVAS_SIZE</span><span class="p">),</span> <span class="n">BACKGROUND</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="c1"># Step 2: Generate random coordinates for star positions</span>
+<span class="linenos">14</span><span class="c1"># np.random.randint generates integers in range [low, high)</span>
+<span class="linenos">15</span><span class="n">x_coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">CANVAS_SIZE</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">NUM_STARS</span><span class="p">)</span>
+<span class="linenos">16</span><span class="n">y_coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">CANVAS_SIZE</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">NUM_STARS</span><span class="p">)</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="c1"># Step 3: Place stars using integer array indexing</span>
+<span class="linenos">19</span><span class="c1"># Note: NumPy uses [row, column] order, which is [y, x] in image coordinates</span>
+<span class="linenos">20</span><span class="n">canvas</span><span class="p">[</span><span class="n">y_coords</span><span class="p">,</span> <span class="n">x_coords</span><span class="p">]</span> <span class="o">=</span> <span class="n">STAR_BRIGHTNESS</span>
+<span class="linenos">21</span>
+<span class="linenos">22</span><span class="c1"># Step 4: Save the result</span>
+<span class="linenos">23</span><span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;L&#39;</span><span class="p">)</span>  <span class="c1"># &#39;L&#39; for grayscale</span>
+<span class="linenos">24</span><span class="n">image</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;simple_star.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<figure class="align-center" id="id7">
+<a class="reference internal image-reference" href="../../../../../_images/simple_star.png"><img alt="White dots randomly scattered on a black background representing stars" src="../../../../../_images/simple_star.png" style="width: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">A star field with 150 randomly placed white pixels on a 400x400
+black canvas. Each star occupies exactly one pixel.</span><a class="headerlink" href="#id7" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>What you just did:</strong> You used integer array indexing to place 150 pixels
+at once. The key line <code class="docutils literal notranslate"><span class="pre">canvas[y_coords,</span> <span class="pre">x_coords]</span> <span class="pre">=</span> <span class="pre">255</span></code> assigns the
+brightness value to every position specified by the coordinate arrays.
+This is far more efficient than looping through each star individually.</p>
+</div>
+</section>
+<section id="core-concepts">
+<h2>Core Concepts<a class="headerlink" href="#core-concepts" title="Link to this heading">#</a></h2>
+<section id="concept-1-integer-array-indexing-fancy-indexing">
+<h3>Concept 1: Integer Array Indexing (Fancy Indexing)<a class="headerlink" href="#concept-1-integer-array-indexing-fancy-indexing" title="Link to this heading">#</a></h3>
+<p>NumPy supports several ways to select and modify array elements. In Module 2.1.3
+(Circles), you used <strong>boolean masking</strong> where a True/False array determines
+which pixels to modify. Here, we use <strong>integer array indexing</strong>, where arrays
+of integers specify the exact row and column positions <a class="reference internal" href="../../../2.2_coordinate_systems_fields/2.2.4_distance_fields/README.html#harris2020" id="id1"><span>[Harris2020]</span></a>.</p>
+<p>When you write:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">canvas</span><span class="p">[</span><span class="n">y_coords</span><span class="p">,</span> <span class="n">x_coords</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+</pre></div>
+</div>
+<p>NumPy interprets this as: “For each pair <code class="docutils literal notranslate"><span class="pre">(y_coords[i],</span> <span class="pre">x_coords[i])</span></code>, set
+that pixel to <code class="docutils literal notranslate"><span class="pre">value</span></code>.” The coordinate arrays must have the same shape.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Row-Column Order:</strong> NumPy arrays use <code class="docutils literal notranslate"><span class="pre">[row,</span> <span class="pre">column]</span></code> indexing, which
+corresponds to <code class="docutils literal notranslate"><span class="pre">[y,</span> <span class="pre">x]</span></code> in image coordinates. This is the opposite of
+mathematical <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y)</span></code> notation. Always remember: <strong>rows are vertical (y),
+columns are horizontal (x)</strong>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># To place a pixel at image position (x=100, y=50):</span>
+<span class="n">canvas</span><span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span> <span class="o">=</span> <span class="mi">255</span>  <span class="c1"># [row, column] = [y, x]</span>
+</pre></div>
+</div>
+</div>
+<p>The table below compares the three main indexing techniques:</p>
+<div class="pst-scrollable-table-container"><table class="table" id="id8">
+<caption><span class="caption-text">NumPy Indexing Techniques Comparison</span><a class="headerlink" href="#id8" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 35.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Technique</p></th>
+<th class="head"><p>When to Use</p></th>
+<th class="head"><p>Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Slicing</strong></p></td>
+<td><p>Rectangular regions</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">canvas[0:100,</span> <span class="pre">0:200]</span> <span class="pre">=</span> <span class="pre">255</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Boolean Masking</strong></p></td>
+<td><p>Shape-based selection (circles, complex regions)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">canvas[distance</span> <span class="pre">&lt;</span> <span class="pre">radius]</span> <span class="pre">=</span> <span class="pre">color</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Integer Indexing</strong></p></td>
+<td><p>Individual points at arbitrary locations</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">canvas[y_coords,</span> <span class="pre">x_coords]</span> <span class="pre">=</span> <span class="pre">255</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="concept-2-random-point-distributions">
+<h3>Concept 2: Random Point Distributions<a class="headerlink" href="#concept-2-random-point-distributions" title="Link to this heading">#</a></h3>
+<p>The visual appearance of a star field depends heavily on how you generate
+the random coordinates. NumPy provides several distribution functions
+<a class="reference internal" href="#numpyrandom2024" id="id2"><span>[NumPyRandom2024]</span></a>:</p>
+<p><strong>Uniform Distribution</strong> (<code class="docutils literal notranslate"><span class="pre">np.random.randint</span></code>):</p>
+<p>Every position is equally likely. Stars are scattered evenly across the canvas
+with no clustering. This creates a “white noise” pattern.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Every pixel has equal probability of receiving a star</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">CANVAS_SIZE</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">NUM_STARS</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">CANVAS_SIZE</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">NUM_STARS</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Gaussian (Normal) Distribution</strong> (<code class="docutils literal notranslate"><span class="pre">np.random.normal</span></code>):</p>
+<p>Points cluster around a center point with a bell-curve falloff. The <code class="docutils literal notranslate"><span class="pre">spread</span></code>
+parameter (standard deviation) controls how tightly stars cluster <a class="reference internal" href="#ross2014" id="id3"><span>[Ross2014]</span></a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Stars cluster around (CENTER_X, CENTER_Y) with spread=60</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">CENTER_X</span><span class="p">,</span> <span class="n">spread</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">NUM_STARS</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">CENTER_Y</span><span class="p">,</span> <span class="n">spread</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">NUM_STARS</span><span class="p">)</span>
+
+<span class="c1"># Clip to canvas bounds (Gaussian can produce out-of-range values)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">CANVAS_SIZE</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">CANVAS_SIZE</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</pre></div>
+</div>
+<figure class="align-center" id="id9">
+<a class="reference internal image-reference" href="../../../../../_images/distribution_comparison.png"><img alt="Side-by-side comparison of uniform and Gaussian star distributions" src="../../../../../_images/distribution_comparison.png" style="width: 600px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Left: Uniform distribution creates evenly scattered stars. Right: Gaussian
+distribution creates a cluster with density decreasing from the center.</span><a class="headerlink" href="#id9" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition-did-you-know admonition">
+<p class="admonition-title">Did You Know?</p>
+<p>Real star distributions in galaxies follow neither perfectly uniform nor
+simple Gaussian patterns. Astronomers use complex models like the
+Plummer profile and King models to describe stellar density in globular
+clusters. However, Gaussian distributions provide a good approximation
+for educational and artistic purposes <a class="reference internal" href="#binney2008" id="id4"><span>[Binney2008]</span></a>.</p>
+</div>
+</section>
+<section id="concept-3-star-fields-in-generative-art">
+<h3>Concept 3: Star Fields in Generative Art<a class="headerlink" href="#concept-3-star-fields-in-generative-art" title="Link to this heading">#</a></h3>
+<p>Star fields have been a staple of computer graphics since the earliest days
+of video games. The original <em>Star Raiders</em> (1979) and <em>Elite</em> (1984) used
+simple random point placement to create immersive space environments with
+minimal computational resources <a class="reference internal" href="#maher2012" id="id5"><span>[Maher2012]</span></a>.</p>
+<p>Modern generative artists use layered star fields to create depth:</p>
+<ol class="arabic simple">
+<li><p><strong>Background layer:</strong> Many dim stars (low brightness values)</p></li>
+<li><p><strong>Midground layer:</strong> Fewer medium-brightness stars</p></li>
+<li><p><strong>Foreground layer:</strong> Few bright stars, possibly larger (multi-pixel)</p></li>
+</ol>
+<p>This layering creates parallax effects when animated, enhancing the sense
+of three-dimensional space.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creating depth with varying brightness</span>
+<span class="n">brightness</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">NUM_STARS</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">x_coords</span><span class="p">,</span> <span class="n">y_coords</span><span class="p">,</span> <span class="n">brightness</span><span class="p">):</span>
+    <span class="n">canvas</span><span class="p">[</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span>
+</pre></div>
+</div>
+<figure class="align-center" id="id10">
+<a class="reference internal image-reference" href="../../../../../_images/gaussian_cluster.png"><img alt="A Gaussian star cluster centered on the canvas" src="../../../../../_images/gaussian_cluster.png" style="width: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">A star cluster using Gaussian distribution. Notice how star density
+decreases naturally from the center, mimicking real stellar clusters.</span><a class="headerlink" href="#id10" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="hands-on-exercises">
+<h2>Hands-On Exercises<a class="headerlink" href="#hands-on-exercises" title="Link to this heading">#</a></h2>
+<section id="exercise-1-execute-and-explore">
+<h3>Exercise 1: Execute and Explore<a class="headerlink" href="#exercise-1-execute-and-explore" title="Link to this heading">#</a></h3>
+<p>Run the <a class="reference download internal" download="" href="../../../../../_downloads/47904b5e041c701774ac2295219bc4b4/simple_star.py"><code class="xref download docutils literal notranslate"><span class="pre">simple_star.py</span></code></a> script from the Quick Start section and observe
+the output. Then answer these reflection questions:</p>
+<p><strong>Reflection Questions:</strong></p>
+<ol class="arabic simple">
+<li><p>Why do we use <code class="docutils literal notranslate"><span class="pre">canvas[y_coords,</span> <span class="pre">x_coords]</span></code> instead of <code class="docutils literal notranslate"><span class="pre">canvas[x_coords,</span> <span class="pre">y_coords]</span></code>?</p></li>
+<li><p>What happens if a coordinate exceeds the canvas size (e.g., 500 on a 400-pixel canvas)?</p></li>
+<li><p>How would you create more stars? Fewer stars?</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answers</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<ol class="arabic simple">
+<li><p class="sd-card-text"><strong>Y before X:</strong> NumPy uses row-major order where the first index is the
+row (vertical position, y) and the second is the column (horizontal
+position, x). This matches how 2D arrays are stored in memory but is
+opposite to mathematical (x, y) notation.</p></li>
+<li><p class="sd-card-text"><strong>Out-of-bounds coordinates:</strong> NumPy will raise an <code class="docutils literal notranslate"><span class="pre">IndexError</span></code> if
+any coordinate is outside the array bounds. Always use <code class="docutils literal notranslate"><span class="pre">np.clip()</span></code>
+or ensure your random range matches the canvas size.</p></li>
+<li><p class="sd-card-text"><strong>Changing star count:</strong> Modify the <code class="docutils literal notranslate"><span class="pre">NUM_STARS</span></code> parameter. For example,
+<code class="docutils literal notranslate"><span class="pre">NUM_STARS</span> <span class="pre">=</span> <span class="pre">500</span></code> creates more stars, <code class="docutils literal notranslate"><span class="pre">NUM_STARS</span> <span class="pre">=</span> <span class="pre">50</span></code> creates fewer.</p></li>
+</ol>
+</div>
+</details></section>
+<section id="exercise-2-modify-to-achieve-goals">
+<h3>Exercise 2: Modify to Achieve Goals<a class="headerlink" href="#exercise-2-modify-to-achieve-goals" title="Link to this heading">#</a></h3>
+<p>Starting with the Quick Start code, complete these modification tasks:</p>
+<p><strong>Task A: Create a Gaussian star cluster</strong></p>
+<p>Modify the code to use Gaussian distribution instead of uniform distribution.
+Center the cluster at position (200, 200) with a spread of 60 pixels.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Hint</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Replace <code class="docutils literal notranslate"><span class="pre">np.random.randint()</span></code> with <code class="docutils literal notranslate"><span class="pre">np.random.normal()</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x_coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">NUM_STARS</span><span class="p">)</span>
+<span class="n">y_coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">NUM_STARS</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sd-card-text">Remember to clip and convert to integers afterward.</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Solution</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
+
+<span class="n">CANVAS_SIZE</span> <span class="o">=</span> <span class="mi">400</span>
+<span class="n">NUM_STARS</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">CENTER_X</span><span class="p">,</span> <span class="n">CENTER_Y</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span>
+<span class="n">SPREAD</span> <span class="o">=</span> <span class="mi">60</span>
+
+<span class="n">canvas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">CANVAS_SIZE</span><span class="p">,</span> <span class="n">CANVAS_SIZE</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+
+<span class="n">x_coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">CENTER_X</span><span class="p">,</span> <span class="n">SPREAD</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">NUM_STARS</span><span class="p">)</span>
+<span class="n">y_coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">CENTER_Y</span><span class="p">,</span> <span class="n">SPREAD</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">NUM_STARS</span><span class="p">)</span>
+
+<span class="n">x_coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">x_coords</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">CANVAS_SIZE</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">y_coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">y_coords</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">CANVAS_SIZE</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+<span class="n">canvas</span><span class="p">[</span><span class="n">y_coords</span><span class="p">,</span> <span class="n">x_coords</span><span class="p">]</span> <span class="o">=</span> <span class="mi">255</span>
+
+<span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;L&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;cluster.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details><p><strong>Task B: Add a second cluster</strong></p>
+<p>After creating the first cluster, add a second cluster at position (100, 300)
+with 80 stars and a tighter spread of 30 pixels.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Hint</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Generate a second set of coordinates and place them on the same canvas:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Second cluster</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">CANVAS_SIZE</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">y2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">CANVAS_SIZE</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">canvas</span><span class="p">[</span><span class="n">y2</span><span class="p">,</span> <span class="n">x2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">255</span>
+</pre></div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Solution</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
+
+<span class="n">CANVAS_SIZE</span> <span class="o">=</span> <span class="mi">400</span>
+<span class="n">canvas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">CANVAS_SIZE</span><span class="p">,</span> <span class="n">CANVAS_SIZE</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+
+<span class="c1"># Cluster 1: Large central cluster</span>
+<span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">CANVAS_SIZE</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">y1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">CANVAS_SIZE</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">canvas</span><span class="p">[</span><span class="n">y1</span><span class="p">,</span> <span class="n">x1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">255</span>
+
+<span class="c1"># Cluster 2: Smaller tight cluster</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">CANVAS_SIZE</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">y2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">CANVAS_SIZE</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">canvas</span><span class="p">[</span><span class="n">y2</span><span class="p">,</span> <span class="n">x2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">255</span>
+
+<span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;L&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;two_clusters.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details></section>
+<section id="exercise-3-create-from-scratch-multi-cluster-galaxy">
+<h3>Exercise 3: Create from Scratch - Multi-Cluster Galaxy<a class="headerlink" href="#exercise-3-create-from-scratch-multi-cluster-galaxy" title="Link to this heading">#</a></h3>
+<p>Create a <strong>galaxy-like image</strong> with multiple star clusters. Each cluster
+should have different positions, sizes (number of stars), and spreads.</p>
+<p><strong>Requirements:</strong></p>
+<ul class="simple">
+<li><p>Canvas size: 512x512 pixels</p></li>
+<li><p>At least 3 distinct star clusters</p></li>
+<li><p>Vary the number of stars per cluster (50-300 stars)</p></li>
+<li><p>Vary the spread per cluster (20-100 pixels)</p></li>
+<li><p>Add sparse background stars across the entire canvas</p></li>
+</ul>
+<p><strong>Starter code:</strong></p>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-text">multi_cluster_starter.py</span><a class="headerlink" href="#id11" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
+
+<span class="n">CANVAS_SIZE</span> <span class="o">=</span> <span class="mi">512</span>
+<span class="n">canvas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">CANVAS_SIZE</span><span class="p">,</span> <span class="n">CANVAS_SIZE</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">add_cluster</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="n">center_x</span><span class="p">,</span> <span class="n">center_y</span><span class="p">,</span> <span class="n">num_stars</span><span class="p">,</span> <span class="n">spread</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Add a star cluster to the canvas using Gaussian distribution.&quot;&quot;&quot;</span>
+    <span class="c1"># TODO: Generate Gaussian-distributed x coordinates</span>
+    <span class="n">x_coords</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Replace with your code</span>
+
+    <span class="c1"># TODO: Generate Gaussian-distributed y coordinates</span>
+    <span class="n">y_coords</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Replace with your code</span>
+
+    <span class="c1"># TODO: Clip coordinates to canvas bounds</span>
+    <span class="n">x_coords</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Replace with your code</span>
+    <span class="n">y_coords</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Replace with your code</span>
+
+    <span class="c1"># TODO: Place stars on canvas</span>
+    <span class="k">pass</span>  <span class="c1"># Replace with your code</span>
+
+
+<span class="c1"># TODO: Add at least 3 clusters with different parameters</span>
+
+
+<span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;L&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;multi_cluster.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Hint 1: Implementing add_cluster</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Use <code class="docutils literal notranslate"><span class="pre">np.random.normal()</span></code> for both x and y coordinates:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x_coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">center_x</span><span class="p">,</span> <span class="n">spread</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">num_stars</span><span class="p">)</span>
+<span class="n">y_coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">center_y</span><span class="p">,</span> <span class="n">spread</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">num_stars</span><span class="p">)</span>
+<span class="n">x_coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">x_coords</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">canvas</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">y_coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">y_coords</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">canvas</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">canvas</span><span class="p">[</span><span class="n">y_coords</span><span class="p">,</span> <span class="n">x_coords</span><span class="p">]</span> <span class="o">=</span> <span class="mi">255</span>
+</pre></div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Hint 2: Adding background stars</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Add a cluster with a very large spread to scatter stars across the canvas:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sparse background stars</span>
+<span class="n">add_cluster</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="n">num_stars</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">spread</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Complete Solution</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="n">CANVAS_SIZE</span> <span class="o">=</span> <span class="mi">512</span>
+<span class="linenos"> 5</span><span class="n">canvas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">CANVAS_SIZE</span><span class="p">,</span> <span class="n">CANVAS_SIZE</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="k">def</span><span class="w"> </span><span class="nf">add_cluster</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="n">center_x</span><span class="p">,</span> <span class="n">center_y</span><span class="p">,</span> <span class="n">num_stars</span><span class="p">,</span> <span class="n">spread</span><span class="p">):</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Add a star cluster to the canvas using Gaussian distribution.&quot;&quot;&quot;</span>
+<span class="linenos">10</span>    <span class="n">x_coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">center_x</span><span class="p">,</span> <span class="n">spread</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">num_stars</span><span class="p">)</span>
+<span class="linenos">11</span>    <span class="n">y_coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">center_y</span><span class="p">,</span> <span class="n">spread</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">num_stars</span><span class="p">)</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span>    <span class="n">x_coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">x_coords</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">canvas</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="linenos">14</span>    <span class="n">y_coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">y_coords</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">canvas</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span>    <span class="n">canvas</span><span class="p">[</span><span class="n">y_coords</span><span class="p">,</span> <span class="n">x_coords</span><span class="p">]</span> <span class="o">=</span> <span class="mi">255</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span><span class="c1"># Cluster 1: Large central cluster (main galaxy core)</span>
+<span class="linenos">20</span><span class="n">add_cluster</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="n">center_x</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">center_y</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">num_stars</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">spread</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+<span class="linenos">21</span>
+<span class="linenos">22</span><span class="c1"># Cluster 2: Smaller cluster to the upper-left</span>
+<span class="linenos">23</span><span class="n">add_cluster</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="n">center_x</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">center_y</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span> <span class="n">num_stars</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">spread</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="linenos">24</span>
+<span class="linenos">25</span><span class="c1"># Cluster 3: Medium cluster to the lower-right</span>
+<span class="linenos">26</span><span class="n">add_cluster</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="n">center_x</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">center_y</span><span class="o">=</span><span class="mi">380</span><span class="p">,</span> <span class="n">num_stars</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span> <span class="n">spread</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="linenos">27</span>
+<span class="linenos">28</span><span class="c1"># Cluster 4: Small tight cluster (globular cluster style)</span>
+<span class="linenos">29</span><span class="n">add_cluster</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="n">center_x</span><span class="o">=</span><span class="mi">380</span><span class="p">,</span> <span class="n">center_y</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">num_stars</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">spread</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="linenos">30</span>
+<span class="linenos">31</span><span class="c1"># Cluster 5: Sparse background stars</span>
+<span class="linenos">32</span><span class="n">add_cluster</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="n">center_x</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">center_y</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">num_stars</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">spread</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="linenos">33</span>
+<span class="linenos">34</span><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;L&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;multi_cluster.png&#39;</span><span class="p">)</span>
+<span class="linenos">35</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Created multi-cluster galaxy!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details><figure class="align-center" id="id12">
+<a class="reference internal image-reference" href="../../../../../_images/multi_cluster.png"><img alt="Multiple star clusters resembling a simplified galaxy view" src="../../../../../_images/multi_cluster.png" style="width: 500px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">A galaxy-like pattern with multiple clusters of varying density.
+The central cluster is largest, with smaller satellite clusters
+and sparse background stars.</span><a class="headerlink" href="#id12" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="challenge-extension">
+<h2>Challenge Extension<a class="headerlink" href="#challenge-extension" title="Link to this heading">#</a></h2>
+<p>Ready for an advanced challenge? Try creating a star field with depth simulation:</p>
+<p><strong>Brightness Variation for Depth Effect</strong></p>
+<p>Create a star field where each star has a different brightness level,
+simulating distance. Brighter stars appear closer, dimmer stars appear
+farther away.</p>
+<p><strong>Requirements:</strong></p>
+<ul class="simple">
+<li><p>400 stars with random positions</p></li>
+<li><p>Random brightness values from 50 (dim) to 255 (bright)</p></li>
+<li><p>Add 10 “foreground” stars that are larger (3x3 pixel crosses)</p></li>
+</ul>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Hint: Assigning individual brightness values</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">When each star has a unique brightness, you need to use a loop:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">brightness</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">NUM_STARS</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">x_coords</span><span class="p">,</span> <span class="n">y_coords</span><span class="p">,</span> <span class="n">brightness</span><span class="p">):</span>
+    <span class="n">canvas</span><span class="p">[</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Hint: Creating larger foreground stars</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Draw a small cross pattern for bright stars:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">x_bright</span><span class="p">,</span> <span class="n">y_bright</span><span class="p">):</span>
+    <span class="n">canvas</span><span class="p">[</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="mi">255</span>      <span class="c1"># Center</span>
+    <span class="n">canvas</span><span class="p">[</span><span class="n">y</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="mi">200</span>    <span class="c1"># Top</span>
+    <span class="n">canvas</span><span class="p">[</span><span class="n">y</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="mi">200</span>    <span class="c1"># Bottom</span>
+    <span class="n">canvas</span><span class="p">[</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">200</span>    <span class="c1"># Left</span>
+    <span class="n">canvas</span><span class="p">[</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">200</span>    <span class="c1"># Right</span>
+</pre></div>
+</div>
+</div>
+</details><figure class="align-center" id="id13">
+<a class="reference internal image-reference" href="../../../../../_images/brightness_variation.png"><img alt="Star field with varying brightness levels and larger foreground stars" src="../../../../../_images/brightness_variation.png" style="width: 500px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Brightness variation creates depth. Dim stars recede into the background
+while bright stars and cross-shaped foreground stars pop forward.</span><a class="headerlink" href="#id13" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<p><strong>Key Takeaways:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Integer array indexing</strong> places pixels at specific coordinates:
+<code class="docutils literal notranslate"><span class="pre">canvas[y_coords,</span> <span class="pre">x_coords]</span> <span class="pre">=</span> <span class="pre">value</span></code> modifies all specified positions at once.</p></li>
+<li><p><strong>Row-column order:</strong> NumPy uses <code class="docutils literal notranslate"><span class="pre">[row,</span> <span class="pre">column]</span></code> which is <code class="docutils literal notranslate"><span class="pre">[y,</span> <span class="pre">x]</span></code> in
+image coordinates. Always put y before x.</p></li>
+<li><p><strong>Distribution matters:</strong> Uniform random creates scattered patterns;
+Gaussian creates natural-looking clusters with density falloff.</p></li>
+<li><p><strong>np.clip() prevents errors:</strong> Always clip coordinates to canvas bounds
+before indexing, especially with Gaussian distributions.</p></li>
+<li><p><strong>Layering creates depth:</strong> Multiple star layers with varying brightness
+and density simulate 3D space on a 2D canvas.</p></li>
+</ol>
+<p><strong>Common Pitfalls:</strong></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<ul class="simple">
+<li><p><strong>Wrong coordinate order:</strong> Writing <code class="docutils literal notranslate"><span class="pre">canvas[x,</span> <span class="pre">y]</span></code> instead of
+<code class="docutils literal notranslate"><span class="pre">canvas[y,</span> <span class="pre">x]</span></code> will place stars in transposed positions.</p></li>
+<li><p><strong>Forgetting to clip Gaussian coordinates:</strong> <code class="docutils literal notranslate"><span class="pre">np.random.normal()</span></code> can
+return values outside the canvas bounds, causing <code class="docutils literal notranslate"><span class="pre">IndexError</span></code>.</p></li>
+<li><p><strong>Integer conversion:</strong> Gaussian coordinates are floats. Forgetting
+<code class="docutils literal notranslate"><span class="pre">.astype(int)</span></code> after clipping will cause a TypeError.</p></li>
+<li><p><strong>Duplicate positions:</strong> If two stars land on the same pixel, only
+the last brightness value is kept. For dense fields, this is usually
+acceptable.</p></li>
+</ul>
+</div>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<div role="list" class="citation-list">
+<div class="citation" id="harris2020" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">Harris2020</a><span class="fn-bracket">]</span></span>
+<p>Harris, C. R., et al. (2020). Array programming with NumPy.
+<em>Nature</em>, 585(7825), 357-362. <a class="reference external" href="https://doi.org/10.1038/s41586-020-2649-2">https://doi.org/10.1038/s41586-020-2649-2</a>
+[Foundational paper on NumPy’s array operations and indexing mechanisms]</p>
+</div>
+<div class="citation" id="numpyrandom2024" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">NumPyRandom2024</a><span class="fn-bracket">]</span></span>
+<p>NumPy Developers. (2024). Random sampling (numpy.random).
+<em>NumPy Reference</em>. Retrieved January 30, 2025, from
+<a class="reference external" href="https://numpy.org/doc/stable/reference/random/index.html">https://numpy.org/doc/stable/reference/random/index.html</a>
+[Official documentation for NumPy’s random number generation functions]</p>
+</div>
+<div class="citation" id="ross2014" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">Ross2014</a><span class="fn-bracket">]</span></span>
+<p>Ross, S. M. (2014). <em>Introduction to Probability and Statistics
+for Engineers and Scientists</em> (5th ed.). Academic Press. ISBN: 978-0-12-394811-3
+[Standard reference on probability distributions including Gaussian/normal]</p>
+</div>
+<div class="citation" id="binney2008" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">Binney2008</a><span class="fn-bracket">]</span></span>
+<p>Binney, J., &amp; Tremaine, S. (2008). <em>Galactic Dynamics</em> (2nd ed.).
+Princeton University Press. ISBN: 978-0-691-13026-2
+[Advanced reference on stellar distributions in galaxies and star clusters]</p>
+</div>
+<div class="citation" id="maher2012" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">Maher2012</a><span class="fn-bracket">]</span></span>
+<p>Maher, J. (2012). <em>The Future Was Here: The Commodore Amiga</em>.
+MIT Press. ISBN: 978-0-262-01720-6
+[Historical context on early computer graphics including star field rendering]</p>
+</div>
+<div class="citation" id="pearson2011" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Pearson2011<span class="fn-bracket">]</span></span>
+<p>Pearson, M. (2011). <em>Generative Art: A Practical Guide Using
+Processing</em>. Manning Publications. ISBN: 978-1-935182-62-5
+[Practical introduction to generative art techniques including particle systems]</p>
+</div>
+<div class="citation" id="pillowdocs2024" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>PillowDocs2024<span class="fn-bracket">]</span></span>
+<p>Clark, A., et al. (2024). Pillow (PIL Fork) Documentation.
+Retrieved January 30, 2025, from <a class="reference external" href="https://pillow.readthedocs.io/">https://pillow.readthedocs.io/</a>
+[Official documentation for Python Imaging Library used for image saving]</p>
+</div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../../2.1.3_circles/circles/README.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">2.1.3 - Drawing Circles</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../../2.2_coordinate_systems_fields/2.2.1_gradient/gradient/README.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">2.2.1 - Gradient</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-start">Quick Start</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#core-concepts">Core Concepts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concept-1-integer-array-indexing-fancy-indexing">Concept 1: Integer Array Indexing (Fancy Indexing)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concept-2-random-point-distributions">Concept 2: Random Point Distributions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concept-3-star-fields-in-generative-art">Concept 3: Star Fields in Generative Art</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hands-on-exercises">Hands-On Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-execute-and-explore">Exercise 1: Execute and Explore</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-modify-to-achieve-goals">Exercise 2: Modify to Achieve Goals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-create-from-scratch-multi-cluster-galaxy">Exercise 3: Create from Scratch - Multi-Cluster Galaxy</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-extension">Challenge Extension</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../../_sources/content/Module_02_geometry_mathematics/2.1_basic_shapes_primitives/2.1.4_stars/stars/README.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Kristian Rother &amp; Burak Kagan Yilmazer.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

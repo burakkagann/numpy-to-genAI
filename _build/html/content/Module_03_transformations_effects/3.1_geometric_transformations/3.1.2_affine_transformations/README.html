@@ -1,0 +1,1108 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>3.1.2 - Affine Transformations &#8212; Pixels to GenAI</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/github-icon.css?v=0979adda" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/footer.css?v=22df2544" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/content.css?v=ad41e33b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/scroll-progress.css?v=46bcc4b9" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../_static/documentation_options.js?v=60dbed4a"></script>
+    <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/Module_03_transformations_effects/3.1_geometric_transformations/3.1.2_affine_transformations/README';</script>
+    <script src="../../../../_static/github-icon.js?v=54752c43"></script>
+    <script src="../../../../_static/scroll-progress.js?v=9aba87dc"></script>
+    <link rel="icon" href="../../../../_static/favicon-64x64.png"/>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="3.1.3 - Nonlinear Distortions" href="../3.1.3_nonlinear_distortions/README.html" />
+    <link rel="prev" title="3.1.1 - Rotation" href="../3.1.1_rotation/rotate/README.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/favicon-192x192.png" class="logo__image only-light" alt=""/>
+    <img src="../../../../_static/favicon-192x192.png" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">Pixels to GenAI</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/burakkagann/numpy-to-genAI" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/burakkagann/numpy-to-genAI" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"></div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">3.1.2 - Affine Transformations</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="affine-transformations">
+<span id="id1"></span><h1>3.1.2 - Affine Transformations<a class="headerlink" href="#affine-transformations" title="Link to this heading">#</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">Duration<span class="colon">:</span></dt>
+<dd class="field-odd"><p>18 minutes</p>
+</dd>
+<dt class="field-even">Level<span class="colon">:</span></dt>
+<dd class="field-even"><p>Beginner-Intermediate</p>
+</dd>
+<dt class="field-odd">Prerequisites<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Module 2.1 (Basic Shapes), Module 1.1.1 (RGB Color Basics)</p>
+</dd>
+</dl>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>Every time you resize an image, rotate a shape, or move an object across the screen, you are performing an <strong>affine transformation</strong>. These fundamental operations form the backbone of computer graphics, from simple 2D drawings to complex 3D animations.</p>
+<p>An affine transformation is any transformation that preserves lines and parallelism. If you draw parallel lines on a piece of paper and then stretch, rotate, or skew the paper, those lines remain parallel. This property makes affine transformations predictable and mathematically elegant.</p>
+<p>In this exercise, you will learn how affine transformations work by implementing them with NumPy matrices. You will discover that scaling, rotation, shearing, and translation can all be expressed as matrix operations, and you will see how combining these simple transformations creates complex effects.</p>
+<p><strong>Learning Objectives</strong></p>
+<p>By completing this exercise, you will:</p>
+<ul class="simple">
+<li><p>Understand the mathematical structure of 2D affine transformation matrices</p></li>
+<li><p>Implement translation, scaling, rotation, and shearing using matrix operations</p></li>
+<li><p>Combine multiple transformations through matrix multiplication</p></li>
+<li><p>Recognize that transformation order affects the final result</p></li>
+</ul>
+</section>
+<section id="quick-start-transform-a-shape">
+<h2>Quick Start: Transform a Shape<a class="headerlink" href="#quick-start-transform-a-shape" title="Link to this heading">#</a></h2>
+<p>Let’s see an affine transformation in action. This code applies a scaling and translation to a colored square:</p>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">simple_affine.py - Apply scale and translate transformations</span><a class="headerlink" href="#id7" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">ImageDraw</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="c1"># Create a blank canvas</span>
+<span class="linenos"> 5</span><span class="n">canvas_size</span> <span class="o">=</span> <span class="mi">400</span>
+<span class="linenos"> 6</span><span class="n">canvas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">canvas_size</span><span class="p">,</span> <span class="n">canvas_size</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="n">canvas</span><span class="p">[:]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>  <span class="c1"># Dark background</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="c1"># Define a square centered at origin</span>
+<span class="linenos">10</span><span class="n">square_points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+<span class="linenos">11</span>    <span class="p">[</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="o">-</span><span class="mi">50</span><span class="p">],</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="o">-</span><span class="mi">50</span><span class="p">],</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
+<span class="linenos">12</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="c1"># Position for the original square (left side)</span>
+<span class="linenos">15</span><span class="n">original_offset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">])</span>
+<span class="linenos">16</span><span class="n">original_points</span> <span class="o">=</span> <span class="n">square_points</span> <span class="o">+</span> <span class="n">original_offset</span>
+<span class="linenos">17</span>
+<span class="hll"><span class="linenos">18</span><span class="c1"># Define the affine transformation</span>
+</span><span class="hll"><span class="linenos">19</span><span class="n">scale_factor</span> <span class="o">=</span> <span class="mf">1.5</span>
+</span><span class="hll"><span class="linenos">20</span><span class="n">translate_x</span> <span class="o">=</span> <span class="mi">200</span>
+</span><span class="hll"><span class="linenos">21</span><span class="n">translate_y</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span class="hll"><span class="linenos">22</span><span class="n">affine_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+</span><span class="linenos">23</span>    <span class="p">[</span><span class="n">scale_factor</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">translate_x</span><span class="p">],</span>
+<span class="linenos">24</span>    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale_factor</span><span class="p">,</span> <span class="n">translate_y</span><span class="p">]</span>
+<span class="linenos">25</span><span class="p">])</span>
+<span class="linenos">26</span>
+<span class="linenos">27</span><span class="c1"># Apply transformation using homogeneous coordinates</span>
+<span class="hll"><span class="linenos">28</span><span class="n">ones</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">square_points</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">))</span>
+</span><span class="hll"><span class="linenos">29</span><span class="n">homogeneous</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">square_points</span><span class="p">,</span> <span class="n">ones</span><span class="p">])</span>
+</span><span class="hll"><span class="linenos">30</span><span class="n">transformed</span> <span class="o">=</span> <span class="p">(</span><span class="n">affine_matrix</span> <span class="o">@</span> <span class="n">homogeneous</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">T</span> <span class="o">+</span> <span class="n">original_offset</span>
+</span><span class="linenos">31</span>
+<span class="linenos">32</span><span class="c1"># Draw both squares using PIL</span>
+<span class="linenos">33</span><span class="n">pil_image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">canvas</span><span class="p">)</span>
+<span class="linenos">34</span><span class="n">draw</span> <span class="o">=</span> <span class="n">ImageDraw</span><span class="o">.</span><span class="n">Draw</span><span class="p">(</span><span class="n">pil_image</span><span class="p">)</span>
+<span class="linenos">35</span><span class="n">draw</span><span class="o">.</span><span class="n">polygon</span><span class="p">([</span><span class="nb">tuple</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">original_points</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)],</span>
+<span class="linenos">36</span>             <span class="n">fill</span><span class="o">=</span><span class="p">(</span><span class="mi">70</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="mi">200</span><span class="p">))</span>  <span class="c1"># Blue original</span>
+<span class="linenos">37</span><span class="n">draw</span><span class="o">.</span><span class="n">polygon</span><span class="p">([</span><span class="nb">tuple</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">transformed</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)],</span>
+<span class="linenos">38</span>             <span class="n">fill</span><span class="o">=</span><span class="p">(</span><span class="mi">230</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">50</span><span class="p">))</span>  <span class="c1"># Orange transformed</span>
+<span class="linenos">39</span>
+<span class="linenos">40</span><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pil_image</span><span class="p">))</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;simple_affine.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<figure class="align-center" id="id8">
+<a class="reference internal image-reference" href="../../../../_images/simple_affine.png"><img alt="Blue square on left and larger orange square on right showing scale and translate transformation" src="../../../../_images/simple_affine.png" style="width: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">The blue square (original) is transformed into the larger orange square through scaling (1.5x) and translation (moved right). Notice how the shape’s proportions are preserved.</span><a class="headerlink" href="#id8" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The key insight: affine transformations can be expressed as matrix multiplication. This makes them computationally efficient and mathematically composable.</p>
+</div>
+</section>
+<section id="core-concept-1-the-affine-transformation-matrix">
+<h2>Core Concept 1: The Affine Transformation Matrix<a class="headerlink" href="#core-concept-1-the-affine-transformation-matrix" title="Link to this heading">#</a></h2>
+<section id="what-makes-a-transformation-affine">
+<h3>What Makes a Transformation “Affine”?<a class="headerlink" href="#what-makes-a-transformation-affine" title="Link to this heading">#</a></h3>
+<p>An <strong>affine transformation</strong> is any transformation that:</p>
+<ol class="arabic simple">
+<li><p>Maps straight lines to straight lines</p></li>
+<li><p>Preserves parallelism (parallel lines remain parallel)</p></li>
+<li><p>May not preserve distances or angles</p></li>
+</ol>
+<p>This definition includes <strong>translation</strong> (moving), <strong>scaling</strong> (resizing), <strong>rotation</strong> (spinning), and <strong>shearing</strong> (slanting). Circles may become ellipses, and squares may become parallelograms, but straight edges stay straight.</p>
+</section>
+<section id="the-3x3-transformation-matrix">
+<h3>The 3x3 Transformation Matrix<a class="headerlink" href="#the-3x3-transformation-matrix" title="Link to this heading">#</a></h3>
+<p>In 2D, we represent affine transformations using a 3x3 matrix. Why 3x3 for 2D points? The answer lies in <strong>homogeneous coordinates</strong>.</p>
+<p>A 2D point (x, y) becomes a 3D homogeneous point (x, y, 1). This extra dimension allows us to include translation in matrix multiplication:</p>
+<figure class="align-center" id="id9">
+<a class="reference internal image-reference" href="../../../../_images/affine_matrix_diagram.png"><img alt="Diagram showing the structure of a 3x3 affine transformation matrix with labeled components" src="../../../../_images/affine_matrix_diagram.png" style="width: 500px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">The 3x3 affine matrix structure. The top-left 2x2 block handles linear transformations (scale, rotate, shear), while the right column handles translation. The bottom row is always [0, 0, 1] for 2D affine transforms.</span><a class="headerlink" href="#id9" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The transformation equations are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x'</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">*</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">b</span> <span class="pre">*</span> <span class="pre">y</span> <span class="pre">+</span> <span class="pre">tx</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y'</span> <span class="pre">=</span> <span class="pre">c</span> <span class="pre">*</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">d</span> <span class="pre">*</span> <span class="pre">y</span> <span class="pre">+</span> <span class="pre">ty</span></code></p></li>
+</ul>
+<p>Where (a, b, c, d) control linear transformation and (tx, ty) control translation.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The bottom row [0, 0, 1] must remain fixed for affine transformations. If these values change, the transformation becomes <strong>projective</strong> (perspective), which is a different class of transformation <a class="reference internal" href="#foleyetal1995" id="id2"><span>[FoleyEtAl1995]</span></a>.</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creating transformation matrices in NumPy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Identity matrix (no transformation)</span>
+<span class="n">identity</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="p">])</span>
+
+<span class="c1"># Translation matrix (move by tx, ty)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">make_translation</span><span class="p">(</span><span class="n">tx</span><span class="p">,</span> <span class="n">ty</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+        <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">tx</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ty</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="p">])</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="core-concept-2-the-four-building-blocks">
+<h2>Core Concept 2: The Four Building Blocks<a class="headerlink" href="#core-concept-2-the-four-building-blocks" title="Link to this heading">#</a></h2>
+<p>All affine transformations can be built from four fundamental operations. Understanding each one helps you construct complex transformations.</p>
+<section id="translation">
+<h3>Translation<a class="headerlink" href="#translation" title="Link to this heading">#</a></h3>
+<p><strong>Translation</strong> moves every point by the same offset. It is the only affine transformation that cannot be achieved with a 2x2 matrix alone, which is why we need homogeneous coordinates.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Translation matrix: move 50 pixels right and 30 down</span>
+<span class="n">translation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span>   <span class="c1"># x&#39; = x + 50</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span>   <span class="c1"># y&#39; = y + 30</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+</section>
+<section id="scaling">
+<h3>Scaling<a class="headerlink" href="#scaling" title="Link to this heading">#</a></h3>
+<p><strong>Scaling</strong> resizes objects relative to the origin. Uniform scaling uses the same factor for both axes; non-uniform scaling uses different factors.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Uniform scaling: double the size</span>
+<span class="n">scale_uniform</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="p">])</span>
+
+<span class="c1"># Non-uniform scaling: stretch horizontally</span>
+<span class="n">scale_stretch</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>   <span class="c1"># Double width</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>   <span class="c1"># Keep height</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+</section>
+<section id="rotation">
+<h3>Rotation<a class="headerlink" href="#rotation" title="Link to this heading">#</a></h3>
+<p><strong>Rotation</strong> spins objects around the origin by an angle theta. The rotation matrix uses sine and cosine:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">make_rotation</span><span class="p">(</span><span class="n">angle_degrees</span><span class="p">):</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">angle_degrees</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+        <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span>  <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="p">])</span>
+
+<span class="c1"># Rotate 45 degrees counter-clockwise</span>
+<span class="n">rotate_45</span> <span class="o">=</span> <span class="n">make_rotation</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Rotation is always around the origin (0, 0) by default. To rotate around a different point, you must translate to the origin, rotate, then translate back <a class="reference internal" href="#hearnbaker2011" id="id3"><span>[HearnBaker2011]</span></a>.</p>
+</div>
+</section>
+<section id="shearing">
+<h3>Shearing<a class="headerlink" href="#shearing" title="Link to this heading">#</a></h3>
+<p><strong>Shearing</strong> (or skewing) slants objects along one axis. It transforms rectangles into parallelograms.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Horizontal shear: slant to the right</span>
+<span class="n">shear_horizontal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>   <span class="c1"># x&#39; = x + 0.5*y</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>     <span class="c1"># y&#39; = y (unchanged)</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="p">])</span>
+
+<span class="c1"># Vertical shear: slant upward</span>
+<span class="n">shear_vertical</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>   <span class="c1"># y&#39; = 0.5*x + y</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+<figure class="align-center" id="id10">
+<a class="reference internal image-reference" href="../../../../_images/transformation_comparison.png"><img alt="2x2 grid showing original arrow shape and the effects of scaling, shearing, and rotation" src="../../../../_images/transformation_comparison.png" style="width: 600px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Visual comparison of the four fundamental transformations applied to an arrow shape. Each transformation preserves the straight edges while altering the shape differently.</span><a class="headerlink" href="#id10" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition-did-you-know admonition">
+<p class="admonition-title">Did You Know?</p>
+<p>The order of transformations matters because matrix multiplication is not commutative. Rotating then translating gives different results than translating then rotating <a class="reference internal" href="#shirleymarschner2015" id="id4"><span>[ShirleyMarschner2015]</span></a>.</p>
+</div>
+</section>
+</section>
+<section id="core-concept-3-composing-transformations">
+<h2>Core Concept 3: Composing Transformations<a class="headerlink" href="#core-concept-3-composing-transformations" title="Link to this heading">#</a></h2>
+<section id="the-power-of-matrix-multiplication">
+<h3>The Power of Matrix Multiplication<a class="headerlink" href="#the-power-of-matrix-multiplication" title="Link to this heading">#</a></h3>
+<p>One of the most powerful properties of matrix representation is <strong>composition</strong>: you can combine multiple transformations into a single matrix by multiplying them together.</p>
+<p>If you want to apply transformation A, then B, then C, you compute:</p>
+<p><code class="docutils literal notranslate"><span class="pre">Combined</span> <span class="pre">=</span> <span class="pre">C</span> <span class="pre">&#64;</span> <span class="pre">B</span> <span class="pre">&#64;</span> <span class="pre">A</span></code></p>
+<p>Note the order: matrices are applied right-to-left. The rightmost matrix is applied first.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">combine_transforms</span><span class="p">(</span><span class="o">*</span><span class="n">matrices</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Combine multiple transformation matrices.&quot;&quot;&quot;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">matrix</span> <span class="ow">in</span> <span class="n">matrices</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">result</span> <span class="o">@</span> <span class="n">matrix</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="c1"># Example: Rotate 30 degrees, then scale 1.5x, then translate</span>
+<span class="n">rotation</span> <span class="o">=</span> <span class="n">make_rotation</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">scaling</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+<span class="n">translation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+
+<span class="c1"># Apply in order: rotation first, then scale, then translate</span>
+<span class="n">combined</span> <span class="o">=</span> <span class="n">translation</span> <span class="o">@</span> <span class="n">scaling</span> <span class="o">@</span> <span class="n">rotation</span>
+
+<span class="c1"># Now you can apply this single matrix to any point</span>
+<span class="c1"># point&#39; = combined @ point</span>
+</pre></div>
+</div>
+</section>
+<section id="why-composition-matters">
+<h3>Why Composition Matters<a class="headerlink" href="#why-composition-matters" title="Link to this heading">#</a></h3>
+<p>Composing transformations offers two major advantages:</p>
+<ol class="arabic simple">
+<li><p><strong>Efficiency</strong>: Instead of applying three separate transformations (3 matrix multiplications per point), you compute one combined matrix once, then apply it (1 multiplication per point).</p></li>
+<li><p><strong>Flexibility</strong>: Complex animations can be built by interpolating between transformation matrices, enabling smooth motion <a class="reference internal" href="../../3.4_signal_processing/3.4.3_contour_lines/contour/README.html#gonzalez2018" id="id5"><span>[Gonzalez2018]</span></a>.</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Applying the combined transformation to multiple points</span>
+<span class="n">points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="p">])</span>
+
+<span class="c1"># Transform all points at once</span>
+<span class="n">transformed_points</span> <span class="o">=</span> <span class="p">(</span><span class="n">combined</span> <span class="o">@</span> <span class="n">points</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>When combining transformations, remember: <strong>read right to left</strong>. The expression <code class="docutils literal notranslate"><span class="pre">C</span> <span class="pre">&#64;</span> <span class="pre">B</span> <span class="pre">&#64;</span> <span class="pre">A</span></code> means “apply A first, then B, then C.”</p>
+</div>
+</section>
+</section>
+<section id="hands-on-exercises">
+<h2>Hands-On Exercises<a class="headerlink" href="#hands-on-exercises" title="Link to this heading">#</a></h2>
+<p>These exercises follow the Execute, Modify, Re-code progression to build your understanding of affine transformations.</p>
+<section id="exercise-1-execute-and-explore">
+<h3>Exercise 1: Execute and Explore<a class="headerlink" href="#exercise-1-execute-and-explore" title="Link to this heading">#</a></h3>
+<p><strong>Time estimate:</strong> 3-4 minutes</p>
+<p>Run the transformation comparison script to observe how different transformations affect the same shape:</p>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-text">Exercise 1 - Observe transformation effects</span><a class="headerlink" href="#id11" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">ImageDraw</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="k">def</span><span class="w"> </span><span class="nf">create_triangle</span><span class="p">():</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a triangle centered at origin.&quot;&quot;&quot;</span>
+<span class="linenos"> 6</span>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+<span class="linenos"> 7</span>        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">40</span><span class="p">],</span>    <span class="c1"># Top</span>
+<span class="linenos"> 8</span>        <span class="p">[</span><span class="o">-</span><span class="mi">35</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span>   <span class="c1"># Bottom-left</span>
+<span class="linenos"> 9</span>        <span class="p">[</span><span class="mi">35</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>     <span class="c1"># Bottom-right</span>
+<span class="linenos">10</span>    <span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="k">def</span><span class="w"> </span><span class="nf">apply_transform</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">matrix</span><span class="p">):</span>
+<span class="linenos">13</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Apply 2x3 affine matrix to points.&quot;&quot;&quot;</span>
+<span class="linenos">14</span>    <span class="n">ones</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">points</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">))</span>
+<span class="linenos">15</span>    <span class="n">homogeneous</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">points</span><span class="p">,</span> <span class="n">ones</span><span class="p">])</span>
+<span class="linenos">16</span>    <span class="k">return</span> <span class="p">(</span><span class="n">matrix</span> <span class="o">@</span> <span class="n">homogeneous</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="c1"># Create canvas</span>
+<span class="linenos">19</span><span class="n">canvas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+<span class="linenos">20</span><span class="n">canvas</span><span class="p">[:]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>
+<span class="linenos">21</span>
+<span class="linenos">22</span><span class="c1"># Original triangle at center</span>
+<span class="linenos">23</span><span class="n">triangle</span> <span class="o">=</span> <span class="n">create_triangle</span><span class="p">()</span>
+<span class="linenos">24</span><span class="n">center</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">150</span><span class="p">,</span> <span class="mi">150</span><span class="p">])</span>
+<span class="linenos">25</span>
+<span class="linenos">26</span><span class="c1"># Define transformations</span>
+<span class="linenos">27</span><span class="n">identity</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>  <span class="c1"># No change</span>
+<span class="linenos">28</span><span class="n">scale_up</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>  <span class="c1"># 1.5x larger</span>
+<span class="linenos">29</span>
+<span class="linenos">30</span><span class="c1"># Apply and draw</span>
+<span class="linenos">31</span><span class="n">pil</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">canvas</span><span class="p">)</span>
+<span class="linenos">32</span><span class="n">draw</span> <span class="o">=</span> <span class="n">ImageDraw</span><span class="o">.</span><span class="n">Draw</span><span class="p">(</span><span class="n">pil</span><span class="p">)</span>
+<span class="linenos">33</span>
+<span class="linenos">34</span><span class="n">original</span> <span class="o">=</span> <span class="n">triangle</span> <span class="o">+</span> <span class="n">center</span>
+<span class="linenos">35</span><span class="n">scaled</span> <span class="o">=</span> <span class="n">apply_transform</span><span class="p">(</span><span class="n">triangle</span><span class="p">,</span> <span class="n">scale_up</span><span class="p">)</span> <span class="o">+</span> <span class="n">center</span>
+<span class="linenos">36</span>
+<span class="linenos">37</span><span class="n">draw</span><span class="o">.</span><span class="n">polygon</span><span class="p">([</span><span class="nb">tuple</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">original</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)],</span>
+<span class="linenos">38</span>             <span class="n">fill</span><span class="o">=</span><span class="p">(</span><span class="mi">70</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="n">outline</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">))</span>
+<span class="linenos">39</span><span class="n">draw</span><span class="o">.</span><span class="n">polygon</span><span class="p">([</span><span class="nb">tuple</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">scaled</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)],</span>
+<span class="linenos">40</span>             <span class="n">fill</span><span class="o">=</span><span class="p">(</span><span class="mi">230</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="n">outline</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">))</span>
+<span class="linenos">41</span>
+<span class="linenos">42</span><span class="n">pil</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;exercise1_output.png&#39;</span><span class="p">)</span>
+<span class="linenos">43</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Observe: The orange triangle is 1.5x larger than the blue one&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p><strong>Reflection questions:</strong></p>
+<ul class="simple">
+<li><p>What happens to the triangle’s position when you apply only a scaling transformation?</p></li>
+<li><p>Why does scaling appear to happen “from the center” when the shape is already centered at the origin?</p></li>
+<li><p>What would happen if the shape was not centered at the origin before scaling?</p></li>
+</ul>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Solution &amp; Explanation</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><strong>Answer:</strong> When applying only scaling to a shape centered at the origin, the shape grows outward uniformly from its center. The position of the centroid does not change.</p>
+<p class="sd-card-text"><strong>Why:</strong> Scaling multiplies each coordinate by the scale factor. For a point at the origin (0, 0), scaling has no effect on position. Points away from the origin move proportionally farther away.</p>
+<p class="sd-card-text"><strong>Key insights:</strong></p>
+<ul class="simple">
+<li><p class="sd-card-text">Scaling around a point other than the origin requires: translate to origin, scale, translate back</p></li>
+<li><p class="sd-card-text">This is why we often center shapes at the origin before transforming</p></li>
+<li><p class="sd-card-text">The transformation matrix encodes the origin as the “anchor point”</p></li>
+</ul>
+</div>
+</details></section>
+<section id="exercise-2-modify-to-achieve-goals">
+<h3>Exercise 2: Modify to Achieve Goals<a class="headerlink" href="#exercise-2-modify-to-achieve-goals" title="Link to this heading">#</a></h3>
+<p><strong>Time estimate:</strong> 4-5 minutes</p>
+<p>Starting with this code, modify the transformation matrix to achieve each goal:</p>
+<div class="literal-block-wrapper docutils container" id="id12">
+<div class="code-block-caption"><span class="caption-text">Exercise 2 - Modify transformation parameters</span><a class="headerlink" href="#id12" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">ImageDraw</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="c1"># Create a square</span>
+<span class="linenos"> 5</span><span class="n">square</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">40</span><span class="p">,</span> <span class="o">-</span><span class="mi">40</span><span class="p">],</span> <span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="o">-</span><span class="mi">40</span><span class="p">],</span> <span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+<span class="linenos"> 6</span><span class="n">center</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">150</span><span class="p">,</span> <span class="mi">150</span><span class="p">])</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="c1"># YOUR TASK: Modify this matrix to achieve each goal</span>
+<span class="linenos"> 9</span><span class="n">transform</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+<span class="linenos">10</span>    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>    <span class="c1"># Modify these values</span>
+<span class="linenos">11</span>    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="linenos">12</span><span class="p">])</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="c1"># Apply transformation</span>
+<span class="linenos">15</span><span class="n">ones</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="linenos">16</span><span class="n">transformed</span> <span class="o">=</span> <span class="p">(</span><span class="n">transform</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">square</span><span class="p">,</span> <span class="n">ones</span><span class="p">])</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">T</span> <span class="o">+</span> <span class="n">center</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="c1"># Draw result</span>
+<span class="linenos">19</span><span class="n">canvas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span> <span class="o">+</span> <span class="mi">30</span>
+<span class="linenos">20</span><span class="n">pil</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">canvas</span><span class="p">)</span>
+<span class="linenos">21</span><span class="n">draw</span> <span class="o">=</span> <span class="n">ImageDraw</span><span class="o">.</span><span class="n">Draw</span><span class="p">(</span><span class="n">pil</span><span class="p">)</span>
+<span class="linenos">22</span><span class="n">draw</span><span class="o">.</span><span class="n">polygon</span><span class="p">([</span><span class="nb">tuple</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">transformed</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)],</span> <span class="n">fill</span><span class="o">=</span><span class="p">(</span><span class="mi">230</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">50</span><span class="p">))</span>
+<span class="linenos">23</span><span class="n">pil</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;exercise2_output.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p><strong>Goals:</strong></p>
+<ol class="arabic simple">
+<li><p>Scale the square to half its original size</p></li>
+<li><p>Shear the square horizontally by a factor of 0.5 (create a parallelogram)</p></li>
+<li><p>Rotate the square by 45 degrees</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Hints</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<ul class="simple">
+<li><p class="sd-card-text"><strong>Goal 1:</strong> For uniform scaling, set both diagonal values (positions [0,0] and [1,1]) to the same scale factor.</p></li>
+<li><p class="sd-card-text"><strong>Goal 2:</strong> For horizontal shear, modify position [0,1] in the matrix. This adds a portion of y to the x coordinate.</p></li>
+<li><p class="sd-card-text"><strong>Goal 3:</strong> Use <code class="docutils literal notranslate"><span class="pre">np.cos()</span></code> and <code class="docutils literal notranslate"><span class="pre">np.sin()</span></code> with <code class="docutils literal notranslate"><span class="pre">np.radians(45)</span></code>. Remember the rotation matrix pattern from Core Concept 2.</p></li>
+</ul>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Solutions</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><strong>1. Scale to half size:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">transform</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+<p class="sd-card-text">The diagonal values control scaling. Setting both to 0.5 reduces the shape to half size uniformly.</p>
+<p class="sd-card-text"><strong>2. Horizontal shear by 0.5:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">transform</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>   <span class="c1"># x&#39; = x + 0.5*y</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+<p class="sd-card-text">The value at [0,1] adds a fraction of y to x, causing horizontal shearing.</p>
+<p class="sd-card-text"><strong>3. Rotate 45 degrees:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">transform</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angle</span><span class="p">),</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle</span><span class="p">),</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle</span><span class="p">),</span>  <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angle</span><span class="p">),</span> <span class="mi">0</span><span class="p">]</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+<p class="sd-card-text">The standard 2D rotation matrix uses cosine and sine of the angle.</p>
+</div>
+</details></section>
+<section id="exercise-3-create-a-transformation-pattern">
+<h3>Exercise 3: Create a Transformation Pattern<a class="headerlink" href="#exercise-3-create-a-transformation-pattern" title="Link to this heading">#</a></h3>
+<p><strong>Time estimate:</strong> 5-6 minutes</p>
+<p>Create a spiral pattern by applying multiple chained transformations. The pattern should show shapes that progressively rotate and shrink as they spiral outward.</p>
+<p><strong>Goal:</strong> Create an image with at least 20 shapes arranged in a spiral, using combined rotation, scaling, and translation transformations.</p>
+<p><strong>Requirements:</strong></p>
+<ul class="simple">
+<li><p>Use matrix composition to combine transformations</p></li>
+<li><p>Each shape should be rotated progressively more</p></li>
+<li><p>Shapes should gradually decrease in size</p></li>
+<li><p>Use a color gradient for visual appeal</p></li>
+</ul>
+<div class="literal-block-wrapper docutils container" id="id13">
+<div class="code-block-caption"><span class="caption-text">Exercise 3 starter code</span><a class="headerlink" href="#id13" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">ImageDraw</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="k">def</span><span class="w"> </span><span class="nf">make_rotation</span><span class="p">(</span><span class="n">angle_deg</span><span class="p">):</span>
+<span class="linenos"> 5</span>    <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">angle_deg</span><span class="p">)</span>
+<span class="linenos"> 6</span>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+<span class="linenos"> 7</span>        <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="mi">0</span><span class="p">],</span>
+<span class="linenos"> 8</span>        <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span>  <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="mi">0</span><span class="p">],</span>
+<span class="linenos"> 9</span>        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="linenos">10</span>    <span class="p">])</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="k">def</span><span class="w"> </span><span class="nf">make_scale</span><span class="p">(</span><span class="n">factor</span><span class="p">):</span>
+<span class="linenos">13</span>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+<span class="linenos">14</span>        <span class="p">[</span><span class="n">factor</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="linenos">15</span>        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">factor</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="linenos">16</span>        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="linenos">17</span>    <span class="p">])</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span><span class="k">def</span><span class="w"> </span><span class="nf">make_translation</span><span class="p">(</span><span class="n">tx</span><span class="p">,</span> <span class="n">ty</span><span class="p">):</span>
+<span class="linenos">20</span>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+<span class="linenos">21</span>        <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">tx</span><span class="p">],</span>
+<span class="linenos">22</span>        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ty</span><span class="p">],</span>
+<span class="linenos">23</span>        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="linenos">24</span>    <span class="p">])</span>
+<span class="linenos">25</span>
+<span class="linenos">26</span><span class="c1"># Create canvas</span>
+<span class="linenos">27</span><span class="n">size</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="linenos">28</span><span class="n">canvas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">size</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span> <span class="o">+</span> <span class="mi">20</span>
+<span class="linenos">29</span>
+<span class="linenos">30</span><span class="c1"># Base shape (small square)</span>
+<span class="linenos">31</span><span class="n">square</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="o">-</span><span class="mi">15</span><span class="p">],</span> <span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="o">-</span><span class="mi">15</span><span class="p">],</span> <span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+<span class="linenos">32</span>
+<span class="linenos">33</span><span class="c1"># YOUR CODE HERE:</span>
+<span class="linenos">34</span><span class="c1"># 1. Loop through 20+ iterations</span>
+<span class="linenos">35</span><span class="c1"># 2. For each iteration, calculate rotation angle and scale factor</span>
+<span class="linenos">36</span><span class="c1"># 3. Combine transformations and apply to the square</span>
+<span class="linenos">37</span><span class="c1"># 4. Draw each transformed shape with a color from a gradient</span>
+<span class="linenos">38</span>
+<span class="linenos">39</span><span class="n">pil</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">canvas</span><span class="p">)</span>
+<span class="linenos">40</span><span class="n">draw</span> <span class="o">=</span> <span class="n">ImageDraw</span><span class="o">.</span><span class="n">Draw</span><span class="p">(</span><span class="n">pil</span><span class="p">)</span>
+<span class="linenos">41</span>
+<span class="linenos">42</span><span class="c1"># Your drawing code here...</span>
+<span class="linenos">43</span>
+<span class="linenos">44</span><span class="n">pil</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;exercise3_spiral.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Complete Solution</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="literal-block-wrapper docutils container" id="id14">
+<div class="code-block-caption"><span class="caption-text">Spiral pattern with combined transformations</span><a class="headerlink" href="#id14" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">ImageDraw</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="k">def</span><span class="w"> </span><span class="nf">make_rotation</span><span class="p">(</span><span class="n">angle_deg</span><span class="p">):</span>
+<span class="linenos"> 5</span>    <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">angle_deg</span><span class="p">)</span>
+<span class="linenos"> 6</span>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+<span class="linenos"> 7</span>        <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="mi">0</span><span class="p">],</span>
+<span class="linenos"> 8</span>        <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span>  <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="mi">0</span><span class="p">],</span>
+<span class="linenos"> 9</span>        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="linenos">10</span>    <span class="p">])</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="k">def</span><span class="w"> </span><span class="nf">make_scale</span><span class="p">(</span><span class="n">factor</span><span class="p">):</span>
+<span class="linenos">13</span>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">factor</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">factor</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="k">def</span><span class="w"> </span><span class="nf">make_translation</span><span class="p">(</span><span class="n">tx</span><span class="p">,</span> <span class="n">ty</span><span class="p">):</span>
+<span class="linenos">16</span>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">tx</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ty</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="k">def</span><span class="w"> </span><span class="nf">apply_transform</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">matrix</span><span class="p">):</span>
+<span class="linenos">19</span>    <span class="n">ones</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">points</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">))</span>
+<span class="linenos">20</span>    <span class="n">homogeneous</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">points</span><span class="p">,</span> <span class="n">ones</span><span class="p">])</span>
+<span class="linenos">21</span>    <span class="k">return</span> <span class="p">(</span><span class="n">matrix</span> <span class="o">@</span> <span class="n">homogeneous</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+<span class="linenos">22</span>
+<span class="linenos">23</span><span class="c1"># Canvas setup</span>
+<span class="linenos">24</span><span class="n">size</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="linenos">25</span><span class="n">center</span> <span class="o">=</span> <span class="n">size</span> <span class="o">//</span> <span class="mi">2</span>
+<span class="linenos">26</span><span class="n">canvas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">size</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span> <span class="o">+</span> <span class="mi">20</span>
+<span class="linenos">27</span><span class="n">pil</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">canvas</span><span class="p">)</span>
+<span class="linenos">28</span><span class="n">draw</span> <span class="o">=</span> <span class="n">ImageDraw</span><span class="o">.</span><span class="n">Draw</span><span class="p">(</span><span class="n">pil</span><span class="p">)</span>
+<span class="linenos">29</span>
+<span class="linenos">30</span><span class="c1"># Base shape</span>
+<span class="linenos">31</span><span class="n">square</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="o">-</span><span class="mi">15</span><span class="p">],</span> <span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="o">-</span><span class="mi">15</span><span class="p">],</span> <span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+<span class="linenos">32</span>
+<span class="linenos">33</span><span class="c1"># Create spiral pattern</span>
+<span class="linenos">34</span><span class="n">num_shapes</span> <span class="o">=</span> <span class="mi">24</span>
+<span class="linenos">35</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_shapes</span><span class="p">):</span>
+<span class="linenos">36</span>    <span class="n">angle</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">15</span>
+<span class="linenos">37</span>    <span class="n">scale</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">i</span> <span class="o">*</span> <span class="mf">0.025</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span>
+<span class="hll"><span class="linenos">38</span>    <span class="n">distance</span> <span class="o">=</span> <span class="mi">50</span> <span class="o">+</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">6</span>
+</span><span class="hll"><span class="linenos">39</span>
+</span><span class="hll"><span class="linenos">40</span>    <span class="c1"># Calculate spiral position</span>
+</span><span class="hll"><span class="linenos">41</span>    <span class="n">spiral_angle</span> <span class="o">=</span> <span class="n">angle</span> <span class="o">*</span> <span class="mi">2</span>
+</span><span class="hll"><span class="linenos">42</span>    <span class="n">tx</span> <span class="o">=</span> <span class="n">center</span> <span class="o">+</span> <span class="n">distance</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">spiral_angle</span><span class="p">))</span>
+</span><span class="hll"><span class="linenos">43</span>    <span class="n">ty</span> <span class="o">=</span> <span class="n">center</span> <span class="o">+</span> <span class="n">distance</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">spiral_angle</span><span class="p">))</span>
+</span><span class="linenos">44</span>
+<span class="linenos">45</span>    <span class="c1"># Combine: translate @ scale @ rotate</span>
+<span class="linenos">46</span>    <span class="n">combined</span> <span class="o">=</span> <span class="n">make_translation</span><span class="p">(</span><span class="n">tx</span><span class="p">,</span> <span class="n">ty</span><span class="p">)</span> <span class="o">@</span> <span class="n">make_scale</span><span class="p">(</span><span class="n">scale</span><span class="p">)</span> <span class="o">@</span> <span class="n">make_rotation</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
+<span class="linenos">47</span>    <span class="n">transformed</span> <span class="o">=</span> <span class="n">apply_transform</span><span class="p">(</span><span class="n">square</span><span class="p">,</span> <span class="n">combined</span><span class="p">)</span>
+<span class="linenos">48</span>
+<span class="linenos">49</span>    <span class="c1"># Color gradient</span>
+<span class="linenos">50</span>    <span class="n">t</span> <span class="o">=</span> <span class="n">i</span> <span class="o">/</span> <span class="p">(</span><span class="n">num_shapes</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="linenos">51</span>    <span class="n">color</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="mi">70</span> <span class="o">+</span> <span class="n">t</span><span class="o">*</span><span class="mi">180</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="mi">130</span> <span class="o">-</span> <span class="n">t</span><span class="o">*</span><span class="mi">50</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="mi">200</span> <span class="o">-</span> <span class="n">t</span><span class="o">*</span><span class="mi">150</span><span class="p">))</span>
+<span class="linenos">52</span>
+<span class="linenos">53</span>    <span class="n">draw</span><span class="o">.</span><span class="n">polygon</span><span class="p">([</span><span class="nb">tuple</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">transformed</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)],</span>
+<span class="linenos">54</span>                <span class="n">fill</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">outline</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">))</span>
+<span class="linenos">55</span>
+<span class="linenos">56</span><span class="n">pil</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;exercise3_spiral.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p class="sd-card-text"><strong>How it works:</strong></p>
+<ul class="simple">
+<li><p class="sd-card-text">Each iteration increases the rotation angle and spiral distance</p></li>
+<li><p class="sd-card-text">The scale factor decreases gradually, making outer shapes smaller</p></li>
+<li><p class="sd-card-text">Matrix composition combines all three transformations into one</p></li>
+<li><p class="sd-card-text">The color gradient transitions from blue to orange</p></li>
+</ul>
+<p class="sd-card-text"><strong>Challenge extension:</strong> Try creating different spiral patterns by changing the angle increment, or use different base shapes like triangles or pentagons.</p>
+</div>
+</details><figure class="align-center" id="id15">
+<a class="reference internal image-reference" href="../../../../_images/combined_transform_output.png"><img alt="Spiral pattern of colored squares created through combined affine transformations" src="../../../../_images/combined_transform_output.png" style="width: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Example output: A spiral of 24 squares, each progressively rotated, scaled, and positioned using combined affine transformations. The color gradient from blue to orange adds visual depth.</span><a class="headerlink" href="#id15" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<p>In just 18 minutes, you have learned the fundamentals of affine transformations:</p>
+<p><strong>Key takeaways:</strong></p>
+<ul class="simple">
+<li><p>Affine transformations preserve straight lines and parallelism</p></li>
+<li><p>The 3x3 transformation matrix uses homogeneous coordinates to include translation</p></li>
+<li><p>Four building blocks: translation, scaling, rotation, and shearing</p></li>
+<li><p>Transformations can be composed through matrix multiplication (read right-to-left)</p></li>
+</ul>
+<p><strong>Common pitfalls to avoid:</strong></p>
+<ul class="simple">
+<li><p>Forgetting that transformation order matters: <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">&#64;</span> <span class="pre">B</span> <span class="pre">!=</span> <span class="pre">B</span> <span class="pre">&#64;</span> <span class="pre">A</span></code></p></li>
+<li><p>Scaling or rotating around the wrong point (default is origin)</p></li>
+<li><p>Using integer matrices for transformations (always use floats for precision)</p></li>
+</ul>
+<p>Understanding affine transformations prepares you for more advanced topics like non-linear distortions and perspective projection, which you will encounter in upcoming modules <a class="reference internal" href="#rogersadams1990" id="id6"><span>[RogersAdams1990]</span></a>.</p>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<div role="list" class="citation-list">
+<div class="citation" id="foleyetal1995" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">FoleyEtAl1995</a><span class="fn-bracket">]</span></span>
+<p>Foley, J. D., van Dam, A., Feiner, S. K., &amp; Hughes, J. F. (1995). <em>Computer Graphics: Principles and Practice</em> (2nd ed.). Addison-Wesley. ISBN: 978-0201848403. [Definitive reference for transformation matrices and homogeneous coordinates]</p>
+</div>
+<div class="citation" id="hearnbaker2011" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">HearnBaker2011</a><span class="fn-bracket">]</span></span>
+<p>Hearn, D., &amp; Baker, M. P. (2011). <em>Computer Graphics with OpenGL</em> (4th ed.). Pearson. ISBN: 978-0136053583. [Comprehensive coverage of 2D and 3D transformations]</p>
+</div>
+<div class="citation" id="shirleymarschner2015" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">ShirleyMarschner2015</a><span class="fn-bracket">]</span></span>
+<p>Shirley, P., &amp; Marschner, S. (2015). <em>Fundamentals of Computer Graphics</em> (4th ed.). CRC Press. ISBN: 978-1482229394. [Modern approach to transformation composition]</p>
+</div>
+<div class="citation" id="gonzalez2018" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">Gonzalez2018</a><span class="fn-bracket">]</span></span>
+<p>Gonzalez, R. C., &amp; Woods, R. E. (2018). <em>Digital Image Processing</em> (4th ed.). Pearson. ISBN: 978-0133356724. [Image transformation and interpolation methods]</p>
+</div>
+<div class="citation" id="numpydocs" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>NumPyDocs<span class="fn-bracket">]</span></span>
+<p>NumPy Developers. (2024). NumPy array operations. <em>NumPy Documentation</em>. <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.array-manipulation.html">https://numpy.org/doc/stable/reference/routines.array-manipulation.html</a> [Matrix multiplication and array operations]</p>
+</div>
+<div class="citation" id="pillowdocs" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>PillowDocs<span class="fn-bracket">]</span></span>
+<p>Clark, A., et al. (2024). <em>Pillow: Python Imaging Library</em> (Version 10.x). <a class="reference external" href="https://pillow.readthedocs.io/">https://pillow.readthedocs.io/</a> [Image manipulation and polygon drawing]</p>
+</div>
+<div class="citation" id="rogersadams1990" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">RogersAdams1990</a><span class="fn-bracket">]</span></span>
+<p>Rogers, D. F., &amp; Adams, J. A. (1990). <em>Mathematical Elements for Computer Graphics</em> (2nd ed.). McGraw-Hill. ISBN: 978-0070535305. [Mathematical foundations of geometric transformations]</p>
+</div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../3.1.1_rotation/rotate/README.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">3.1.1 - Rotation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../3.1.3_nonlinear_distortions/README.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">3.1.3 - Nonlinear Distortions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-start-transform-a-shape">Quick Start: Transform a Shape</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#core-concept-1-the-affine-transformation-matrix">Core Concept 1: The Affine Transformation Matrix</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-makes-a-transformation-affine">What Makes a Transformation “Affine”?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-3x3-transformation-matrix">The 3x3 Transformation Matrix</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#core-concept-2-the-four-building-blocks">Core Concept 2: The Four Building Blocks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#translation">Translation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scaling">Scaling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rotation">Rotation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shearing">Shearing</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#core-concept-3-composing-transformations">Core Concept 3: Composing Transformations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-power-of-matrix-multiplication">The Power of Matrix Multiplication</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-composition-matters">Why Composition Matters</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hands-on-exercises">Hands-On Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-execute-and-explore">Exercise 1: Execute and Explore</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-modify-to-achieve-goals">Exercise 2: Modify to Achieve Goals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-create-a-transformation-pattern">Exercise 3: Create a Transformation Pattern</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../_sources/content/Module_03_transformations_effects/3.1_geometric_transformations/3.1.2_affine_transformations/README.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Kristian Rother &amp; Burak Kagan Yilmazer.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

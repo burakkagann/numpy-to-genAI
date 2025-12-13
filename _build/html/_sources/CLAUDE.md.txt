@@ -1,0 +1,1664 @@
+# CLAUDE.md - Enhanced for Autonomous Module Generation
+
+This file provides comprehensive guidance to Claude Code when working on the NumPy-to-GenAI educational platform. Each Claude session using this repository should be fully autonomous and capable of generating complete modules from start to finish.
+
+## Project Overview
+
+NumPy to GenAI (also known as "Pixels to GenAI") is an educational platform teaching generative art and AI through 15 progressive modules. The project combines NumPy-based image processing exercises with Sphinx documentation to create a comprehensive learning resource that takes students from basic pixel manipulation to advanced generative AI applications.
+
+**Target Audience**: Semi-beginners to semi-experienced programmers interested in creative AI applications.
+
+**Educational Philosophy**: Balance theory (40%) with practice (60%), use progressive scaffolding, implement visual-first pedagogy with immediate feedback loops.
+
+## Your Mission as a Content Generation Agent
+
+When assigned to create content for a specific module, you will:
+
+1. **Generate complete exercise implementations** (Python scripts + images)
+2. **Write comprehensive RST documentation** following Sphinx conventions
+3. **Validate all code** by executing scripts and verifying outputs
+4. **Integrate content** into the existing Sphinx structure
+5. **Test the final build** to ensure no broken links or errors
+
+You operate autonomously but follow strict quality standards (see Quality Standards section).
+
+## Repository Structure
+
+```
+numpy-to-genAI/
+├── content/                      # 15 learning modules (Module_00 through Module_14)
+│   └── Module_XX_topic/          # Each module contains subtopics
+│       └── X.Y_subtopic/         # Subtopics contain exercises
+│           └── X.Y.Z_exercise_name/    # Exercise folders have:
+│               ├── README.rst    # Tutorial documentation
+│               ├── *.py          # Python scripts
+│               ├── *.png/gif     # Generated output images
+│               └── ...           # Supporting files
+├── solutions/                    # Reference implementations (not in docs)
+├── experimental/                 # Work-in-progress (excluded from builds)
+├── _static/                      # Custom CSS, JavaScript, images
+├── _templates/                   # Custom Sphinx templates
+├── conf.py                       # Sphinx configuration
+├── index.rst                     # Landing page with module dropdowns
+├── requirements.txt              # Runtime dependencies
+└── dev_requirements.txt          # Documentation build dependencies
+```
+
+### Module Organization & Framework Mapping
+
+| Module | Topic | Framework Type | Theory/Practice | Notes |
+|--------|-------|----------------|-----------------|-------|
+| Module 0 | Foundations & Definitions | Framework 2 (Conceptual) | 50/50 | Concept-heavy introduction |
+| Module 1 | Pixel Fundamentals | Framework 1 (Hands-On) | 25/75 | Immediate visual feedback |
+| Module 2 | Geometry & Mathematics | Framework 1 (Hands-On) | 25/75 | Shape drawing exercises |
+| Module 3 | Transformations & Effects | Framework 1 (Hands-On) | 25/75 | Image manipulation |
+| Module 4 | Fractals & Recursion | Framework 1+2 Hybrid | 35/65 | Mix of concept + generation |
+| Module 5 | Simulation & Emergent Behavior | Framework 1 (Hands-On) | 25/75 | Experimental learning |
+| Module 6 | Noise & Procedural Generation | Framework 1 (Hands-On) | 25/75 | Trial-and-error exploration |
+| Module 7 | Classical Machine Learning | Framework 2 (Deep-Dive) | 50/50 | Theory-heavy ML concepts |
+| Module 8 | Animation & Time | Framework 1 (Hands-On) | 25/75 | Motion-based learning |
+| Module 9 | Neural Networks | Framework 2 (Deep-Dive) | 50/50 | Architecture understanding |
+| Module 10 | TouchDesigner Fundamentals | Framework 2 (Deep-Dive) | 50/50 | Tool introduction |
+| Module 11 | Interactive Systems | Framework 1 (Hands-On) | 25/75 | Sensor/CV experimentation |
+| Module 12 | Generative AI Models | Framework 2 (Deep-Dive) | 50/50 | GANs, VAEs, Diffusion theory |
+| Module 13 | AI + TouchDesigner Integration | Framework 2 (Deep-Dive) | 50/50 | System integration |
+| Module 14 | Data as Material | Framework 1 (Hands-On) | 25/75 | Data visualization |
+| Module 15 | Capstone Project | Framework 3 (Project) | 20/80 | Synthesis project |
+
+**IMPORTANT**: Refer to `/mnt/project/Module_Content_Structure_Framework` for detailed framework templates and best practices.
+
+---
+
+## Duration Estimation Guidelines
+
+**Critical Rule**: Cognitive load management requires strict time constraints to prevent learner overwhelm.
+
+### Target Durations by Module Range
+
+**Modules 0-6 (Foundation/Hands-On)**: 15-20 minutes maximum
+- **Quick Start**: 2-3 minutes (run code, see output)
+- **Core Concepts**: 5-8 minutes (read 2-4 concepts with examples)
+- **Hands-On Exercises**: 8-12 minutes (Execute → Modify → Re-code)
+- **Total**: 15-23 minutes (target: 18 minutes average)
+
+**Modules 7-15 (Advanced/Theory)**: 30-45 minutes maximum
+- **Introduction**: 3-5 minutes (Big Question + motivation)
+- **Theory Sections**: 12-18 minutes (Part 1, Part 2, Part 3)
+- **Implementation**: 10-15 minutes (code examples + explanation)
+- **Exercises/Synthesis**: 8-12 minutes (practice + challenge)
+- **Total**: 33-50 minutes (target: 40 minutes average)
+
+### Duration Estimation Formula
+
+For each section, estimate time as:
+
+**Reading time** = (Word count ÷ 200 words/min) × 1.5 multiplier
+- 1.5 multiplier accounts for technical content being slower to read
+
+**Code execution time** = Number of code blocks × 1 minute
+- Assumes learner runs code, observes output, reads comments
+
+**Exercise time** = Number of exercises × 3-5 minutes
+- Execute exercises: 3 minutes
+- Modify exercises: 4 minutes
+- Re-code exercises: 5 minutes
+- Architect exercises: 8-10 minutes
+
+**Example calculation for Module 1.1.1 (RGB Basics)**:
+```
+Quick Start section:
+- Text: 150 words ÷ 200 × 1.5 = 1.1 min
+- Code block: 1 block = 1 min
+- Image inspection: 0.5 min
+Total: 2.6 minutes ✓
+
+Core Concepts (2 concepts):
+- Text: 400 words ÷ 200 × 1.5 = 3 min
+- Code examples: 2 blocks = 2 min
+- Image inspection: 1 min
+Total: 6 minutes ✓
+
+Exercises (3 exercises):
+- Exercise 1 (Execute): 3 min
+- Exercise 2 (Modify): 4 min
+- Exercise 3 (Re-code): 5 min
+Total: 12 minutes ✓
+
+Grand Total: 2.6 + 6 + 12 = 20.6 minutes ✓ (within 15-20 min target)
+```
+
+### Content Trimming Guidelines
+
+If estimated duration exceeds targets:
+
+**For Modules 0-6 (exceeding 20 minutes)**:
+1. Reduce Core Concepts from 4 → 3 or 3 → 2
+2. Remove "Did You Know?" admonitions (keep only 1-2 most interesting)
+3. Shorten explanatory text (aim for conciseness)
+4. Combine similar exercises
+5. Move advanced content to separate "Extension" exercise
+
+**For Modules 7-15 (exceeding 45 minutes)**:
+1. Split into multiple sub-exercises (e.g., 7.1.1a and 7.1.1b)
+2. Move theoretical deep-dives to collapsible `.. dropdown::` sections
+3. Provide "Quick Path" and "Deep Dive" alternatives
+4. Reduce number of code examples (keep 1-2 most illustrative)
+5. Move supplementary content to "Further Reading" section
+
+### Cognitive Load Checkpoints
+
+**Maximum cognitive load limits**:
+- **New concepts per exercise**: 3-4 maximum (ideally 2-3)
+- **Code blocks per section**: 5 maximum
+- **Exercises per module**: 3 (Execute, Modify, Re-code/Architect)
+- **Figures/diagrams**: 4-6 maximum
+- **References cited**: 5-10 (don't overwhelm with citations)
+
+**Red flags that duration is too long**:
+- ❌ More than 4 new concepts introduced
+- ❌ Core Concepts section exceeds 800 words
+- ❌ More than 3 exercises in Hands-On Exercises section
+- ❌ Exercise 3 (Re-code) requires more than 20 lines of new code
+- ❌ Text-to-code ratio is >70% text (should be balanced)
+
+### Testing Duration Estimates
+
+**Self-test method** (recommended):
+1. Open a timer
+2. Read through the module as if you're a learner (not skimming)
+3. Run all code blocks
+4. Attempt exercises without looking at solutions
+5. Record actual time taken
+6. Multiply by 0.7 to account for your expertise advantage
+7. Compare to target duration
+
+**Example**:
+- You complete Module 1.2.1 in 12 minutes
+- Adjusted time: 12 × 0.7 = 8.4 minutes
+- Target: 15-20 minutes
+- ✓ Well within target (good!)
+
+**If too fast** (<12 minutes for Modules 0-6):
+- Consider adding one more exercise or concept
+- Expand explanations slightly
+- Add more visual examples
+
+**If too slow** (>30 minutes for Modules 0-6):
+- Cut content immediately (this is critical)
+- Move extra content to "Challenge Extensions"
+- Split into two separate exercises
+
+### Duration Documentation
+
+In each README.rst, specify estimated duration:
+
+```rst
+=====================================
+X.Y.Z - [Exercise Title]
+=====================================
+
+:Duration: 18 minutes
+:Level: Beginner
+:Prerequisites: Module X.Y-1
+```
+
+**For exercises with optional extensions**:
+```rst
+:Duration: 15 minutes (core) + 10 minutes (extensions)
+```
+
+**For theory-heavy modules**:
+```rst
+:Duration: 35 minutes (quick path) | 50 minutes (deep dive)
+```
+
+### Module Completion Time Budget
+
+**Total course time budget**: ~8 hours for all 15 modules
+
+**Breakdown**:
+- Modules 0-6 (7 modules × 18 min avg): ~126 minutes (2.1 hours)
+- Modules 7-15 (9 modules × 40 min avg): ~360 minutes (6 hours)
+- **Total**: ~486 minutes (8.1 hours)
+
+This fits the target of "weekend workshop" pacing where learners can complete the course in:
+- **Intensive**: 2 days (4 hours/day)
+- **Moderate**: 1 week (1.5 hours/day)
+- **Relaxed**: 2 weeks (45 min/day)
+
+### Special Considerations
+
+**Module 0 (Foundations)**: Can exceed 20 min to 25-30 min for conceptual grounding
+**Module 15 (Capstone)**: Can be 60-120 minutes as synthesis project
+**TouchDesigner modules (10-11)**: Add +5 minutes for software setup/loading
+
+---
+
+## Quality Standards (Non-Negotiable)
+
+All generated content MUST meet these standards:
+
+### Code Quality
+- ✅ **All scripts must execute without errors** on Python 3.11.9, Windows 11
+- ✅ **Scripts must be as simple as possible** - prioritize clarity over cleverness
+- ✅ **Well-annotated code** - inline comments explaining logic
+- ✅ **Humanized variable names** - descriptive, not cryptic (use `pixel_color` not `pc`)
+- ✅ **Follow existing patterns** - study completed exercises in Module 0 and Module 1.1.1
+- ❌ **No fancy/advanced techniques** unless pedagogically necessary
+- ❌ **No dependencies outside requirements.txt** without approval
+
+### Documentation Quality
+- ✅ **Academic yet friendly tone** - like a patient teacher explaining concepts
+- ✅ **No emojis in text** - use words to convey enthusiasm
+- ✅ **All sources cited** - use `.. [1]` footnote format for references
+- ✅ **Proper Sphinx directives** - code-block, image, admonition, dropdown, etc.
+- ✅ **Visual examples included** - every exercise must show output
+- ✅ **Progressive scaffolding** - exercises go from Execute → Modify → Re-code → Architect
+
+### Content Structure (Per Framework)
+
+**Framework 1 (Hands-On Discovery)**: 
+- Quick Start (show output first, code second)
+- Core Concepts (1-3 new ideas max)
+- Guided Practice (3 scaffolded exercises)
+- Challenge Project (open-ended)
+
+**Framework 2 (Conceptual Deep-Dive)**:
+- Big Question (hook with conceptual query)
+- Part 1-3 (theory + implementation)
+- Interactive Exploration (notebooks/demos)
+- Synthesis Project
+
+**Framework 3 (Project-Based)**:
+- Project Overview (gallery of examples)
+- Phase 1-4 (Planning → Implementation → Refinement → Documentation)
+- Community Showcase
+
+## Development Workflow (Step-by-Step)
+
+When assigned to create **Module X**, follow this protocol:
+
+### Phase 1: Planning & Research (15 minutes)
+
+1. **Read framework documentation**:
+   ```bash
+   cat /mnt/project/Module_Content_Structure_Framework
+   ```
+
+2. **Study existing completed modules**:
+   - Module 0: https://burakkagann.github.io/numpy-to-genAI/content/Module_00_foundations_definitions/0.1_what_is_generative_art/README.html
+   - Module 1.1.1: https://burakkagann.github.io/numpy-to-genAI/content/Module_01_pixel_fundamentals/1.1_grayscale_color_basics/1.1.1_color_basics/rgb/README.html
+
+3. **Review module structure document**:
+   ```bash
+   cat /mnt/project/Module_Struucture  # Note: This contains all 15 modules
+   ```
+
+4. **Identify which exercises are "Existing" vs "Proposed"**:
+   - Existing: May have legacy code, but regenerate from scratch to align with new standards
+   - Proposed: Create entirely new content
+
+5. **Create a generation plan** (save as `plan.md` in `/mnt/user-data/outputs/`):
+   ```markdown
+   # Module X Content Generation Plan
+   
+   ## Subtopics:
+   - X.1 Subtopic Name (Framework 1)
+     - X.1.1 Exercise Name
+     - X.1.2 Exercise Name
+   - X.2 Subtopic Name (Framework 2)
+     - X.2.1 Exercise Name
+   
+   ## Estimated Time: [X hours]
+   ## Dependencies: [List any special libraries]
+   ## Reference Materials: [URLs, papers, textbooks]
+   ```
+
+### Phase 2: Content Generation (Iterative)
+
+For each exercise in the module:
+
+#### Step 2.1: Create Directory Structure
+```bash
+mkdir -p content/Module_XX_topic/X.Y_subtopic/X.Y.Z_exercise_name
+cd content/Module_XX_topic/X.Y_subtopic/X.Y.Z_exercise_name
+```
+
+#### Step 2.2: Generate Python Script
+
+1. **Write the script** following this template:
+```python
+"""
+Exercise X.Y.Z: [Exercise Name]
+
+Brief description of what this exercise teaches.
+
+Author: Claude (NumPy-to-GenAI Project)
+Date: [YYYY-MM-DD]
+"""
+
+import numpy as np
+from PIL import Image
+
+# Step 1: Create or load image data
+# [Clear explanation of what we're doing]
+height, width = 512, 512
+image_array = np.zeros((height, width, 3), dtype=np.uint8)
+
+# Step 2: Apply algorithm/transformation
+# [Detailed comments explaining logic]
+# Use descriptive variable names
+# Break complex operations into steps
+
+# Step 3: Save result
+output_image = Image.fromarray(image_array, mode='RGB')
+output_image.save('output.png')
+print("Image saved as output.png")
+```
+
+2. **Execute the script** to verify it works:
+```bash
+python script_name.py
+```
+
+3. **Verify output image was generated** and looks correct:
+```bash
+ls -lh *.png
+```
+
+#### Step 2.3: Write RST Documentation
+
+Create `README.rst` following the appropriate framework template. Use this structure:
+
+```rst
+Exercise X.Y.Z: [Title]
+=======================
+
+[Engaging introduction - what will they create?]
+
+Concept Overview
+----------------
+
+[Explain the core concept in 2-3 paragraphs]
+
+Implementation
+--------------
+
+Here's how we create [the thing]:
+
+.. code-block:: python
+   :linenos:
+   :emphasize-lines: 5,10
+
+   [Insert actual working code here]
+
+The code above does the following:
+
+1. **Lines 1-5**: [Explanation]
+2. **Lines 6-10**: [Explanation]
+3. **Lines 11-15**: [Explanation]
+
+Output
+------
+
+.. image:: output.png
+   :alt: Generated output showing [description]
+   :width: 600px
+   :align: center
+
+The resulting image demonstrates [key learning point].
+
+Exercises
+---------
+
+.. admonition:: Exercise 1: Modify Parameters
+   :class: tip
+
+   Try changing [parameter] to see how it affects the output.
+
+   .. dropdown:: Solution
+      :class: note
+   
+      [Provide solution code]
+
+.. admonition:: Exercise 2: Extend the Algorithm
+   :class: tip
+
+   Add [new feature] to the visualization.
+
+   .. dropdown:: Hint
+      :class: note
+   
+      [Helpful hint without giving away answer]
+
+   .. dropdown:: Solution
+      :class: note
+   
+      [Full solution]
+
+Challenge
+---------
+
+Create your own variation that [open-ended goal].
+
+References
+----------
+
+.. [1] Author Name, "Paper Title", Journal, Year. URL
+
+Next Steps
+----------
+
+Continue to :doc:`../X.Y.Z+1_next_exercise/README` to learn about [next topic].
+```
+
+**Key RST Conventions**:
+- Use `.. code-block:: python` for code (not `.. literalinclude::` unless referencing external file)
+- Use `.. image::` for figures
+- Use `.. admonition::` with `:class: tip` for exercises
+- Use `.. dropdown::` for solutions (collapsible)
+- Use `:doc:` for internal links to other exercises
+
+#### Step 2.4: Validate Exercise
+
+1. **Run the script again** from the exercise directory:
+```bash
+python *.py
+```
+
+2. **Check for errors** - if any occur, fix immediately
+
+3. **Verify image output** - visually inspect the generated image
+
+4. **Test RST syntax** (optional but recommended):
+```bash
+rst2html.py README.rst > test_output.html
+```
+
+### Phase 3: Integration into Sphinx
+
+#### Step 3.1: Update index.rst
+
+Add the new exercise to `/index.rst` in the appropriate dropdown:
+
+```rst
+.. dropdown:: Module X: [Topic Name]
+   :open:
+
+   .. toctree::
+      :maxdepth: 1
+
+      content/Module_XX_topic/X.Y_subtopic/X.Y.Z_exercise_name/README
+```
+
+#### Step 3.2: Build Documentation
+
+```bash
+# From repository root
+make html
+```
+
+**Expected output**: No errors or warnings. If warnings appear, fix them.
+
+#### Step 3.3: Test Locally
+
+Open `build/html/index.html` in browser:
+```bash
+start build/html/index.html  # Windows
+```
+
+Navigate to your new exercise and verify:
+- ✅ Text renders correctly
+- ✅ Images display
+- ✅ Code blocks have syntax highlighting
+- ✅ Dropdowns work
+- ✅ Links to other exercises work
+
+### Phase 4: Final Checklist & Delivery
+
+Before marking the module as complete, verify:
+
+**Code Checklist**:
+- [ ] All Python scripts execute without errors
+- [ ] All scripts follow simple, annotated style
+- [ ] Variable names are humanized and descriptive
+- [ ] No unnecessary dependencies added
+- [ ] Generated images are < 2MB each
+
+**Documentation Checklist**:
+- [ ] Academic but friendly tone (no emojis)
+- [ ] All sources cited in footnote format
+- [ ] RST syntax is valid (no Sphinx warnings)
+- [ ] Images display correctly
+- [ ] Exercises follow scaffolding pattern (Execute → Modify → Re-code → Architect)
+- [ ] Dropdowns contain hints/solutions
+
+**Integration Checklist**:
+- [ ] Exercise added to `index.rst`
+- [ ] `make html` builds without errors
+- [ ] Navigation links work
+- [ ] Cross-references to other modules are accurate
+
+**Deliverable**:
+Create a summary file in `/mnt/user-data/outputs/`:
+
+```bash
+# Example: Module_02_summary.md
+cat > /mnt/user-data/outputs/Module_02_summary.md << 'EOF'
+# Module 2: Geometry & Mathematics - Generation Summary
+
+## Completed Exercises:
+- 2.1.1 Lines (Framework 1)
+- 2.1.2 Triangles (Framework 1)
+- 2.1.3 Circles (Framework 1)
+[... continue list]
+
+## Statistics:
+- Total exercises: 12
+- Python scripts: 12
+- Images generated: 15
+- Documentation pages: 12
+- Total lines of code: 450
+- Build status: SUCCESS (0 warnings)
+
+## Notable Features:
+- Implemented Lissajous curves with animation
+- Added interactive parameter exploration for spirals
+- Created comprehensive SDF tutorial with 5 examples
+
+## Issues Encountered:
+- None
+
+## Recommendations:
+- Module 3 could reference these coordinate system examples
+- Consider adding 3D projection examples in future iteration
+EOF
+```
+
+## Common Patterns & Templates
+
+### Python Script Template (Minimal)
+```python
+"""[One-line description]"""
+import numpy as np
+from PIL import Image
+
+# [Main algorithm here with clear comments]
+
+# Save output
+result = Image.fromarray(array, mode='RGB')
+result.save('output.png')
+```
+
+### Python Script Template (With Parameters)
+```python
+"""[One-line description]"""
+import numpy as np
+from PIL import Image
+import argparse
+
+def create_visualization(param1=default1, param2=default2):
+    """
+    Generate [description].
+    
+    Parameters:
+        param1: [description]
+        param2: [description]
+    
+    Returns:
+        np.ndarray: Generated image
+    """
+    # Implementation
+    return image_array
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='[Description]')
+    parser.add_argument('--param1', type=int, default=100)
+    args = parser.parse_args()
+    
+    image = create_visualization(param1=args.param1)
+    result = Image.fromarray(image, mode='RGB')
+    result.save('output.png')
+```
+
+### Animation Template (GIF)
+```python
+"""[One-line description]"""
+import numpy as np
+from PIL import Image
+import imageio
+
+frames = []
+for t in range(num_frames):
+    # Generate frame
+    frame_array = create_frame(t)
+    frames.append(frame_array)
+
+# Save as animated GIF
+imageio.mimsave('animation.gif', frames, fps=30)
+```
+
+## Testing & Validation Strategy
+
+Since pytest is not required, use this simple validation approach:
+
+### Script Execution Test
+```bash
+# Test all Python scripts in an exercise directory
+cd content/Module_XX_topic/X.Y_subtopic/X.Y.Z_exercise_name/
+for script in *.py; do
+    echo "Testing $script..."
+    python "$script"
+    if [ $? -eq 0 ]; then
+        echo "✓ $script passed"
+    else
+        echo "✗ $script FAILED"
+        exit 1
+    fi
+done
+```
+
+### Image Generation Test
+```bash
+# Verify all expected images were created
+expected_images=("output.png" "step1.png" "final.gif")
+for img in "${expected_images[@]}"; do
+    if [ -f "$img" ]; then
+        echo "✓ $img exists"
+    else
+        echo "✗ $img missing"
+        exit 1
+    fi
+done
+```
+
+### RST Syntax Test (Optional)
+```bash
+# Check for common RST errors
+grep -r ".. code-block::" content/Module_XX_topic/ | grep -v "::" && echo "✗ Missing colons in code-block" || echo "✓ Code blocks OK"
+```
+
+## Git Workflow
+
+**Current Setup**: All work happens on main branch (no branching).
+
+**Recommendation**: Keep this approach for now since you're the sole contributor and modules are isolated. However, consider:
+
+1. **Commit frequently** after completing each exercise:
+```bash
+git add content/Module_XX_topic/X.Y_subtopic/X.Y.Z_exercise_name/
+git commit -m "Add Module X.Y.Z: [Exercise Name]"
+git push origin main
+```
+
+2. **Use descriptive commit messages**:
+   - ✅ "Add Module 2.3.1: Lissajous Curves with animation"
+   - ❌ "Update files"
+
+3. **If build breaks**, immediately fix before moving to next exercise:
+```bash
+make html
+# If errors, fix them
+git add .
+git commit -m "Fix build errors in Module X.Y.Z"
+git push origin main
+```
+
+**Optional Enhancement**: Consider feature branches if you want to work on multiple modules in parallel without affecting main:
+```bash
+git checkout -b module-02-geometry
+# ... do work ...
+git checkout main
+git merge module-02-geometry
+```
+
+## Hardware & Environment
+
+**Your Setup**:
+- OS: Windows 11
+- Python: 3.11.9
+- GPU: Nvidia RTX 5070Ti (excellent for neural network modules!)
+- Disk: 600GB available
+- TouchDesigner: Licensed
+
+**Optimization Tips**:
+1. **For GPU-intensive modules (9, 12, 13)**: 
+   - Use PyTorch with CUDA enabled
+   - Test scripts on CPU first, then GPU
+   - Add `device = 'cuda' if torch.cuda.is_available() else 'cpu'` in code
+
+2. **For TouchDesigner modules (10, 11, 13)**:
+   - Create `.toe` project files alongside Python scripts
+   - Include screenshots of TD networks
+   - Provide both TD and Python implementations where possible
+
+3. **Disk space management**:
+   - Keep generated images under 2MB (use compression if needed)
+   - Delete intermediate frames after creating GIFs
+   - Store large datasets (if any) in `/solutions/` not `/content/`
+
+## Troubleshooting Common Issues
+
+### Issue: "Module not found" Error
+**Solution**: Ensure virtual environment is activated and dependencies installed:
+```bash
+python -m venv .venv
+.venv\Scripts\activate  # Windows
+pip install -r requirements.txt
+```
+
+### Issue: Image Won't Display in Sphinx
+**Solution**: Check file path is relative to `README.rst`:
+```rst
+.. image:: output.png  ← Correct (same directory)
+.. image:: ./output.png  ← Also works
+.. image:: /content/Module_01/.../output.png  ← Wrong (absolute path)
+```
+
+### Issue: Sphinx Build Warnings
+**Solution**: Common fixes:
+- Missing blank line after directive: Add blank line after `.. code-block:: python`
+- Inconsistent indentation: Use 3 spaces for directive content
+- Unescaped special characters: Use backslash `\*` for asterisks
+
+### Issue: Python Script Runs but No Output
+**Solution**: Ensure you're saving files:
+```python
+# Add this at end of script
+print(f"Output saved to {output_filename}")
+```
+
+## Reference Documentation
+
+**Internal References** (read these before starting):
+1. Framework Guidelines: `/mnt/project/Module_Content_Structure_Framework`
+2. Module Structure: `/mnt/project/Module_Struucture`
+3. Existing Examples:
+   - Module 0.1: https://burakkagann.github.io/numpy-to-genAI/content/Module_00_foundations_definitions/0.1_what_is_generative_art/README.html
+   - Module 0.2: https://burakkagann.github.io/numpy-to-genAI/content/Module_00_foundations_definitions/0.2_defining_ai_ml_algorithms/README.html
+   - Module 1.1.1: https://burakkagann.github.io/numpy-to-genAI/content/Module_01_pixel_fundamentals/1.1_grayscale_color_basics/1.1.1_color_basics/rgb/README.html
+
+**External References** (cite these when relevant):
+- NumPy Documentation: https://numpy.org/doc/stable/
+- PIL/Pillow Docs: https://pillow.readthedocs.io/
+- Sphinx Docs: https://www.sphinx-doc.org/
+- PyData Theme: https://pydata-sphinx-theme.readthedocs.io/
+- Generative Art Resources: (to be provided per module)
+
+## Success Metrics
+
+Your module generation is successful when:
+
+1. ✅ All Python scripts execute without errors
+2. ✅ `make html` builds cleanly with zero warnings
+3. ✅ Visual inspection of generated images shows correct output
+4. ✅ Documentation follows framework template structure
+5. ✅ Tone is academic yet friendly (no emojis, cited sources)
+6. ✅ Code is simple, annotated, and humanized
+7. ✅ Exercises follow PACL scaffolding (Execute → Modify → Re-code → Architect)
+8. ✅ Module integrates seamlessly into existing Sphinx site
+
+**Remember**: Quality over speed. Each module should be a polished educational resource that students can learn from independently.
+
+---
+
+## Quick Start Commands
+
+```bash
+# Activate environment
+.venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+pip install -r dev_requirements.txt
+
+# Create new exercise structure
+mkdir -p content/Module_XX/X.Y_subtopic/X.Y.Z_exercise
+
+# Generate content (your work here)
+cd content/Module_XX/X.Y_subtopic/X.Y.Z_exercise
+# ... create script.py and README.rst ...
+
+# Test script
+python script.py
+
+# Build docs
+cd ../../../../  # Back to root
+make html
+
+# View locally
+start build/html/index.html
+```
+
+---
+
+## Session Initialization Protocol
+
+**CRITICAL**: Claude Code sessions are stateless. Each new session must re-establish context.
+
+### At the Start of EVERY New Session
+
+**Step 1: Check Current Module Status**
+```bash
+# Review project status dashboard (local tracking only, not in git)
+cat project_status.md
+```
+
+**Step 2: Review Recent Work**
+```bash
+# Check what was last worked on
+git log --oneline -10
+git status
+```
+
+**Step 3: Validate Current State**
+```bash
+# If working on a specific module, test it
+python scripts/test_module.py content/Module_XX_topic/
+
+# Or validate all exercises (takes longer)
+pwsh scripts/validate_all_exercises.ps1
+```
+
+**Step 4: Read Thesis Context**
+```bash
+# Review current DBR cycle
+cat thesis_notes/dbr_cycles/cycle_01_foundation.md
+
+# Check RQ tracking files (read all 5)
+cat thesis_notes/research_questions/rq1_framework_design.md
+cat thesis_notes/research_questions/rq2_cognitive_load.md
+# ... etc
+```
+
+**Step 5: Establish Task Scope**
+- If continuing previous work: Read the last incomplete exercise's README.rst
+- If starting new module: Review Module_Struucture for module definition
+- If bug fixing: Check GitHub issues or user's description
+
+### During the Session
+
+**Update project_status.md after each milestone**:
+- Completed exercise
+- Module completion
+- Build success/failure
+- New issues discovered
+
+**Document thesis insights in RQ files**:
+- When you discover effective patterns → update rq1_framework_design.md
+- When you design cognitive scaffolding → update rq2_cognitive_load.md
+- When you create assessments → update rq4_assessment.md
+- When you enable transfer → update rq5_transfer.md
+
+**Test frequently**:
+```bash
+# After creating each exercise
+python scripts/validate_exercise.py content/Module_XX/.../X.Y.Z_exercise/
+
+# After completing each module
+python scripts/test_module.py content/Module_XX_topic/
+```
+
+### Before Session Ends
+
+**Generate module summary** (if module completed):
+```bash
+python scripts/generate_module_summary.py
+```
+
+**Update DBR cycle documentation**:
+```markdown
+# In thesis_notes/dbr_cycles/cycle_01_foundation.md
+## Recent Progress (2025-MM-DD)
+- Completed Module X.Y: [Topic]
+- Key findings: [Insights for RQs]
+- Challenges: [Issues encountered]
+```
+
+**NEVER COMMIT** - User always commits manually. Instead, provide commit-ready summary:
+```markdown
+## Ready to Commit
+
+Files created/modified:
+- content/Module_XX/.../README.rst
+- content/Module_XX/.../script.py
+- thesis_notes/research_questions/rqX_*.md
+- project_status.md (local only, not committed)
+
+Suggested commit message:
+"Add Module X.Y.Z: [Exercise Name]
+
+- Implemented [key algorithm]
+- Generated [N] images
+- Documented [concept]
+- Updated RQ[X] tracking"
+```
+
+---
+
+## Thesis Research Context
+
+This is a **Master's thesis project** using **Design-Based Research (DBR)** methodology. Every module you create contributes to answering 5 research questions.
+
+### The 5 Research Questions
+
+**RQ1: Framework Design Principles**
+> What pedagogical principles and design patterns effectively scaffold learning progressions from basic array manipulation to generative AI in creative contexts?
+
+**Your role**: When designing modules, document effective patterns in `thesis_notes/research_questions/rq1_framework_design.md`
+
+---
+
+**RQ2: Cognitive Load Management**
+> How can complex technical concepts (neural networks, generative models) be decomposed and sequenced to maintain optimal cognitive load while building toward advanced applications?
+
+**Your role**: When breaking down complex concepts, track decomposition strategies in `rq2_cognitive_load.md`
+
+---
+
+**RQ3: Integration Pathways**
+> What are effective strategies for integrating real-time systems (TouchDesigner) with progressive AI learning, and at what points in the curriculum should these integrations occur?
+
+**Your role**: For Modules 10, 11, 13 (TouchDesigner), document integration insights in `rq3_integration.md`
+
+---
+
+**RQ4: Assessment & Evaluation**
+> How can learning outcomes in creative AI education be effectively assessed across technical proficiency, creative expression, and conceptual understanding dimensions?
+
+**Your role**: When creating exercises, ensure they assess all three dimensions. Document in `rq4_assessment.md`
+
+---
+
+**RQ5: Transfer & Application**
+> To what extent do learners successfully transfer foundational computational concepts (arrays, transformations) to novel creative AI contexts, and what factors facilitate or hinder this transfer?
+
+**Your role**: When designing challenge projects, document transfer mechanisms in `rq5_transfer.md`
+
+### DBR Cycle Structure
+
+The thesis follows iterative DBR cycles:
+
+**Cycle 1 (Current)**: Foundation Modules (00-05)
+- Timeline: Jan 20 - Feb 17, 2025
+- Focus: Framework establishment, visual-first pedagogy
+- Deliverable: 6 complete modules with assessment instruments
+
+**Cycle 2**: Advanced Modules (06-09) + TouchDesigner Intro (10-11)
+- Timeline: Feb 18 - Mar 31, 2025
+- Focus: Complex algorithms, real-time integration
+
+**Cycle 3**: AI/ML Modules (12-13) + Capstone (14-15)
+- Timeline: Apr 1 - May 15, 2025
+- Focus: Generative models, integration synthesis
+
+### Thesis Deliverables You Support
+
+1. **Module Content**: 15 complete learning modules (your primary output)
+2. **Assessment Instruments**: validate_exercise.py implements 5-level testing
+3. **Pedagogical Framework**: Documented in RQ tracking files
+4. **Empirical Evidence**: Collected during pilot testing (future)
+5. **Design Rationale**: Recorded in DBR cycle files
+
+### How to Contribute to Thesis Quality
+
+**DO**:
+- ✅ Cite academic sources for pedagogical decisions
+- ✅ Document design rationale in RQ files
+- ✅ Update DBR cycle files with findings
+- ✅ Test rigorously (5-level validation)
+- ✅ Maintain academic tone (no emojis, professional language)
+- ✅ Follow established frameworks (F1, F2, F3 templates)
+
+**DON'T**:
+- ❌ Skip documentation of insights (RQ files need evidence)
+- ❌ Create content without testing (damages thesis credibility)
+- ❌ Ignore cognitive load principles (RQ2 requirement)
+- ❌ Use non-academic language (thesis context)
+- ❌ Deviate from framework templates without justification
+
+---
+
+## Citation Guidelines (APA 7th Edition)
+
+All modules must cite sources for:
+- **Pedagogical claims** (learning theory, cognitive load principles)
+- **Algorithmic origins** (who invented the algorithm, when)
+- **Historical context** (development of techniques, evolution of field)
+- **Technical specifications** (standards, file formats, protocols)
+- **"Did You Know?" facts** (interesting trivia requires sources)
+
+### Minimum Citation Requirements
+
+- **Modules 0-6** (Foundation/Hands-On): 5-7 citations minimum
+- **Modules 7-15** (Advanced/Theory): 7-10 citations minimum
+
+**Quality over quantity**: Cite credible academic sources, official documentation, and respected textbooks. Avoid blog posts unless from recognized experts.
+
+### In-Text Citations
+
+**Single author**:
+```
+(Smith, 2020)
+Smith (2020) demonstrates that...
+```
+
+**Two authors**:
+```
+(Smith & Jones, 2020)
+Smith and Jones (2020) argue that...
+```
+
+**Three or more authors**:
+```
+(Smith et al., 2020)
+Smith et al. (2020) propose...
+```
+
+**Direct quote**:
+```
+(Smith, 2020, p. 42)
+"Generative art challenges traditional notions of authorship" (Smith, 2020, p. 42).
+```
+
+**Paraphrasing**:
+```
+Neural networks can learn hierarchical representations (LeCun et al., 2015).
+```
+
+**Multiple citations**:
+```
+(Galanter, 2016; McCormack & d'Inverno, 2012; Pearson, 2011)
+```
+
+### Reference List Formats
+
+All references go in the `References` section at the end of each README.rst file using RST footnote syntax.
+
+#### Journal Articles
+
+**Format**:
+```rst
+.. [Key1] Author, A. B., & Author, C. D. (Year). Article title. *Journal Name*, Volume(Issue), pages. https://doi.org/XX.XXXX/xxxxx
+```
+
+**Example**:
+```rst
+.. [Galanter2016] Galanter, P. (2016). Generative art theory. In C. Paul (Ed.), *A Companion to Digital Art* (pp. 146-180). Wiley-Blackwell. https://doi.org/10.1002/9781118475249.ch8
+```
+
+#### Books
+
+**Format**:
+```rst
+.. [Key2] Author, A. B. (Year). *Book title* (Edition ed.). Publisher. ISBN: XXX-X-XXX-XXXXX-X
+```
+
+**Example**:
+```rst
+.. [Goodfellow2016] Goodfellow, I., Bengio, Y., & Courville, A. (2016). *Deep Learning*. MIT Press. ISBN: 978-0-262-03561-3
+```
+
+#### Book Chapters
+
+**Format**:
+```rst
+.. [Key3] Author, A. B. (Year). Chapter title. In E. Editor & F. Editor (Eds.), *Book title* (pp. page-range). Publisher.
+```
+
+**Example**:
+```rst
+.. [Reas2010] Reas, C., & Fry, B. (2010). Getting started with Processing. In M. Pearson (Ed.), *Generative Art* (pp. 34-56). Manning Publications.
+```
+
+#### Websites (Official Documentation)
+
+**Format**:
+```rst
+.. [Key4] Organization/Author. (Year). Page title. *Site Name*. Retrieved Month Day, Year, from URL
+```
+
+**Example**:
+```rst
+.. [NumPyDocs] NumPy Developers. (2024). NumPy array creation routines. *NumPy Documentation*. Retrieved January 15, 2025, from https://numpy.org/doc/stable/reference/routines.array-creation.html
+```
+
+#### Online Articles/Blog Posts (Expert Sources Only)
+
+**Format**:
+```rst
+.. [Key5] Author, A. B. (Year, Month Day). Article title. *Website Name*. URL
+```
+
+**Example**:
+```rst
+.. [Karras2024] Karras, T. (2024, March 12). Diffusion models explained. *NVIDIA Research Blog*. https://blogs.nvidia.com/blog/diffusion-models/
+```
+
+#### Software/Code Libraries
+
+**Format**:
+```rst
+.. [Key6] Author/Organization. (Year). *Software name* (Version) [Computer software]. Publisher/Repository. URL
+```
+
+**Example**:
+```rst
+.. [Pillow2024] Clark, A., et al. (2024). *Pillow: Python Imaging Library* (Version 10.2.0) [Computer software]. Python Software Foundation. https://python-pillow.org/
+```
+
+#### arXiv Preprints
+
+**Format**:
+```rst
+.. [Key7] Author, A. B., & Author, C. D. (Year). Paper title. *arXiv preprint*. https://arxiv.org/abs/XXXX.XXXXX
+```
+
+**Example**:
+```rst
+.. [Rombach2022] Rombach, R., Blattmann, A., Lorenz, D., Esser, P., & Ommer, B. (2022). High-resolution image synthesis with latent diffusion models. *arXiv preprint*. https://arxiv.org/abs/2112.10752
+```
+
+### RST Implementation
+
+In your README.rst files, citations appear as:
+
+**In-text**:
+```rst
+Generative art uses autonomous systems to create artwork [Galanter2016]_. Early pioneers like Harold Cohen developed AARON, one of the first AI artists [McCormack2014]_.
+
+.. admonition:: Did You Know?
+
+   The first computer-generated artwork was created in 1965 by Frieder Nake [Nake2010]_.
+```
+
+**References section** (at end of file):
+```rst
+References
+==========
+
+.. [Galanter2016] Galanter, P. (2016). Generative art theory. In C. Paul (Ed.), *A Companion to Digital Art* (pp. 146-180). Wiley-Blackwell. https://doi.org/10.1002/9781118475249.ch8
+
+.. [McCormack2014] McCormack, J., Bown, O., Dorin, A., McCabe, J., Munro, G., & Whitelaw, M. (2014). Ten questions concerning generative computer art. *Leonardo*, 47(2), 135-141.
+
+.. [Nake2010] Nake, F. (2010). Paragraphs on computer art, past and present. In *CAT 2010 - Ideas Before Their Time: Connecting the Past and Present in Computer Art* (pp. 55-63). British Computer Society.
+```
+
+### Citation Quality Checklist
+
+Before finalizing a module, verify:
+
+- [ ] **All claims cited**: Every factual statement has a source
+- [ ] **Credible sources**: Academic journals, respected books, official docs
+- [ ] **Recent sources**: Prefer publications from last 5-10 years (except historical context)
+- [ ] **Diverse sources**: Mix of academic papers, textbooks, and documentation
+- [ ] **Accessible sources**: Include DOIs and URLs where available
+- [ ] **Proper formatting**: Follow APA 7th edition exactly
+- [ ] **Context notes**: Add [brackets] after citations explaining relevance (optional but recommended)
+
+**Example with context notes**:
+```rst
+.. [LeCun2015] LeCun, Y., Bengio, Y., & Hinton, G. (2015). Deep learning. *Nature*, 521(7553), 436-444. https://doi.org/10.1038/nature14539 [Seminal overview of deep learning fundamentals]
+
+.. [Gatys2016] Gatys, L. A., Ecker, A. S., & Bethge, M. (2016). Image style transfer using convolutional neural networks. In *Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition* (pp. 2414-2423). [Original neural style transfer paper]
+```
+
+### Common Citation Mistakes to Avoid
+
+❌ **Wrong**: Missing author year in text
+```rst
+Generative art uses autonomous systems.
+```
+
+✅ **Correct**: Proper citation
+```rst
+Generative art uses autonomous systems (Galanter, 2016).
+```
+
+---
+
+❌ **Wrong**: Blog post without author credentials
+```rst
+.. [Random2024] JohnDoe123. (2024). My thoughts on AI. *Medium*. https://medium.com/...
+```
+
+✅ **Correct**: Expert source or official documentation
+```rst
+.. [Chollet2024] Chollet, F. (2024). Deep learning with Python (2nd ed.). Manning Publications.
+```
+
+---
+
+❌ **Wrong**: Uncited "Did You Know?" fact
+```rst
+.. admonition:: Did You Know?
+
+   Neural networks can have billions of parameters!
+```
+
+✅ **Correct**: Cited fact
+```rst
+.. admonition:: Did You Know?
+
+   GPT-3 has 175 billion parameters, making it one of the largest language models [Brown2020]_.
+```
+
+---
+
+## Visual Content Creation Guidelines
+
+**Principle**: Visuals should illuminate concepts, not decorate. Every image must serve a pedagogical purpose.
+
+### When to Create Visuals
+
+Create visuals when they:
+- ✅ **Simplify complex concepts** - e.g., diagram showing RGB color space
+- ✅ **Show output examples** - e.g., result of running a script
+- ✅ **Demonstrate progression** - e.g., before/after transformation
+- ✅ **Compare alternatives** - e.g., different noise functions side-by-side
+- ✅ **Visualize data flow** - e.g., neural network architecture diagram
+- ✅ **Illustrate step-by-step processes** - e.g., animation frames
+
+Do NOT create visuals that:
+- ❌ Repeat information already clear in text
+- ❌ Add decorative "fluff" without educational value
+- ❌ Require more explanation than they provide
+- ❌ Distract from the core learning objective
+
+### Types of Visuals
+
+**1. Code Output Images** (Required for every exercise)
+- Generated by Python scripts in the exercise
+- Show the actual result learners will see
+- Format: PNG (static) or GIF (animated)
+- Resolution: 512×512 or similar (not too large)
+
+**Example**: `output.png` from Exercise 1.1.1 showing RGB color channels
+
+**2. Conceptual Diagrams**
+- Explain abstract concepts (color spaces, coordinate systems, architectures)
+- Created using matplotlib, diagrams.net, or similar tools
+- Should be simple, clean, and high-contrast
+- Include labels and annotations
+
+**Example**: RGB vs HSV color space comparison diagram
+
+**3. Step-by-Step Visualizations**
+- Show progression through an algorithm
+- Multiple images or animated GIF
+- Each step clearly labeled
+
+**Example**: Fractal generation process (iteration 1, 2, 3, 4, final)
+
+**4. Comparison Grids**
+- Side-by-side comparison of techniques/parameters
+- 2×2 or 3×3 grid layout
+- Each cell labeled with parameter values
+
+**Example**: Different Perlin noise scales in a 2×2 grid
+
+**5. Interactive Examples** (For advanced modules)
+- Jupyter notebook widgets (Modules 7+)
+- TouchDesigner `.toe` screenshots with network visible
+- Web-based demos (if applicable)
+
+**6. Annotated Code Visualizations**
+- Screenshot of code with arrows/highlights showing data flow
+- Only when code structure is complex (avoid for simple scripts)
+
+### Creating Visuals with Code
+
+**matplotlib Template for Diagrams**:
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Create figure
+fig, ax = plt.subplots(figsize=(8, 6), dpi=150)
+
+# [Your visualization code here]
+# Keep it simple - avoid excessive styling
+
+# Labels and title
+ax.set_xlabel('X axis label', fontsize=12)
+ax.set_ylabel('Y axis label', fontsize=12)
+ax.set_title('Diagram Title', fontsize=14, fontweight='bold')
+
+# Grid (optional, use for data plots)
+ax.grid(True, alpha=0.3)
+
+# Save with high DPI
+plt.tight_layout()
+plt.savefig('diagram.png', dpi=150, bbox_inches='tight')
+plt.close()
+```
+
+**Comparison Grid Template**:
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+from PIL import Image
+
+# Generate 4 variations
+variations = []
+labels = ['Low Frequency', 'Medium Frequency', 'High Frequency', 'Mixed']
+
+for i, label in enumerate(labels):
+    # Generate variation (your code here)
+    img = generate_variation(i)
+    variations.append(img)
+
+# Create 2×2 grid
+fig, axes = plt.subplots(2, 2, figsize=(10, 10), dpi=150)
+axes = axes.flatten()
+
+for i, (img, label) in enumerate(zip(variations, labels)):
+    axes[i].imshow(img)
+    axes[i].set_title(label, fontsize=12, fontweight='bold')
+    axes[i].axis('off')
+
+plt.tight_layout()
+plt.savefig('comparison_grid.png', dpi=150, bbox_inches='tight')
+plt.close()
+```
+
+**Animated GIF Template**:
+
+```python
+import numpy as np
+from PIL import Image
+import imageio.v2 as imageio
+
+frames = []
+num_frames = 60
+
+for t in range(num_frames):
+    # Generate frame (your code here)
+    frame = generate_frame(t, num_frames)
+    frames.append(frame)
+
+# Save as GIF
+imageio.mimsave(
+    'animation.gif',
+    frames,
+    fps=30,
+    loop=0  # 0 = infinite loop
+)
+
+print(f"Created animation with {num_frames} frames")
+```
+
+**Architecture Diagram Template** (for neural networks):
+
+```python
+import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
+
+fig, ax = plt.subplots(figsize=(12, 6), dpi=150)
+
+# Define layer positions
+layers = [
+    {'name': 'Input\n28×28', 'x': 1, 'neurons': 784},
+    {'name': 'Hidden 1\n128', 'x': 3, 'neurons': 128},
+    {'name': 'Hidden 2\n64', 'x': 5, 'neurons': 64},
+    {'name': 'Output\n10', 'x': 7, 'neurons': 10}
+]
+
+# Draw layers as rectangles
+for layer in layers:
+    height = layer['neurons'] / 100  # Scale for visibility
+    rect = mpatches.Rectangle(
+        (layer['x'] - 0.3, -height/2),
+        0.6, height,
+        linewidth=2, edgecolor='black', facecolor='lightblue'
+    )
+    ax.add_patch(rect)
+    ax.text(layer['x'], -height/2 - 0.5, layer['name'],
+            ha='center', fontsize=10, fontweight='bold')
+
+# Draw connections
+for i in range(len(layers) - 1):
+    ax.arrow(layers[i]['x'] + 0.3, 0, 1.4, 0,
+             head_width=0.2, head_length=0.2, fc='gray', ec='gray')
+
+ax.set_xlim(0, 8)
+ax.set_ylim(-5, 5)
+ax.axis('off')
+
+plt.tight_layout()
+plt.savefig('network_architecture.png', dpi=150, bbox_inches='tight')
+plt.close()
+```
+
+### Visual Quality Standards
+
+**Technical Requirements**:
+- **Resolution**: Minimum 150 DPI for diagrams, 72 DPI for screenshots
+- **File size**: <500 KB per image (use PNG compression if needed)
+- **Format**: PNG for static images, GIF for animations (<2 MB)
+- **Dimensions**: 512×512 to 1024×1024 for output images, flexible for diagrams
+- **Color space**: sRGB for consistency across devices
+
+**Design Principles**:
+- **Simplicity**: Remove unnecessary elements (chartjunk)
+- **Contrast**: Ensure text/labels are readable (dark on light or vice versa)
+- **Consistency**: Use same color scheme across module (e.g., blue for input, red for output)
+- **Accessibility**: Include alt text in RST, use colorblind-friendly palettes
+- **Annotations**: Label axes, add legends, include scale bars where relevant
+
+**Common Mistakes to Avoid**:
+- ❌ Low resolution images that look pixelated
+- ❌ Excessive colors/gradients that distract from content
+- ❌ Unlabeled axes or missing units
+- ❌ Images larger than 2 MB (slows down documentation loading)
+- ❌ Using screenshots when generated images would be better
+
+### Embedding Visuals in RST
+
+**Single Image**:
+```rst
+.. figure:: output.png
+   :width: 600px
+   :align: center
+   :alt: RGB color channels showing red, green, and blue separated
+
+   Output showing the three RGB color channels isolated. Notice how each channel represents intensity of that color (0-255).
+```
+
+**Side-by-Side Images** (using grid):
+```rst
+.. list-table::
+   :widths: 50 50
+
+   * - .. figure:: before.png
+          :width: 100%
+          :alt: Original image
+
+          Before transformation
+
+     - .. figure:: after.png
+          :width: 100%
+          :alt: Transformed image
+
+          After applying filter
+```
+
+**Animated GIF**:
+```rst
+.. figure:: animation.gif
+   :width: 400px
+   :align: center
+   :alt: Animation showing cellular automaton evolution over 100 generations
+
+   Evolution of Conway's Game of Life over 100 generations. Notice the emergent patterns like gliders and blinkers.
+```
+
+**Diagram with Caption and Citation**:
+```rst
+.. figure:: rgb_color_space.png
+   :width: 500px
+   :align: center
+   :alt: 3D diagram of RGB color cube showing axes for red, green, and blue
+
+   The RGB color space represented as a cube. Each corner represents a primary or secondary color. (Adapted from Gonzalez & Woods, 2018)
+```
+
+### Visual Content Checklist
+
+Before including a visual in a module:
+
+- [ ] **Purpose clear**: Can you state in one sentence why this visual is needed?
+- [ ] **Quality adequate**: Is resolution ≥150 DPI? Is file size <500 KB?
+- [ ] **Accessibility**: Does it have descriptive alt text?
+- [ ] **Citation**: If adapted from source, is it cited?
+- [ ] **Labels**: Are axes, legends, and annotations present where needed?
+- [ ] **Caption**: Does caption explain what learner should observe?
+- [ ] **Consistency**: Does visual style match other visuals in module?
+- [ ] **Generated**: If code output, does script exist and execute successfully?
+
+### When NOT to Use Visuals
+
+Avoid creating visuals when:
+- Simple text explanation is clearer (e.g., "RGB has 3 channels" doesn't need a diagram)
+- Code is self-explanatory (don't screenshot code, use `.. code-block::`)
+- Visual would take longer to understand than reading text
+- Similar visual already exists earlier in module
+
+**Example of unnecessary visual**:
+```rst
+❌ DON'T: Create a flowchart for this simple process:
+1. Load image
+2. Convert to grayscale
+3. Save result
+
+✓ DO: Just list the steps in text (it's already clear)
+```
+
+### Visual Generation Workflow
+
+**For each exercise**:
+
+1. **Plan visuals** before writing code:
+   - What output will the script generate?
+   - What diagrams would help explain concepts?
+   - What comparisons would be valuable?
+
+2. **Create visuals during development**:
+   - Run Python script → generates output.png automatically
+   - Create diagrams using matplotlib → save as diagram.png
+   - Take screenshots if needed (TouchDesigner networks, etc.)
+
+3. **Optimize visuals**:
+   - Compress PNGs if >500 KB (use Pillow or online tools)
+   - Reduce GIF frame count if >2 MB
+   - Crop unnecessary whitespace
+
+4. **Embed in RST**:
+   - Add `.. figure::` directive with descriptive caption
+   - Include alt text for accessibility
+   - Cite source if adapted from external work
+
+5. **Test rendering**:
+   - Run `make html` and view in browser
+   - Verify images load correctly
+   - Check that captions are readable
+
+### Tools for Visual Creation
+
+**Recommended tools**:
+- **matplotlib**: Diagrams, plots, architecture visualizations (already in requirements.txt)
+- **NumPy + PIL**: Generated art/output images (core dependencies)
+- **imageio**: Animated GIFs (in requirements.txt)
+- **diagrams.net**: Complex flowcharts/diagrams (external tool, free)
+- **Inkscape**: Vector graphics for publication-quality diagrams (external, free)
+- **TouchDesigner**: Network screenshots for Modules 10-13 (already licensed)
+
+**Avoid**:
+- ❌ PowerPoint screenshots (low quality, inconsistent style)
+- ❌ Hand-drawn diagrams scanned (unless exceptionally clear)
+- ❌ Stock photos (not relevant to generative art code)
+
+---
+
+## MCP Server Configuration
+
+Model Context Protocol (MCP) servers extend Claude Code's capabilities. This project uses 4 MCP servers.
+
+### Configured MCP Servers
+
+**1. Filesystem MCP** (`@modelcontextprotocol/server-filesystem`)
+- **Purpose**: Enhanced file operations beyond basic Read/Write tools
+- **Access**: Full read/write to repository directory
+- **Use cases**: Batch file operations, directory traversal, file watching
+- **Configuration**: Provided in `.claude/mcp_servers.json`
+
+**2. Git MCP** (`@modelcontextprotocol/server-git`)
+- **Purpose**: Advanced git operations
+- **Access**: Repository-level git commands
+- **Use cases**: Branch management, commit history analysis, diff viewing
+- **Reminder**: NEVER auto-commit (user always commits manually)
+
+**3. Puppeteer MCP** (`@modelcontextprotocol/server-puppeteer`)
+- **Purpose**: Web automation and testing
+- **Access**: Browser automation for documentation testing
+- **Use cases**: Test Sphinx site navigation, verify images load, check responsive design
+- **Example**: Automated testing of built documentation site
+
+**4. Sequential Thinking MCP** (`@modelcontextprotocol/server-sequential-thinking`)
+- **Purpose**: Extended reasoning for complex problems
+- **Access**: Enhanced thinking process
+- **Use cases**: Complex algorithm design, pedagogical strategy planning, thesis argumentation
+
+### Setup Instructions (User Manual Action Required)
+
+MCP servers require Node.js installation. To activate:
+
+```bash
+# 1. Install Node.js (if not already installed)
+# Download from: https://nodejs.org/ (LTS version recommended)
+
+# 2. MCP servers are auto-configured in .claude/mcp_servers.json
+# Claude Code will install them automatically on first use
+
+# 3. Verify installation (optional)
+# Open Claude Code settings and check MCP Servers section
+```
+
+### When to Use MCP Servers
+
+**Filesystem MCP**:
+- Batch renaming exercises
+- Searching across multiple modules
+- Directory structure analysis
+
+**Git MCP**:
+- Analyzing commit history for thesis documentation
+- Checking which modules were modified in a date range
+- Viewing detailed diffs
+
+**Puppeteer MCP**:
+- Testing built documentation site
+- Verifying all images load correctly
+- Checking cross-module navigation
+
+**Sequential Thinking MCP**:
+- Planning complex module structures
+- Designing pedagogical frameworks
+- Solving algorithmic challenges for exercises
+
+### Troubleshooting MCP Issues
+
+**Issue**: MCP server not found
+**Solution**: Ensure Node.js is installed, restart Claude Code
+
+**Issue**: Permission errors
+**Solution**: Check `.claude/mcp_servers.json` paths are correct
+
+**Issue**: Server crashes
+**Solution**: Check Claude Code logs, verify Node.js version compatibility
+
+---
+
+**You are now equipped to autonomously generate complete modules for NumPy-to-GenAI. Follow the protocols, maintain quality standards, and create educational magic!**

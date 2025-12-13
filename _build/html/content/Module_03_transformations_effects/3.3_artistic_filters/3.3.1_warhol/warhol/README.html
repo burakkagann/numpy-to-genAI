@@ -1,0 +1,918 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>3.3.1 - Warhol Pop Art Effect &#8212; Pixels to GenAI</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/github-icon.css?v=0979adda" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/footer.css?v=22df2544" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/content.css?v=ad41e33b" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/scroll-progress.css?v=46bcc4b9" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../../_static/documentation_options.js?v=60dbed4a"></script>
+    <script src="../../../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/Module_03_transformations_effects/3.3_artistic_filters/3.3.1_warhol/warhol/README';</script>
+    <script src="../../../../../_static/github-icon.js?v=54752c43"></script>
+    <script src="../../../../../_static/scroll-progress.js?v=9aba87dc"></script>
+    <link rel="icon" href="../../../../../_static/favicon-64x64.png"/>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+    <link rel="next" title="3.3.2 - Puzzle (Array Concatenation)" href="../../3.3.2_puzzle/puzzle/README.html" />
+    <link rel="prev" title="3.2.4 - Blend Modes" href="../../../3.2_masking_compositing/3.2.4_blend_modes/README.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../../_static/favicon-192x192.png" class="logo__image only-light" alt=""/>
+    <img src="../../../../../_static/favicon-192x192.png" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">Pixels to GenAI</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/burakkagann/numpy-to-genAI" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/burakkagann/numpy-to-genAI" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"></div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">3.3.1 - Warhol Pop Art Effect</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="warhol-pop-art-effect">
+<h1>3.3.1 - Warhol Pop Art Effect<a class="headerlink" href="#warhol-pop-art-effect" title="Link to this heading">#</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">Duration<span class="colon">:</span></dt>
+<dd class="field-odd"><p>18 minutes</p>
+</dd>
+<dt class="field-even">Level<span class="colon">:</span></dt>
+<dd class="field-even"><p>Beginner</p>
+</dd>
+<dt class="field-odd">Prerequisites<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Module 1.1.1 (RGB Basics), Module 1.3 (Array Slicing)</p>
+</dd>
+</dl>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>In this exercise, you will create pop art inspired by Andy Warhol’s iconic screen printing technique. By rotating and swapping RGB color channels, you can transform a single image into multiple dramatic color variations, just as Warhol created his famous repetitive portraits with striking color shifts.</p>
+<p>This technique demonstrates how simple array indexing operations in NumPy can produce visually powerful artistic effects. The same principle Warhol applied manually with silkscreen prints, we can achieve programmatically in just a few lines of code.</p>
+<p><strong>Learning Objectives</strong></p>
+<p>By the end of this exercise, you will be able to:</p>
+<ul class="simple">
+<li><p>Understand how RGB channel rotation creates distinct color variations</p></li>
+<li><p>Apply NumPy advanced indexing to swap and reorder color channels</p></li>
+<li><p>Create 2x2 grid compositions using array slicing and concatenation</p></li>
+<li><p>Appreciate the connection between computational techniques and pop art aesthetics</p></li>
+</ul>
+</section>
+<section id="quick-start">
+<h2>Quick Start<a class="headerlink" href="#quick-start" title="Link to this heading">#</a></h2>
+<p>Let us begin by seeing the Warhol effect in action. Run this code to create your first pop art piece:</p>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">Create a Warhol-style 2x2 grid with color variations</span><a class="headerlink" href="#id7" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="c1"># Create a colorful gradient source image</span>
+<span class="linenos"> 5</span><span class="n">height</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span>
+<span class="linenos"> 6</span><span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">height</span><span class="p">):</span>
+<span class="linenos"> 9</span>    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">width</span><span class="p">):</span>
+<span class="linenos">10</span>        <span class="n">cx</span><span class="p">,</span> <span class="n">cy</span> <span class="o">=</span> <span class="n">width</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">//</span> <span class="mi">2</span>
+<span class="linenos">11</span>        <span class="n">distance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">cx</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">cy</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos">12</span>        <span class="n">image</span><span class="p">[</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">128</span> <span class="o">+</span> <span class="mi">127</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">distance</span> <span class="o">*</span> <span class="mf">0.1</span><span class="p">))</span>
+<span class="linenos">13</span>        <span class="n">image</span><span class="p">[</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">128</span> <span class="o">+</span> <span class="mi">127</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">distance</span> <span class="o">*</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">))</span>
+<span class="linenos">14</span>        <span class="n">image</span><span class="p">[</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">128</span> <span class="o">+</span> <span class="mi">127</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">distance</span> <span class="o">*</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mi">4</span><span class="p">))</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="c1"># Create 2x2 canvas and place four color variations</span>
+<span class="linenos">17</span><span class="n">canvas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">height</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="n">width</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+<span class="linenos">18</span><span class="n">canvas</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">height</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">width</span><span class="p">]</span> <span class="o">=</span> <span class="n">image</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>        <span class="c1"># Original</span>
+<span class="linenos">19</span><span class="n">canvas</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">:]</span> <span class="o">=</span> <span class="n">image</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>         <span class="c1"># Rotate channels</span>
+<span class="linenos">20</span><span class="n">canvas</span><span class="p">[</span><span class="n">height</span><span class="p">:,</span> <span class="mi">0</span><span class="p">:</span><span class="n">width</span><span class="p">]</span> <span class="o">=</span> <span class="n">image</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>         <span class="c1"># Rotate other way</span>
+<span class="linenos">21</span><span class="n">canvas</span><span class="p">[</span><span class="n">height</span><span class="p">:,</span> <span class="n">width</span><span class="p">:]</span> <span class="o">=</span> <span class="n">image</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>          <span class="c1"># Swap G and B</span>
+<span class="linenos">22</span>
+<span class="linenos">23</span><span class="n">output</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;RGB&#39;</span><span class="p">)</span>
+<span class="linenos">24</span><span class="n">output</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;simple_warhol.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<figure class="align-center" id="id8">
+<a class="reference internal image-reference" href="../../../../../_images/simple_warhol.png"><img alt="A 2x2 grid showing four color variations of a radial gradient pattern, demonstrating the Warhol pop art effect" src="../../../../../_images/simple_warhol.png" style="width: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Your first Warhol-style pop art: four color variations from a single source image.</span><a class="headerlink" href="#id8" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Notice how each quadrant shows the same pattern but with dramatically different colors. This is achieved simply by reordering which channel appears as Red, Green, or Blue.</p>
+</div>
+</section>
+<section id="core-concepts">
+<h2>Core Concepts<a class="headerlink" href="#core-concepts" title="Link to this heading">#</a></h2>
+<section id="concept-1-andy-warhol-and-pop-art">
+<h3>Concept 1: Andy Warhol and Pop Art<a class="headerlink" href="#concept-1-andy-warhol-and-pop-art" title="Link to this heading">#</a></h3>
+<p>Andy Warhol (1928-1987) was a leading figure in the pop art movement. His most famous works, including the <em>Marilyn Diptych</em> (1962) and <em>Campbell’s Soup Cans</em> (1962), featured repetitive images with bold color variations <a class="reference internal" href="#warhol1975" id="id1"><span>[Warhol1975]</span></a>.</p>
+<p>Warhol’s technique involved creating multiple silkscreen prints of the same image, each with different color combinations. This approach challenged traditional notions of artistic uniqueness and embraced mass reproduction as an aesthetic choice <a class="reference internal" href="#foster2012" id="id2"><span>[Foster2012]</span></a>.</p>
+<div class="admonition-did-you-know admonition">
+<p class="admonition-title">Did You Know?</p>
+<p>Warhol’s <em>Marilyn Diptych</em> contains 50 images of Marilyn Monroe, with the left panel in vivid colors and the right panel in black and white. He created these variations by adjusting ink colors during the screen printing process, similar to how we manipulate RGB channels in code <a class="reference internal" href="#moma2024" id="id3"><span>[MoMA2024]</span></a>.</p>
+</div>
+<p>Our digital approach mirrors Warhol’s philosophy: starting with a single source and creating multiple variations through systematic color transformations. Where Warhol used different ink colors, we use channel permutations.</p>
+</section>
+<section id="concept-2-rgb-channel-manipulation">
+<h3>Concept 2: RGB Channel Manipulation<a class="headerlink" href="#concept-2-rgb-channel-manipulation" title="Link to this heading">#</a></h3>
+<p>In digital images, each pixel contains three values: Red, Green, and Blue. NumPy allows us to access and reorder these channels using advanced indexing <a class="reference internal" href="../../../3.4_signal_processing/3.4.2_edge_detection/sobel/README.html#numpydocs" id="id4"><span>[NumPyDocs]</span></a>.</p>
+<p>The key insight is that <code class="docutils literal notranslate"><span class="pre">image[:,</span> <span class="pre">:,</span> <span class="pre">[2,</span> <span class="pre">0,</span> <span class="pre">1]]</span></code> does not change the pixel values themselves; rather, it changes <em>which channel each value is displayed as</em>:</p>
+<ul class="simple">
+<li><p>Original: <code class="docutils literal notranslate"><span class="pre">[R,</span> <span class="pre">G,</span> <span class="pre">B]</span></code> - Red stays red, green stays green, blue stays blue</p></li>
+<li><p>Rotation: <code class="docutils literal notranslate"><span class="pre">[G,</span> <span class="pre">B,</span> <span class="pre">R]</span></code> - Green becomes red, blue becomes green, red becomes blue</p></li>
+<li><p>Swap: <code class="docutils literal notranslate"><span class="pre">[R,</span> <span class="pre">B,</span> <span class="pre">G]</span></code> - Red stays red, but green and blue switch places</p></li>
+</ul>
+<figure class="align-center" id="id9">
+<a class="reference internal image-reference" href="../../../../../_images/channel_rotation_diagram.png"><img alt="Diagram showing the six possible RGB channel permutations applied to a color gradient bar" src="../../../../../_images/channel_rotation_diagram.png" style="width: 500px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">All six possible arrangements of RGB channels create distinct color palettes.</span><a class="headerlink" href="#id9" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Understanding how these color relationships work connects directly to color theory research on how humans perceive color interactions <a class="reference internal" href="#albers2013" id="id5"><span>[Albers2013]</span></a>.</p>
+<p>There are exactly <strong>6 permutations</strong> of three channels (3! = 6):</p>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">The six RGB channel permutations</span><a class="headerlink" href="#id10" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>  <span class="c1"># Original: R, G, B</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># Swap G-B: R, B, G</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>  <span class="c1"># Swap R-G: G, R, B</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># Rotate left: G, B, R</span>
+<span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># Rotate right: B, R, G</span>
+<span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># Swap R-B: B, G, R</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The syntax <code class="docutils literal notranslate"><span class="pre">image[:,</span> <span class="pre">:,</span> <span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">0]]</span></code> means: for every row and column, take the channels in order [1, 2, 0]. This effectively maps Green to position 0 (Red), Blue to position 1 (Green), and Red to position 2 (Blue).</p>
+</div>
+</section>
+<section id="concept-3-grid-composition-techniques">
+<h3>Concept 3: Grid Composition Techniques<a class="headerlink" href="#concept-3-grid-composition-techniques" title="Link to this heading">#</a></h3>
+<p>To create a Warhol-style grid, we need to place multiple image variations onto a single canvas. There are two main approaches:</p>
+<p><strong>Method 1: Pre-allocated Canvas with Slicing</strong></p>
+<p>Create a canvas large enough to hold all variations, then use array slicing to place each image:</p>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-text">Building a grid using pre-allocated canvas</span><a class="headerlink" href="#id11" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Canvas twice the height and width of source</span>
+<span class="n">canvas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">height</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="n">width</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+
+<span class="c1"># Place images using slicing</span>
+<span class="n">canvas</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">height</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">width</span><span class="p">]</span> <span class="o">=</span> <span class="n">image_variant_1</span>
+<span class="n">canvas</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">:]</span> <span class="o">=</span> <span class="n">image_variant_2</span>
+<span class="n">canvas</span><span class="p">[</span><span class="n">height</span><span class="p">:,</span> <span class="mi">0</span><span class="p">:</span><span class="n">width</span><span class="p">]</span> <span class="o">=</span> <span class="n">image_variant_3</span>
+<span class="n">canvas</span><span class="p">[</span><span class="n">height</span><span class="p">:,</span> <span class="n">width</span><span class="p">:]</span> <span class="o">=</span> <span class="n">image_variant_4</span>
+</pre></div>
+</div>
+</div>
+<p><strong>Method 2: Concatenation with vstack/hstack</strong></p>
+<p>Alternatively, stack images using NumPy’s concatenation functions:</p>
+<div class="literal-block-wrapper docutils container" id="id12">
+<div class="code-block-caption"><span class="caption-text">Building a grid using concatenation</span><a class="headerlink" href="#id12" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create rows first</span>
+<span class="n">top_row</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">image_variant_1</span><span class="p">,</span> <span class="n">image_variant_2</span><span class="p">])</span>
+<span class="n">bottom_row</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">image_variant_3</span><span class="p">,</span> <span class="n">image_variant_4</span><span class="p">])</span>
+
+<span class="c1"># Stack rows vertically</span>
+<span class="n">canvas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">top_row</span><span class="p">,</span> <span class="n">bottom_row</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<p>Both methods produce identical results. Method 1 is often clearer for beginners, while Method 2 is more concise <a class="reference internal" href="../../../3.4_signal_processing/3.4.3_contour_lines/contour/README.html#gonzalez2018" id="id6"><span>[Gonzalez2018]</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When using slicing, ensure your index ranges match the image dimensions exactly. A common error is using <code class="docutils literal notranslate"><span class="pre">width</span></code> where <code class="docutils literal notranslate"><span class="pre">height</span></code> is needed, or forgetting that the second slice endpoint is exclusive (<code class="docutils literal notranslate"><span class="pre">0:height</span></code> includes pixels 0 through height-1).</p>
+</div>
+</section>
+</section>
+<section id="hands-on-exercises">
+<h2>Hands-On Exercises<a class="headerlink" href="#hands-on-exercises" title="Link to this heading">#</a></h2>
+<section id="exercise-1-execute-and-explore-3-4-minutes">
+<h3>Exercise 1: Execute and Explore (3-4 minutes)<a class="headerlink" href="#exercise-1-execute-and-explore-3-4-minutes" title="Link to this heading">#</a></h3>
+<p>Run the <code class="docutils literal notranslate"><span class="pre">warhol_variations.py</span></code> script to see all six channel permutations applied to a colorful source image:</p>
+<div class="literal-block-wrapper docutils container" id="id13">
+<div class="code-block-caption"><span class="caption-text">warhol_variations.py - Exploring all permutations</span><a class="headerlink" href="#id13" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="c1"># Create a colorful source with concentric rings</span>
+<span class="linenos"> 5</span><span class="n">height</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">150</span>
+<span class="linenos"> 6</span><span class="n">source</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="n">cx</span><span class="p">,</span> <span class="n">cy</span> <span class="o">=</span> <span class="n">width</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">//</span> <span class="mi">2</span>
+<span class="linenos"> 9</span><span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">height</span><span class="p">):</span>
+<span class="linenos">10</span>    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">width</span><span class="p">):</span>
+<span class="linenos">11</span>        <span class="n">dist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">cx</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">cy</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos">12</span>        <span class="n">ring</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">dist</span> <span class="o">/</span> <span class="mi">15</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span>
+<span class="linenos">13</span>        <span class="n">colors</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">200</span><span class="p">],</span>
+<span class="linenos">14</span>                  <span class="p">[</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">200</span><span class="p">]]</span>
+<span class="linenos">15</span>        <span class="n">source</span><span class="p">[</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">colors</span><span class="p">[</span><span class="n">ring</span><span class="p">]</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span><span class="c1"># All 6 permutations</span>
+<span class="linenos">18</span><span class="n">permutations</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+<span class="linenos">19</span>                <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
+<span class="linenos">20</span>
+<span class="linenos">21</span><span class="c1"># Create 2x3 grid</span>
+<span class="linenos">22</span><span class="n">canvas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">height</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">10</span><span class="p">,</span> <span class="n">width</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span> <span class="o">*</span> <span class="mi">30</span>
+<span class="linenos">23</span>
+<span class="linenos">24</span><span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">perm</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">permutations</span><span class="p">):</span>
+<span class="linenos">25</span>    <span class="n">row</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="n">idx</span> <span class="o">//</span> <span class="mi">3</span><span class="p">,</span> <span class="n">idx</span> <span class="o">%</span> <span class="mi">3</span>
+<span class="linenos">26</span>    <span class="n">x_start</span> <span class="o">=</span> <span class="n">col</span> <span class="o">*</span> <span class="p">(</span><span class="n">width</span> <span class="o">+</span> <span class="mi">10</span><span class="p">)</span>
+<span class="linenos">27</span>    <span class="n">y_start</span> <span class="o">=</span> <span class="n">row</span> <span class="o">*</span> <span class="p">(</span><span class="n">height</span> <span class="o">+</span> <span class="mi">10</span><span class="p">)</span>
+<span class="linenos">28</span>    <span class="n">canvas</span><span class="p">[</span><span class="n">y_start</span><span class="p">:</span><span class="n">y_start</span> <span class="o">+</span> <span class="n">height</span><span class="p">,</span> <span class="n">x_start</span><span class="p">:</span><span class="n">x_start</span> <span class="o">+</span> <span class="n">width</span><span class="p">]</span> <span class="o">=</span> <span class="n">source</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">perm</span><span class="p">]</span>
+<span class="linenos">29</span>
+<span class="linenos">30</span><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;RGB&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;warhol_variations.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<figure class="align-center" id="id14">
+<a class="reference internal image-reference" href="../../../../../_images/warhol_variations.png"><img alt="A 2x3 grid showing all six RGB channel permutations creating different color effects" src="../../../../../_images/warhol_variations.png" style="width: 500px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">All six channel permutations create distinct color palettes from the same source.</span><a class="headerlink" href="#id14" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>Reflection Questions:</strong></p>
+<ol class="arabic simple">
+<li><p>Which permutation creates the most dramatic color shift from the original?</p></li>
+<li><p>Why do some permutations look more similar to each other than others?</p></li>
+<li><p>Which variation would you choose for a classic “pop art” look?</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Solution and Explanation</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><strong>Answers:</strong></p>
+<ol class="arabic simple">
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">[2,</span> <span class="pre">1,</span> <span class="pre">0]</span></code> (swap R-B) often creates the most dramatic shift because it completely inverts the warm-cool color relationship. Orange becomes blue, and blue becomes orange.</p></li>
+<li><p class="sd-card-text">Permutations that only swap two channels (like <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">2,</span> <span class="pre">1]</span></code>) produce more subtle changes than rotations (like <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">0]</span></code>) because they preserve one channel’s position.</p></li>
+<li><p class="sd-card-text">The “classic pop art” look often uses <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">0]</span></code> or <code class="docutils literal notranslate"><span class="pre">[2,</span> <span class="pre">0,</span> <span class="pre">1]</span></code> because they create bold, unexpected color combinations that still feel harmonious.</p></li>
+</ol>
+</div>
+</details></section>
+<section id="exercise-2-modify-to-achieve-goals-4-5-minutes">
+<h3>Exercise 2: Modify to Achieve Goals (4-5 minutes)<a class="headerlink" href="#exercise-2-modify-to-achieve-goals-4-5-minutes" title="Link to this heading">#</a></h3>
+<p>Starting with the Quick Start code, modify it to achieve these goals:</p>
+<p><strong>Goals:</strong></p>
+<ol class="arabic simple">
+<li><p>Change the top-right quadrant to use the <code class="docutils literal notranslate"><span class="pre">[2,</span> <span class="pre">1,</span> <span class="pre">0]</span></code> permutation (swap Red and Blue)</p></li>
+<li><p>Change the bottom-left quadrant to use <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">0,</span> <span class="pre">2]</span></code> (swap Red and Green)</p></li>
+<li><p>Add a 5-pixel black border between the quadrants</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Hint 1: Changing Permutations</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Replace the channel list in the array indexing. For example, change:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">canvas</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">:]</span> <span class="o">=</span> <span class="n">image</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
+</pre></div>
+</div>
+<p class="sd-card-text">To:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">canvas</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">:]</span> <span class="o">=</span> <span class="n">image</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Hint 2: Adding Borders</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">To add borders, increase the canvas size and adjust the placement positions:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gap</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">canvas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">height</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">gap</span><span class="p">,</span> <span class="n">width</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">gap</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+<span class="c1"># Top-left stays at [0:height, 0:width]</span>
+<span class="c1"># Top-right shifts to [0:height, width + gap:]</span>
+</pre></div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Complete Solution</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="n">height</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span>
+<span class="linenos"> 5</span><span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">height</span><span class="p">):</span>
+<span class="linenos"> 8</span>    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">width</span><span class="p">):</span>
+<span class="linenos"> 9</span>        <span class="n">cx</span><span class="p">,</span> <span class="n">cy</span> <span class="o">=</span> <span class="n">width</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">//</span> <span class="mi">2</span>
+<span class="linenos">10</span>        <span class="n">distance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">cx</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">cy</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos">11</span>        <span class="n">image</span><span class="p">[</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">128</span> <span class="o">+</span> <span class="mi">127</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">distance</span> <span class="o">*</span> <span class="mf">0.1</span><span class="p">))</span>
+<span class="linenos">12</span>        <span class="n">image</span><span class="p">[</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">128</span> <span class="o">+</span> <span class="mi">127</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">distance</span> <span class="o">*</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">))</span>
+<span class="linenos">13</span>        <span class="n">image</span><span class="p">[</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">128</span> <span class="o">+</span> <span class="mi">127</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">distance</span> <span class="o">*</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mi">4</span><span class="p">))</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="n">gap</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="linenos">16</span><span class="n">canvas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">height</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">gap</span><span class="p">,</span> <span class="n">width</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">gap</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="n">canvas</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">height</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">width</span><span class="p">]</span> <span class="o">=</span> <span class="n">image</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
+<span class="linenos">19</span><span class="n">canvas</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">height</span><span class="p">,</span> <span class="n">width</span> <span class="o">+</span> <span class="n">gap</span><span class="p">:]</span> <span class="o">=</span> <span class="n">image</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>      <span class="c1"># Goal 1</span>
+<span class="linenos">20</span><span class="n">canvas</span><span class="p">[</span><span class="n">height</span> <span class="o">+</span> <span class="n">gap</span><span class="p">:,</span> <span class="mi">0</span><span class="p">:</span><span class="n">width</span><span class="p">]</span> <span class="o">=</span> <span class="n">image</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>      <span class="c1"># Goal 2</span>
+<span class="linenos">21</span><span class="n">canvas</span><span class="p">[</span><span class="n">height</span> <span class="o">+</span> <span class="n">gap</span><span class="p">:,</span> <span class="n">width</span> <span class="o">+</span> <span class="n">gap</span><span class="p">:]</span> <span class="o">=</span> <span class="n">image</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+<span class="linenos">22</span>
+<span class="linenos">23</span><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;RGB&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;modified_warhol.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details></section>
+<section id="exercise-3-create-from-scratch-5-6-minutes">
+<h3>Exercise 3: Create from Scratch (5-6 minutes)<a class="headerlink" href="#exercise-3-create-from-scratch-5-6-minutes" title="Link to this heading">#</a></h3>
+<p>Now create your own Warhol-style pop art from scratch. Use the starter code below and fill in the missing parts.</p>
+<p><strong>Requirements:</strong></p>
+<ul class="simple">
+<li><p>Create a 2x2 grid of color variations</p></li>
+<li><p>Use at least 3 different channel permutations (one quadrant can be the original)</p></li>
+<li><p>The source image should have at least two distinct colors</p></li>
+</ul>
+<p><strong>Starter Code:</strong></p>
+<div class="literal-block-wrapper docutils container" id="id15">
+<div class="code-block-caption"><span class="caption-text">warhol_starter.py - Fill in the TODOs</span><a class="headerlink" href="#id15" title="Link to this code">#</a></div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>import numpy as np
+from PIL import Image
+
+# Source image is provided for you
+height, width = 200, 200
+source = np.zeros((height, width, 3), dtype=np.uint8)
+
+cx, cy = width // 2, height // 2
+radius = 60
+
+for y in range(height):
+    for x in range(width):
+        dist_from_center = np.sqrt((x - cx)**2 + (y - cy)**2)
+        if dist_from_center &lt; radius:
+            source[y, x] = [255, 150, 50]  # Orange circle
+        else:
+            stripe = (x + y) // 20 % 3
+            if stripe == 0:
+                source[y, x] = [50, 100, 200]
+            elif stripe == 1:
+                source[y, x] = [100, 200, 100]
+            else:
+                source[y, x] = [200, 80, 150]
+
+# TODO: Calculate canvas dimensions for 2x2 grid
+grid_height = ???
+grid_width = ???
+
+canvas = np.zeros((grid_height, grid_width, 3), dtype=np.uint8)
+
+# Top-left: Original
+canvas[0:height, 0:width] = source[:, :, [0, 1, 2]]
+
+# TODO: Top-right - choose a channel permutation
+canvas[0:height, width:grid_width] = source[:, :, [?, ?, ?]]
+
+# TODO: Bottom-left - choose another permutation
+canvas[height:grid_height, 0:width] = source[:, :, [?, ?, ?]]
+
+# TODO: Bottom-right - choose your final permutation
+canvas[height:grid_height, width:grid_width] = source[:, :, [?, ?, ?]]
+
+Image.fromarray(canvas, mode=&#39;RGB&#39;).save(&#39;my_warhol.png&#39;)
+</pre></div>
+</div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Hint: Canvas Dimensions</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">For a 2x2 grid without gaps:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">grid_height</span> <span class="o">=</span> <span class="n">height</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="n">grid_width</span> <span class="o">=</span> <span class="n">width</span> <span class="o">*</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Complete Solution</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="n">height</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span>
+<span class="linenos"> 5</span><span class="n">source</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="n">cx</span><span class="p">,</span> <span class="n">cy</span> <span class="o">=</span> <span class="n">width</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">//</span> <span class="mi">2</span>
+<span class="linenos"> 8</span><span class="n">radius</span> <span class="o">=</span> <span class="mi">60</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">height</span><span class="p">):</span>
+<span class="linenos">11</span>    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">width</span><span class="p">):</span>
+<span class="linenos">12</span>        <span class="n">dist_from_center</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">cx</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">cy</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos">13</span>        <span class="k">if</span> <span class="n">dist_from_center</span> <span class="o">&lt;</span> <span class="n">radius</span><span class="p">:</span>
+<span class="linenos">14</span>            <span class="n">source</span><span class="p">[</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
+<span class="linenos">15</span>        <span class="k">else</span><span class="p">:</span>
+<span class="linenos">16</span>            <span class="n">stripe</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span> <span class="o">//</span> <span class="mi">20</span> <span class="o">%</span> <span class="mi">3</span>
+<span class="linenos">17</span>            <span class="k">if</span> <span class="n">stripe</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="linenos">18</span>                <span class="n">source</span><span class="p">[</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">]</span>
+<span class="linenos">19</span>            <span class="k">elif</span> <span class="n">stripe</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<span class="linenos">20</span>                <span class="n">source</span><span class="p">[</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+<span class="linenos">21</span>            <span class="k">else</span><span class="p">:</span>
+<span class="linenos">22</span>                <span class="n">source</span><span class="p">[</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">200</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">150</span><span class="p">]</span>
+<span class="linenos">23</span>
+<span class="linenos">24</span><span class="n">grid_height</span> <span class="o">=</span> <span class="n">height</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="linenos">25</span><span class="n">grid_width</span> <span class="o">=</span> <span class="n">width</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="linenos">26</span>
+<span class="linenos">27</span><span class="n">canvas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">grid_height</span><span class="p">,</span> <span class="n">grid_width</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+<span class="linenos">28</span>
+<span class="linenos">29</span><span class="n">canvas</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">height</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">width</span><span class="p">]</span> <span class="o">=</span> <span class="n">source</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
+<span class="linenos">30</span><span class="n">canvas</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">:</span><span class="n">grid_width</span><span class="p">]</span> <span class="o">=</span> <span class="n">source</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
+<span class="linenos">31</span><span class="n">canvas</span><span class="p">[</span><span class="n">height</span><span class="p">:</span><span class="n">grid_height</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">width</span><span class="p">]</span> <span class="o">=</span> <span class="n">source</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+<span class="linenos">32</span><span class="n">canvas</span><span class="p">[</span><span class="n">height</span><span class="p">:</span><span class="n">grid_height</span><span class="p">,</span> <span class="n">width</span><span class="p">:</span><span class="n">grid_width</span><span class="p">]</span> <span class="o">=</span> <span class="n">source</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
+<span class="linenos">33</span>
+<span class="linenos">34</span><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;RGB&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;my_warhol.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details><figure class="align-center" id="id16">
+<a class="reference internal image-reference" href="../../../../../_images/warhol_solution.png"><img alt="A 2x2 Warhol-style grid showing an orange circle on striped background with four different color variations" src="../../../../../_images/warhol_solution.png" style="width: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Example solution showing four distinct color variations.</span><a class="headerlink" href="#id16" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>Challenge Extension:</strong></p>
+<p>Create a 3x3 grid that includes all six permutations plus three “inverted” versions where you also flip the image horizontally or vertically. This creates 9 unique variations in the spirit of Warhol’s larger serial works.</p>
+</section>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<p>In approximately 18 minutes, you have learned to create Warhol-style pop art using NumPy array operations.</p>
+<p><strong>Key Takeaways:</strong></p>
+<ul class="simple">
+<li><p>RGB channel permutation creates color variations without changing pixel values</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">image[:,</span> <span class="pre">:,</span> <span class="pre">[2,</span> <span class="pre">0,</span> <span class="pre">1]]</span></code> reorders channels: what was Blue becomes Red, Red becomes Green, Green becomes Blue</p></li>
+<li><p>There are exactly 6 possible arrangements of 3 channels (3! = 6)</p></li>
+<li><p>Grid compositions can be created using either pre-allocated canvases with slicing or <code class="docutils literal notranslate"><span class="pre">np.vstack</span></code>/<code class="docutils literal notranslate"><span class="pre">np.hstack</span></code></p></li>
+</ul>
+<p><strong>Common Pitfalls:</strong></p>
+<ul class="simple">
+<li><p>Confusing <code class="docutils literal notranslate"><span class="pre">height</span></code> and <code class="docutils literal notranslate"><span class="pre">width</span></code> when calculating canvas dimensions (remember: shape is <code class="docutils literal notranslate"><span class="pre">(height,</span> <span class="pre">width,</span> <span class="pre">channels)</span></code>)</p></li>
+<li><p>Using the wrong slice endpoints (<code class="docutils literal notranslate"><span class="pre">0:height</span></code> goes from 0 to height-1, not height)</p></li>
+<li><p>Forgetting that channel indices are 0, 1, 2 (not 1, 2, 3)</p></li>
+</ul>
+<p>This exercise connects classical pop art techniques to computational creativity. Warhol’s systematic approach to color variation anticipated the algorithmic art we create today.</p>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<div role="list" class="citation-list">
+<div class="citation" id="warhol1975" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">Warhol1975</a><span class="fn-bracket">]</span></span>
+<p>Warhol, A. (1975). <em>The Philosophy of Andy Warhol (From A to B and Back Again)</em>. Harcourt Brace Jovanovich. ISBN: 978-0-15-671720-3</p>
+</div>
+<div class="citation" id="foster2012" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">Foster2012</a><span class="fn-bracket">]</span></span>
+<p>Foster, H. (2012). <em>The First Pop Age: Painting and Subjectivity in the Art of Hamilton, Lichtenstein, Warhol, Richter, and Ruscha</em>. Princeton University Press. ISBN: 978-0-691-15138-4</p>
+</div>
+<div class="citation" id="moma2024" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">MoMA2024</a><span class="fn-bracket">]</span></span>
+<p>Museum of Modern Art. (2024). Andy Warhol: Collection highlights. <em>MoMA Collection</em>. Retrieved December 2, 2024, from <a class="reference external" href="https://www.moma.org/artists/6246">https://www.moma.org/artists/6246</a></p>
+</div>
+<div class="citation" id="numpydocs" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">NumPyDocs</a><span class="fn-bracket">]</span></span>
+<p>NumPy Developers. (2024). Array indexing. <em>NumPy Documentation</em>. Retrieved December 2, 2024, from <a class="reference external" href="https://numpy.org/doc/stable/user/basics.indexing.html">https://numpy.org/doc/stable/user/basics.indexing.html</a></p>
+</div>
+<div class="citation" id="pillowdocs" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>PillowDocs<span class="fn-bracket">]</span></span>
+<p>Clark, A., et al. (2024). <em>Pillow: Python Imaging Library</em> (Version 10.x). Python Software Foundation. <a class="reference external" href="https://pillow.readthedocs.io/">https://pillow.readthedocs.io/</a></p>
+</div>
+<div class="citation" id="gonzalez2018" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">Gonzalez2018</a><span class="fn-bracket">]</span></span>
+<p>Gonzalez, R. C., &amp; Woods, R. E. (2018). <em>Digital Image Processing</em> (4th ed.). Pearson. ISBN: 978-0-13-335672-4</p>
+</div>
+<div class="citation" id="albers2013" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">Albers2013</a><span class="fn-bracket">]</span></span>
+<p>Albers, J. (2013). <em>Interaction of Color</em> (50th Anniversary ed.). Yale University Press. ISBN: 978-0-300-17935-4 [Classic text on color perception and relationships]</p>
+</div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../../../3.2_masking_compositing/3.2.4_blend_modes/README.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">3.2.4 - Blend Modes</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../3.3.2_puzzle/puzzle/README.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">3.3.2 - Puzzle (Array Concatenation)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-start">Quick Start</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#core-concepts">Core Concepts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concept-1-andy-warhol-and-pop-art">Concept 1: Andy Warhol and Pop Art</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concept-2-rgb-channel-manipulation">Concept 2: RGB Channel Manipulation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concept-3-grid-composition-techniques">Concept 3: Grid Composition Techniques</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hands-on-exercises">Hands-On Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-execute-and-explore-3-4-minutes">Exercise 1: Execute and Explore (3-4 minutes)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-modify-to-achieve-goals-4-5-minutes">Exercise 2: Modify to Achieve Goals (4-5 minutes)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-create-from-scratch-5-6-minutes">Exercise 3: Create from Scratch (5-6 minutes)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../../_sources/content/Module_03_transformations_effects/3.3_artistic_filters/3.3.1_warhol/warhol/README.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Kristian Rother &amp; Burak Kagan Yilmazer.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

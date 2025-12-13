@@ -1,0 +1,13 @@
+/* Add bullets to chapter lists in main content area */
+main .toctree-wrapper ul {
+  list-style-type: disc;
+  padding-left: 1.25rem;
+}
+main .toctree-wrapper ul li {
+  margin: 0.2rem 0;
+}
+
+/* Separate navbar from page content */
+.bd-header {
+  border-bottom: 1px solid var(--pst-color-border, rgba(255, 255, 255, 0.1));
+}

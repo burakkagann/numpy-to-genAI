@@ -1,0 +1,808 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>1.2.1: Random Pattern Generation &#8212; Pixels to GenAI</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/github-icon.css?v=0979adda" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/footer.css?v=22df2544" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/content.css?v=ad41e33b" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/scroll-progress.css?v=46bcc4b9" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../../_static/documentation_options.js?v=60dbed4a"></script>
+    <script src="../../../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/Module_01_pixel_fundamentals/1.2_pixel_manipulation_patterns/1.2.1_random_patterns/random_tiles/README';</script>
+    <script src="../../../../../_static/github-icon.js?v=54752c43"></script>
+    <script src="../../../../../_static/scroll-progress.js?v=9aba87dc"></script>
+    <link rel="icon" href="../../../../../_static/favicon-64x64.png"/>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+    <link rel="next" title="1.2.2: Cellular Automata (Game of Life)" href="../../1.2.2_cellular_automata/README.html" />
+    <link rel="prev" title="1.1.1 - Images as Arrays &amp; RGB" href="../../../1.1_grayscale_color_basics/1.1.1_color_basics/rgb/README.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../../_static/favicon-192x192.png" class="logo__image only-light" alt=""/>
+    <img src="../../../../../_static/favicon-192x192.png" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">Pixels to GenAI</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/burakkagann/numpy-to-genAI" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/burakkagann/numpy-to-genAI" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"></div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">1.2.1: Random Pattern Generation</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="random-pattern-generation">
+<h1>1.2.1: Random Pattern Generation<a class="headerlink" href="#random-pattern-generation" title="Link to this heading">#</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">Duration<span class="colon">:</span></dt>
+<dd class="field-odd"><p>12-15 minutes</p>
+</dd>
+<dt class="field-even">Level<span class="colon">:</span></dt>
+<dd class="field-even"><p>Beginner</p>
+</dd>
+<dt class="field-odd">Prerequisites<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Module 1.1.1 (RGB Color Basics)</p>
+</dd>
+</dl>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>Random number generation is a fundamental building block of computational art and generative design. In this module, you’ll discover how simple random processes can create compelling visual patterns, from abstract color compositions to structured artistic grids inspired by pioneers like Gerhard Richter.</p>
+<p><strong>Learning Objectives</strong></p>
+<p>By completing this exercise, you will:</p>
+<ul class="simple">
+<li><p>Understand how random number generators create visual patterns</p></li>
+<li><p>Master the uniform distribution and its properties for image generation</p></li>
+<li><p>Use Kronecker products to efficiently scale pixel patterns</p></li>
+<li><p>Explore the relationship between randomness and artistic structure</p></li>
+<li><p>Create your own variations of algorithmic art techniques</p></li>
+</ul>
+</section>
+<section id="quick-start-see-randomness-in-action">
+<h2>Quick Start: See Randomness In Action<a class="headerlink" href="#quick-start-see-randomness-in-action" title="Link to this heading">#</a></h2>
+<p>Let’s begin by creating something visually striking immediately. Run this code to generate a random color tile pattern:</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">Create random color tiles in seconds</span><a class="headerlink" href="#id5" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="c1"># Set seed for reproducible randomness</span>
+<span class="linenos"> 5</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="c1"># Create 10x10 grid of random RGB colors</span>
+<span class="linenos"> 8</span><span class="n">random_colors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="c1"># Scale each color to a 20x20 pixel tile using Kronecker product</span>
+<span class="linenos">11</span><span class="n">scaled_image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">random_colors</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">))</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="c1"># Save the result</span>
+<span class="linenos">14</span><span class="n">result</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">scaled_image</span><span class="p">)</span>
+<span class="linenos">15</span><span class="n">result</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;quick_random_tiles.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<figure class="align-center" id="id6">
+<a class="reference internal image-reference" href="../../../../../_images/random_tiles_basic.png"><img alt="10x10 grid of random colored tiles, each tile is 20x20 pixels" src="../../../../../_images/random_tiles_basic.png" style="width: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Random color tiles generated using uniform distribution</span><a class="headerlink" href="#id6" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Notice how each tile has a completely different color, yet the overall composition feels balanced. This is the power of uniform distribution. There is no color is favored over others.</p>
+</div>
+</section>
+<section id="core-concepts">
+<h2>Core Concepts<a class="headerlink" href="#core-concepts" title="Link to this heading">#</a></h2>
+<section id="uniform-random-distribution">
+<h3>Uniform Random Distribution<a class="headerlink" href="#uniform-random-distribution" title="Link to this heading">#</a></h3>
+<p>The <strong>uniform distribution</strong> is the foundation of digital randomness. When we use <code class="docutils literal notranslate"><span class="pre">np.random.randint(0,</span> <span class="pre">256)</span></code>, every integer from 0 to 255 has an <strong>equal probability</strong> of being selected. This creates what we perceive as “pure randomness”.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Every RGB value has equal 1/256 probability</span>
+<span class="n">random_rgb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+
+<span class="c1"># This gives us 256³ = 16,777,216 possible colors per pixel</span>
+<span class="n">total_colors</span> <span class="o">=</span> <span class="mi">256</span> <span class="o">**</span> <span class="mi">3</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total possible colors: </span><span class="si">{</span><span class="n">total_colors</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For generative art, uniform distribution provides:</p>
+<ul class="simple">
+<li><p><strong>Unpredictability</strong>: No discernible patterns in individual elements</p></li>
+<li><p><strong>Visual balance</strong>: All colors represented equally over large samples</p></li>
+<li><p><strong>Infinite variety</strong>: Each generation produces unique results</p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Setting <code class="docutils literal notranslate"><span class="pre">np.random.seed()</span></code> makes randomness <strong>reproducible</strong>. This is especially useful for debugging and comparing different algorithms on identical random inputs.</p>
+</div>
+</section>
+<section id="kronecker-product-for-scaling">
+<h3>Kronecker Product for Scaling<a class="headerlink" href="#kronecker-product-for-scaling" title="Link to this heading">#</a></h3>
+<p>The <strong>Kronecker product</strong> (<code class="docutils literal notranslate"><span class="pre">np.kron</span></code>) is a mathematical operation that efficiently scales images by repeating each pixel into a larger block. Instead of using nested loops, we leverage this linear algebra operation for performance.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Original: 2x2 array</span>
+<span class="n">small</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+
+<span class="c1"># Scaling matrix: each element becomes 3x3 block</span>
+<span class="n">scale</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+
+<span class="c1"># Kronecker product result: 6x6 array</span>
+<span class="n">large</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">small</span><span class="p">,</span> <span class="n">scale</span><span class="p">)</span>
+<span class="c1"># Result: each original value repeated in 3x3 blocks</span>
+</pre></div>
+</div>
+<p>For images, this transforms a small random grid into pixel-perfect tiles:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Small random grid: 5x5x3 (75 total colors)</span>
+<span class="n">small_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+
+<span class="c1"># Scale each color to 40x40 pixel tile</span>
+<span class="n">tile_size</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+<span class="n">large_image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">small_grid</span><span class="p">,</span> <span class="n">tile_size</span><span class="p">)</span>
+<span class="c1"># Result: 200x200x3 image (40,000 pixels, but only 75 unique colors)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Kronecker product was named after Leopold Kronecker (1823-1891), though the operation itself appears in much earlier mathematical work. In computer graphics, it’s invaluable for creating pixel-perfect scaling without interpolation artifacts.</p>
+</div>
+</section>
+<section id="color-space-considerations">
+<h3>Color Space Considerations<a class="headerlink" href="#color-space-considerations" title="Link to this heading">#</a></h3>
+<p>When generating random colors, the choice of color space dramatically affects the visual result:</p>
+<ul class="simple">
+<li><p><strong>RGB space</strong>: Uniform in red, green, blue channels independently.</p></li>
+<li><p><strong>Perceptual uniformity</strong>: RGB is NOT perceptually uniformed. Some random colors appear much brighter than others.</p></li>
+<li><p><strong>Gamut coverage</strong>: Random RGB covers the entire digital color palette, including colors that rarely appear in nature.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># These are all equally &quot;random&quot; in RGB space</span>
+<span class="n">color1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">]</span>  <span class="c1"># Bright white</span>
+<span class="n">color2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">]</span>  <span class="c1"># Medium gray</span>
+<span class="n">color3</span> <span class="o">=</span> <span class="p">[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>      <span class="c1"># Pure red</span>
+<span class="n">color4</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>        <span class="c1"># Nearly black</span>
+
+<span class="c1"># But they have very different perceptual brightness!</span>
+</pre></div>
+</div>
+<p>This creates visually interesting compositions because the eye perceives some tiles as “popping forward” (bright colors) while others decrease (dark colors) which adds implicit depth to a flat pattern.</p>
+</section>
+</section>
+<section id="hands-on-exercises">
+<h2>Hands-On Exercises<a class="headerlink" href="#hands-on-exercises" title="Link to this heading">#</a></h2>
+<p>Now apply what you’ve learned with three progressively challenging exercises. Each builds on the previous one using the <strong>Execute → Modify → Re-code</strong> approach.</p>
+<section id="exercise-1-execute-and-explore">
+<h3>Exercise 1: Execute and explore<a class="headerlink" href="#exercise-1-execute-and-explore" title="Link to this heading">#</a></h3>
+<p><strong>Time estimate:</strong> 3-4 minutes</p>
+<p>Run the following code exactly as written and observe the output. This creates a grid of random colored tiles.</p>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">Exercise 1 — Random color tiles</span><a class="headerlink" href="#id7" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="c1"># Create a 10x10 grid of random RGB colors</span>
+<span class="linenos"> 5</span><span class="n">random_colors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="c1"># Scale each color to a 20x20 pixel tile using Kronecker product</span>
+<span class="linenos"> 8</span><span class="n">scaling_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+<span class="linenos"> 9</span><span class="n">image_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">random_colors</span><span class="p">,</span> <span class="n">scaling_matrix</span><span class="p">)</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="c1"># Convert to image and save</span>
+<span class="linenos">12</span><span class="n">result_image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">image_array</span><span class="p">)</span>
+<span class="linenos">13</span><span class="n">result_image</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;random_tiles.png&#39;</span><span class="p">)</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Image dimensions: </span><span class="si">{</span><span class="n">image_array</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p><strong>Reflection questions:</strong></p>
+<ul class="simple">
+<li><p>What do you notice about the colors? Are any two tiles exactly the same?</p></li>
+<li><p>Why does each tile appear as a solid block rather than individual pixels?</p></li>
+<li><p>What role does the Kronecker product play in creating the final image?</p></li>
+</ul>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Solution &amp; Explanation</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><strong>What happened:</strong></p>
+<ol class="arabic simple">
+<li><p class="sd-card-text"><cite>np.random.randint(0, 256, …)</cite> creates a 10×10×3 array where each RGB value is randomly chosen from 0-255</p></li>
+<li><p class="sd-card-text"><cite>np.kron()</cite> scales each color into a 20×20 pixel block, creating the tile effect</p></li>
+<li><p class="sd-card-text">The final image is 200×200 pixels (10 tiles × 20 pixels per tile)</p></li>
+</ol>
+<p class="sd-card-text"><strong>Key insights:</strong></p>
+<ul class="simple">
+<li><p class="sd-card-text">Each tile is a different random color due to uniform distribution</p></li>
+<li><p class="sd-card-text">The Kronecker product efficiently repeats each color value into larger blocks</p></li>
+<li><p class="sd-card-text">We get 100 unique colors (10×10 tiles) from 16.7 million possible RGB combinations</p></li>
+</ul>
+</div>
+</details></section>
+<section id="exercise-2-modify-parameters">
+<h3>Exercise 2: Modify parameters<a class="headerlink" href="#exercise-2-modify-parameters" title="Link to this heading">#</a></h3>
+<p><strong>Time estimate:</strong> 3-4 minutes</p>
+<p>Modify the code from Exercise 1 to achieve these different effects. Change only the specified parameters.</p>
+<p><strong>Goals:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Subtle variations</strong>: Change the color range to create muted colors only</p></li>
+<li><p><strong>Grayscale tiles</strong>: Make all tiles appear in shades of gray</p></li>
+<li><p><strong>Larger tiles</strong>: Make each tile bigger for a bolder effect</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Hints</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<ul class="simple">
+<li><p class="sd-card-text">For subtle colors, try limiting the range: <cite>np.random.randint(100, 180, …)</cite></p></li>
+<li><p class="sd-card-text">For grayscale, make all RGB channels the same value</p></li>
+<li><p class="sd-card-text">For larger tiles, increase the scaling matrix size</p></li>
+</ul>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Solutions</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><strong>1. Subtle variations:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Change this line:</span>
+<span class="n">random_colors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+<span class="c1"># Creates colors only in the 100-179 range (muted/pastel effect)</span>
+</pre></div>
+</div>
+<p class="sd-card-text"><strong>2. Grayscale tiles:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate grayscale values and repeat across RGB channels</span>
+<span class="n">gray_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+<span class="n">random_colors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">gray_values</span><span class="p">,</span> <span class="n">gray_values</span><span class="p">,</span> <span class="n">gray_values</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sd-card-text"><strong>3. Larger tiles:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Change this line:</span>
+<span class="n">scaling_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+<span class="c1"># Creates 40×40 pixel tiles instead of 20×20</span>
+</pre></div>
+</div>
+</div>
+</details></section>
+<section id="exercise-3-re-code-with-discrete-palette">
+<h3>Exercise 3: Re-code with discrete palette<a class="headerlink" href="#exercise-3-re-code-with-discrete-palette" title="Link to this heading">#</a></h3>
+<p><strong>Time estimate:</strong> 5-6 minutes</p>
+<p>Now create something new from scratch: a Gerhard Richter-inspired color grid using only specific color values.</p>
+<p><strong>Goal:</strong> Create random tiles that use only colors divisible by 32 (0, 32, 64, 96, 128, 160, 192, 224).</p>
+<p><strong>Requirements:</strong>
+* Use a 16×16 grid of tiles
+* Each tile should be 12×12 pixels
+* Only use the 8 discrete color values listed above</p>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">Exercise 3 starter code</span><a class="headerlink" href="#id8" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
+
+<span class="c1"># Create discrete color palette (values divisible by 32)</span>
+<span class="n">color_palette</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">192</span><span class="p">,</span> <span class="mi">224</span><span class="p">])</span>
+
+<span class="c1"># Your code here:</span>
+<span class="c1"># 1. Create 16x16 grid of random indices into the palette</span>
+<span class="c1"># 2. Map indices to actual color values</span>
+<span class="c1"># 3. Scale up to 12x12 pixel tiles</span>
+<span class="c1"># 4. Save as &#39;richter_style.png&#39;</span>
+</pre></div>
+</div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Complete Solution</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">Richter-inspired discrete color grid</span><a class="headerlink" href="#id9" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="c1"># Create discrete color palette (values divisible by 32)</span>
+<span class="linenos"> 5</span><span class="n">color_palette</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">192</span><span class="p">,</span> <span class="mi">224</span><span class="p">])</span>
+<span class="hll"><span class="linenos"> 6</span>
+</span><span class="hll"><span class="linenos"> 7</span><span class="c1"># Generate random indices into the palette for 16x16 grid</span>
+</span><span class="hll"><span class="linenos"> 8</span><span class="n">random_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">color_palette</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</span><span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="c1"># Map indices to actual color values</span>
+<span class="hll"><span class="linenos">11</span><span class="n">small_array</span> <span class="o">=</span> <span class="n">color_palette</span><span class="p">[</span><span class="n">random_indices</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+</span><span class="hll"><span class="linenos">12</span>
+</span><span class="linenos">13</span><span class="c1"># Scale each color to 12x12 pixel tiles</span>
+<span class="linenos">14</span><span class="n">scaling_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+<span class="linenos">15</span><span class="n">image_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">small_array</span><span class="p">,</span> <span class="n">scaling_matrix</span><span class="p">)</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span><span class="c1"># Save result</span>
+<span class="linenos">18</span><span class="n">result_image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">image_array</span><span class="p">)</span>
+<span class="linenos">19</span><span class="n">result_image</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;richter_style.png&#39;</span><span class="p">)</span>
+<span class="linenos">20</span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Created </span><span class="si">{</span><span class="n">image_array</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2"> Richter-style grid!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p class="sd-card-text"><strong>How it works:</strong></p>
+<ul class="simple">
+<li><p class="sd-card-text">Line 6-8: Creates a limited palette of only 8 color values per channel</p></li>
+<li><p class="sd-card-text">Line 11: Randomly selects from palette indices (0-7) for each RGB channel</p></li>
+<li><p class="sd-card-text">Line 12: Maps those indices to actual color values using array indexing</p></li>
+<li><p class="sd-card-text">The result has the structured, limited-palette aesthetic of Richter’s color charts</p></li>
+</ul>
+<p class="sd-card-text"><strong>Challenge extension:</strong> Try different palette sizes or create complementary color schemes!</p>
+</div>
+</details></section>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<p>In this exercise, you learned fundamental techniques for generating random visual patterns:</p>
+<p><strong>Key takeaways:</strong></p>
+<ul class="simple">
+<li><p><strong>Uniform distribution</strong> creates unbiased randomness - essential for fair color sampling</p></li>
+<li><p><strong>Kronecker products</strong> provide efficient pixel-perfect scaling without interpolation</p></li>
+<li><p><strong>Color space choice</strong> dramatically affects visual perception of randomness</p></li>
+<li><p><strong>Discrete palettes</strong> can make random compositions more aesthetically pleasing</p></li>
+<li><p><strong>Controlled randomness</strong> balances algorithmic generation with design principles</p></li>
+</ul>
+<p><strong>Remember</strong>: Random doesn’t mean arbitrary. The most successful generative art combines algorithmic unpredictability with careful aesthetic choices about constraints, parameters, and color relationships.</p>
+<p>This foundation in random pattern generation prepares you for more sophisticated techniques like cellular automata, noise functions, and emergent behavior systems.</p>
+</section>
+<section id="what-s-next">
+<h2>What’s Next<a class="headerlink" href="#what-s-next" title="Link to this heading">#</a></h2>
+<p>Continue to <a class="reference internal" href="../../1.2.2_cellular_automata/README.html"><span class="doc">1.2.2: Cellular Automata (Game of Life)</span></a> to learn how simple rules can create complex, evolving patterns through cellular automata.</p>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id1" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
+<p>Richter, Gerhard. “1024 Colours.” 1973. Oil on canvas. <em>Gerhard Richter: Catalogue Raisonné</em>, no. 350. Accessed via Gerhard Richter Archive, 2024. <a class="reference external" href="https://www.gerhard-richter.com/en/art/paintings/abstracts/colour-charts-12/1024-colours-6083">https://www.gerhard-richter.com/en/art/paintings/abstracts/colour-charts-12/1024-colours-6083</a></p>
+</aside>
+<aside class="footnote brackets" id="id2" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
+<p>Knuth, Donald E. <em>The Art of Computer Programming, Volume 2: Seminumerical Algorithms</em>. 3rd ed. Addison-Wesley, 1997. [Chapter 3 on random number generation theory]</p>
+</aside>
+<aside class="footnote brackets" id="id3" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></span>
+<p>NumPy Community. “Random sampling (numpy.random).” <em>NumPy Documentation</em>, version 1.24, 2023. <a class="reference external" href="https://numpy.org/doc/stable/reference/random/index.html">https://numpy.org/doc/stable/reference/random/index.html</a></p>
+</aside>
+<aside class="footnote brackets" id="id4" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></span>
+<p>Van Fraassen, Bas C. “Laws and Symmetry.” <em>Oxford University Press</em>, 1989. [Philosophical foundations of randomness and probability in scientific modeling]</p>
+</aside>
+</aside>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Additional Resources</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<ul class="simple">
+<li><p class="sd-card-text"><a class="reference external" href="https://www.massmoca.org/sol-lewitt/">Sol LeWitt Instructions for Wall Drawings</a> - Early examples of algorithmic art instructions</p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://reas.com/">Casey Reas’ Process Compendium</a> - Contemporary computational art using systematic processes</p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://www.dam.org/museum/artists_ui/artists/molnar-vera/vera-molnar">Vera Molnár: Algorithmic Art Pioneer</a> - Historical context for computer-generated randomness in art</p></li>
+</ul>
+</div>
+</details></section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../../../1.1_grayscale_color_basics/1.1.1_color_basics/rgb/README.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">1.1.1 - Images as Arrays &amp; RGB</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../1.2.2_cellular_automata/README.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">1.2.2: Cellular Automata (Game of Life)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-start-see-randomness-in-action">Quick Start: See Randomness In Action</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#core-concepts">Core Concepts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uniform-random-distribution">Uniform Random Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kronecker-product-for-scaling">Kronecker Product for Scaling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#color-space-considerations">Color Space Considerations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hands-on-exercises">Hands-On Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-execute-and-explore">Exercise 1: Execute and explore</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-modify-parameters">Exercise 2: Modify parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-re-code-with-discrete-palette">Exercise 3: Re-code with discrete palette</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-next">What’s Next</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../../_sources/content/Module_01_pixel_fundamentals/1.2_pixel_manipulation_patterns/1.2.1_random_patterns/random_tiles/README.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Kristian Rother &amp; Burak Kagan Yilmazer.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

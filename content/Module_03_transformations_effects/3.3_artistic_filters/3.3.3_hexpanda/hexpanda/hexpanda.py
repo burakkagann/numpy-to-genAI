@@ -1,26 +1,98 @@
+"""
+Exercise 3.3.3: Hexpanda - Hexbin Artistic Filter
+
+Transform an image into a hexagonal binning visualization, creating
+an artistic effect that reveals patterns through density aggregation.
+
+This script demonstrates how to convert image pixels into a pandas
+DataFrame, sample the data, and create a hexbin plot for artistic effect.
+
+Author: Claude (NumPy-to-GenAI Project)
+Date: 2025-12-02
+
+Thesis Metadata:
+    Framework: F1-Hands-On
+    Module: Module_03_transformations_effects
+    Exercise Type: Execute
+    Cognitive Load: Medium
+    New Concepts: Hexbin visualization, DataFrame unstacking, coordinate inversion
+    Prerequisites: NumPy arrays, pandas basics, matplotlib plotting
+
+Research Question Contributions:
+    RQ1 (Framework Design): Visual-first approach with immediate artistic output
+    RQ2 (Cognitive Load): Builds on prior numpy/pandas knowledge
+    RQ4 (Assessment): Technical (data transformation) + Creative (parameter tuning)
+    RQ5 (Transfer): Hexbin concept transfers to scientific visualization
+"""
 
 import pandas as pd
-import pylab as plt
+import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image
 
-GRIDSIZE = 30
+# Configuration: grid size controls the level of detail
+# Smaller values = larger hexagons = more abstract
+# Larger values = smaller hexagons = more detail
+grid_size = 30
 
-panda = Image.open('panda.png')
-panda = panda.convert('L')
-panda = np.array(panda)
+# Step 1: Load and convert image to grayscale
+panda_image = Image.open('panda.png')
+panda_grayscale = panda_image.convert('L')
+pixel_array = np.array(panda_grayscale)
 
-panda = 255 - panda # invert
-df = pd.DataFrame(panda)
+# Step 2: Invert colors (white background becomes 0, dark pixels become high values)
+# This is needed because hexbin plots density - we want dark areas to have high counts
+inverted_pixels = 255 - pixel_array
 
-df = df.unstack()  # single column with x/y as index
-df = df[df > 0]    # only non-white pixels
+# Step 3: Convert 2D array to pandas DataFrame for data manipulation
+pixel_dataframe = pd.DataFrame(inverted_pixels)
 
-df = df.reset_index()
-df.columns = ['x', 'y', 'col']  # for convenience
-df['y'] *= -1  # otherwise matplotlib draws the panda upside-down
+# Step 4: Unstack to get (column, row, value) format
+# The unstack() operation converts the 2D grid into a single Series
+# with a MultiIndex containing (column, row) coordinates
+pixel_series = pixel_dataframe.unstack()
 
-df = df.sample(df.shape[0] // 4)
+# Step 5: Filter out background pixels (value = 0 after inversion)
+# Only keep pixels that were originally dark (now have positive values)
+foreground_pixels = pixel_series[pixel_series > 0]
 
-df.plot.hexbin(x='x', y='y', gridsize=GRIDSIZE, cmap=plt.get_cmap('Greys'))
-plt.savefig('hexpanda.png')
+# Step 6: Reset index to get x, y coordinates as columns
+pixel_data = foreground_pixels.reset_index()
+pixel_data.columns = ['x', 'y', 'intensity']
+
+# Step 7: Invert y-coordinate for correct orientation
+# Image coordinates have y=0 at top, matplotlib has y=0 at bottom
+pixel_data['y'] = -pixel_data['y']
+
+# Step 8: Random sampling to create density variation
+# Using 25% of pixels creates a more artistic, scattered effect
+sample_fraction = 4  # Use 1/4 of the pixels
+sampled_data = pixel_data.sample(len(pixel_data) // sample_fraction)
+
+# Step 9: Create hexbin visualization
+# The hexbin plot aggregates points into hexagonal bins and colors by count
+figure, axes = plt.subplots(figsize=(8, 8))
+sampled_data.plot.hexbin(
+    x='x',
+    y='y',
+    gridsize=grid_size,
+    cmap='Greys',
+    ax=axes
+)
+
+# Step 10: Clean up the plot appearance
+axes.set_aspect('equal')
+axes.axis('off')
+plt.tight_layout()
+
+# Step 11: Save the result
+plt.savefig('hexpanda.png', dpi=150, bbox_inches='tight',
+            facecolor='white', edgecolor='none')
+plt.close()
+
+print("Hexpanda visualization complete!")
+print(f"Original image size: {pixel_array.shape}")
+print(f"Foreground pixels: {len(foreground_pixels):,}")
+print(f"Sampled pixels: {len(sampled_data):,}")
+print(f"Grid size: {grid_size}")
+print("Output saved as: hexpanda.png")

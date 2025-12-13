@@ -1,0 +1,770 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>3.4.1 - Convolution &#8212; Pixels to GenAI</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/github-icon.css?v=0979adda" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/footer.css?v=22df2544" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/content.css?v=ad41e33b" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/scroll-progress.css?v=46bcc4b9" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../../_static/documentation_options.js?v=60dbed4a"></script>
+    <script src="../../../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/Module_03_transformations_effects/3.4_signal_processing/3.4.1_convolution/convolution/README';</script>
+    <script src="../../../../../_static/github-icon.js?v=54752c43"></script>
+    <script src="../../../../../_static/scroll-progress.js?v=9aba87dc"></script>
+    <link rel="icon" href="../../../../../_static/favicon-64x64.png"/>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+    <link rel="next" title="3.4.2 - Edge Detection (Sobel Operator)" href="../../3.4.2_edge_detection/sobel/README.html" />
+    <link rel="prev" title="3.3.5 - Delaunay Triangulation" href="../../../3.3_artistic_filters/3.3.5_delaunay_triangulation/README.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../../_static/favicon-192x192.png" class="logo__image only-light" alt=""/>
+    <img src="../../../../../_static/favicon-192x192.png" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">Pixels to GenAI</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/burakkagann/numpy-to-genAI" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/burakkagann/numpy-to-genAI" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"></div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">3.4.1 - Convolution</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="convolution">
+<span id="module-3-4-1-convolution"></span><h1>3.4.1 - Convolution<a class="headerlink" href="#convolution" title="Link to this heading">#</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">Duration<span class="colon">:</span></dt>
+<dd class="field-odd"><p>18-20 minutes</p>
+</dd>
+<dt class="field-even">Level<span class="colon">:</span></dt>
+<dd class="field-even"><p>Intermediate</p>
+</dd>
+<dt class="field-odd">Prerequisites<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Module 1.1.1 (RGB Basics), Module 2.1 (Basic Shapes)</p>
+</dd>
+</dl>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>In this exercise, you will learn how <strong>convolution</strong> transforms images by sliding a small grid of numbers (called a <strong>kernel</strong>) across every pixel. This fundamental operation powers everything from Instagram filters to neural network vision systems.</p>
+<p>By the end of this module, you will understand why a simple 3x3 matrix can blur an image, detect edges, or sharpen details.</p>
+<p><strong>Learning Objectives</strong></p>
+<p>By completing this module, you will:</p>
+<ul class="simple">
+<li><p>Understand convolution as a “sliding window” operation that combines pixels with kernel weights</p></li>
+<li><p>Apply different kernels to achieve blur, sharpen, and edge detection effects</p></li>
+<li><p>Implement your own convolution function from scratch using nested loops</p></li>
+<li><p>Recognize convolution as the foundation of Convolutional Neural Networks (CNNs) <a class="reference internal" href="#lecun1998" id="id1"><span>[LeCun1998]</span></a></p></li>
+</ul>
+</section>
+<section id="quick-start">
+<h2>Quick Start<a class="headerlink" href="#quick-start" title="Link to this heading">#</a></h2>
+<p>Let’s see convolution in action immediately. Run this script to blur a checkerboard pattern:</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">simple_convolution.py - Blur a checkerboard pattern</span><a class="headerlink" href="#id5" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
+
+<span class="c1"># Create a checkerboard pattern with sharp edges</span>
+<span class="n">CANVAS_SIZE</span> <span class="o">=</span> <span class="mi">256</span>
+<span class="n">SQUARE_SIZE</span> <span class="o">=</span> <span class="mi">32</span>
+<span class="n">canvas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">CANVAS_SIZE</span><span class="p">,</span> <span class="n">CANVAS_SIZE</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">CANVAS_SIZE</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">CANVAS_SIZE</span><span class="p">):</span>
+        <span class="n">square_row</span> <span class="o">=</span> <span class="n">row</span> <span class="o">//</span> <span class="n">SQUARE_SIZE</span>
+        <span class="n">square_col</span> <span class="o">=</span> <span class="n">col</span> <span class="o">//</span> <span class="n">SQUARE_SIZE</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">square_row</span> <span class="o">+</span> <span class="n">square_col</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">canvas</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="mf">255.0</span>
+
+<span class="c1"># Define a 5x5 blur kernel (averaging filter)</span>
+<span class="n">KERNEL_SIZE</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">blur_kernel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">KERNEL_SIZE</span><span class="p">,</span> <span class="n">KERNEL_SIZE</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="n">KERNEL_SIZE</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Apply convolution</span>
+<span class="n">output_size</span> <span class="o">=</span> <span class="n">CANVAS_SIZE</span> <span class="o">-</span> <span class="n">KERNEL_SIZE</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">output_size</span><span class="p">,</span> <span class="n">output_size</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">output_size</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">output_size</span><span class="p">):</span>
+        <span class="n">region</span> <span class="o">=</span> <span class="n">canvas</span><span class="p">[</span><span class="n">y</span><span class="p">:</span><span class="n">y</span> <span class="o">+</span> <span class="n">KERNEL_SIZE</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span> <span class="o">+</span> <span class="n">KERNEL_SIZE</span><span class="p">]</span>
+        <span class="n">output</span><span class="p">[</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">region</span> <span class="o">*</span> <span class="n">blur_kernel</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">),</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;L&#39;</span><span class="p">)</span>
+<span class="n">result</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;simple_convolution.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<figure class="align-center" id="id6">
+<a class="reference internal image-reference" href="../../../../../_images/simple_convolution.png"><img alt="Side-by-side comparison of original checkerboard and blurred result" src="../../../../../_images/simple_convolution.png" style="width: 500px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Left: Original sharp checkerboard pattern. Right: After convolution with a blur kernel, the sharp edges become smooth gradients.</span><a class="headerlink" href="#id6" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>What just happened?</strong> The blur kernel averaged each pixel with its neighbors, turning sharp black-white transitions into smooth gray gradients. This is the essence of convolution: transforming pixels based on their neighborhood.</p>
+</section>
+<section id="core-concepts">
+<h2>Core Concepts<a class="headerlink" href="#core-concepts" title="Link to this heading">#</a></h2>
+<section id="concept-1-what-is-convolution">
+<h3>Concept 1: What is Convolution?<a class="headerlink" href="#concept-1-what-is-convolution" title="Link to this heading">#</a></h3>
+<p>Convolution is a mathematical operation that combines two arrays: an <strong>image</strong> and a <strong>kernel</strong> (also called a filter). The kernel is a small matrix of weights (typically 3x3 or 5x5) that slides across the image, computing a weighted sum at each position.</p>
+<p><strong>The Three Steps of Convolution:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Position</strong> the kernel over a region of the image</p></li>
+<li><p><strong>Multiply</strong> each kernel value by the corresponding pixel value (element-wise)</p></li>
+<li><p><strong>Sum</strong> all the products to produce one output pixel</p></li>
+</ol>
+<figure class="align-center" id="id7">
+<a class="reference internal image-reference" href="../../../../../_images/convolution_concept.png"><img alt="Diagram showing how a 3x3 kernel multiplies with image pixels and sums to produce output" src="../../../../../_images/convolution_concept.png" style="width: 700px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">The convolution process: A 3x3 kernel overlays a region of the image. Each kernel weight is multiplied by the corresponding pixel, and the results are summed to produce a single output value.</span><a class="headerlink" href="#id7" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>The Key Insight:</strong></p>
+<p>The kernel values determine what the convolution <em>does</em>. A blur kernel has equal positive values (averaging neighbors). An edge detection kernel has positive values in the center and negative values around it (finding differences between neighbors).</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Think of convolution as asking: “What is the weighted average of this pixel’s neighborhood?” The kernel weights define <em>how much</em> each neighbor contributes.</p>
+</div>
+</section>
+<section id="concept-2-understanding-kernels">
+<h3>Concept 2: Understanding Kernels<a class="headerlink" href="#concept-2-understanding-kernels" title="Link to this heading">#</a></h3>
+<p>Different kernels produce dramatically different effects. Here are the most common types:</p>
+<p><strong>Identity Kernel</strong> (no change):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">identity</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+<p>The center value is 1, all others are 0. The output equals the input.</p>
+<p><strong>Blur Kernel</strong> (smoothing):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">blur</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="p">])</span> <span class="o">/</span> <span class="mf">9.0</span>  <span class="c1"># Normalize so values sum to 1</span>
+</pre></div>
+</div>
+<p>All values are equal, so the output is the average of the 3x3 neighborhood.</p>
+<p><strong>Sharpen Kernel</strong> (enhance edges):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sharpen</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">]</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+<p>The center value is larger than 1, neighbors are negative. This amplifies the center pixel relative to its neighbors.</p>
+<p><strong>Edge Detection Kernel</strong> (find boundaries) <a class="reference internal" href="#marr1980" id="id2"><span>[Marr1980]</span></a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">edge_detect</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span>  <span class="mi">8</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+<p>Positive center, negative neighbors. Uniform regions become zero; boundaries become bright.</p>
+<figure class="align-center" id="id8">
+<a class="reference internal image-reference" href="../../../../../_images/kernel_effects.png"><img alt="2x2 grid showing original, blur, sharpen, and edge detection effects" src="../../../../../_images/kernel_effects.png" style="width: 600px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Different kernels produce different effects. Top-left: Original. Top-right: Blur smooths edges. Bottom-left: Sharpen enhances details. Bottom-right: Edge detection highlights boundaries.</span><a class="headerlink" href="#id8" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Kernel normalization matters!</strong> For blur kernels, the values should sum to 1 to preserve brightness. For edge detection, values can sum to 0 (outputs only changes, not absolute values).</p>
+</div>
+<div class="admonition-did-you-know admonition">
+<p class="admonition-title">Did You Know?</p>
+<p>The blur kernel is also called a “box filter” because it gives equal weight to all pixels in a rectangular box. Gaussian blur uses a bell-curve distribution of weights for smoother results <a class="reference internal" href="../../3.4.3_contour_lines/contour/README.html#gonzalez2018" id="id3"><span>[Gonzalez2018]</span></a>.</p>
+</div>
+</section>
+</section>
+<section id="hands-on-exercises">
+<h2>Hands-On Exercises<a class="headerlink" href="#hands-on-exercises" title="Link to this heading">#</a></h2>
+<section id="exercise-1-execute-and-explore">
+<h3>Exercise 1: Execute and Explore<a class="headerlink" href="#exercise-1-execute-and-explore" title="Link to this heading">#</a></h3>
+<p><strong>Time estimate:</strong> 3-4 minutes</p>
+<p>Run <code class="docutils literal notranslate"><span class="pre">kernel_effects.py</span></code> to see how different kernels transform the same image:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run this script to generate the comparison</span>
+<span class="n">python</span> <span class="n">kernel_effects</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p><strong>Reflection Questions:</strong></p>
+<ol class="arabic simple">
+<li><p>Look at the edge detection result. Why do uniform regions (like solid shapes) appear black?</p></li>
+<li><p>Why does the sharpen kernel make the image look “crisper”?</p></li>
+<li><p>What would happen if you used a larger kernel (e.g., 7x7 blur)?</p></li>
+</ol>
+</section>
+<section id="exercise-2-modify-to-achieve-goals">
+<h3>Exercise 2: Modify to Achieve Goals<a class="headerlink" href="#exercise-2-modify-to-achieve-goals" title="Link to this heading">#</a></h3>
+<p><strong>Time estimate:</strong> 3-4 minutes</p>
+<p>Starting with the blur kernel from <code class="docutils literal notranslate"><span class="pre">simple_convolution.py</span></code>, modify the kernel values to achieve these effects:</p>
+<p><strong>Goal A:</strong> Create a horizontal edge detector (detects horizontal lines only)</p>
+<p><strong>Goal B:</strong> Create a vertical edge detector (detects vertical lines only)</p>
+<p><strong>Goal C:</strong> Create an emboss effect (3D illusion)</p>
+</section>
+<section id="exercise-3-create-from-scratch">
+<h3>Exercise 3: Create from Scratch<a class="headerlink" href="#exercise-3-create-from-scratch" title="Link to this heading">#</a></h3>
+<p><strong>Time estimate:</strong> 5-6 minutes</p>
+<p>Implement your own convolution function from scratch! Complete the <code class="docutils literal notranslate"><span class="pre">apply_convolution()</span></code> function in the starter code to process the panda image.</p>
+<p><strong>Requirements:</strong></p>
+<ul class="simple">
+<li><p>Iterate over each valid pixel position</p></li>
+<li><p>Extract the region under the kernel using array slicing</p></li>
+<li><p>Compute the element-wise product and sum</p></li>
+<li><p>Handle borders by padding the image</p></li>
+</ul>
+<p><strong>Starter code:</strong></p>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">convolution_starter.py</span><a class="headerlink" href="#id9" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
+
+<span class="c1"># Load the panda image</span>
+<span class="n">PANDA_PATH</span> <span class="o">=</span> <span class="s1">&#39;../../../3.3_artistic_filters/3.3.3_hexpanda/hexpanda/panda.png&#39;</span>
+<span class="n">panda</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">PANDA_PATH</span><span class="p">)</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">)</span>
+<span class="n">panda</span> <span class="o">=</span> <span class="n">panda</span><span class="o">.</span><span class="n">resize</span><span class="p">((</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">))</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">panda</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+
+<span class="c1"># Edge detection kernel</span>
+<span class="n">kernel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span>  <span class="mi">8</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">apply_convolution</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">kernel</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Apply a convolution kernel to a grayscale image.&quot;&quot;&quot;</span>
+    <span class="n">kernel_size</span> <span class="o">=</span> <span class="n">kernel</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">pad</span> <span class="o">=</span> <span class="n">kernel_size</span> <span class="o">//</span> <span class="mi">2</span>
+
+    <span class="n">height</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+
+    <span class="c1"># Pad the image to handle borders</span>
+    <span class="n">padded</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">pad</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;edge&#39;</span><span class="p">)</span>
+
+    <span class="c1"># TODO: Implement the convolution!</span>
+    <span class="c1"># for y in range(...):</span>
+    <span class="c1">#     for x in range(...):</span>
+    <span class="c1">#         region = ...</span>
+    <span class="c1">#         output[y, x] = ...</span>
+
+    <span class="k">return</span> <span class="n">output</span>
+</pre></div>
+</div>
+</div>
+<figure class="align-center" id="id10">
+<a class="reference internal image-reference" href="../../../../../_images/convolution_comparison.png"><img alt="Side-by-side comparison of original panda and edge-detected result" src="../../../../../_images/convolution_comparison.png" style="width: 600px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Your convolution result: The panda’s edges are now clearly visible as bright lines on a dark background.</span><a class="headerlink" href="#id10" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>Challenge Extension:</strong></p>
+<p>Modify your function to handle color images by applying convolution to each RGB channel separately, then combining the results.</p>
+</section>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<p>In this module, you learned the fundamental operation behind image filters and neural network vision systems.</p>
+<p><strong>Key Takeaways:</strong></p>
+<ul class="simple">
+<li><p>Convolution slides a <strong>kernel</strong> across an image, computing weighted sums at each position</p></li>
+<li><p>The <strong>kernel values</strong> determine the effect: blur (averaging), sharpen (center emphasis), edge detection (difference detection)</p></li>
+<li><p><strong>Normalization</strong> matters: blur kernels should sum to 1 to preserve brightness</p></li>
+<li><p>This operation is the foundation of <strong>Convolutional Neural Networks</strong> (CNNs)</p></li>
+</ul>
+<p><strong>Common Pitfalls to Avoid:</strong></p>
+<ul class="simple">
+<li><p>Forgetting to normalize blur kernels (causes image brightening or darkening)</p></li>
+<li><p>Not handling borders correctly (causes output size reduction or edge artifacts)</p></li>
+<li><p>Using integer math when float precision is needed (causes rounding errors)</p></li>
+</ul>
+<p><strong>Why This Matters:</strong></p>
+<p>Convolution is everywhere in modern computer vision. When you apply a filter in Photoshop, your phone detects faces, or an AI classifies images, convolution is doing the heavy lifting. Understanding this operation gives you insight into how machines “see.”</p>
+</section>
+<section id="further-exploration">
+<h2>Further Exploration<a class="headerlink" href="#further-exploration" title="Link to this heading">#</a></h2>
+<p>For a more interactive exploration of convolution concepts, see the Jupyter notebook:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">GenerativeConvolution.ipynb</span></code> - Interactive examples with parameter sliders</p></li>
+</ul>
+<p>For built-in convolution filters, see the Pillow ImageFilter module <a class="reference internal" href="#pildocs" id="id4"><span>[PILDocs]</span></a>.</p>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<div role="list" class="citation-list">
+<div class="citation" id="gonzalez2018" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">Gonzalez2018</a><span class="fn-bracket">]</span></span>
+<p>Gonzalez, R.C. and Woods, R.E. (2018). <em>Digital Image Processing</em> (4th ed.). Pearson. Chapter 3: Intensity Transformations and Spatial Filtering. [Foundational textbook on image processing including convolution theory]</p>
+</div>
+<div class="citation" id="sobel1968" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Sobel1968<span class="fn-bracket">]</span></span>
+<p>Sobel, I. (1968). “A 3x3 Isotropic Gradient Operator for Image Processing.” Presented at the Stanford Artificial Intelligence Project. [Original edge detection operator using convolution]</p>
+</div>
+<div class="citation" id="lecun1998" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">LeCun1998</a><span class="fn-bracket">]</span></span>
+<p>LeCun, Y., Bottou, L., Bengio, Y., and Haffner, P. (1998). “Gradient-based learning applied to document recognition.” <em>Proceedings of the IEEE</em>, 86(11), 2278-2324. [Seminal paper on CNNs using convolution for feature learning]</p>
+</div>
+<div class="citation" id="marr1980" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">Marr1980</a><span class="fn-bracket">]</span></span>
+<p>Marr, D. and Hildreth, E. (1980). “Theory of edge detection.” <em>Proceedings of the Royal Society of London B</em>, 207(1167), 187-217. [Theoretical foundations of edge detection]</p>
+</div>
+<div class="citation" id="numpydocs" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>NumPyDocs<span class="fn-bracket">]</span></span>
+<p>Harris, C.R., et al. (2020). “Array programming with NumPy.” <em>Nature</em>, 585, 357-362. <a class="reference external" href="https://doi.org/10.1038/s41586-020-2649-2">https://doi.org/10.1038/s41586-020-2649-2</a> [NumPy array operations used in convolution]</p>
+</div>
+<div class="citation" id="pildocs" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">PILDocs</a><span class="fn-bracket">]</span></span>
+<p>Clark, A., et al. (2024). <em>Pillow (PIL Fork) Documentation</em>. <a class="reference external" href="https://pillow.readthedocs.io/">https://pillow.readthedocs.io/</a> [ImageFilter module for built-in convolution kernels]</p>
+</div>
+<div class="citation" id="prewitt1970" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Prewitt1970<span class="fn-bracket">]</span></span>
+<p>Prewitt, J.M.S. (1970). “Object enhancement and extraction.” <em>Picture Processing and Psychopictorics</em>, 10(1), 15-19. [Alternative edge detection operator]</p>
+</div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../../../3.3_artistic_filters/3.3.5_delaunay_triangulation/README.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">3.3.5 - Delaunay Triangulation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../3.4.2_edge_detection/sobel/README.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">3.4.2 - Edge Detection (Sobel Operator)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-start">Quick Start</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#core-concepts">Core Concepts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concept-1-what-is-convolution">Concept 1: What is Convolution?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concept-2-understanding-kernels">Concept 2: Understanding Kernels</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hands-on-exercises">Hands-On Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-execute-and-explore">Exercise 1: Execute and Explore</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-modify-to-achieve-goals">Exercise 2: Modify to Achieve Goals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-create-from-scratch">Exercise 3: Create from Scratch</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-exploration">Further Exploration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../../_sources/content/Module_03_transformations_effects/3.4_signal_processing/3.4.1_convolution/convolution/README.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Kristian Rother &amp; Burak Kagan Yilmazer.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
