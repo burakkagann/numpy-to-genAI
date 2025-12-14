@@ -5,14 +5,30 @@ Pixels to GenAI
 
 An open source educational platform that creates a comprehensive pathway into AI-driven generative art, bridging mathematical and visual foundations to modern creative AI techniques. This 15-module curriculum takes learners from fundamental pixel manipulation and NumPy operations through advanced generative models, neural networks, and real-time interactive systems.
 
+.. raw:: html
+
+   <div class="carousel">
+     <button class="carousel-prev" onclick="prevSlide()">&#8249;</button>
+     <div class="carousel-inner">
+       <img class="carousel-slide active" src="_static/carousel/fractal_depth_4.png" alt="Fractal Square - Recursive pattern at depth 4">
+       <img class="carousel-slide" src="_static/carousel/challenge_rings.png" alt="Distance Fields - Concentric rings pattern">
+       <img class="carousel-slide" src="_static/carousel/simple_harmonograph.png" alt="Harmonograph Simulation - Pendulum-drawn curves">
+       <img class="carousel-slide" src="_static/carousel/mandala_pattern.png" alt="Kaleidoscope Mandala - Symmetric pattern">
+       <img class="carousel-slide" src="_static/carousel/multi_cluster.png" alt="Star Fields - Multiple star clusters">
+       <img class="carousel-slide" src="_static/carousel/swirl_distortion_output.png" alt="Nonlinear Distortions - Swirl effect">
+     </div>
+     <button class="carousel-next" onclick="nextSlide()">&#8250;</button>
+     <div class="carousel-dots">
+       <span class="carousel-dot active"></span>
+       <span class="carousel-dot"></span>
+       <span class="carousel-dot"></span>
+       <span class="carousel-dot"></span>
+       <span class="carousel-dot"></span>
+       <span class="carousel-dot"></span>
+     </div>
+   </div>
+
 **paint things – create art – have fun!**
-
-.. figure:: /content/Module_02_geometry_mathematics/2.2_coordinate_systems_fields/2.2.4_distance_fields/challenge_rings.png
-   :width: 400px
-   :align: center
-   :alt: Concentric rings pattern created using distance fields and sine functions
-
-   *Concentric rings from Module 2.2.4: Distance Fields*
 
 
 .. |icon-pathway| replace:: :octicon:`book;1.4em;sd-text-secondary`

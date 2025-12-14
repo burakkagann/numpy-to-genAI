@@ -81,10 +81,12 @@ html_css_files = [
     'footer.css',
     'content.css',
     'scroll-progress.css',
+    'carousel.css',
 ]
 html_js_files = [
     'github-icon.js',
     'scroll-progress.js',
+    'carousel.js',
 ]
 html_theme_options = {
     "source_repository": "https://github.com/burakkagann/numpy-to-genAI",
