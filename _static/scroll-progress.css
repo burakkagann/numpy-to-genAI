@@ -1,10 +1,10 @@
 #scroll-progress {
   position: fixed;
-  top: 0;
+  top: var(--pst-header-height);  /* Position below navbar (4rem = 64px) */
   left: 0;
   width: 0%;
   height: 3px;
   background: linear-gradient(90deg, #7c4dff, #448aff);
-  z-index: 10001;
+  z-index: 1031;  /* Just above navbar (z-index: 1030) */
   transition: width 0.1s ease-out;
 }
