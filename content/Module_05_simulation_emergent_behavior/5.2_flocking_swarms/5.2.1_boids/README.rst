@@ -2,14 +2,14 @@
 5.2.1: Boids Flocking Simulation
 ==========================================
 
-:Duration: 20 minutes
+:Duration: 20-25 minutes
 :Level: Intermediate
-:Prerequisites: Module 1.2.2 (Cellular Automata)
+
 
 Overview
 ========
 
-Watch as fifty independent agents suddenly organize themselves into graceful, coordinated flocks without any central control. The boids algorithm, created by Craig Reynolds in 1987, demonstrates one of the most fascinating phenomena in computational systems: **emergent behavior**. Complex, lifelike patterns arise from just three simple rules.
+The boids algorithm, created by Craig Reynolds in 1987, demonstrates one of the most fascinating phenomena in computational systems: **emergent behavior**. Complex, lifelike patterns arise from just three simple rules.
 
 In this exercise, you will implement a boids simulation that recreates the mesmerizing movement of bird flocks and fish schools. You will discover how local interactions between individuals produce global patterns that appear intelligent and coordinated.
 
@@ -77,7 +77,7 @@ Core Concepts
 What Are Boids?
 ---------------
 
-The term **boids** (a playful take on "birds") refers to bird-like objects that follow simple behavioral rules. Craig Reynolds introduced this algorithm to create realistic animations of flocking birds for computer graphics [Reynolds1987]_.
+The term **boids**  refers to bird-like objects that follow simple behavioral rules. Craig Reynolds introduced this algorithm to create realistic animations of flocking birds for computer graphics [Reynolds1987]_.
 
 The key insight of the boids algorithm is that complex group behavior does not require complex individual behavior. Each boid only needs to:
 
@@ -85,11 +85,11 @@ The key insight of the boids algorithm is that complex group behavior does not r
 2. Apply three simple steering rules
 3. Update its own position and velocity
 
-From these local interactions, global patterns emerge naturally. No boid knows the overall flock shape or movement direction. The collective behavior is **self-organizing** [Camazine2003]_.
+From these local interactions, global patterns emerge naturally. No boid knows the overall flock shape or movement direction. The collective behavior is **self-organizing** [Camazine2001]_.
 
 .. admonition:: Did You Know?
 
-   Reynolds' original boids paper won the SIGGRAPH 1987 award for best paper. The algorithm has since been used in countless films, video games, and scientific simulations of biological systems.
+   Reynolds' boids paper, presented at SIGGRAPH 1987, has become a landmark of behavioral animation and Artificial Life research. The algorithm has since been used in countless films, video games, and scientific simulations, including Batman Returns (1992) and The Lion King (1994).
 
 
 The Three Rules of Flocking
@@ -364,9 +364,23 @@ Open ``boids_starter.py`` and find the ``obstacle_avoidance`` function with TODO
 
           return steering
 
+.. figure:: boids_obstacle.gif
+   :width: 500px
+   :align: center
+   :alt: Boids avoiding a circular obstacle in the center of the canvas
+
+   Obstacle avoidance in action: Boids steer around the central obstacle (dark red circle) while maintaining flocking behavior.
+
 **Challenge Extension:**
 
 Add a **predator** that boids flee from. The predator moves slowly toward the nearest boid, while all boids within a large radius steer away from it.
+
+.. figure:: boids_predator.gif
+   :width: 500px
+   :align: center
+   :alt: Boids fleeing from a red predator that chases the nearest boid
+
+   Boids with predator behavior: The red predator chases the nearest boid while all boids within the fear radius (shown as circle) flee in the opposite direction.
 
 
 Summary
@@ -395,7 +409,7 @@ References
 
 .. [Reynolds1999] Reynolds, C. W. (1999). Steering behaviors for autonomous characters. In *Proceedings of Game Developers Conference 1999* (pp. 763-782). https://www.red3d.com/cwr/steer/ [Practical implementation guide for games]
 
-.. [Camazine2003] Camazine, S., Deneubourg, J. L., Franks, N. R., Sneyd, J., Theraulaz, G., & Bonabeau, E. (2003). *Self-Organization in Biological Systems*. Princeton University Press. [Comprehensive theory of biological self-organization]
+.. [Camazine2001] Camazine, S., Deneubourg, J. L., Franks, N. R., Sneyd, J., Theraulaz, G., & Bonabeau, E. (2001). *Self-Organization in Biological Systems*. Princeton University Press. [Comprehensive theory of biological self-organization]
 
 .. [Vicsek2012] Vicsek, T., & Zafeiris, A. (2012). Collective motion. *Physics Reports*, 517(3-4), 71-140. https://doi.org/10.1016/j.physrep.2012.03.004 [Physics perspective on collective motion]
 
