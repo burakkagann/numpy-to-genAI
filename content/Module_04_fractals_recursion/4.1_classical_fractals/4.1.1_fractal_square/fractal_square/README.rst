@@ -6,7 +6,6 @@
 
 :Duration: 20-25 minutes
 :Level: Beginner-Intermediate
-:Prerequisites: Module 1.1 (Array Basics), Module 2.1 (Basic Shapes)
 
 Overview
 ========
@@ -61,7 +60,7 @@ Run this code to generate your first fractal square pattern:
 
    The resulting fractal square pattern at recursion depth 3. Notice how the overlapping regions appear brighter due to color accumulation.
 
-You just created a fractal. The pattern emerges from a simple rule applied repeatedly: divide a region into nine parts, fill the center, then repeat the process on the four corners. Each iteration adds more detail, creating the characteristic self-similar structure of fractal geometry.
+The pattern emerges from a simple rule applied repeatedly: divide a region into nine parts, fill the center, then repeat the process on the four corners. Each iteration adds more detail, creating the characteristic self-similar structure of fractal geometry.
 
 
 Core Concepts
@@ -79,7 +78,7 @@ Fractals appear throughout nature in surprisingly diverse forms:
 * **Lightning bolts**: Branches split into smaller branches
 * **Snowflakes**: Six-fold symmetry repeats at microscopic levels
 
-The mathematical study of fractals began with Benoit Mandelbrot's groundbreaking work in the 1970s [Mandelbrot1982]_. He coined the term "fractal" from the Latin word *fractus*, meaning broken or fragmented. This captures the essential quality of fractals: they occupy a fractional dimension between traditional geometric dimensions. Later mathematicians like Michael Barnsley [Barnsley1988]_ developed the Iterated Function System (IFS) approach for generating fractals, while Peitgen and Richter [Peitgen1986]_ popularized fractal art through their stunning visualizations.
+The mathematical study of fractals began with Benoit Mandelbrot's groundbreaking work in 1975 [Mandelbrot1982]_. He coined the term "fractal" from the Latin word *fractus*, meaning broken or fragmented. This captures the essential quality of fractals: they occupy a fractional dimension between traditional geometric dimensions. Later mathematicians like Michael Barnsley [Barnsley1988]_ developed the Iterated Function System (IFS) approach for generating fractals, while Peitgen and Richter [Peitgen1986]_ popularized fractal art through their stunning visualizations.
 
 .. admonition:: Did You Know?
 
@@ -169,6 +168,13 @@ The algorithm then calls itself on each of the four corner regions. These region
 * **Top-right corner**: from ``(center_x_start, y_min)`` to ``(x_max, center_y_end)``
 * **Bottom-left corner**: from ``(x_min, center_y_start)`` to ``(center_x_end, y_max)``
 * **Bottom-right corner**: from ``(center_x_start, center_y_start)`` to ``(x_max, y_max)``
+
+.. figure:: fractal_square_frames.gif
+   :width: 500px
+   :align: center
+   :alt: Animation showing the fractal square being built frame by frame, with each recursion level adding smaller nested squares
+
+   Watch the fractal emerge: the algorithm fills center squares at each recursion level, building complexity from simplicity.
 
 .. important::
 
@@ -455,15 +461,6 @@ Common Pitfalls
 * **Wrong corner boundaries**: Each corner must cover 2/3 of the region, not 1/3
 * **Array index order**: NumPy arrays use [y, x] ordering, not [x, y]
 
-Connection to Future Learning
------------------------------
-
-This exercise establishes foundations for more advanced fractal topics:
-
-* **Module 4.1.2 Dragon Curve**: Recursive line-based fractals with rotation
-* **Module 4.1.3 Mandelbrot Set**: Fractals defined by complex number iteration
-* **Module 4.2.1 Fractal Trees**: Natural-looking recursive branching patterns
-* **Module 4.3 L-Systems**: Grammar-based recursive pattern generation
 
 
 References
@@ -473,7 +470,7 @@ References
 
 .. [Barnsley1988] Barnsley, M. F. (1988). *Fractals Everywhere*. Academic Press. ISBN: 978-0-12-079062-3
 
-.. [Peitgen1986] Peitgen, H.-O., & Richter, P. H. (1986). *The Beauty of Fractals: Images of Complex Dynamical Systems*. Springer-Verlag. ISBN: 978-3-540-15851-8
+.. [Peitgen1986] Peitgen, H.-O., & Richter, P. H. (1986). *The Beauty of Fractals: Images of Complex Dynamical Systems*. Springer-Verlag. ISBN: 978-3-540-15851-6
 
 .. [Cormen2009] Cormen, T. H., Leiserson, C. E., Rivest, R. L., & Stein, C. (2009). *Introduction to Algorithms* (3rd ed.). MIT Press. ISBN: 978-0-262-03384-8
 
