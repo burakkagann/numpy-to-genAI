@@ -6,7 +6,6 @@
 
 :Duration: 20-25 minutes
 :Level: Intermediate
-:Prerequisites: Module 2.1.1 (Lines), Module 4.1 (Classical Fractals)
 
 Overview
 ========
@@ -390,7 +389,7 @@ References
 
 .. [Shiffman2012] Shiffman, D. (2012). *The Nature of Code*, Chapter 8: Fractals. https://natureofcode.com/book/chapter-8-fractals/
 
-.. [Honda1971] Honda, H. (1971). Description of the form of trees by the parameters of the tree-like body. *Journal of Theoretical Biology*, 31(2), 331-338.
+.. [Honda1971] Honda, H. (1971). Description of the form of trees by the parameters of the tree-like body. *Journal of Theoretical Biology*, 31(2), 331-338. https://doi.org/10.1016/0022-5193(71)90191-3
 
 .. [Barnsley1988] Barnsley, M. F. (1988). *Fractals Everywhere*. Academic Press. ISBN: 978-0120790623.
 
