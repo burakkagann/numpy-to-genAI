@@ -1,18 +1,3 @@
-"""
-Exercise 9.1.3 - Starter Code: Create Your Own Activation Art
-
-Build your own activation function visualization from scratch.
-Complete the TODO sections to create a unique artistic pattern.
-
-Requirements:
-- Implement at least two activation functions
-- Use a non-radial input pattern (not just sqrt(X**2 + Y**2))
-- Create visually interesting color mappings
-
-Author: Your Name
-Date: YYYY-MM-DD
-"""
-
 import numpy as np
 from PIL import Image
 

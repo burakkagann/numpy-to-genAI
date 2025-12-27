@@ -1,15 +1,3 @@
-"""
-9.1.2 Visualization Generator
-
-This script generates all the diagrams for the backpropagation exercise:
-- xor_problem.png: Shows why XOR cannot be solved with a single line
-- network_architecture.png: The 2-4-1 neural network structure
-- training_progress.png: Loss curve showing learning over epochs
-- forward_pass.png: Data flowing through the network
-- backward_pass.png: Gradients flowing backward
-
-Author: NumPy-to-GenAI Project
-"""
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.patches import Circle, FancyArrowPatch

@@ -1,16 +1,3 @@
-"""
-9.1.2 Exercise 3: Complete the Backward Pass
-
-The forward pass is done for you. Your task is to implement the backward
-pass (computing gradients) so the network can learn.
-
-Currently, predictions stay near 0.5 because weights never update.
-Complete the TODOs to make learning happen!
-
-Hints are provided in comments. The solution is in backprop_solution.py.
-
-Author: NumPy-to-GenAI Project
-"""
 import numpy as np
 
 # XOR dataset

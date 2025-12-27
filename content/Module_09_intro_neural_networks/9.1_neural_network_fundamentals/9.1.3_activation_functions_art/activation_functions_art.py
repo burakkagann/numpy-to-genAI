@@ -1,18 +1,3 @@
-"""
-Exercise 9.1.3: Activation Functions Art
-
-Create artistic patterns by visualizing neural network activation functions.
-This script demonstrates how mathematical functions used in deep learning
-can generate beautiful, organic patterns when applied to coordinate grids.
-
-The key insight: activation functions transform input values in specific ways,
-and when we map these transformations to colors across a 2D plane, we reveal
-the mathematical "personality" of each function.
-
-Author: Claude (NumPy-to-GenAI Project)
-Date: 2025-01-20
-"""
-
 import numpy as np
 from PIL import Image
 

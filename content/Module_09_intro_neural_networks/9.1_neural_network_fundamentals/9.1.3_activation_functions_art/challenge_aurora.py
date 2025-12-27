@@ -1,7 +1,3 @@
-"""
-Challenge Extension: Aurora Borealis Effect
-Creates an artistic aurora-like pattern using sinusoidal activation and color gradients.
-"""
 import numpy as np
 from PIL import Image
 

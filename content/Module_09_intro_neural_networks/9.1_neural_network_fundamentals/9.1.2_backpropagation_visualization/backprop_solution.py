@@ -1,11 +1,3 @@
-"""
-9.1.2 Exercise 3 Solution: Complete the Backward Pass
-
-This is the complete solution for backprop_starter.py.
-Compare your work with this solution to verify your understanding.
-
-Author: NumPy-to-GenAI Project
-"""
 import numpy as np
 
 # XOR dataset

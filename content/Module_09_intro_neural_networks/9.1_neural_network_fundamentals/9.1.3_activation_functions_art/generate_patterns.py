@@ -1,15 +1,3 @@
-"""
-Generate individual activation function patterns and comparison grid.
-
-This helper script creates visualizations for the README documentation:
-- Individual patterns for sigmoid, ReLU, and tanh
-- A comparison grid showing all functions side by side
-- An activation curves diagram showing the mathematical functions
-
-Author: Claude (NumPy-to-GenAI Project)
-Date: 2025-01-20
-"""
-
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 import matplotlib

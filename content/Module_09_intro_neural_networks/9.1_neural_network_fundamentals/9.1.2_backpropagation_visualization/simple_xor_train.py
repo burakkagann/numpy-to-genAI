@@ -1,14 +1,3 @@
-"""
-9.1.2 Exercise 1: Train a Neural Network on XOR
-
-This script demonstrates that a network with a hidden layer can solve
-the XOR problem, which a single perceptron cannot.
-
-Run this script and observe how the loss decreases and predictions
-become accurate. This is backpropagation in action!
-
-Author: NumPy-to-GenAI Project
-"""
 import numpy as np
 
 # XOR dataset: outputs 1 when inputs differ, 0 when they match
