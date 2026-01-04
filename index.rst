@@ -10,7 +10,9 @@ An open source educational platform that creates a comprehensive pathway into AI
    <div class="carousel">
      <button class="carousel-prev" onclick="prevSlide()">&#8249;</button>
      <div class="carousel-inner">
-       <img class="carousel-slide active" src="_static/carousel/fractal_depth_4.png" alt="Fractal Square - Recursive pattern at depth 4">
+       <img class="carousel-slide active" src="_static/carousel/face-delaunay-triangulation-gif-short.gif" alt="Face Detection - Delaunay triangulation artistic effect">
+       <img class="carousel-slide" src="_static/carousel/fractal_depth_4.png" alt="Fractal Square - Recursive pattern at depth 4">
+       <img class="carousel-slide" src="_static/carousel/activation_art.png" alt="Activation Functions Art - Neural network radial gradient">
        <img class="carousel-slide" src="_static/carousel/challenge_rings.png" alt="Distance Fields - Concentric rings pattern">
        <img class="carousel-slide" src="_static/carousel/simple_harmonograph.png" alt="Harmonograph Simulation - Pendulum-drawn curves">
        <img class="carousel-slide" src="_static/carousel/mandala_pattern.png" alt="Kaleidoscope Mandala - Symmetric pattern">
@@ -20,6 +22,8 @@ An open source educational platform that creates a comprehensive pathway into AI
      <button class="carousel-next" onclick="nextSlide()">&#8250;</button>
      <div class="carousel-dots">
        <span class="carousel-dot active"></span>
+       <span class="carousel-dot"></span>
+       <span class="carousel-dot"></span>
        <span class="carousel-dot"></span>
        <span class="carousel-dot"></span>
        <span class="carousel-dot"></span>
@@ -671,6 +675,15 @@ Learning Modules
       content/Module_14_data_as_material/14.4_physical_data_sculptures/14.4.1_3d_printing_preparation/README.rst
       content/Module_14_data_as_material/14.4_physical_data_sculptures/14.4.2_laser_cutting_patterns/README.rst
       content/Module_14_data_as_material/14.4_physical_data_sculptures/14.4.3_cnc_toolpaths/README.rst
+
+.. dropdown:: Module 15: Capstone Project - Eternal Flow
+
+   Synthesis of all learned concepts: StyleGAN-based evolving Ebru marbling artwork for projection display.
+
+   .. toctree::
+      :maxdepth: 1
+
+      content/Module_15_capstone_project/README.rst
 
 
 .. raw:: html
