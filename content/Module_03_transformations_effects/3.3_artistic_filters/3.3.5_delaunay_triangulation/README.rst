@@ -4,14 +4,14 @@
 3.3.5 - Delaunay Triangulation
 =====================================
 
-:Duration: 18 minutes
+:Duration: 15-20 minutes
 :Level: Intermediate
-:Prerequisites: Module 2.1 (Basic Shapes), NumPy array basics, matplotlib fundamentals
+
 
 Overview
 ========
 
-Delaunay triangulation is a fundamental technique in computational geometry that connects a set of points into triangles with remarkable properties. Named after the Russian mathematician Boris Delaunay who formalized it in 1934, this algorithm ensures that no point lies inside the circumcircle of any triangle, which naturally produces well-shaped triangles that avoid thin, elongated "slivers."
+Delaunay triangulation is a fundamental technique in computational geometry that connects a set of points into triangles with remarkable properties. Named after the Soviet/Russian mathematician Boris Delaunay who formalized it in 1934, this algorithm ensures that no point lies inside the circumcircle of any triangle, which naturally produces well-shaped triangles that avoid thin, elongated "slivers."
 
 In generative art, Delaunay triangulation enables the creation of striking low-poly aesthetics, organic mosaic patterns, and mesh-based visualizations. By sampling colors from source images and filling triangles with averaged values, you can transform photographs into abstract geometric art with a distinctive crystalline appearance.
 
@@ -97,7 +97,7 @@ The defining characteristic of Delaunay triangulation is the **circumcircle prop
 
 .. admonition:: Did You Know?
 
-   Boris Delaunay first described this triangulation in his 1934 paper "Sur la sphere vide" (On the empty sphere). The same principle extends to 3D, where tetrahedra have circumspheres instead of circumcircles.
+   Boris Delaunay first described this triangulation in his 1934 paper "Sur la sphère vide" (On the empty sphere). The same principle extends to 3D, where tetrahedra have circumspheres instead of circumcircles.
 
    (Delaunay, 1934)
 
@@ -429,7 +429,7 @@ This knowledge of mesh generation prepares you for more advanced topics like Vor
 References
 ==========
 
-.. [Delaunay1934] Delaunay, B. (1934). Sur la sphere vide. *Bulletin de l'Academie des Sciences de l'URSS*, 6, 793-800. [Original paper establishing Delaunay triangulation]
+.. [Delaunay1934] Delaunay, B. (1934). Sur la sphère vide. *Bulletin de l'Académie des Sciences de l'URSS*, 6, 793-800. [Original paper establishing Delaunay triangulation]
 
 .. [deBerg2008] de Berg, M., Cheong, O., van Kreveld, M., & Overmars, M. (2008). *Computational Geometry: Algorithms and Applications* (3rd ed.). Springer. [Comprehensive textbook on computational geometry]
 
