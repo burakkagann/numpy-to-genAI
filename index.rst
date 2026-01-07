@@ -11,6 +11,7 @@ An open source educational platform that creates a comprehensive pathway into AI
      <button class="carousel-prev" onclick="prevSlide()">&#8249;</button>
      <div class="carousel-inner">
        <img class="carousel-slide active" src="_static/carousel/face-delaunay-triangulation-gif-short.gif" alt="Face Detection - Delaunay triangulation artistic effect">
+       <img class="carousel-slide" src="_static/carousel/exercise-2-animated-color-flow.gif" alt="Exercise 2: Animated Color Flow - TouchDesigner node network creating color-shifting patterns">
        <img class="carousel-slide" src="_static/carousel/fractal_depth_4.png" alt="Fractal Square - Recursive pattern at depth 4">
        <img class="carousel-slide" src="_static/carousel/activation_art.png" alt="Activation Functions Art - Neural network radial gradient">
        <img class="carousel-slide" src="_static/carousel/challenge_rings.png" alt="Distance Fields - Concentric rings pattern">
@@ -22,6 +23,7 @@ An open source educational platform that creates a comprehensive pathway into AI
      <button class="carousel-next" onclick="nextSlide()">&#8250;</button>
      <div class="carousel-dots">
        <span class="carousel-dot active"></span>
+       <span class="carousel-dot"></span>
        <span class="carousel-dot"></span>
        <span class="carousel-dot"></span>
        <span class="carousel-dot"></span>
