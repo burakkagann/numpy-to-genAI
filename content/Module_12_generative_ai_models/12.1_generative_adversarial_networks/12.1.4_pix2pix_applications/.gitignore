@@ -1,0 +1,17 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Model weights (download via download_pretrained.py)
+*.pth
+checkpoints/*.pth
+
+# Training datasets (download from Kaggle)
+anime_processed/
+anime_sketch_dataset/
+
+# Archive/backup files
+archive/
+
+# Generated samples (not needed in repo)
+sample_sketches/
