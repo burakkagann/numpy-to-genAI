@@ -7,32 +7,10 @@ An open source educational platform that creates a comprehensive pathway into AI
 
 .. raw:: html
 
-   <div class="carousel">
-     <button class="carousel-prev" onclick="prevSlide()">&#8249;</button>
-     <div class="carousel-inner">
-       <img class="carousel-slide active" src="_static/carousel/face-delaunay-triangulation-gif-short.gif" alt="Face Detection - Delaunay triangulation artistic effect">
-       <img class="carousel-slide" src="_static/carousel/exercise-2-animated-color-flow.gif" alt="Exercise 2: Animated Color Flow - TouchDesigner node network creating color-shifting patterns">
-       <img class="carousel-slide" src="_static/carousel/fractal_depth_4.png" alt="Fractal Square - Recursive pattern at depth 4">
-       <img class="carousel-slide" src="_static/carousel/activation_art.png" alt="Activation Functions Art - Neural network radial gradient">
-       <img class="carousel-slide" src="_static/carousel/challenge_rings.png" alt="Distance Fields - Concentric rings pattern">
-       <img class="carousel-slide" src="_static/carousel/simple_harmonograph.png" alt="Harmonograph Simulation - Pendulum-drawn curves">
-       <img class="carousel-slide" src="_static/carousel/mandala_pattern.png" alt="Kaleidoscope Mandala - Symmetric pattern">
-       <img class="carousel-slide" src="_static/carousel/multi_cluster.png" alt="Star Fields - Multiple star clusters">
-       <img class="carousel-slide" src="_static/carousel/swirl_distortion_output.png" alt="Nonlinear Distortions - Swirl effect">
-     </div>
-     <button class="carousel-next" onclick="nextSlide()">&#8250;</button>
-     <div class="carousel-dots">
-       <span class="carousel-dot active"></span>
-       <span class="carousel-dot"></span>
-       <span class="carousel-dot"></span>
-       <span class="carousel-dot"></span>
-       <span class="carousel-dot"></span>
-       <span class="carousel-dot"></span>
-       <span class="carousel-dot"></span>
-       <span class="carousel-dot"></span>
-       <span class="carousel-dot"></span>
-     </div>
+   <div class="cube-container">
+     <div class="cube-gallery"></div>
    </div>
+   <p class="cube-caption">Showcasing exercises from across all modules</p>
 
 **paint things – create art – have fun!**
 

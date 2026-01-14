@@ -1,0 +1,88 @@
+/* ==========================================================================
+   3D Rotating Cube Gallery
+   Based on CSS-Tricks Infinite 3D Sliders technique
+   Randomly displays 6 images from pool on each page load
+   ========================================================================== */
+
+/* Container - provides centering and perspective context */
+.cube-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem auto;
+    min-height: 320px;
+}
+
+/* The cube itself */
+.cube-gallery {
+    --s: 280px; /* Cube size */
+    display: grid;
+    transform-style: preserve-3d;
+    --_p: perspective(calc(2.5 * var(--s)));
+    animation: cube-rotate 20s infinite cubic-bezier(.5, -0.3, .5, 1.3);
+}
+
+/* Each face of the cube */
+.cube-gallery img {
+    grid-area: 1 / 1;
+    width: var(--s);
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transform: var(--_t) translateZ(calc(var(--s) / 2));
+}
+
+/* Position each face */
+.cube-gallery img:nth-child(1) { --_t: ; }                                    /* Front */
+.cube-gallery img:nth-child(2) { --_t: rotateX(-90deg); }                     /* Bottom */
+.cube-gallery img:nth-child(3) { --_t: rotateY(90deg) rotate(-90deg); }       /* Right */
+.cube-gallery img:nth-child(4) { --_t: rotateX(180deg) rotate(90deg); }       /* Back */
+.cube-gallery img:nth-child(5) { --_t: rotateX(90deg) rotate(90deg); }        /* Top */
+.cube-gallery img:nth-child(6) { --_t: rotateY(-90deg); }                     /* Left */
+
+/* Rotation animation - appears random due to varying axes */
+@keyframes cube-rotate {
+    0%, 3%   { transform: var(--_p) rotate3d(0, 0, 0, 0deg); }
+    14%, 19% { transform: var(--_p) rotate3d(-1, 1, 0, 180deg); }
+    31%, 36% { transform: var(--_p) rotate3d(0, -1, 0, 90deg); }
+    47%, 52% { transform: var(--_p) rotate3d(1, 0, 0, 90deg); }
+    64%, 69% { transform: var(--_p) rotate3d(1, 0, 0, -90deg); }
+    81%, 86% { transform: var(--_p) rotate3d(0, 1, 0, 90deg); }
+    97%, 100% { transform: var(--_p) rotate3d(0, 0, 0, 0deg); }
+}
+
+/* Caption below the cube */
+.cube-caption {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--pst-color-text-muted, #666);
+    font-style: italic;
+}
+
+/* Pause animation on hover */
+.cube-gallery:hover {
+    animation-play-state: paused;
+}
+
+/* Responsive: Smaller cube on mobile */
+@media (max-width: 600px) {
+    .cube-gallery {
+        --s: 220px;
+    }
+
+    .cube-container {
+        min-height: 260px;
+    }
+}
+
+/* Dark mode adjustments */
+html[data-theme="dark"] .cube-caption {
+    color: var(--pst-color-text-muted, #aaa);
+}
+
+html[data-theme="dark"] .cube-gallery img {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}

@@ -36,7 +36,8 @@
     <link rel="stylesheet" type="text/css" href="_static/github-icon.css?v=0979adda" />
     <link rel="stylesheet" type="text/css" href="_static/footer.css?v=22df2544" />
     <link rel="stylesheet" type="text/css" href="_static/content.css?v=ad41e33b" />
-    <link rel="stylesheet" type="text/css" href="_static/scroll-progress.css?v=46bcc4b9" />
+    <link rel="stylesheet" type="text/css" href="_static/scroll-progress.css?v=86386432" />
+    <link rel="stylesheet" type="text/css" href="_static/carousel.css?v=0a07fa24" />
   
   <!-- So that users can add custom icons -->
   <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -53,6 +54,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
     <script src="_static/github-icon.js?v=54752c43"></script>
     <script src="_static/scroll-progress.js?v=9aba87dc"></script>
+    <script src="_static/carousel.js?v=213d5f89"></script>
     <link rel="icon" href="_static/favicon-64x64.png"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -303,14 +305,10 @@
   <section id="pixels-to-genai">
 <h1>Pixels to GenAI<a class="headerlink" href="#pixels-to-genai" title="Link to this heading">#</a></h1>
 <p>An open source educational platform that creates a comprehensive pathway into AI-driven generative art, bridging mathematical and visual foundations to modern creative AI techniques. This 15-module curriculum takes learners from fundamental pixel manipulation and NumPy operations through advanced generative models, neural networks, and real-time interactive systems.</p>
-<p><strong>paint things – create art – have fun!</strong></p>
-<figure class="align-center" id="id1">
-<a class="reference internal image-reference" href="_images/challenge_rings.png"><img alt="Concentric rings pattern created using distance fields and sine functions" src="_images/challenge_rings.png" style="width: 400px;" />
-</a>
-<figcaption>
-<p><span class="caption-text"><em>Concentric rings from Module 2.2.4: Distance Fields</em></span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
+<div class="cube-container">
+  <div class="cube-gallery"></div>
+</div>
+<p class="cube-caption">Showcasing exercises from across all modules</p><p><strong>paint things – create art – have fun!</strong></p>
 <section id="project-at-a-glance">
 <h2>Project at a Glance<a class="headerlink" href="#project-at-a-glance" title="Link to this heading">#</a></h2>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
@@ -511,7 +509,7 @@ you should have all necessary libraries already.</p>
 <p class="sd-card-text"><strong>4.1 - Classical Fractals</strong></p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="content/Module_04_fractals_recursion/4.1_classical_fractals/4.1.1_fractal_square/fractal_square/README.html">3.4.1 - Fractal Square</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_04_fractals_recursion/4.1_classical_fractals/4.1.1_fractal_square/fractal_square/README.html">4.1.1 Fractal Square</a></li>
 <li class="toctree-l1"><a class="reference internal" href="content/Module_04_fractals_recursion/4.1_classical_fractals/4.1.2_dragon_curve/dragon_curve/README.html">4.1.2 - Dragon Curve</a></li>
 <li class="toctree-l1"><a class="reference internal" href="content/Module_04_fractals_recursion/4.1_classical_fractals/4.1.3_mandelbrot/mandelbrot/README.html">4.1.3 - Mandelbrot</a></li>
 <li class="toctree-l1"><a class="reference internal" href="content/Module_04_fractals_recursion/4.1_classical_fractals/4.1.4_julia_sets/README.html">4.1.4 - Julia Sets</a></li>
@@ -530,7 +528,7 @@ you should have all necessary libraries already.</p>
 <p class="sd-card-text"><strong>4.3 - L-Systems</strong></p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="content/Module_04_fractals_recursion/4.3_l_systems/4.3.1_plant_generation/README.html">4.3.1 - Plant Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_04_fractals_recursion/4.3_l_systems/4.3.1_plant_generation/README.html">4.3.1 Plant Generation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="content/Module_04_fractals_recursion/4.3_l_systems/4.3.2_koch_snowflake/README.html">4.3.2 - Koch Snowflake</a></li>
 <li class="toctree-l1"><a class="reference internal" href="content/Module_04_fractals_recursion/4.3_l_systems/4.3.3_penrose_tiling/README.html">4.3.3 - Penrose Tiling</a></li>
 </ul>
@@ -543,7 +541,7 @@ you should have all necessary libraries already.</p>
 <p class="sd-card-text"><strong>5.1 - Particle Systems</strong></p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="content/Module_05_simulation_emergent_behavior/5.1_particle_systems/5.1.1_sand/sand/README.html">5.1.1 - Sand blows away</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_05_simulation_emergent_behavior/5.1_particle_systems/5.1.1_sand/sand/README.html">5.1.1 Sand Simulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="content/Module_05_simulation_emergent_behavior/5.1_particle_systems/5.1.2_vortex/vortex/README.html">5.1.2 - Vortex</a></li>
 <li class="toctree-l1"><a class="reference internal" href="content/Module_05_simulation_emergent_behavior/5.1_particle_systems/5.1.3_fireworks_simulation/README.html">5.1.3 - Fireworks Simulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="content/Module_05_simulation_emergent_behavior/5.1_particle_systems/5.1.4_fluid_simulation/README.html">5.1.4 - Fluid Simulation</a></li>
@@ -552,7 +550,7 @@ you should have all necessary libraries already.</p>
 <p class="sd-card-text"><strong>5.2 - Flocking &amp; Swarms</strong></p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="content/Module_05_simulation_emergent_behavior/5.2_flocking_swarms/5.2.1_boids/README.html">5.2.1 - Boids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_05_simulation_emergent_behavior/5.2_flocking_swarms/5.2.1_boids/README.html">5.2.1: Boids Flocking Simulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="content/Module_05_simulation_emergent_behavior/5.2_flocking_swarms/5.2.2_fish_schooling/README.html">5.2.2 - Fish Schooling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="content/Module_05_simulation_emergent_behavior/5.2_flocking_swarms/5.2.3_ant_colony_optimization/README.html">5.2.3 - Ant Colony Optimization</a></li>
 </ul>
@@ -562,7 +560,7 @@ you should have all necessary libraries already.</p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="content/Module_05_simulation_emergent_behavior/5.3_physics_simulations/5.3.1_bouncing_ball/bouncing_ball/README.html">5.3.1 - Bouncing Ball Animation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="content/Module_05_simulation_emergent_behavior/5.3_physics_simulations/5.3.2_nbody_planet_simulation/README.html">5.3.2 - Nbody Planet Simulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="content/Module_05_simulation_emergent_behavior/5.3_physics_simulations/5.3.3_double_pendulum_chaos/README.html">5.3.3 - Double Pendulum Chaos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_05_simulation_emergent_behavior/5.3_physics_simulations/5.3.3_double_pendulum_chaos/README.html">5.3.3 Double Pendulum Chaos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="content/Module_05_simulation_emergent_behavior/5.3_physics_simulations/5.3.4_cloth_rope_simulation/README.html">5.3.4 - Cloth Rope Simulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="content/Module_05_simulation_emergent_behavior/5.3_physics_simulations/5.3.5_magnetic_field_visualization/README.html">5.3.5 - Magnetic Field Visualization</a></li>
 </ul>
@@ -690,7 +688,7 @@ you should have all necessary libraries already.</p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="content/Module_08_animation_time/8.4_generative_animation/8.4.1_music_visualization/README.html">8.4.1 - Music Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="content/Module_08_animation_time/8.4_generative_animation/8.4.2_data_driven_animation/README.html">8.4.2 - Data Driven Animation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="content/Module_08_animation_time/8.4_generative_animation/8.4.3_animated_fractals/README.html">8.4.3 - Animated Fractals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_08_animation_time/8.4_generative_animation/8.4.3_animated_fractals/README.html">8.4.3 Animated Fractals</a></li>
 </ul>
 </div>
 </div>
@@ -701,17 +699,17 @@ you should have all necessary libraries already.</p>
 <p class="sd-card-text"><strong>9.1 - Neural Network Fundamentals</strong></p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="content/Module_09_intro_neural_networks/9.1_neural_network_fundamentals/9.1.1_perceptron_scratch/README.html">9.1.1 - Perceptron Scratch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_09_intro_neural_networks/9.1_neural_network_fundamentals/9.1.1_perceptron_scratch/README.html">9.1.1 Perceptron from Scratch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="content/Module_09_intro_neural_networks/9.1_neural_network_fundamentals/9.1.2_backpropagation_visualization/README.html">9.1.2 - Backpropagation Visualization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="content/Module_09_intro_neural_networks/9.1_neural_network_fundamentals/9.1.3_activation_functions_art/README.html">9.1.3 - Activation Functions Art</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_09_intro_neural_networks/9.1_neural_network_fundamentals/9.1.3_activation_functions_art/README.html">9.1.3 Activation Functions Art</a></li>
 </ul>
 </div>
 <p class="sd-card-text"><strong>9.2 - Network Architectures</strong></p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="content/Module_09_intro_neural_networks/9.2_network_architectures/9.2.1_feedforward_networks/README.html">9.2.1 - Feedforward Networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="content/Module_09_intro_neural_networks/9.2_network_architectures/9.2.2_convolutional_networks_visualization/README.html">9.2.2 - Convolutional Networks Visualization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="content/Module_09_intro_neural_networks/9.2_network_architectures/9.2.3_recurrent_networks_sequences/README.html">9.2.3 - Recurrent Networks Sequences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_09_intro_neural_networks/9.2_network_architectures/9.2.1_feedforward_networks/README.html">9.2.1 Feedforward Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_09_intro_neural_networks/9.2_network_architectures/9.2.2_convolutional_networks_visualization/README.html">9.2.2 Convolutional Networks Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_09_intro_neural_networks/9.2_network_architectures/9.2.3_recurrent_networks_sequences/README.html">9.2.3 Recurrent Networks for Sequences</a></li>
 </ul>
 </div>
 <p class="sd-card-text"><strong>9.3 - Training Dynamics</strong></p>
@@ -747,7 +745,7 @@ you should have all necessary libraries already.</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="content/Module_10_touchdesigner_fundamentals/10.2_recreating_static_exercises/10.2.1_core_exercises_realtime/README.html">10.2.1 - Core Exercises Realtime</a></li>
-<li class="toctree-l1"><a class="reference internal" href="content/Module_10_touchdesigner_fundamentals/10.2_recreating_static_exercises/10.2.2_boids_flocking_td/README.html">10.2.2 - Boids Flocking Td</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_10_touchdesigner_fundamentals/10.2_recreating_static_exercises/10.2.2_boids_flocking_td/README.html">10.2.2: Boids Flocking in TouchDesigner</a></li>
 <li class="toctree-l1"><a class="reference internal" href="content/Module_10_touchdesigner_fundamentals/10.2_recreating_static_exercises/10.2.3_planet_simulation_td/README.html">10.2.3 - Planet Simulation Td</a></li>
 <li class="toctree-l1"><a class="reference internal" href="content/Module_10_touchdesigner_fundamentals/10.2_recreating_static_exercises/10.2.4_fractals_realtime/README.html">10.2.4 - Fractals Realtime</a></li>
 </ul>
@@ -787,7 +785,7 @@ you should have all necessary libraries already.</p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="content/Module_11_interactive_systems/11.2_computer_vision_td/11.2.1_motion_detection/README.html">11.2.1 - Motion Detection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="content/Module_11_interactive_systems/11.2_computer_vision_td/11.2.2_blob_tracking/README.html">11.2.2 - Blob Tracking</a></li>
-<li class="toctree-l1"><a class="reference internal" href="content/Module_11_interactive_systems/11.2_computer_vision_td/11.2.3_face_detection/README.html">11.2.3 - Face Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_11_interactive_systems/11.2_computer_vision_td/11.2.3_face_detection/README.html">11.2.3 Face Detection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="content/Module_11_interactive_systems/11.2_computer_vision_td/11.2.4_optical_flow/README.html">11.2.4 - Optical Flow</a></li>
 </ul>
 </div>
@@ -815,18 +813,18 @@ you should have all necessary libraries already.</p>
 <p class="sd-card-text"><strong>12.1 - Generative Adversarial Networks</strong></p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="content/Module_12_generative_ai_models/12.1_generative_adversarial_networks/12.1.1_gan_architecture/README.html">12.1.1 - Gan Architecture</a></li>
-<li class="toctree-l1"><a class="reference internal" href="content/Module_12_generative_ai_models/12.1_generative_adversarial_networks/12.1.2_dcgan_art/README.html">12.1.2 - Dcgan Art</a></li>
-<li class="toctree-l1"><a class="reference internal" href="content/Module_12_generative_ai_models/12.1_generative_adversarial_networks/12.1.3_stylegan_exploration/README.html">12.1.3 - Stylegan Exploration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="content/Module_12_generative_ai_models/12.1_generative_adversarial_networks/12.1.4_pix2pix_applications/README.html">12.1.4 - Pix2Pix Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_12_generative_ai_models/12.1_generative_adversarial_networks/12.1.1_gan_architecture/README.html">12.1.1 GAN Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_12_generative_ai_models/12.1_generative_adversarial_networks/12.1.2_dcgan_art/README.html">12.1.2 DCGAN Art</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_12_generative_ai_models/12.1_generative_adversarial_networks/12.1.3_stylegan_exploration/README.html">12.1.3 StyleGAN Exploration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_12_generative_ai_models/12.1_generative_adversarial_networks/12.1.4_pix2pix_applications/README.html">12.1.4 Pix2Pix Applications</a></li>
 </ul>
 </div>
 <p class="sd-card-text"><strong>12.2 - Variational Autoencoders</strong></p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="content/Module_12_generative_ai_models/12.2_variational_autoencoders/12.2.1_latent_space_exploration/README.html">12.2.1 - Latent Space Exploration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="content/Module_12_generative_ai_models/12.2_variational_autoencoders/12.2.2_interpolation_animations/README.html">12.2.2 - Interpolation Animations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="content/Module_12_generative_ai_models/12.2_variational_autoencoders/12.2.3_conditional_vaes/README.html">12.2.3 - Conditional Vaes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_12_generative_ai_models/12.2_variational_autoencoders/12.2.1_latent_space_exploration/README.html">12.2.1 Latent Space Exploration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_12_generative_ai_models/12.2_variational_autoencoders/12.2.2_interpolation_animations/README.html">12.2.2 Interpolation Animations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_12_generative_ai_models/12.2_variational_autoencoders/12.2.3_conditional_vaes/README.html">12.2.3 Conditional VAEs</a></li>
 </ul>
 </div>
 <p class="sd-card-text"><strong>12.3 - Diffusion Models</strong></p>
@@ -853,7 +851,7 @@ you should have all necessary libraries already.</p>
 <p class="sd-card-text"><strong>13.1 - ML Models in TD</strong></p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="content/Module_13_ai_touchdesigner_integration/13.1_ml_models_td/13.1.1_mediapipe_integration/README.html">13.1.1 - Mediapipe Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_13_ai_touchdesigner_integration/13.1_ml_models_td/13.1.1_mediapipe_integration/README.html">13.1.1 - MediaPipe Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="content/Module_13_ai_touchdesigner_integration/13.1_ml_models_td/13.1.2_runwayml_bridge/README.html">13.1.2 - Runwayml Bridge</a></li>
 <li class="toctree-l1"><a class="reference internal" href="content/Module_13_ai_touchdesigner_integration/13.1_ml_models_td/13.1.3_onnx_runtime/README.html">13.1.3 - Onnx Runtime</a></li>
 </ul>
@@ -890,10 +888,10 @@ you should have all necessary libraries already.</p>
 <p class="sd-card-text"><strong>14.1 - Data Sources</strong></p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="content/Module_14_data_as_material/14.1_data_sources/14.1.1_apis_scraping/README.html">14.1.1 - Apis Scraping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_14_data_as_material/14.1_data_sources/14.1.1_apis_scraping/README.html">14.1.1 APIs and Data Scraping</a></li>
 <li class="toctree-l1"><a class="reference internal" href="content/Module_14_data_as_material/14.1_data_sources/14.1.2_sensor_networks/README.html">14.1.2 - Sensor Networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="content/Module_14_data_as_material/14.1_data_sources/14.1.3_social_media_streams/README.html">14.1.3 - Social Media Streams</a></li>
-<li class="toctree-l1"><a class="reference internal" href="content/Module_14_data_as_material/14.1_data_sources/14.1.4_environmental_data/README.html">14.1.4 - Environmental Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_14_data_as_material/14.1_data_sources/14.1.3_social_media_streams/README.html">14.1.3 Social Media Streams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_14_data_as_material/14.1_data_sources/14.1.4_environmental_data/README.html">14.1.4 Environmental Data</a></li>
 </ul>
 </div>
 <p class="sd-card-text"><strong>14.2 - Visualization Techniques</strong></p>
@@ -919,6 +917,16 @@ you should have all necessary libraries already.</p>
 <li class="toctree-l1"><a class="reference internal" href="content/Module_14_data_as_material/14.4_physical_data_sculptures/14.4.1_3d_printing_preparation/README.html">14.4.1 - 3D Printing Preparation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="content/Module_14_data_as_material/14.4_physical_data_sculptures/14.4.2_laser_cutting_patterns/README.html">14.4.2 - Laser Cutting Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="content/Module_14_data_as_material/14.4_physical_data_sculptures/14.4.3_cnc_toolpaths/README.html">14.4.3 - Cnc Toolpaths</a></li>
+</ul>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Module 15: Capstone Project - Eternal Flow</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Synthesis of all learned concepts: StyleGAN-based evolving Ebru marbling artwork for projection display.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/Module_15_capstone_project/README.html">Module 15: Capstone Project - “Eternal Flow”</a></li>
 </ul>
 </div>
 </div>
