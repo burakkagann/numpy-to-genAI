@@ -467,6 +467,27 @@ Skip training and use the provided checkpoint to immediately generate new design
 
 Train the StyleGAN2 model from scratch (requires 10-12 hours on GPU).
 
+**Training Dataset Preview**
+
+The StyleGAN model learns from the same 1,059 African fabric images used in Module 12.1.2:
+
+.. list-table::
+   :widths: 50 50
+
+   * - .. figure:: ../12.1.2_dcgan_art/training_samples_grid.png
+          :width: 100%
+          :alt: Nine sample African fabric patterns from the training dataset
+
+          **Training Samples** (9 of 1,059 images)
+
+     - .. figure:: stylegan_demo.gif
+          :width: 100%
+          :alt: StyleGAN generating fabric patterns through latent space walk
+
+          **Generated Output** (trained model)
+
+The StyleGAN architecture produces smoother transitions and finer detail control compared to DCGAN.
+
 Step 1: Understanding the Code
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
