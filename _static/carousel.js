@@ -44,7 +44,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Module 12: Generative AI Models
         { src: '_static/carousel/m12.1.2_dcgan_fabric.gif', alt: 'DCGAN Fabric (Module 12.1.2)' },
         { src: '_static/carousel/m12.1.3_stylegan.gif', alt: 'StyleGAN (Module 12.1.3)' },
-        { src: '_static/carousel/m12.1.4_pix2pix.png', alt: 'Pix2Pix (Module 12.1.4)' }
+        { src: '_static/carousel/m12.1.4_pix2pix.png', alt: 'Pix2Pix (Module 12.1.4)' },
+        { src: '_static/carousel/m12.3.1_ddpm_fabric_morph.gif', alt: 'DDPM Fabric Morph (Module 12.3.1)' }
     ];
 
     // Get the cube gallery container
