@@ -1,0 +1,268 @@
+"""
+Exercise 1: Generate African Fabric Patterns with DDPM
+
+This script loads a pre-trained DDPM model and generates new African fabric
+patterns through the reverse diffusion process.
+
+Prerequisites:
+- Complete Exercise 3 training first, OR
+- Download pre-trained weights from GitHub Releases
+
+The generation process:
+1. Start with pure Gaussian noise
+2. Iteratively denoise using the trained U-Net
+3. After 1000 steps (or fewer with DDIM), obtain a clean image
+
+Library: https://github.com/lucidrains/denoising-diffusion-pytorch (MIT License)
+Paper: Ho et al. (2020) "Denoising Diffusion Probabilistic Models"
+"""
+
+import os
+import sys
+from pathlib import Path
+
+# Check for required library
+try:
+    from denoising_diffusion_pytorch import Unet, GaussianDiffusion
+except ImportError:
+    print("Error: denoising-diffusion-pytorch library not found.")
+    print("Please install it with: pip install denoising-diffusion-pytorch")
+    sys.exit(1)
+
+import torch
+import numpy as np
+import matplotlib.pyplot as plt
+from PIL import Image
+
+
+# =============================================================================
+# Configuration
+# =============================================================================
+
+# Model parameters (must match training configuration)
+IMAGE_SIZE = 64
+BASE_CHANNELS = 64
+CHANNEL_MULTS = (1, 2, 4, 8)
+TIMESTEPS = 1000
+
+# Model checkpoint path
+MODEL_PATH = 'models/ddpm_african_fabrics.pt'
+
+# Generation settings
+NUM_SAMPLES = 16         # Number of images to generate
+SAMPLING_STEPS = 250     # Reduced steps using DDIM (faster)
+RANDOM_SEED = 42         # For reproducible results
+
+
+# =============================================================================
+# Model Loading
+# =============================================================================
+
+def load_model(model_path, device='cpu'):
+    """
+    Load the trained DDPM model.
+
+    Parameters:
+        model_path: Path to saved model weights
+        device: Device to load model on
+
+    Returns:
+        diffusion: GaussianDiffusion object with loaded weights
+    """
+    # Create model architecture
+    model = Unet(
+        dim=BASE_CHANNELS,
+        dim_mults=CHANNEL_MULTS,
+        flash_attn=False,
+        channels=3
+    )
+
+    # Create diffusion process
+    diffusion = GaussianDiffusion(
+        model,
+        image_size=IMAGE_SIZE,
+        timesteps=TIMESTEPS,
+        sampling_timesteps=SAMPLING_STEPS,
+        objective='pred_noise'
+    )
+
+    # Load weights
+    if os.path.exists(model_path):
+        print(f"Loading model from: {model_path}")
+        checkpoint = torch.load(model_path, map_location=device, weights_only=False)
+
+        # Handle trainer checkpoint format (contains EMA weights)
+        if 'ema' in checkpoint:
+            print("Loading EMA weights from trainer checkpoint...")
+            ema_state = checkpoint['ema']
+            state_dict = {}
+            for key, value in ema_state.items():
+                if key.startswith('ema_model.'):
+                    new_key = key.replace('ema_model.', '')
+                    state_dict[new_key] = value
+            diffusion.load_state_dict(state_dict)
+        else:
+            # Simple state dict format
+            model.load_state_dict(checkpoint)
+
+        print("Model loaded successfully!")
+    else:
+        print(f"Warning: Model file not found at '{model_path}'")
+        print("\nTo use this script, you need to either:")
+        print("1. Complete Exercise 3 to train your own model")
+        print("2. Download pre-trained weights from GitHub Releases:")
+        print("   https://github.com/burakkagann/numpy-to-genAI/releases/tag/v1.0.0-ddpm-weights")
+        print("\nUsing randomly initialized weights (output will be noise)")
+
+    diffusion.to(device)
+    diffusion.eval()
+
+    return diffusion
+
+
+# =============================================================================
+# Image Generation
+# =============================================================================
+
+def generate_samples(diffusion, num_samples=16, seed=None, device='cpu'):
+    """
+    Generate fabric patterns using the trained model.
+
+    Parameters:
+        diffusion: Loaded GaussianDiffusion model
+        num_samples: Number of images to generate
+        seed: Random seed for reproducibility
+        device: Device to generate on
+
+    Returns:
+        samples: Generated images as numpy array
+    """
+    if seed is not None:
+        torch.manual_seed(seed)
+        if device == 'cuda':
+            torch.cuda.manual_seed(seed)
+
+    print(f"\nGenerating {num_samples} samples...")
+    print(f"Using {SAMPLING_STEPS} sampling steps (DDIM acceleration)")
+
+    with torch.no_grad():
+        samples = diffusion.sample(batch_size=num_samples)
+
+    # Convert to numpy and denormalize
+    samples = samples.cpu()
+    samples = (samples + 1) / 2  # [-1, 1] -> [0, 1]
+    samples = samples.clamp(0, 1)
+    samples = samples.numpy()
+
+    return samples
+
+
+def create_grid(samples, grid_size=4):
+    """
+    Arrange samples into a grid image.
+
+    Parameters:
+        samples: Array of images [N, C, H, W]
+        grid_size: Grid dimensions (grid_size x grid_size)
+
+    Returns:
+        grid: Single image containing all samples
+    """
+    n, c, h, w = samples.shape
+    grid = np.zeros((c, h * grid_size, w * grid_size))
+
+    for i in range(min(n, grid_size * grid_size)):
+        row = i // grid_size
+        col = i % grid_size
+        grid[:, row*h:(row+1)*h, col*w:(col+1)*w] = samples[i]
+
+    return grid.transpose(1, 2, 0)  # [C, H, W] -> [H, W, C]
+
+
+def save_individual_samples(samples, output_dir='generated_samples'):
+    """
+    Save each generated sample as an individual image.
+
+    Parameters:
+        samples: Array of images [N, C, H, W]
+        output_dir: Directory to save images
+    """
+    os.makedirs(output_dir, exist_ok=True)
+
+    for i, sample in enumerate(samples):
+        img = (sample.transpose(1, 2, 0) * 255).astype(np.uint8)
+        img = Image.fromarray(img)
+        img.save(os.path.join(output_dir, f'fabric_{i:04d}.png'))
+
+    print(f"Saved {len(samples)} images to '{output_dir}/'")
+
+
+# =============================================================================
+# Main
+# =============================================================================
+
+def main():
+    """Main generation function."""
+    print("=" * 60)
+    print("DDPM African Fabric Pattern Generator")
+    print("=" * 60)
+
+    # Check for GPU
+    device = 'cuda' if torch.cuda.is_available() else 'cpu'
+    print(f"\nDevice: {device}")
+
+    # Load model
+    diffusion = load_model(MODEL_PATH, device)
+
+    # Generate samples
+    samples = generate_samples(
+        diffusion,
+        num_samples=NUM_SAMPLES,
+        seed=RANDOM_SEED,
+        device=device
+    )
+
+    print(f"\nGenerated {len(samples)} fabric patterns")
+
+    # Create and save grid
+    grid_size = int(np.ceil(np.sqrt(NUM_SAMPLES)))
+    grid = create_grid(samples, grid_size)
+
+    plt.figure(figsize=(10, 10))
+    plt.imshow(grid)
+    plt.axis('off')
+    plt.title('DDPM Generated African Fabric Patterns', fontsize=14)
+    plt.tight_layout()
+    plt.savefig('exercise1_output.png', dpi=150, bbox_inches='tight')
+    plt.close()
+
+    print("Saved grid to 'exercise1_output.png'")
+
+    # Also save individual samples
+    save_individual_samples(samples)
+
+    # Print reflection questions
+    print("\n" + "=" * 60)
+    print("Reflection Questions")
+    print("=" * 60)
+    print("""
+1. How do these DDPM-generated patterns compare to the DCGAN output
+   from Module 12.1.2? Do you notice differences in:
+   - Detail and sharpness?
+   - Color consistency?
+   - Pattern coherence?
+
+2. The diffusion model uses 1000 timesteps to gradually add noise
+   during training. Why might this gradual approach produce more
+   stable training than GANs?
+
+3. We used DDIM with 250 sampling steps instead of 1000. How does
+   this affect the generation quality vs speed trade-off?
+
+4. Examine the generated patterns carefully. Do you see any
+   artifacts or repetitive elements? What might cause these?
+    """)
+
+
+if __name__ == '__main__':
+    main()
