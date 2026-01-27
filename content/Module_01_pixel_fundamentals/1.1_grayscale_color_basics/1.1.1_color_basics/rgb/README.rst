@@ -6,7 +6,6 @@
 
 :Duration: 20-25 minutes
 :Level: Beginner
-:Prerequisites: Module 0.1, 0.2
 
 Overview
 ========
@@ -67,7 +66,7 @@ Grayscale: The Foundation
 
 Before diving into color, let's understand the simplest form of digital images: grayscale.
 
-**A grayscale image is a 2D grid of pixels, where each pixel has a brightness value:**
+**A grayscale image is a 2D grid of pixels, where each pixel has a brightness value** [Gonzalez2007]_:
 
 * **0** = black (no light)
 * **255** = white (maximum light)
@@ -84,8 +83,10 @@ Before diving into color, let's understand the simplest form of digital images: 
    array += 128
 
    # Convert array to image and save
-   image = Image.fromarray(array)
+   image = Image.fromarray(array)  # PIL converts NumPy arrays to images
    image.save('gray.png')
+
+The ``Image.fromarray()`` function from Pillow converts NumPy arrays into displayable images [PillowDocs]_.
 
 .. figure:: /content/Module_00_foundations_definitions/0.3_images_as_data/0.3.1_creating_images/grayscale/lincoln.png
    :width: 700px
@@ -97,7 +98,7 @@ Before diving into color, let's understand the simplest form of digital images: 
 The ``uint8`` data type
 -----------------------
 
-The ``dtype=np.uint8`` parameter is crucial for image arrays:
+The ``dtype=np.uint8`` parameter is crucial for image arrays [NumPyDocs]_:
 
 * **u** = unsigned (no negative numbers)
 * **int** = integer (whole numbers only)
@@ -115,7 +116,7 @@ The ``dtype=np.uint8`` parameter is crucial for image arrays:
 Array shape and coordinates
 ---------------------------
 
-NumPy arrays use **[row, column]** indexing:
+NumPy arrays use **[row, column]** indexing [NumPyDocs]_:
 
 * **row** = y-coordinate (vertical position, 0 at top)
 * **column** = x-coordinate (horizontal position, 0 at left)
@@ -143,7 +144,7 @@ Now that you understand grayscale (2D arrays), let's extend to color images with
 The fundamental insight
 ------------------------
 
-**An RGB image is a 3D array of numbers.** Each number represents the intensity of light for one color channel at one pixel location. In Python using NumPy, an RGB image has shape `(height, width, 3)`, where the three channels represent red, green, and blue intensities. 
+**An RGB image is a 3D array of numbers.** Each number represents the intensity of light for one color channel at one pixel location. In Python using NumPy, an RGB image has shape `(height, width, 3)`, where the three channels represent red, green, and blue intensities [Gonzalez2007]_. 
 
 .. code-block:: python
 
@@ -161,9 +162,9 @@ The fundamental insight
    
    Array indexing uses `image[y, x, channel]`. Did you notice **y comes first** (row), then x (column)? This follows matrix notation, where the origin (0, 0) is at the **top-left corner**. 
 
-.. admonition:: Did You Know? 
-   
-   Your display screen doesn't actually show "any color" per pixel! Each pixel contains three tiny subpixels, one red, one green, one blue arranged side by side. They're so small your eye blends them into a single perceived color. If you can, try viewing your screen through a magnifying glass to see the RGB stripe pattern!
+.. admonition:: Did You Know?
+
+   Your display screen doesn't actually show "any color" per pixel! Each pixel contains three tiny subpixels, one red, one green, one blue arranged side by side. They're so small your eye blends them into a single perceived color [Wikipedia2024]_. If you can, try viewing your screen through a magnifying glass to see the RGB stripe pattern!
 
 The RGB color model
 --------------------
@@ -176,41 +177,41 @@ RGB is an **additive color model**, meaning we start with darkness (black) and a
 * **White (255, 255, 255)** -> All three at maximum
 * **Black (0, 0, 0)** -> No light
 
-Each channel stores values from **0 to 255** (8 bits = 256 possible values), giving us **16,777,216 total colors** (256³).  This is called "24-bit true color"  and closely matches the approximately 10 million colors the human eye can discriminate. 
+Each channel stores values from **0 to 255** (8 bits = 256 possible values), giving us **16,777,216 total colors** (256³). This is called "24-bit true color" and exceeds the approximately 10 million colors the human eye can discriminate [Hunt2004]_, [Foley1990]_. 
 
 .. figure:: /images/rgb_additive_mixing.png
    :width: 500px
    :align: center
    :alt: Diagram showing RGB additive color mixing
    
-   RGB additive color mixing: overlapping light creates secondary colors (Adapted from Woo, 2024)
+   RGB additive color mixing: overlapping light creates secondary colors (Adapted from [Woo2024]_)
 
 .. note::
    
-   RGB is fundamentally different from mixing paint! Paint uses **subtractive color** (CMYK). You start with white paper and pigments *subtract* wavelengths by absorbing them.  That's why mixing red and green **light** creates yellow, but mixing red and green **paint** creates brown.
+   RGB is fundamentally different from mixing paint! Paint uses **subtractive color** (CMYK). You start with white paper and pigments *subtract* wavelengths by absorbing them. That's why mixing red and green **light** creates yellow, but mixing red and green **paint** creates brown [Hunt2004]_.
 
 Common RGB color patterns
 --------------------------
 
-Understanding these patterns helps you think in RGB:
+Understanding these patterns helps you think in RGB [Foley1990]_:
 
 * **Primary colors**: One channel at 255, others at 0
 * **Secondary colors**: Two channels at 255, one at 0
-  - Cyan `(0, 255, 255)` = Green + Blue 
-  - Magenta `(255, 0, 255)` = Red + Blue   
-  - Yellow `(255, 255, 0)` = Red + Green 
+  - Cyan `(0, 255, 255)` = Green + Blue
+  - Magenta `(255, 0, 255)` = Red + Blue
+  - Yellow `(255, 255, 0)` = Red + Green
 * **Grayscale**: All three channels equal `(N, N, N)`
 * **Pastels**: High values across all channels (light colors)
 * **Dark colors**: Low values across all channels
 
 .. admonition:: Did You Know? 
    
-   The human eye has three types of cone cells for color vision, but they're NOT actually "red," "green," and "blue" receptors! The L-cones peak around 570nm (greenish-yellow), M-cones around 540nm (green), and S-cones around 440nm (blue-violet).  RGB is a computational convenience that *approximately* matches this trichromatic vision system (Gonzalez & Woods, 2007; Hunt, 2004).
+   The human eye has three types of cone cells for color vision, but they're NOT actually "red," "green," and "blue" receptors! The L-cones peak around 559nm (yellow-green), M-cones around 530nm (green), and S-cones around 420nm (blue-violet). RGB is a computational convenience that *approximately* matches this trichromatic vision system [Gonzalez2007]_, [Hunt2004]_.
 
 Hands-On Exercises
 ==================
 
-Now apply what you've learned with three progressively challenging exercises.  Each builds on the previous one using the **Execute → Modify → Create** approach. 
+Now apply what you've learned with three progressively challenging exercises. Each builds on the previous one using the **Execute → Modify → Create** approach [Sweller1985]_, [Mayer2020]_. 
 
 Exercise 1: Execute and explore
 ---------------------------------
@@ -396,14 +397,14 @@ In just 15-20 minutes, you've learned the foundational concept of digital image 
 * Don't confuse RGB (additive/light) with CMYK (subtractive/paint)
 * Remember: `image[row, column]` not `image[x, y]`
 * Always use `dtype=np.uint8` for standard 0-255 image data
-* Different libraries may use BGR instead of RGB (looking at you, OpenCV!) 
+* Different libraries may use BGR instead of RGB (looking at you, OpenCV!) [OpenCV2024]_ 
 
 This foundational knowledge prepares you for more advanced color manipulations, transformations, and eventually, generative AI art creation.
 
 References
 ==========
 
-.. [Foley1990] Foley, J.D., van Dam, A., Feiner, S.K., and Hughes, J.F. (1990). *Computer Graphics: Principles and Practice* (2nd ed.). Addison-Wesley. [Chapters 13 on color models and RGB fundamentals]
+.. [Foley1990] Foley, J.D., van Dam, A., Feiner, S.K., and Hughes, J.F. (1990). *Computer Graphics: Principles and Practice* (2nd ed.). Addison-Wesley. ISBN: 0-201-12110-7. [Chapters 13 on color models and RGB fundamentals]
 
 .. [Gonzalez2007] Gonzalez, R.C. and Woods, R.E. (2007). *Digital Image Processing* (3rd ed.). Pearson. [Chapter 6 on color image processing and RGB representation]
 
@@ -420,4 +421,8 @@ References
 
 .. [Woo2024] Woo, Tom. "The Truth: Can RGB Lights Make White?" *Unitop LED Strip*, 4 May 2024, www.unitopledstrip.com/es/can-rgb-lights-make-white/. [RGB additive color mixing diagram]
 
-.. [Harmon1973] Harmon, L.D. (1973). "The Recognition of Faces." *Scientific American*, 229(5), 70-82. [Lincoln portrait pixel demonstration - public domain historical image]
+.. [Harmon1973] Harmon, L.D. (1973). "The Recognition of Faces." *Scientific American*, 229(5), 71-82. [Lincoln portrait pixel demonstration - public domain historical image]
+
+.. [OpenCV2024] OpenCV Team. (2024). "Color Space Conversions." *OpenCV Documentation*. https://docs.opencv.org/4.x/d8/d01/group__imgproc__color__conversions.html [BGR color ordering in OpenCV]
+
+.. [Wikipedia2024] Wikipedia contributors. (2024). "Subpixel rendering." *Wikipedia, The Free Encyclopedia*. https://en.wikipedia.org/wiki/Subpixel_rendering [Display subpixel structure and RGB stripe arrangement]
