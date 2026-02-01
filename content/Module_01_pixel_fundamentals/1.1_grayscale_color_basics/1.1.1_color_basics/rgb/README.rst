@@ -10,7 +10,7 @@
 Overview
 ========
 
-Digital images are arrays of numbers. This fundamental concept is essential for algorithmic art, machine learning, and AI-powered art generation. In this module, you'll start with grayscale images (2D arrays) and progress to RGB color images (3D arrays), establishing the foundation for all image manipulation throughout this course.
+Digital images are arrays of numbers. A single 4K image contains 26 million pixels. Three integers per pixel, each specifying the intensity of the red, green, and blue channels. Manipulating these arrays directly opens every technique from vintage photo filters to training convolutional networks.
 
 **Learning Objectives**
 
@@ -37,11 +37,11 @@ Let's start with something visual. Run this code to create a simple image:
    # Create a 200x200 image with 3 color channels (RGB)
    image = np.zeros((200, 200, 3), dtype=np.uint8)
 
-   # Top half: cyan (green + blue light)
+   # Top half: cyan 
    image[:100, :, 1] = 255  # Green channel
    image[:100, :, 2] = 255  # Blue channel
 
-   # Bottom half: magenta (red + blue light)
+   # Bottom half: magenta 
    image[100:, :, 0] = 255  # Red channel
    image[100:, :, 2] = 255  # Blue channel
 
@@ -59,10 +59,10 @@ Let's start with something visual. Run this code to create a simple image:
 
 .. tip::
 
-   Notice the shape `(200, 200, 3)`, respectively they are defined as  **(height, width, channels)**. The third dimension holds our red, green, and blue values.
+    The shape of the image is `(200, 200, 3)`, respectively they are defined as  **(height, width, channels)**. The Channels dimension holds our red, green, and blue values. Height and width are the dimensions of the image, and channels are the number of color channels in the image.
 
-Grayscale: The Foundation
-=========================
+Core Concept 1: Grayscale - The Foundation
+==========================================
 
 Before diving into color, let's understand the simplest form of digital images: grayscale.
 
@@ -71,6 +71,8 @@ Before diving into color, let's understand the simplest form of digital images: 
 * **0** = black (no light)
 * **255** = white (maximum light)
 * **128** = medium gray (half intensity)
+
+View any digital photograph in grayscale, and you're looking at a 2D grid...
 
 .. code-block:: python
    :caption: Creating a simple grayscale image
@@ -82,8 +84,8 @@ Before diving into color, let's understand the simplest form of digital images: 
    array = np.zeros((200, 200), dtype=np.uint8)
    array += 128
 
-   # Convert array to image and save
-   image = Image.fromarray(array)  # PIL converts NumPy arrays to images
+   # PIL interprets 2D arrays as grayscale automaticall
+   image = Image.fromarray(array)  
    image.save('gray.png')
 
 The ``Image.fromarray()`` function from Pillow converts NumPy arrays into displayable images [PillowDocs]_.
@@ -98,7 +100,7 @@ The ``Image.fromarray()`` function from Pillow converts NumPy arrays into displa
 The ``uint8`` data type
 -----------------------
 
-The ``dtype=np.uint8`` parameter is crucial for image arrays [NumPyDocs]_:
+The ``dtype=np.uint8`` parameter is required for image arrays [NumPyDocs]_:
 
 * **u** = unsigned (no negative numbers)
 * **int** = integer (whole numbers only)
@@ -110,8 +112,8 @@ The ``dtype=np.uint8`` parameter is crucial for image arrays [NumPyDocs]_:
    array = np.zeros((100, 100), dtype=np.uint8)
 
    # Wrong: without dtype specification
-   array = np.zeros((100, 100))  # Defaults to float64
-   # PIL may not handle floats correctly
+   array = np.zeros((100, 100))   # Defaults to float64—PIL expects uint8 for 0-255 images
+   #  PIL may misinterpret or reject float arrays
 
 Array shape and coordinates
 ---------------------------
@@ -134,21 +136,21 @@ NumPy arrays use **[row, column]** indexing [NumPyDocs]_:
 
 .. tip::
 
-   **Remember:** ``array[y, x]`` not ``array[x, y]``. This follows matrix notation, opposite to many graphics systems.
+   **Remember:** ``array[y, x]`` not ``array[x, y]``. NumPy uses row-major indexing matching mathematical matrix notation, where the first index selects the row and the second selects the column [NumPyDocs]_. This is opposite to the (x, y) convention used in many graphics systems.
 
-Understanding Digital Images
-==============================
+Core Concept 2: Understanding Digital Images
+=============================================
 
-Now that you understand grayscale (2D arrays), let's extend to color images with RGB channels.
+Now that you understand grayscale, let's extend to color images with RGB channels.
 
 The fundamental insight
 ------------------------
 
-**An RGB image is a 3D array of numbers.** Each number represents the intensity of light for one color channel at one pixel location. In Python using NumPy, an RGB image has shape `(height, width, 3)`, where the three channels represent red, green, and blue intensities [Gonzalez2007]_. 
+**An RGB image is a 3D array of numbers.** Each number represents the intensity of light for one color channel at one pixel location. In Python using NumPy, an RGB image has shape `(height, width, 3)`. The three channels represent red, green, and blue intensities [Gonzalez2007]_. 
 
 .. code-block:: python
 
-   # A simple RGB image structure
+   # RGB array: height × width × 3 channels
    image = np.zeros((100, 150, 3), dtype=np.uint8)
    # Shape: (height=100, width=150, channels=3)
    
@@ -162,12 +164,12 @@ The fundamental insight
    
    Array indexing uses `image[y, x, channel]`. Did you notice **y comes first** (row), then x (column)? This follows matrix notation, where the origin (0, 0) is at the **top-left corner**. 
 
-.. admonition:: Did You Know?
+.. admonition:: Technical Note: Display Subpixels
 
-   Your display screen doesn't actually show "any color" per pixel! Each pixel contains three tiny subpixels, one red, one green, one blue arranged side by side. They're so small your eye blends them into a single perceived color [Wikipedia2024]_. If you can, try viewing your screen through a magnifying glass to see the RGB stripe pattern!
+   This RGB encoding mirrors your display's physical structure. Each screen pixel contains three subpixels (red, green, blue) so small that your eye blends their light into perceived color [Wikipedia2024]_
 
-The RGB color model
---------------------
+Core Concept 3: The RGB Color Model
+------------------------------------
 
 RGB is an **additive color model**, meaning we start with darkness (black) and add colored light: 
 
@@ -179,12 +181,12 @@ RGB is an **additive color model**, meaning we start with darkness (black) and a
 
 Each channel stores values from **0 to 255** (8 bits = 256 possible values), giving us **16,777,216 total colors** (256³). This is called "24-bit true color" and exceeds the approximately 10 million colors the human eye can discriminate [Hunt2004]_, [Foley1990]_. 
 
-.. figure:: /images/rgb_additive_mixing.png
+.. figure:: rgb_additive_mixing_local.png
    :width: 500px
    :align: center
    :alt: Diagram showing RGB additive color mixing
-   
-   RGB additive color mixing: overlapping light creates secondary colors (Adapted from [Woo2024]_)
+
+   RGB additive color mixing: overlapping light creates secondary colors. Diagram generated with Claude - Opus 4.5
 
 .. note::
    
@@ -204,19 +206,17 @@ Understanding these patterns helps you think in RGB [Foley1990]_:
 * **Pastels**: High values across all channels (light colors)
 * **Dark colors**: Low values across all channels
 
-.. admonition:: Did You Know? 
+.. admonition:: Technical Note:
    
    The human eye has three types of cone cells for color vision, but they're NOT actually "red," "green," and "blue" receptors! The L-cones peak around 559nm (yellow-green), M-cones around 530nm (green), and S-cones around 420nm (blue-violet). RGB is a computational convenience that *approximately* matches this trichromatic vision system [Gonzalez2007]_, [Hunt2004]_.
 
 Hands-On Exercises
 ==================
 
-Now apply what you've learned with three progressively challenging exercises. Each builds on the previous one using the **Execute → Modify → Create** approach [Sweller1985]_, [Mayer2020]_. 
+Now it is time to apply what you've learned with three progressively challenging exercises. Each builds on the previous one using the **Execute → Modify → Create** approach [Sweller1985]_, [Mayer2020]_. 
 
 Exercise 1: Execute and explore
 ---------------------------------
-
-**Time estimate:** 3-4 minutes
 
 Run the following code and observe the output. Try to predict what color you'll see before running it.
 
@@ -258,7 +258,6 @@ Run the following code and observe the output. Try to predict what color you'll 
 Exercise 2: Modify to achieve goals
 -------------------------------------
 
-**Time estimate:** 3-4 minutes
 
 Modify the code from Exercise 1 to create each of these colors. Change only the three channel values.
 
@@ -306,7 +305,6 @@ Modify the code from Exercise 1 to create each of these colors. Change only the 
 Exercise 3: Create a gradient pattern
 ---------------------------------------
 
-**Time estimate:** 5-6 minutes
 
 Now create something from scratch: a horizontal color gradient that transitions smoothly from one color to another.
 
@@ -337,7 +335,7 @@ Now create something from scratch: a horizontal color gradient that transitions 
    pil_image.show() 
    pil_image.save('gradient.png')
 
-.. dropdown:: 💡 Complete Solution
+.. dropdown:: Complete Solution
    
    .. code-block:: python
       :caption: Red-to-blue horizontal gradient
@@ -371,35 +369,42 @@ Now create something from scratch: a horizontal color gradient that transitions 
    
    **Challenge extension:** Try creating a **vertical** gradient, or a gradient from yellow to cyan!
 
+.. dropdown:: Challenge Extension: Diagonal Gradient
+
+   Create a gradient that runs diagonally from **red at top-left** to **blue at bottom-right**.
+
+   **Hints:**
+
+   * You need to consider BOTH the row (y) and column (x) position
+   * One approach: calculate a "progress" value based on ``(row + col) / (height + width - 2)``
+   * Red should be maximum at (0,0) and minimum at (height-1, width-1)
+   * Blue should be the opposite
+
+   This extends the horizontal gradient by requiring you to think in two dimensions simultaneously.
+
 .. figure:: /images/gradient_example.png
    :width: 400px
    :align: center
    :alt: Example red-to-blue gradient output
    
-   Example output: smooth gradient from red to blue
+   Expected output: smooth gradient from red to blue
 
 Summary
 =======
 
-In just 15-20 minutes, you've learned the foundational concept of digital image representation:
+In just 15-20 minutes, we've covered 3 of the core concepts of digital image representation: grayscale, RGB, and array indexing.
 
 **Key takeaways:**
 
-* Digital images are NumPy arrays with shape `(height, width, 3)` for RGB
-* Each pixel stores three intensity values from 0-255 (one per color channel)
-* RGB uses **additive color mixing**: combine light to create colors
-* Array indexing: `image[y, x, channel]` where y=row, x=column
-* Equal RGB values create grayscale; different values create colors
-* You can create images programmatically by setting array values
+An RGB image is a 3D NumPy array with shape ``(height, width, 3)``. Each pixel holds three intensity values ranging from 0 to 255, one per color channel, and additive mixing determines the perceived color. The indexing convention ``image[y, x, channel]`` places rows before columns, matching matrix notation rather than typical graphics (x, y) coordinates. When all three channel values are equal, the result is grayscale; unequal values produce colors. You can generate images entirely through array operations, without loading external image files.
 
 **Common pitfalls to avoid:**
 
 * Don't confuse RGB (additive/light) with CMYK (subtractive/paint)
 * Remember: `image[row, column]` not `image[x, y]`
 * Always use `dtype=np.uint8` for standard 0-255 image data
-* Different libraries may use BGR instead of RGB (looking at you, OpenCV!) [OpenCV2024]_ 
+* Different libraries may use BGR instead of RGB (such as OpenCV!) [OpenCV2024]_ 
 
-This foundational knowledge prepares you for more advanced color manipulations, transformations, and eventually, generative AI art creation.
 
 References
 ==========
@@ -417,9 +422,6 @@ References
 .. [NumPyDocs] Harris, C.R., et al. (2020). "Array programming with NumPy." *Nature*, 585, 357–362. https://doi.org/10.1038/s41586-020-2649-2
 
 .. [PillowDocs] Clark, A. (2015). *Pillow (PIL Fork) Documentation*. https://pillow.readthedocs.io/ [Image manipulation with Python]
-
-
-.. [Woo2024] Woo, Tom. "The Truth: Can RGB Lights Make White?" *Unitop LED Strip*, 4 May 2024, www.unitopledstrip.com/es/can-rgb-lights-make-white/. [RGB additive color mixing diagram]
 
 .. [Harmon1973] Harmon, L.D. (1973). "The Recognition of Faces." *Scientific American*, 229(5), 71-82. [Lincoln portrait pixel demonstration - public domain historical image]
 
