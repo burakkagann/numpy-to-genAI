@@ -4,27 +4,27 @@
 
 :Duration: 15-20 minutes
 :Level: Beginner
-:Prerequisites: Module 1.2.1 (Random Patterns)
+
 
 Overview
 ========
 
-Cellular automata also known as Game of Life, transform simple rules into complex, evolving patterns that seem almost alive. In this exercise, you'll discover how Conway's Game of Life creates emergent behavior from just a few mathematical rules, opening the door to understanding how complexity arises from simplicity in computational art.
+Cellular automata, popularized by Conway's Game of Life [Gardner1970]_, transform simple rules into complex, evolving patterns that seem alive. In this module, you'll discover how Conway's Game of Life creates emergent behavior from just a few mathematical rules, showcasing how complexity arises from simplicity in computational systems [Wolfram2002]_.
 
 **Learning Objectives**
 
 By completing this exercise, you will:
 
 * Understand how cellular automata generate dynamic patterns from simple rules
-* Master Conway's Game of Life rules and their implementation
+* Practice Conway's Game of Life rules and their implementation
 * Learn neighbor calculation techniques using convolution
-* Explore emergent behavior in computational systems
+* Explore simple but emergent behavior in your computer
 * Create evolving visual patterns that change over time
 
 Quick Start: See Life In Action
 ===============================
 
-Let's begin by creating a simple cellular automaton that demonstrates emergent behavior immediately:
+Let's begin by creating a simple cellular automaton:
 
 .. code-block:: python
    :caption: Create Conway's Game of Life glider animation
@@ -45,12 +45,26 @@ Let's begin by creating a simple cellular automaton that demonstrates emergent b
 
    # Generate 8 frames of glider movement
    frames = []
-   kernel = np.array([[1, 1, 1], [1, 0, 1], [1, 1, 1]])
+
+   # Moore neighborhood kernel: counts all 8 surrounding cells
+   # The center (0) is excluded - we don't count the cell itself
+   kernel = np.array([[1, 1, 1],   # top-left, top, top-right
+                      [1, 0, 1],   # left, [cell], right
+                      [1, 1, 1]])  # bottom-left, bottom, bottom-right
 
    for step in range(8):
        frames.append(grid_to_image(grid))
+
+       # Count neighbors for every cell simultaneously
        neighbor_count = convolve(grid, kernel, mode='wrap')
-       grid = ((neighbor_count == 3) | ((grid == 1) & (neighbor_count == 2))).astype(int)
+
+       # Apply Conway's Game of Life rules (B3/S23):
+       # BIRTH: Dead cell with exactly 3 neighbors becomes alive
+       # SURVIVAL: Living cell with 2 or 3 neighbors stays alive
+       # DEATH: All other cells die (isolation: <2, overcrowding: >3)
+       birth = (neighbor_count == 3)
+       survival = (grid == 1) & (neighbor_count == 2)
+       grid = (birth | survival).astype(int)
 
    # Save as animated GIF
    imageio.mimsave('glider_animation.gif', frames, fps=2, duration=0.5)
@@ -62,17 +76,17 @@ Let's begin by creating a simple cellular automaton that demonstrates emergent b
 
    Various Game of Life patterns: gliders move, blocks stay still, beehives remain stable
 
-.. tip::
+.. Note::
 
-   Notice how the "glider" pattern appears to move across the grid! This emergent behavior arises purely from the mathematical rules we have set. None of the individual movements was programmed.
+   Notice how the "glider" pattern appears to move across the grid! The glider moves one cell diagonally every 4 generations. Yet, the movement was never defined. This pattern emerges from local birth/death rules applied.
 
 Core Concepts
 =============
 
-Cellular Automata Fundamentals
-------------------------------
+Core Concept 1: Cellular Automata Fundamentals
+----------------------------------------------
 
-A **cellular automaton** consists of three essential components:
+A **cellular automaton** consists of three essential components [Wolfram2002]_:
 
 1. **Grid**: A regular array of cells, each in one of several states
 2. **Rules**: Mathematical conditions that determine state changes
@@ -86,16 +100,16 @@ A **cellular automaton** consists of three essential components:
    for generation in range(num_steps):
        grid = apply_rules(grid)  # All cells update together
 
-This simple framework can generate incredibly complex behaviors, from stable patterns to moving structures to chaotic dynamics.
+This simple framework can generate remarkably diverse behaviors [Wolfram2002]_, from stable patterns to moving structures to chaotic dynamics.
 
 .. important::
 
-   The key insight is **simultaneity**. All cells update at the same time based on the current state, not the partially updated state. This creates predictable, deterministic evolution.
+   The key insight is **simultaneity**. All cells update at the same time based on the current state, not the partially updated state. This creates predictable, deterministic evolution [Wolfram2002]_.
 
-Conway's Game of Life Rules
-----------------------------
+Conway's Game of Life Rules (B3/S23)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The **Game of Life** uses four simple rules based on each cell's eight neighbors (the **Moore neighborhood**):
+The **Game of Life** uses four simple rules based on each cell's eight neighbors (the **Moore neighborhood**) [Gardner1970]_:
 
 1. **Birth**: A dead cell with exactly 3 living neighbors becomes alive
 2. **Survival**: A living cell with 2 or 3 living neighbors stays alive
@@ -109,7 +123,7 @@ The **Game of Life** uses four simple rules based on each cell's eight neighbors
    survival = (neighbor_count >= 2) & (neighbor_count <= 3) & (grid == 1)
    new_grid = (birth | survival).astype(int)
 
-These rules create three categories of patterns:
+These rules create three categories of patterns [Adamatzky2010]_:
 
 * **Still lifes**: Patterns that never change (blocks, beehives)
 * **Oscillators**: Patterns that repeat in cycles (blinkers, toads)
@@ -117,16 +131,16 @@ These rules create three categories of patterns:
 
 .. note::
 
-   John Conway designed these rules in 1970 to create a system where interesting behavior would emerge but not grow indefinitely. The balance between birth and death creates rich dynamics without explosion.
+   John Conway designed these rules in 1970 [Gardner1970]_ to simplify John von Neumann's 29-state cellular automaton [VonNeumann1966]_. Conway wanted a system where interesting behavior would emerge but not grow indefinitely. The formal treatment of these rules appears in *Winning Ways for Your Mathematical Plays* [BerlekampConwayGuy2004]_, co-authored by Conway himself.
 
-Pattern Classification in Game of Life
----------------------------------------
+Core Concept 2: Pattern Classification in Game of Life
+-------------------------------------------------------
 
-Conway's simple rules create three fundamental categories of patterns, each with distinct behaviors that you can learn to recognize:
+Conway's simple rules create three fundamental categories of patterns [Adamatzky2010]_, each with distinct behaviors that you can learn to recognize:
 
 **Still Lifes: Stable Forever**
 
-These patterns never change once formed. The most common is the **block**:
+These patterns never change once formed. The most common is the **block** [LifeWiki]_:
 
 .. code-block:: text
 
@@ -152,7 +166,7 @@ These patterns repeat in cycles. The **blinker** alternates every generation:
    . ■ ■ ■ .   →    . . ■ . .   →    . ■ ■ ■ .
    . . . . .        . . ■ . .        . . . . .
 
-The horizontal line becomes vertical, then back to horizontal - a **period-2 oscillator**.
+The horizontal line becomes vertical, then back to horizontal — a **period-2 oscillator** [LifeWiki]_.
 
 .. figure:: blinker_oscillator_theory.gif
    :width: 250px
@@ -193,7 +207,7 @@ These patterns maintain their shape while traveling across the grid. The **glide
    ■ ■ ■ . .        . ■ ■ . .        ■ . ■ . .        . . ■ ■ .
    . . . . .        . ■ . . .        . ■ ■ . .        . . ■ . .
 
-The glider recreates itself one position down and to the right every 4 generations, creating the illusion of movement.
+The glider recreates itself one position down and to the right every 4 generations [Gardner1970]_, creating the illusion of movement. Interestingly, the glider was discovered by Richard K. Guy in 1969 while tracking the R-pentomino evolution [Roberts2015]_.
 
 .. figure:: spaceship_theory.gif
    :width: 300px
@@ -207,7 +221,7 @@ The glider recreates itself one position down and to the right every 4 generatio
    **Pattern Recognition Tip**: Look at the neighbor counts! Still lifes have perfect balance, oscillators have unstable spots that flip-flop, and spaceships have asymmetric neighbor distributions that "push" them forward.
 
 Understanding the Beacon Oscillator
-------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **The Beacon's Two States:**
 
@@ -234,10 +248,10 @@ Understanding the Beacon Oscillator
 
 This predictable 6→8→6→8 pattern makes the beacon perfect for demonstrating how Game of Life rules create rhythmic, observable changes.
 
-Neighbor Calculation with Convolution
--------------------------------------
+Core Concept 3: Neighbor Calculation with Convolution
+------------------------------------------------------
 
-The most efficient way to count neighbors uses **2D convolution** with a kernel that represents the Moore neighborhood:
+The most efficient way to count neighbors uses **2D convolution** [SciPyDocs]_ with a kernel that represents the Moore neighborhood:
 
 .. code-block:: python
 
@@ -249,19 +263,20 @@ The most efficient way to count neighbors uses **2D convolution** with a kernel 
    # Count neighbors for all cells simultaneously
    neighbor_count = convolve(grid, kernel, mode='wrap')
 
-This approach calculates all neighbor counts in parallel, making the algorithm much faster than nested loops. The `mode='wrap'` creates **toroidal boundary conditions** where the edges connect to the opposite sides.
+This approach calculates all neighbor counts in parallel, making the algorithm much faster than nested loops. The `mode='wrap'` creates **toroidal boundary conditions** [Wolfram2002]_ where the edges connect to the opposite sides.
 
 .. figure:: moore_neighborhood_theory.png
    :width: 600px
    :align: center
    :alt: Moore neighborhood diagram showing 8 neighbors and convolution kernel
 
-   The Moore neighborhood: 8 cells surrounding the center cell, and the corresponding convolution kernel that counts them
+   The Moore neighborhood: 8 cells surrounding the center cell, and the corresponding convolution kernel that counts them. Diagram generated with Claude - Opus 4.5
 
-Boundary Conditions
--------------------
 
-How you handle grid edges dramatically affects pattern behavior:
+Core Concept 4: Boundary Conditions
+------------------------------------
+
+How you handle grid edges dramatically affects pattern behavior [Flake1998]_:
 
 * **Wrap-around (torus)**: `mode='wrap'` -> patterns can move continuously
 * **Fixed edges**: `mode='constant'` -> boundaries act as permanent barriers
@@ -275,7 +290,7 @@ How you handle grid edges dramatically affects pattern behavior:
 
    # Creates very different evolutionary behaviors!
 
-For artistic applications, wrap-around often produces more interesting results because patterns can interact across the entire space.
+For artistic applications, wrap-around often produces more visually interesting results [Flake1998]_ because patterns can interact across the entire space.
 
 .. figure:: boundary_conditions_theory.gif
    :width: 600px
@@ -287,12 +302,16 @@ For artistic applications, wrap-around often produces more interesting results b
 Hands-On Exercises
 ==================
 
-Now apply what you've learned with three progressively challenging exercises. Each builds on the previous one using the **Execute → Modify → Re-code** approach.
+Now it is time to apply what you've learned with three progressively challenging exercises. Each builds on the previous one using the **Execute → Modify → Create** approach [Sweller1985]_, [Mayer2020]_.
+
+These exercises reinforce the core concepts:
+
+* **Exercise 1 (Execute)**: Practice pattern recognition (Core Concept 2)
+* **Exercise 2 (Modify)**: Explore boundary conditions and convolution (Core Concepts 3-4)
+* **Exercise 3 (Create)**: Apply B3/S23 rules to build a complex oscillator (Core Concepts 1-2)
 
 Exercise 1: Execute and explore
 ---------------------------------
-
-**Time estimate:** 4-5 minutes
 
 Now that you understand what oscillators are, let's start with the simplest example: the **blinker**. Run the following code to see this period-2 oscillator flip between horizontal and vertical orientations.
 
@@ -350,9 +369,7 @@ Now that you understand what oscillators are, let's start with the simplest exam
    * Unlike still lifes (never change) or spaceships (move), oscillators transform but stay in place
 
 Exercise 2: Modify blinker variations
-------------------------------------
-
-**Time estimate:** 4-5 minutes
+--------------------------------------
 
 Modify the code from Exercise 1 to explore different blinker configurations and boundary conditions.
 
@@ -399,7 +416,6 @@ Modify the code from Exercise 1 to explore different blinker configurations and 
 Exercise 3: Re-code with complex oscillator
 --------------------------------------------
 
-**Time estimate:** 5-6 minutes
 
 Now that you understand simple oscillators (blinker), create a more advanced oscillator: the **beacon**. This pattern shows varying cell counts and more complex behavior.
 
@@ -495,34 +511,56 @@ In this exercise, you learned fundamental techniques for creating evolving patte
 
 **Key takeaways:**
 
-* **Simple rules create complex behavior** - Conway's four rules generate infinite pattern diversity
+* **Simple rules create diverse behavior** [Wolfram2002]_ — Conway's four rules generate remarkable pattern diversity
 * **Convolution enables efficient computation** - neighbor counting scales to large grids
 * **Boundary conditions affect evolution** - wrap-around vs fixed edges change pattern dynamics
 * **Emergent properties arise** - movement, oscillation, and stability emerge from local interactions
 * **Rule variations create different behaviors** - small changes (like HighLife) produce dramatically different results
 
-**Remember**: Cellular automata demonstrate how computational processes can exhibit lifelike qualities - growth, movement, reproduction, and death - purely through mathematical rules. This makes them powerful tools for both understanding complex systems and creating dynamic generative art.
-
-This foundation in rule-based pattern evolution prepares you for more sophisticated generative techniques like reaction-diffusion systems and particle simulations.
-
-What's Next
-===========
-
-Continue to :doc:`../1.2.3_reaction_diffusion/README` to learn how continuous chemical processes create organic, flowing patterns that complement the discrete world of cellular automata.
-
 References
 ==========
 
-.. [1] Gardner, Martin. "Mathematical Games: The fantastic combinations of John Conway's new solitaire game 'life'." *Scientific American*, vol. 223, no. 4, 1970, pp. 120-123.
+**Primary Sources**
 
-.. [2] Wolfram, Stephen. *A New Kind of Science*. Wolfram Media, 2002. [Comprehensive exploration of cellular automata and computational irreducibility]
+.. [Gardner1970] Gardner, Martin. "Mathematical Games: The fantastic combinations of John Conway's new solitaire game 'life'." *Scientific American*, vol. 223, no. 4, 1970, pp. 120-123. [Original publication introducing Game of Life to the public]
 
-.. [3] Flake, Gary William. *The Computational Beauty of Nature*. MIT Press, 1998. [Chapter 6 on cellular automata in nature and art]
+**Foundational Texts**
 
-.. [4] Adamatzky, Andrew, editor. *Game of Life Cellular Automata*. Springer, 2010. [Compilation of Game of Life research and applications]
+.. [Wolfram2002] Wolfram, Stephen. *A New Kind of Science*. Wolfram Media, 2002. ISBN: 978-1-57955-008-0. [Comprehensive exploration of cellular automata and computational irreducibility]
+
+.. [Flake1998] Flake, Gary William. *The Computational Beauty of Nature: Computer Explorations of Fractals, Chaos, Complex Systems, and Adaptation*. MIT Press, 1998. ISBN: 978-0-262-56127-3. [Chapter 6 covers cellular automata with artistic applications]
+
+.. [Adamatzky2010] Adamatzky, Andrew, editor. *Game of Life Cellular Automata*. Springer, 2010. ISBN: 978-1-84996-216-2. https://doi.org/10.1007/978-1-84996-217-9 [Research compilation on GoL patterns and applications]
+
+.. [BerlekampConwayGuy2004] Berlekamp, E. R., Conway, J. H., & Guy, R. K. (2004). *Winning ways for your mathematical plays* (2nd ed., Vol. 4, Chapter 25: "What Is Life?"). A K Peters. ISBN: 1-56881-144-6 [Conway's own formal treatment of the Game of Life rules]
+
+.. [Roberts2015] Roberts, S. (2015). *Genius at play: The curious mind of John Horton Conway* (pp. 125-126). Bloomsbury. ISBN: 978-1-62040-593-2 [Confirms the glider was discovered by Richard K. Guy in 1969]
+
+.. [VonNeumann1966] Von Neumann, J. (1966). *Theory of self-reproducing automata* (A. W. Burks, Ed.). University of Illinois Press. [Conway designed GoL to simplify von Neumann's 29-state cellular automaton]
+
+**Technical Documentation**
+
+.. [SciPyDocs] SciPy Developers. (2024). scipy.ndimage.convolve — N-dimensional convolution. *SciPy v1.12.0 Documentation*. https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.convolve.html
+
+.. [NumPyDocs] NumPy Developers. (2024). NumPy array manipulation routines. *NumPy v1.26 Documentation*. https://numpy.org/doc/stable/reference/routines.array-manipulation.html
+
+**Pattern References**
+
+.. [LifeWiki] ConwayLife.com. (2024). LifeWiki — The wiki for Conway's Game of Life. https://conwaylife.com/wiki/Main_Page [Comprehensive database of patterns including block, blinker, beacon, and glider]
+
+**Pedagogical References**
+
+.. [Sweller1985] Sweller, J. (1985). Cognitive load during problem solving: Effects on learning. *Cognitive Science*, 12(2), 257-285. https://doi.org/10.1207/s15516709cog1202_4 [Foundation of cognitive load theory in instructional design]
+
+.. [Mayer2020] Mayer, R. E. (2020). *Multimedia Learning* (3rd ed.). Cambridge University Press. ISBN: 978-1-316-63816-1 [Principles of effective multimedia instruction including worked examples]
 
 .. dropdown:: Additional Resources
 
-   - `LifeWiki <https://conwaylife.com/wiki/Main_Page>`_ - Comprehensive database of Game of Life patterns
-   - `Golly <http://golly.sourceforge.net/>`_ - Advanced cellular automata simulator
-   - `Elementary Cellular Automata <https://mathworld.wolfram.com/ElementaryCellularAutomaton.html>`_ - Wolfram's classification system
+   **Simulators**
+
+   - `Golly <http://golly.sourceforge.net/>`_ — Advanced open-source cellular automata simulator
+
+   **Educational**
+
+   - `Elementary Cellular Automata <https://mathworld.wolfram.com/ElementaryCellularAutomaton.html>`_ — Wolfram MathWorld's 1D CA reference
+   - `Numberphile: Inventing Game of Life <https://www.youtube.com/watch?v=R9Plq-D1gEk>`_ — John Conway explains his invention (video)
