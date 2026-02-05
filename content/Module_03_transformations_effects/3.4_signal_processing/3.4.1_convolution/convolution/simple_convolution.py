@@ -1,14 +1,15 @@
 """
 Simple Convolution Demo - Quick Start
 
-This script demonstrates the fundamental concept of image convolution
-by applying a blur (averaging) kernel to a synthetic test pattern.
+Demonstrates the fundamental concept of image convolution by applying
+a blur (averaging) kernel to a synthetic checkerboard pattern. The sharp
+edges of the checkerboard make the smoothing effect clearly visible.
 
-The checkerboard pattern has sharp edges, making the smoothing effect
-of the blur kernel clearly visible.
-
-Author: Claude (NumPy-to-GenAI Project)
-Date: 2025-01-07
+Implementation inspired by:
+- SciPy ndimage.convolve documentation
+  https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.convolve.html
+- Gonzalez, R.C. and Woods, R.E. (2018). Digital Image Processing, 4th ed.
+  Chapter 3: Intensity Transformations and Spatial Filtering
 """
 
 import numpy as np

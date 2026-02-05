@@ -11,40 +11,65 @@ Requirements:
 4. Sum the result to get the output pixel value
 5. Handle borders by using edge padding
 
-Author: Your Name
-Date: Today's Date
+Implementation inspired by:
+- SciPy ndimage.convolve documentation
+  https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.convolve.html
+- Gonzalez, R.C. and Woods, R.E. (2018). Digital Image Processing, 4th ed.
+  Chapter 3: Intensity Transformations and Spatial Filtering
 """
 
 import numpy as np
 from PIL import Image
+import os
 
 # =============================================================================
-# Load the panda image for testing
+# Step 1: Load the Brandenburg Gate image for testing
 # =============================================================================
-# Path to shared panda image (relative from this directory)
-PANDA_PATH = '../../../3.3_artistic_filters/3.3.3_hexpanda/hexpanda/panda.png'
+# Path to the shared Brandenburg Gate image (relative from this directory)
+IMAGE_PATH = '../../../../../_static/images/bbtor.jpg'
 
-# Load and convert to grayscale
-panda = Image.open(PANDA_PATH).convert('L')
-panda = panda.resize((256, 256))  # Resize for faster processing
-image = np.array(panda, dtype=np.float64)
+# Check if the image file exists
+if os.path.exists(IMAGE_PATH):
+    # Load image and convert to grayscale
+    img = Image.open(IMAGE_PATH).convert('L')
+
+    # Resize for faster processing
+    img = img.resize((256, 171))
+
+    # Convert to numpy array
+    image = np.array(img, dtype=np.float64)
+    print(f"Loaded Brandenburg Gate image: {image.shape[1]}x{image.shape[0]} pixels")
+else:
+    print(f"Warning: Image not found at {IMAGE_PATH}")
+    print("Please ensure the image exists at the specified path.")
+    # Create simple fallback
+    image = np.zeros((171, 256), dtype=np.float64)
+    image[50:120, 80:180] = 255  # White rectangle
 
 # =============================================================================
-# Define a kernel to test with
+# Step 2: Define a kernel to test with
 # =============================================================================
-# Try different kernels! Here's an edge detection kernel:
+# Try different kernels! Here's an edge detection kernel (Laplacian):
+# - Positive center (8) surrounded by negative neighbors (-1 each)
+# - Sum of weights = 0, so uniform regions become zero
 kernel = np.array([
     [-1, -1, -1],
     [-1,  8, -1],
     [-1, -1, -1]
 ], dtype=np.float64)
 
+print("\nKernel to apply:")
+print(kernel)
+
 # =============================================================================
-# TODO: Complete this function!
+# Step 3: TODO - Complete this function!
 # =============================================================================
 def apply_convolution(image, kernel):
     """
     Apply a convolution kernel to a grayscale image.
+
+    The convolution formula (from SciPy documentation):
+    C_i = Σ_j{I_{i+k-j} W_j}
 
     Parameters:
         image (np.ndarray): 2D array of pixel values (grayscale)
@@ -61,6 +86,7 @@ def apply_convolution(image, kernel):
     output = np.zeros((height, width), dtype=np.float64)
 
     # Pad the image to handle borders
+    # 'edge' mode repeats the outermost pixels outward
     padded = np.pad(image, pad, mode='edge')
 
     # TODO: Implement the convolution!
@@ -78,9 +104,11 @@ def apply_convolution(image, kernel):
 
 
 # =============================================================================
-# Test your implementation
+# Step 4: Test your implementation
 # =============================================================================
 if __name__ == '__main__':
+    print("\nApplying your convolution function...")
+
     # Apply your convolution function
     result = apply_convolution(image, kernel)
 
@@ -93,3 +121,4 @@ if __name__ == '__main__':
 
     print("Your convolution result saved as my_convolution_result.png")
     print("If the output looks like edge detection, you did it right!")
+    print("\nHint: If the output is all black, your convolution loop isn't implemented yet.")

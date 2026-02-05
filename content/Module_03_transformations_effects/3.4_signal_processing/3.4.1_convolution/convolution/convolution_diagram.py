@@ -1,13 +1,16 @@
 """
 Convolution Concept Diagram
 
-This script creates an educational diagram showing how 2D convolution works:
+Creates an educational diagram showing how 2D convolution works:
 - A kernel overlays a region of the image
 - Element-wise multiplication occurs
 - Results are summed to produce one output pixel
 
-Author: Claude (NumPy-to-GenAI Project)
-Date: 2025-01-07
+Implementation inspired by:
+- SciPy ndimage.convolve documentation
+  https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.convolve.html
+- Gonzalez, R.C. and Woods, R.E. (2018). Digital Image Processing, 4th ed.
+  Chapter 3: Intensity Transformations and Spatial Filtering
 """
 
 import numpy as np
@@ -72,8 +75,8 @@ for i in range(3):
 ax2.set_xticks([])
 ax2.set_yticks([])
 
-# Add multiplication symbol between panels
-fig.text(0.32, 0.5, '×', fontsize=30, ha='center', va='center', fontweight='bold')
+# Add multiplication symbol between panels (positioned between subplot 0 and 1)
+fig.text(0.27, 0.5, '×', fontsize=30, ha='center', va='center', fontweight='bold')
 
 # =============================================================================
 # Panel 3: Element-wise multiplication
@@ -97,8 +100,8 @@ for i in range(3):
 ax3.set_xticks([])
 ax3.set_yticks([])
 
-# Add equals symbol
-fig.text(0.72, 0.5, '=', fontsize=30, ha='center', va='center', fontweight='bold')
+# Add equals symbol (positioned between subplot 2 and 3)
+fig.text(0.73, 0.5, '=', fontsize=30, ha='center', va='center', fontweight='bold')
 
 # =============================================================================
 # Panel 4: Sum (output pixel)
@@ -122,15 +125,15 @@ ax4.set_yticks([])
 # =============================================================================
 fig.suptitle('How 2D Convolution Works', fontsize=14, fontweight='bold', y=1.02)
 
-# Add step labels below
-fig.text(0.14, 0.02, 'Step 1: Select region', ha='center', fontsize=9)
-fig.text(0.38, 0.02, 'Step 2: Apply kernel', ha='center', fontsize=9)
-fig.text(0.62, 0.02, 'Step 3: Multiply', ha='center', fontsize=9)
-fig.text(0.86, 0.02, 'Step 4: Sum', ha='center', fontsize=9)
+# Add step labels below (moved lower to avoid overlap)
+fig.text(0.14, -0.05, 'Step 1: Select region', ha='center', fontsize=9)
+fig.text(0.38, -0.05, 'Step 2: Apply kernel', ha='center', fontsize=9)
+fig.text(0.62, -0.05, 'Step 3: Multiply', ha='center', fontsize=9)
+fig.text(0.86, -0.05, 'Step 4: Sum', ha='center', fontsize=9)
 
 plt.tight_layout()
 plt.savefig('convolution_concept.png', dpi=150, bbox_inches='tight',
-            facecolor='white', edgecolor='none')
+            facecolor='white', edgecolor='none', pad_inches=0.3)
 plt.close()
 
 print("Convolution concept diagram saved as convolution_concept.png")
