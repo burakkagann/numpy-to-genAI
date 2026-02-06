@@ -6,7 +6,7 @@
 
 :Duration: 10-12 minutes
 :Level: Beginner
-:Prerequisites: Module 0.2.1 - Defining AI, ML, and Algorithms
+
 
 Overview
 ========
