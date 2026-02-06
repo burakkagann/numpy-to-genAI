@@ -6,7 +6,6 @@
 
 :Duration: 20 minutes
 :Level: Intermediate
-:Prerequisites: Module 3.1.1 (Rotation), Module 1.1.1 (RGB Color Basics)
 
 Overview
 ========

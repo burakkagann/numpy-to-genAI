@@ -6,7 +6,6 @@
 
 :Duration: 20 minutes
 :Level: Beginner
-:Prerequisites: Module 1 (Array Basics), Module 2.2 (Coordinate Systems)
 
 Overview
 ========
