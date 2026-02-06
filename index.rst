@@ -1,6 +1,6 @@
 :hide-toc:
 
-Pixels to GenAI
+Pixels2GenAI
 ===============
 
 An open source educational platform that creates a comprehensive pathway into AI-driven generative art, bridging mathematical and visual foundations to modern creative AI techniques. This 15-module curriculum takes learners from fundamental pixel manipulation and NumPy operations through advanced generative models, neural networks, and real-time interactive systems.
@@ -111,14 +111,14 @@ Learning Modules
    .. toctree::
       :maxdepth: 1
 
-      content/Module_01_pixel_fundamentals/1.1_grayscale_color_basics/1.1.1_color_basics/rgb/README.rst
+      content/Module_01_pixel_fundamentals/1.1_grayscale_color_basics/1.1.1_color_basics/README.rst
 
    **1.2 - Pixel Manipulation Patterns**
 
    .. toctree::
       :maxdepth: 1
 
-      content/Module_01_pixel_fundamentals/1.2_pixel_manipulation_patterns/1.2.1_random_patterns/random_tiles/README.rst
+      content/Module_01_pixel_fundamentals/1.2_pixel_manipulation_patterns/1.2.1_random_patterns/README.rst
       content/Module_01_pixel_fundamentals/1.2_pixel_manipulation_patterns/1.2.2_cellular_automata/README.rst
 
    **1.3 - Structured Compositions**
@@ -126,8 +126,8 @@ Learning Modules
    .. toctree::
       :maxdepth: 1
 
-      content/Module_01_pixel_fundamentals/1.3_structured_compositions/1.3.1_flags/flags/README.rst
-      content/Module_01_pixel_fundamentals/1.3_structured_compositions/1.3.2_repeat/repeat/README.rst
+      content/Module_01_pixel_fundamentals/1.3_structured_compositions/1.3.1_flags/README.rst
+      content/Module_01_pixel_fundamentals/1.3_structured_compositions/1.3.2_repeat/README.rst
 
 .. dropdown:: Module 2: Geometry & Mathematics
 
@@ -138,19 +138,19 @@ Learning Modules
    .. toctree::
       :maxdepth: 1
 
-      content/Module_02_geometry_mathematics/2.1_basic_shapes_primitives/2.1.1_lines/lines/README.rst
-      content/Module_02_geometry_mathematics/2.1_basic_shapes_primitives/2.1.2_triangles/triangles/README.rst
-      content/Module_02_geometry_mathematics/2.1_basic_shapes_primitives/2.1.3_circles/circles/README.rst
-      content/Module_02_geometry_mathematics/2.1_basic_shapes_primitives/2.1.4_stars/stars/README.rst
+      content/Module_02_geometry_mathematics/2.1_basic_shapes_primitives/2.1.1_lines/README.rst
+      content/Module_02_geometry_mathematics/2.1_basic_shapes_primitives/2.1.2_triangles/README.rst
+      content/Module_02_geometry_mathematics/2.1_basic_shapes_primitives/2.1.3_circles/README.rst
+      content/Module_02_geometry_mathematics/2.1_basic_shapes_primitives/2.1.4_stars/README.rst
 
    **2.2 - Coordinate Systems & Fields**
 
    .. toctree::
       :maxdepth: 1
 
-      content/Module_02_geometry_mathematics/2.2_coordinate_systems_fields/2.2.1_gradient/gradient/README.rst
-      content/Module_02_geometry_mathematics/2.2_coordinate_systems_fields/2.2.2_spiral/spiral/README.rst
-      content/Module_02_geometry_mathematics/2.2_coordinate_systems_fields/2.2.3_vector_fields/vector_fields/README.rst
+      content/Module_02_geometry_mathematics/2.2_coordinate_systems_fields/2.2.1_gradient/README.rst
+      content/Module_02_geometry_mathematics/2.2_coordinate_systems_fields/2.2.2_spiral/README.rst
+      content/Module_02_geometry_mathematics/2.2_coordinate_systems_fields/2.2.3_vector_fields/README.rst
       content/Module_02_geometry_mathematics/2.2_coordinate_systems_fields/2.2.4_distance_fields/README.rst
 
    **2.3 - Mathematical Art**
@@ -170,19 +170,19 @@ Learning Modules
    .. toctree::
       :maxdepth: 1
 
-      content/Module_03_transformations_effects/3.1_geometric_transformations/3.1.1_rotation/rotate/README.rst
+      content/Module_03_transformations_effects/3.1_geometric_transformations/3.1.1_rotation/README.rst
       content/Module_03_transformations_effects/3.1_geometric_transformations/3.1.2_affine_transformations/README.rst
       content/Module_03_transformations_effects/3.1_geometric_transformations/3.1.3_nonlinear_distortions/README.rst
-      content/Module_03_transformations_effects/3.1_geometric_transformations/3.1.4_kaleidoscope_effects/kaleidoscope/README.rst
+      content/Module_03_transformations_effects/3.1_geometric_transformations/3.1.4_kaleidoscope_effects/README.rst
 
    **3.2 - Masking & Compositing**
 
    .. toctree::
       :maxdepth: 1
 
-      content/Module_03_transformations_effects/3.2_masking_compositing/3.2.1_mask/mask/README.rst
-      content/Module_03_transformations_effects/3.2_masking_compositing/3.2.2_memegen/memegen/README.rst
-      content/Module_03_transformations_effects/3.2_masking_compositing/3.2.3_shadow/shadow/README.rst
+      content/Module_03_transformations_effects/3.2_masking_compositing/3.2.1_mask/README.rst
+      content/Module_03_transformations_effects/3.2_masking_compositing/3.2.2_memegen/README.rst
+      content/Module_03_transformations_effects/3.2_masking_compositing/3.2.3_shadow/README.rst
       content/Module_03_transformations_effects/3.2_masking_compositing/3.2.4_blend_modes/README.rst
 
    **3.3 - Artistic Filters**
@@ -190,9 +190,9 @@ Learning Modules
    .. toctree::
       :maxdepth: 1
 
-      content/Module_03_transformations_effects/3.3_artistic_filters/3.3.1_warhol/warhol/README.rst
-      content/Module_03_transformations_effects/3.3_artistic_filters/3.3.2_puzzle/puzzle/README.rst
-      content/Module_03_transformations_effects/3.3_artistic_filters/3.3.3_hexpanda/hexpanda/README.rst
+      content/Module_03_transformations_effects/3.3_artistic_filters/3.3.1_warhol/README.rst
+      content/Module_03_transformations_effects/3.3_artistic_filters/3.3.2_puzzle/README.rst
+      content/Module_03_transformations_effects/3.3_artistic_filters/3.3.3_hexpanda/README.rst
       content/Module_03_transformations_effects/3.3_artistic_filters/3.3.4_voronoi_diagrams/README.rst
       content/Module_03_transformations_effects/3.3_artistic_filters/3.3.5_delaunay_triangulation/README.rst
 
@@ -201,9 +201,9 @@ Learning Modules
    .. toctree::
       :maxdepth: 1
 
-      content/Module_03_transformations_effects/3.4_signal_processing/3.4.1_convolution/convolution/README.rst
-      content/Module_03_transformations_effects/3.4_signal_processing/3.4.2_edge_detection/sobel/README.rst
-      content/Module_03_transformations_effects/3.4_signal_processing/3.4.3_contour_lines/contour/README.rst
+      content/Module_03_transformations_effects/3.4_signal_processing/3.4.1_convolution/README.rst
+      content/Module_03_transformations_effects/3.4_signal_processing/3.4.2_edge_detection/README.rst
+      content/Module_03_transformations_effects/3.4_signal_processing/3.4.3_contour_lines/README.rst
       content/Module_03_transformations_effects/3.4_signal_processing/3.4.4_fourier_art/README.rst
 
 .. dropdown:: Module 4: Fractals & Recursion
@@ -215,9 +215,9 @@ Learning Modules
    .. toctree::
       :maxdepth: 1
 
-      content/Module_04_fractals_recursion/4.1_classical_fractals/4.1.1_fractal_square/fractal_square/README.rst
-      content/Module_04_fractals_recursion/4.1_classical_fractals/4.1.2_dragon_curve/dragon_curve/README.rst
-      content/Module_04_fractals_recursion/4.1_classical_fractals/4.1.3_mandelbrot/mandelbrot/README.rst
+      content/Module_04_fractals_recursion/4.1_classical_fractals/4.1.1_fractal_square/README.rst
+      content/Module_04_fractals_recursion/4.1_classical_fractals/4.1.2_dragon_curve/README.rst
+      content/Module_04_fractals_recursion/4.1_classical_fractals/4.1.3_mandelbrot/README.rst
       content/Module_04_fractals_recursion/4.1_classical_fractals/4.1.4_julia_sets/README.rst
       content/Module_04_fractals_recursion/4.1_classical_fractals/4.1.5_sierpinski/README.rst
 
@@ -249,8 +249,8 @@ Learning Modules
    .. toctree::
       :maxdepth: 1
 
-      content/Module_05_simulation_emergent_behavior/5.1_particle_systems/5.1.1_sand/sand/README.rst
-      content/Module_05_simulation_emergent_behavior/5.1_particle_systems/5.1.2_vortex/vortex/README.rst
+      content/Module_05_simulation_emergent_behavior/5.1_particle_systems/5.1.1_sand/README.rst
+      content/Module_05_simulation_emergent_behavior/5.1_particle_systems/5.1.2_vortex/README.rst
       content/Module_05_simulation_emergent_behavior/5.1_particle_systems/5.1.3_fireworks_simulation/README.rst
       content/Module_05_simulation_emergent_behavior/5.1_particle_systems/5.1.4_fluid_simulation/README.rst
 
@@ -268,7 +268,7 @@ Learning Modules
    .. toctree::
       :maxdepth: 1
 
-      content/Module_05_simulation_emergent_behavior/5.3_physics_simulations/5.3.1_bouncing_ball/bouncing_ball/README.rst
+      content/Module_05_simulation_emergent_behavior/5.3_physics_simulations/5.3.1_bouncing_ball/README.rst
       content/Module_05_simulation_emergent_behavior/5.3_physics_simulations/5.3.2_nbody_planet_simulation/README.rst
       content/Module_05_simulation_emergent_behavior/5.3_physics_simulations/5.3.3_double_pendulum_chaos/README.rst
       content/Module_05_simulation_emergent_behavior/5.3_physics_simulations/5.3.4_cloth_rope_simulation/README.rst
@@ -336,7 +336,7 @@ Learning Modules
    .. toctree::
       :maxdepth: 1
 
-      content/Module_07_classical_machine_learning/7.1_clustering_segmentation/7.1.1_kmeans_clustering/kmeans/README.rst
+      content/Module_07_classical_machine_learning/7.1_clustering_segmentation/7.1.1_kmeans_clustering/README.rst
       content/Module_07_classical_machine_learning/7.1_clustering_segmentation/7.1.2_meanshift_segmentation/README.rst
       content/Module_07_classical_machine_learning/7.1_clustering_segmentation/7.1.3_dbscan_pattern_detection/README.rst
 
@@ -345,7 +345,7 @@ Learning Modules
    .. toctree::
       :maxdepth: 1
 
-      content/Module_07_classical_machine_learning/7.2_classification_recognition/7.2.1_decision_tree_classifier/dtree/README.rst
+      content/Module_07_classical_machine_learning/7.2_classification_recognition/7.2.1_decision_tree_classifier/README.rst
       content/Module_07_classical_machine_learning/7.2_classification_recognition/7.2.2_random_forests/README.rst
       content/Module_07_classical_machine_learning/7.2_classification_recognition/7.2.3_svm_style_detection/README.rst
 
@@ -363,7 +363,7 @@ Learning Modules
    .. toctree::
       :maxdepth: 1
 
-      content/Module_07_classical_machine_learning/7.4_statistical_methods/7.4.1_monte_carlo_sampling/montecarlo/README.rst
+      content/Module_07_classical_machine_learning/7.4_statistical_methods/7.4.1_monte_carlo_sampling/README.rst
       content/Module_07_classical_machine_learning/7.4_statistical_methods/7.4.2_markov_chains/README.rst
       content/Module_07_classical_machine_learning/7.4_statistical_methods/7.4.3_hidden_markov_models/README.rst
 
@@ -376,7 +376,7 @@ Learning Modules
    .. toctree::
       :maxdepth: 1
 
-      content/Module_08_animation_time/8.1_animation_fundamentals/8.1.1_image_transformations/image_transformations/README.rst
+      content/Module_08_animation_time/8.1_animation_fundamentals/8.1.1_image_transformations/README.rst
       content/Module_08_animation_time/8.1_animation_fundamentals/8.1.2_easing_functions/README.rst
       content/Module_08_animation_time/8.1_animation_fundamentals/8.1.3_interpolation_techniques/README.rst
       content/Module_08_animation_time/8.1_animation_fundamentals/8.1.4_sprite_sheets/README.rst
@@ -386,8 +386,8 @@ Learning Modules
    .. toctree::
       :maxdepth: 1
 
-      content/Module_08_animation_time/8.2_organic_motion/8.2.1_flower_assembly/flower_movie/README.rst
-      content/Module_08_animation_time/8.2_organic_motion/8.2.2_infinite_blossom/blossom/README.rst
+      content/Module_08_animation_time/8.2_organic_motion/8.2.1_flower_assembly/README.rst
+      content/Module_08_animation_time/8.2_organic_motion/8.2.2_infinite_blossom/README.rst
       content/Module_08_animation_time/8.2_organic_motion/8.2.3_walk_cycles/README.rst
       content/Module_08_animation_time/8.2_organic_motion/8.2.4_breathing_pulsing/README.rst
 
@@ -396,8 +396,8 @@ Learning Modules
    .. toctree::
       :maxdepth: 1
 
-      content/Module_08_animation_time/8.3_cinematic_effects/8.3.1_starwars_titles/starwars/README.rst
-      content/Module_08_animation_time/8.3_cinematic_effects/8.3.2_thank_you/thank_you/README.rst
+      content/Module_08_animation_time/8.3_cinematic_effects/8.3.1_starwars_titles/README.rst
+      content/Module_08_animation_time/8.3_cinematic_effects/8.3.2_thank_you/README.rst
       content/Module_08_animation_time/8.3_cinematic_effects/8.3.3_particle_text_reveals/README.rst
       content/Module_08_animation_time/8.3_cinematic_effects/8.3.4_morphing_transitions/README.rst
 
@@ -562,8 +562,7 @@ Learning Modules
       :maxdepth: 1
 
       content/Module_12_generative_ai_models/12.3_diffusion_models/12.3.1_ddpm_basics/README.rst
-      content/Module_12_generative_ai_models/12.3_diffusion_models/12.3.2_stable_diffusion_integration/README.rst
-      content/Module_12_generative_ai_models/12.3_diffusion_models/12.3.3_controlnet_guided_generation/README.rst
+      content/Module_12_generative_ai_models/12.3_diffusion_models/12.3.2_controlnet_guided_generation/README.rst
 
    **12.4 - Language Models for Art**
 
@@ -573,6 +572,13 @@ Learning Modules
       content/Module_12_generative_ai_models/12.4_language_models_art/12.4.1_clip_guidance/README.rst
       content/Module_12_generative_ai_models/12.4_language_models_art/12.4.2_prompt_engineering/README.rst
       content/Module_12_generative_ai_models/12.4_language_models_art/12.4.3_text_to_image_pipelines/README.rst
+
+   **12.5 - Personalization & Efficiency**
+
+   .. toctree::
+      :maxdepth: 1
+
+      content/Module_12_generative_ai_models/12.5_personalization_efficiency/12.5.1_dreambooth_personalization/README.rst
 
 .. dropdown:: Module 13: AI + TouchDesigner Integration
 
