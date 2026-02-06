@@ -4,8 +4,8 @@
 2.2.2 - Spiral
 ==================
 
+:Duration: 20 minutes
 :Level: Beginner
-:Prerequisites: Module 2.1 (Basic Shapes), basic trigonometry
 
 Overview
 ========

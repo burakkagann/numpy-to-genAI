@@ -6,7 +6,6 @@
 
 :Duration: 20 minutes
 :Level: Beginner
-:Prerequisites: Module 1.1.1 (RGB Color Basics), Module 0.3.1 (Images as Data)
 
 Overview
 ========

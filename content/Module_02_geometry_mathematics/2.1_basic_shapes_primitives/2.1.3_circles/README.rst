@@ -6,7 +6,6 @@
 
 :Duration: 20 minutes
 :Level: Beginner
-:Prerequisites: :ref:`Module 1.1.1 <module_1.1.1>` (RGB Basics), Module 2.1.1 (Lines)
 
 Overview
 ========

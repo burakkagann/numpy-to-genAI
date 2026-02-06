@@ -6,7 +6,6 @@
 
 :Duration: 20 minutes
 :Level: Beginner
-:Prerequisites: Module 2.2.2 (Spiral), basic coordinate systems
 
 Overview
 ========

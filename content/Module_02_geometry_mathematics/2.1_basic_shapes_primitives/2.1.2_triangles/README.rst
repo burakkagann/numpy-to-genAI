@@ -6,7 +6,6 @@
 
 :Duration: 20 minutes
 :Level: Beginner
-:Prerequisites: Module 2.1.1 (Drawing Lines), Module 1.1.1 (RGB Color Basics)
 
 Overview
 ========
