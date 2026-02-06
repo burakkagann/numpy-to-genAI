@@ -685,37 +685,26 @@ This work is licensed under the MIT License.
 
 See :download:`LICENSE` for full license terms.
 
-.. rubric:: References
+.. rubric:: Built With
 
-.. rubric:: Libraries
+This curriculum is built with:
 
-**Core Numerical Computing & Data Science**
+**Core Computing**: `NumPy <https://numpy.org/>`__, `SciPy <https://scipy.org/>`__, `pandas <https://pandas.pydata.org/>`__
 
-- NumPy — Harris, C.R., et al. (2020). Array programming with NumPy. Nature 585, 357–362
-- SciPy — Virtanen, P., et al. (2020). SciPy 1.0: Fundamental Algorithms for Scientific Computing in Python. Nature Methods 17, 261–272
-- pandas — McKinney, W. (2010). Data Structures for Statistical Computing in Python. Proceedings of the 9th Python in Science Conference, 56-61
+**Image Processing**: `Pillow <https://pillow.readthedocs.io/>`__, `OpenCV <https://opencv.org/>`__, `ImageIO <https://imageio.readthedocs.io/>`__
 
-**Image Processing & Computer Vision**
+**Machine Learning**: `scikit-learn <https://scikit-learn.org/>`__, `PyTorch <https://pytorch.org/>`__, `TensorFlow <https://tensorflow.org/>`__
 
-- Pillow — Clark, A. (2015). Pillow (PIL Fork) Documentation
-- OpenCV — Bradski, G. (2000). The OpenCV Library. Dr. Dobb's Journal of Software Tools
-- ImageIO — Klein, A., et al. (2019). ImageIO: a Python library for reading and writing image data. Zenodo. 
+**Visualization**: `matplotlib <https://matplotlib.org/>`__, `Jupyter <https://jupyter.org/>`__
 
-**Machine Learning & AI**
+**Real-time Systems**: `TouchDesigner <https://derivative.ca/>`__
 
-- scikit-learn — Pedregosa, F., et al. (2011). Scikit-learn: Machine Learning in Python. Journal of Machine Learning Research 12, 2825-2830
-- PyTorch — Paszke, A., et al. (2019). PyTorch: An Imperative Style, High-Performance Deep Learning Library. Advances in Neural Information Processing Systems 32, 8024-8035
-- TensorFlow — Abadi, M., et al. (2016). TensorFlow: Large-Scale Machine Learning on Heterogeneous Distributed Systems.
-
-**Visualization & Interactive Computing**
-
-- matplotlib — Hunter, J.D. (2007). Matplotlib: A 2D Graphics Environment. Computing in Science & Engineering 9(3), 90-95
-- Jupyter — Kluyver, T., et al. (2016). Jupyter Notebooks—a publishing format for reproducible computational workflows. Positioning and Power in Academic Publishing, 87-90
+For academic citations and detailed references, see individual module documentation.
 
 .. rubric:: Inspiration
 
-- Generative Art — Pearson, M. (2011). Generative Art: A Practical Guide Using Processing
-- Creative Coding — Reas, C. & Fry, B. (2014). Processing: A Programming Handbook for Visual Designers
+- `Generative Art: A Practical Guide <https://www.manning.com/books/generative-art>`__ by Matt Pearson
+- `Processing: A Programming Handbook <https://processing.org/handbook/>`__ by Casey Reas & Ben Fry
 
 .. raw:: html
 

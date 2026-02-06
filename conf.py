@@ -9,9 +9,9 @@
 from sphinx.addnodes import toctree as TocTreeNode
 
 project = 'Pixels2GenAI'
-copyright = '2025, Kristian Rother & Burak Kagan Yilmazer'
-author = 'Kristian Rother & Burak Kağan Yılmazer'
-release = '2.0'
+copyright = '2025, Burak Kağan Yılmazer & Kristian Rother'
+author = 'Burak Kağan Yılmazer & Kristian Rother'
+release = '3.0'
 html_title = f"{project}"
 
 
