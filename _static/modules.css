@@ -1,0 +1,25 @@
+/* Module Organization Styling */
+
+/* Section headers for module groups */
+.module-section-header {
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    color: var(--pst-color-text-muted) !important;
+    margin-top: 2rem !important;
+    margin-bottom: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+    border-bottom: 2px solid var(--pst-color-border) !important;
+}
+
+.module-section-header:first-of-type {
+    margin-top: 0;
+}
+
+.module-section-subtitle {
+    font-size: 0.8rem;
+    color: var(--pst-color-text-muted);
+    margin-bottom: 1rem;
+    font-weight: normal;
+}
