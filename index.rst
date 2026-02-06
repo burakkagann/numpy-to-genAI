@@ -12,7 +12,6 @@ An open source educational platform that creates a comprehensive pathway into AI
    </div>
    <p class="cube-caption">Showcasing exercises from across all modules</p>
 
-**paint things – create art – have fun!**
 
 
 .. |icon-pathway| replace:: :octicon:`book;1.4em;sd-text-secondary`
@@ -91,7 +90,13 @@ you should have all necessary libraries already.
 Learning Modules
 ----------------
 
+.. raw:: html
+
+   <div class="module-section-header">Creative Coding Foundations</div>
+   <div class="module-section-subtitle">Modules 0-6 · ~80 exercises · Start here if new to creative coding</div>
+
 .. dropdown:: Module 0: Foundations & Definitions
+
 
    Setting the conceptual and technical groundwork for generative art and AI.
 
@@ -103,6 +108,7 @@ Learning Modules
       0.4 - Setup Environment <content/Module_00_foundations_definitions/0.4_setup_environment/README.rst>
 
 .. dropdown:: Module 1: Pixel Fundamentals
+
 
    Understanding images at the atomic level through color theory and manipulation patterns.
 
@@ -130,6 +136,7 @@ Learning Modules
       1.3.2 - Repeat <content/Module_01_pixel_fundamentals/1.3_structured_compositions/1.3.2_repeat/README.rst>
 
 .. dropdown:: Module 2: Geometry & Mathematics
+
 
    Mathematical foundations for generative art through shapes, coordinates, and mathematical patterns.
 
@@ -162,6 +169,7 @@ Learning Modules
       2.3.3 - Harmonograph Simulation <content/Module_02_geometry_mathematics/2.3_mathematical_art/2.3.3_harmonograph_simulation/README.rst>
 
 .. dropdown:: Module 3: Transformations & Effects
+
 
    Manipulating visual data through geometric transformations, masking, and artistic filters.
 
@@ -208,6 +216,7 @@ Learning Modules
 
 .. dropdown:: Module 4: Fractals & Recursion
 
+
    Self-similarity and infinite complexity through classical fractals, natural patterns, and L-systems.
 
    **4.1 - Classical Fractals**
@@ -241,6 +250,7 @@ Learning Modules
       4.3.3 - Penrose Tiling <content/Module_04_fractals_recursion/4.3_l_systems/4.3.3_penrose_tiling/README.rst>
 
 .. dropdown:: Module 5: Simulation & Emergent Behavior
+
 
    Complex systems from simple rules: particle systems, flocking behavior, and physics simulations.
 
@@ -286,6 +296,7 @@ Learning Modules
 
 .. dropdown:: Module 6: Noise & Procedural Generation
 
+
    Controlled randomness for natural effects: noise functions, terrain, textures, and wave patterns.
 
    **6.1 - Noise Functions**
@@ -327,7 +338,13 @@ Learning Modules
       6.4.2 - Wave Interference <content/Module_06_noise_procedural_generation/6.4_wave_interference_patterns/6.4.2_wave_interference/README.rst>
       6.4.3 - Cymatics Visualization <content/Module_06_noise_procedural_generation/6.4_wave_interference_patterns/6.4.3_cymatics_visualization/README.rst>
 
+.. raw:: html
+
+   <div class="module-section-header">ML & Animation</div>
+   <div class="module-section-subtitle">Modules 7-9 · ~36 exercises · Machine learning and motion</div>
+
 .. dropdown:: Module 7: Classical Machine Learning
+
 
    Traditional ML for creative applications: clustering, classification, and statistical methods.
 
@@ -368,6 +385,7 @@ Learning Modules
       7.4.3 - Hidden Markov Models <content/Module_07_classical_machine_learning/7.4_statistical_methods/7.4.3_hidden_markov_models/README.rst>
 
 .. dropdown:: Module 8: Animation & Time
+
 
    Adding the fourth dimension: animation fundamentals, organic motion, and cinematic effects.
 
@@ -412,6 +430,7 @@ Learning Modules
 
 .. dropdown:: Module 9: Introduction to Neural Networks
 
+
    Bridge to modern AI: neural network fundamentals, architectures, and training dynamics.
 
    **9.1 - Neural Network Fundamentals**
@@ -450,7 +469,13 @@ Learning Modules
       9.4.2 - Feature Map Art <content/Module_09_intro_neural_networks/9.4_feature_visualization/9.4.2_feature_map_art/README.rst>
       9.4.3 - Network Attention Visualization <content/Module_09_intro_neural_networks/9.4_feature_visualization/9.4.3_network_attention_visualization/README.rst>
 
+.. raw:: html
+
+   <div class="module-section-header">Real-Time & AI Integration</div>
+   <div class="module-section-subtitle">Modules 10-13 · ~48 exercises · TouchDesigner and generative AI</div>
+
 .. dropdown:: Module 10: TouchDesigner Fundamentals
+
 
    Real-time visual programming: TD environment, NumPy integration, and interactive controls.
 
@@ -493,6 +518,7 @@ Learning Modules
 
 .. dropdown:: Module 11: Interactive Systems
 
+
    Sensors and real-time response: input devices, computer vision, and physical computing.
 
    **11.1 - Input Devices**
@@ -534,6 +560,7 @@ Learning Modules
       11.4.3 - Remote Control Interfaces <content/Module_11_interactive_systems/11.4_network_communication/11.4.3_remote_control_interfaces/README.rst>
 
 .. dropdown:: Module 12: Generative AI Models
+
 
    Modern generative techniques: GANs, VAEs, diffusion models, and language models for art.
 
@@ -582,6 +609,7 @@ Learning Modules
 
 .. dropdown:: Module 13: AI + TouchDesigner Integration
 
+
    Combining AI with real-time systems: ML models in TD, real-time effects, and hybrid pipelines.
 
    **13.1 - ML Models in TD**
@@ -620,7 +648,13 @@ Learning Modules
       13.4.2 - Python ML Processing <content/Module_13_ai_touchdesigner_integration/13.4_hybrid_pipelines/13.4.2_python_ml_processing/README.rst>
       13.4.3 - Post Processing Chains <content/Module_13_ai_touchdesigner_integration/13.4_hybrid_pipelines/13.4.3_post_processing_chains/README.rst>
 
+.. raw:: html
+
+   <div class="module-section-header">Data & Capstone</div>
+   <div class="module-section-subtitle">Modules 14-15 · Final projects</div>
+
 .. dropdown:: Module 14: Data as Material
+
 
    Information visualization and sonification: data sources, visualization techniques, and physical sculptures.
 
@@ -664,13 +698,13 @@ Learning Modules
 
 .. dropdown:: Module 15: Capstone Project - Eternal Flow
 
+
    Synthesis of all learned concepts: StyleGAN-based evolving Ebru marbling artwork for projection display.
 
    .. toctree::
       :maxdepth: 1
 
       15 - Capstone Project <content/Module_15_capstone_project/README.rst>
-
 
 .. raw:: html
 

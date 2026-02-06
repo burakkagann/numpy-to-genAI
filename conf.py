@@ -9,7 +9,7 @@
 from sphinx.addnodes import toctree as TocTreeNode
 
 project = 'Pixels2GenAI'
-copyright = '2025, Burak Kağan Yılmazer & Kristian Rother'
+copyright = '2026, Burak Kağan Yılmazer & Kristian Rother'
 author = 'Burak Kağan Yılmazer & Kristian Rother'
 release = '3.0'
 html_title = f"{project}"
@@ -82,6 +82,7 @@ html_css_files = [
     'content.css',
     'scroll-progress.css',
     'carousel.css',
+    'modules.css',
 ]
 html_js_files = [
     'github-icon.js',
