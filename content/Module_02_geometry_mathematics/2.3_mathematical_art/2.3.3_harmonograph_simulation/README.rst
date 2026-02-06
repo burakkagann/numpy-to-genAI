@@ -6,7 +6,6 @@
 
 :Duration: 20 minutes
 :Level: Beginner-Intermediate
-:Prerequisites: Module 2.3.2 (Rose Curves), Module 2.2.2 (Spiral)
 
 Overview
 ========

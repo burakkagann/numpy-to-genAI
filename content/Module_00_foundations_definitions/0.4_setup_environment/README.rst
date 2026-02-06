@@ -6,7 +6,7 @@
 
 :Duration: 8-10 minutes
 :Level: Beginner
-:Prerequisites: Python 3.8+ installed on your system
+
 
 Overview
 ========

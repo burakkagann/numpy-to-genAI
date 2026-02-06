@@ -8,7 +8,7 @@
 
 from sphinx.addnodes import toctree as TocTreeNode
 
-project = 'Pixels to GenAI'
+project = 'Pixels2GenAI'
 copyright = '2025, Kristian Rother & Burak Kagan Yilmazer'
 author = 'Kristian Rother & Burak Kağan Yılmazer'
 release = '2.0'
@@ -25,7 +25,7 @@ extensions = [
     'myst_parser',
     ]
 
-exclude_patterns = ['experimental', '_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = ['experimental', '_build', 'Thumbs.db', '.DS_Store', 'stylegan_env', '.venv', 'venv', '*_env', 'solutions']
 
 language = 'en'
 templates_path = ['_templates']

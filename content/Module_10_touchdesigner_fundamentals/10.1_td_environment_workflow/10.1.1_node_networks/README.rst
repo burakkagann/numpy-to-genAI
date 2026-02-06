@@ -38,7 +38,7 @@ Before diving into theory, let's see what node networks can create. Below is a s
 
 **What's happening here?**
 
-This network uses **temporal recursion** - the output of one frame becomes the input for the next. Edge detection finds boundaries, amplification strengthens them, and dampening prevents explosion. The system continuously evolves, creating mesmerizing organic structures that resemble cell division.
+This network uses **temporal recursion**. The output of one frame becomes the input for the next. Edge detection finds boundaries, amplification strengthens them, and dampening prevents explosion. The system continuously evolves, creating mesmerizing organic structures that resemble cell division.
 
 Unlike a Python script that runs once and stops, this network runs at 60+ frames per second, indefinitely. Change a single parameter (like blur amount), and the pattern instantly responds. This is the power of node-based programming.
 

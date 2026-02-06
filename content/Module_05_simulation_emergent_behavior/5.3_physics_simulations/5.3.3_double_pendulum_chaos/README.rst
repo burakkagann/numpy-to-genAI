@@ -6,7 +6,6 @@
 
 :Duration: 25 minutes
 :Level: Intermediate
-:Prerequisites: Module 5.3.1 (Bouncing Ball), basic physics (gravity, angles)
 
 Overview
 ========

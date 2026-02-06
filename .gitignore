@@ -68,6 +68,7 @@ instance/
 
 # Sphinx documentation
 docs/_build/
+_build/
 
 # PyBuilder
 target/
@@ -120,6 +121,8 @@ CLAUDE.md
 thesis_notes/
 proposal-forms/
 project_status.md
+MODULE_COMPLETION_STATUS.md
+_backup/
 
 # Project-specific files
 PROGRESS.md
@@ -129,4 +132,50 @@ PROGRESS.md
 scripts/
 templates/
 landing_page_variants/
+
+# StyleGAN training checkpoints (download from GitHub Releases)
+content/Module_12_generative_ai_models/12.1_generative_adversarial_networks/12.1.3_stylegan_exploration/models/
+
+# StyleGAN empty results directories
+content/Module_12_generative_ai_models/12.1_generative_adversarial_networks/12.1.3_stylegan_exploration/results/
+
+# DCGAN datasets (users download from Kaggle - too large for git)
+content/Module_12_generative_ai_models/12.1_generative_adversarial_networks/12.1.2_dcgan_art/african_fabric_dataset/
+content/Module_12_generative_ai_models/12.1_generative_adversarial_networks/12.1.2_dcgan_art/african_fabric_processed/
+
+# ML/Deep Learning training artifacts (general patterns)
+*.ckpt
+*.h5
+runs/
+checkpoints/
+
+# DDPM training artifacts (download from GitHub Releases)
+content/Module_12_generative_ai_models/12.3_diffusion_models/12.3.1_ddpm_basics/models/
+
+# DDPM training checkpoints (5.5 GB - download model-10.pt from GitHub Releases)
+content/Module_12_generative_ai_models/12.3_diffusion_models/12.3.1_ddpm_basics/training_results/*.pt
+content/Module_12_generative_ai_models/12.3_diffusion_models/12.3.1_ddpm_basics/training_results/dataset_stats.npz
+
+# DDPM intermediate/generated folders
+content/Module_12_generative_ai_models/12.3_diffusion_models/12.3.1_ddpm_basics/animation_keypoints/
+content/Module_12_generative_ai_models/12.3_diffusion_models/12.3.1_ddpm_basics/generated_samples/
+
+# DDPM training samples NOT referenced in docs (keep only 1,3,5,8,11)
+content/Module_12_generative_ai_models/12.3_diffusion_models/12.3.1_ddpm_basics/training_results/sample-2.png
+content/Module_12_generative_ai_models/12.3_diffusion_models/12.3.1_ddpm_basics/training_results/sample-4.png
+content/Module_12_generative_ai_models/12.3_diffusion_models/12.3.1_ddpm_basics/training_results/sample-6.png
+content/Module_12_generative_ai_models/12.3_diffusion_models/12.3.1_ddpm_basics/training_results/sample-7.png
+content/Module_12_generative_ai_models/12.3_diffusion_models/12.3.1_ddpm_basics/training_results/sample-9.png
+content/Module_12_generative_ai_models/12.3_diffusion_models/12.3.1_ddpm_basics/training_results/sample-10.png
+
+# Claude temporary files
+tmpclaude-*-cwd
+
+# ControlNet training artifacts (Module 12.3.2)
+content/Module_12_generative_ai_models/12.3_diffusion_models/12.3.2_controlnet_guided_generation/fill50k/
+content/Module_12_generative_ai_models/12.3_diffusion_models/12.3.2_controlnet_guided_generation/models/*.pt
+content/Module_12_generative_ai_models/12.3_diffusion_models/12.3.2_controlnet_guided_generation/models/*.safetensors
+content/Module_12_generative_ai_models/12.3_diffusion_models/12.3.2_controlnet_guided_generation/training_results/fill50k/checkpoint-*/
+content/Module_12_generative_ai_models/12.3_diffusion_models/12.3.2_controlnet_guided_generation/training_results/lora_fabrics/*.pt
+content/Module_12_generative_ai_models/12.3_diffusion_models/12.3.2_controlnet_guided_generation/checkpoint_comparison/
 

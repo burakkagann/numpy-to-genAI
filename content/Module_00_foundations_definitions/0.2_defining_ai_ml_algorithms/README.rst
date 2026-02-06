@@ -6,7 +6,7 @@
 
 :Duration: 15-18 minutes
 :Level: Beginner to Intermediate
-:Prerequisites: Module 0.1.1 - What Is Generative Art
+
 
 Overview
 ========

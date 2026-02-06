@@ -24,12 +24,20 @@ By the end of this exercise, you will be able to:
 * Generate novel abstract art by sampling from the learned latent space
 * Explore latent space interpolation to create smooth transitions between generated images
 
-.. figure:: dcgan_fabric_animation.gif
-   :width: 450px
-   :align: center
-   :alt: DCGAN generating diverse African fabric patterns through latent space interpolation
+.. list-table::
+   :widths: 50 50
 
-   **Trained DCGAN generating African fabric patterns.** 
+   * - .. figure:: training_samples_grid.png
+          :width: 100%
+          :alt: Nine sample African fabric patterns from the training dataset
+
+          **Training Data** (9 of 1,059 images)
+
+     - .. figure:: dcgan_fabric_animation.gif
+          :width: 100%
+          :alt: DCGAN generating fabric patterns through latent interpolation
+
+          **Generated Output** (DCGAN) 
 
 
 Quick Start: See It In Action
@@ -319,27 +327,6 @@ Train a DCGAN from scratch on African fabric patterns from Kaggle. This exercise
    :class: note
 
    This exercise requires downloading a dataset from Kaggle (free account needed). If you prefer to skip dataset setup, you can observe the pre-generated results shown below and proceed to the Challenge Extensions.
-
-**Training Dataset Preview**
-
-The model learns from 1,059 African fabric images. Below is a sample of the training data alongside the generated output:
-
-.. list-table::
-   :widths: 50 50
-
-   * - .. figure:: training_samples_grid.png
-          :width: 100%
-          :alt: Nine sample African fabric patterns from the training dataset
-
-          **Training Samples** (9 of 1,059 images)
-
-     - .. figure:: dcgan_fabric_animation.gif
-          :width: 100%
-          :alt: DCGAN generating fabric patterns through latent interpolation
-
-          **Generated Output** (trained model)
-
-Notice how the generated patterns capture the geometric motifs, vibrant colors, and repeating structures characteristic of the training data while producing novel combinations.
 
 .. dropdown:: Dataset Setup: Downloading and Preprocessing African Fabric Images
    :class-title: sd-font-weight-bold

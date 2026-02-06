@@ -4,8 +4,13 @@
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', function() {
-    // All available images (22 total) - named by module origin
+    // All available images - named by module origin
     const allImages = [
+        // Module 1: Pixel Fundamentals
+        { src: '_static/carousel/m1.2.2_beacon_oscillator.gif', alt: 'Beacon Oscillator (Module 1.2.2)' },
+        { src: '_static/carousel/m1.2.2_spaceship_glider.gif', alt: 'Glider Spaceship (Module 1.2.2)' },
+        { src: '_static/carousel/m1.2.2_glider_animation.gif', alt: 'Cellular Automata (Module 1.2.2)' },
+
         // Module 2: Geometry & Mathematics
         { src: '_static/carousel/m2.1.4_star_fields.png', alt: 'Star Fields (Module 2.1.4)' },
         { src: '_static/carousel/m2.2.2_color_spiral.png', alt: 'Color Spiral (Module 2.2.2)' },
@@ -46,7 +51,8 @@ document.addEventListener('DOMContentLoaded', function() {
         { src: '_static/carousel/m12.1.3_stylegan.gif', alt: 'StyleGAN (Module 12.1.3)' },
         { src: '_static/carousel/m12.1.4_pix2pix.png', alt: 'Pix2Pix (Module 12.1.4)' },
         { src: '_static/carousel/m12.3.1_ddpm_fabric_morph.gif', alt: 'DDPM Fabric Morph (Module 12.3.1)' },
-        { src: '_static/carousel/m12.3.2_controlnet_morph.gif', alt: 'ControlNet Circle Morph (Module 12.3.2)' }
+        { src: '_static/carousel/m12.3.2_controlnet_morph.gif', alt: 'ControlNet Circle Morph (Module 12.3.2)' },
+        { src: '_static/carousel/m12.5.1_dreambooth_fabric_morph.gif', alt: 'DreamBooth Fabric Morph (Module 12.5.1)' }
     ];
 
     // Get the cube gallery container

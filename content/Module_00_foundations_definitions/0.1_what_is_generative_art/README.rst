@@ -6,7 +6,7 @@
 
 :Duration: 15-20 minutes
 :Level: Beginner
-:Prerequisites: None
+
 
 Overview
 ========

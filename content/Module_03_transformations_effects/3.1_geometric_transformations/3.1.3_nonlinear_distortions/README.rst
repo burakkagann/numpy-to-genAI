@@ -6,7 +6,6 @@
 
 :Duration: 20 minutes
 :Level: Intermediate
-:Prerequisites: Modules 3.1.1-3.1.2
 
 Overview
 ========

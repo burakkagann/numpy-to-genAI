@@ -24,12 +24,20 @@ By completing this module, you will:
 * Apply the truncation trick to balance diversity versus quality in generation
 * Create style mixing visualizations showing how features from different sources combine
 
-.. figure:: stylegan_demo.gif
-   :width: 450px
-   :align: center
-   :alt: StyleGAN2 generating diverse African fabric patterns through smooth latent space navigation
+.. list-table::
+   :widths: 50 50
 
-   **Trained StyleGAN2 generating African fabric patterns through latent space interpolation.**
+   * - .. figure:: ../12.1.2_dcgan_art/training_samples_grid.png
+          :width: 100%
+          :alt: Nine sample African fabric patterns from the training dataset
+
+          **Training Data** (9 of 1,059 images)
+
+     - .. figure:: stylegan_demo.gif
+          :width: 100%
+          :alt: StyleGAN generating fabric patterns through latent space walk
+
+          **Generated Output** (StyleGAN2)
 
 
 Quick Start: See Latent Space in Action
@@ -467,27 +475,6 @@ Skip training and use the provided checkpoint to immediately generate new design
 
 Train the StyleGAN2 model from scratch (requires 10-12 hours on GPU).
 
-**Training Dataset Preview**
-
-The StyleGAN model learns from the same 1,059 African fabric images used in Module 12.1.2:
-
-.. list-table::
-   :widths: 50 50
-
-   * - .. figure:: ../12.1.2_dcgan_art/training_samples_grid.png
-          :width: 100%
-          :alt: Nine sample African fabric patterns from the training dataset
-
-          **Training Samples** (9 of 1,059 images)
-
-     - .. figure:: stylegan_demo.gif
-          :width: 100%
-          :alt: StyleGAN generating fabric patterns through latent space walk
-
-          **Generated Output** (trained model)
-
-The StyleGAN architecture produces smoother transitions and finer detail control compared to DCGAN.
-
 Step 1: Understanding the Code
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -499,15 +486,6 @@ The training and generation code uses **lucidrains/stylegan2-pytorch** [PhilWang
 * Trains on actual image data
 * Produces high-quality generated images
 * Requires GPU for reasonable training times
-
-**Demo: Latent Space Walk**
-
-.. figure:: stylegan_demo.gif
-   :width: 400px
-   :align: center
-   :alt: 15-second animation showing smooth morphing between fabric patterns
-
-   Smooth 15-second walk through StyleGAN's latent space, demonstrating how the model generates diverse patterns while maintaining fabric characteristics.
 
 .. dropdown:: Option A: Generate Images (Using Pre-trained Checkpoint)
    :class-title: sd-font-weight-bold

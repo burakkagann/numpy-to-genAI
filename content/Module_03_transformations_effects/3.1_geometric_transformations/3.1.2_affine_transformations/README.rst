@@ -6,7 +6,6 @@
 
 :Duration: 20 minutes
 :Level: Beginner-Intermediate
-:Prerequisites: Module 2.1 (Basic Shapes), Module 1.1.1 (RGB Color Basics)
 
 Overview
 ========

@@ -6,7 +6,6 @@
 
 :Duration: 20 minutes
 :Level: Beginner-Intermediate
-:Prerequisites: Module 2.1.3 (Circles), Module 2.2.1 (Gradient)
 
 Overview
 ========
