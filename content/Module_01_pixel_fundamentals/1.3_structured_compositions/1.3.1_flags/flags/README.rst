@@ -2,8 +2,9 @@
 1.3.1 - Flags (Array Slicing)
 =====================================
 
+:Duration: 15-20 minutes
 :Level: Beginner
-:Prerequisites: Module 1.1.1 (RGB Basics)
+
 
 Overview
 ========

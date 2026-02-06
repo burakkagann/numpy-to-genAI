@@ -4,7 +4,7 @@
 
 :Duration: 12-15 minutes
 :Level: Beginner
-:Prerequisites: Module 1.1.1 (RGB Color Basics)
+
 
 Overview
 ========
