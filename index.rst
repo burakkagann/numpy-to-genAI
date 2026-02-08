@@ -74,33 +74,33 @@ Clone the repository:
    cd Pixels2GenAI
 
 
-Installation
-------------
+.. dropdown:: Installation
+   :class-title: sd-fs-5
 
-**Option 1: Using pyproject.toml (Recommended)**
+   **System Requirements:**
 
-.. code-block:: bash
+   - `Python 3.11.9 <https://www.python.org/downloads/release/python-3119/>`__ (recommended)
+   - For neural network modules (7+): NVIDIA GPU recommended but not required
+   - For diffusion models (Module 12): 8GB RAM minimum, GPU strongly recommended
 
-   # Core dependencies (Modules 0-6)
-   pip install .
+   **Option 1: Using pyproject.toml (Recommended)**
 
-   # With machine learning packages (Modules 7-13)
-   pip install .[ml]
+   .. code-block:: bash
 
-   # All optional dependencies
-   pip install .[all]
+      # Core dependencies (Modules 0-6)
+      pip install .
 
-**Option 2: Using requirements.txt**
+      # With machine learning packages (Modules 7-13)
+      pip install .[ml]
 
-.. code-block:: bash
+      # All optional dependencies
+      pip install .[all]
 
-   pip install -r requirements.txt
+   **Option 2: Using requirements.txt**
 
-**System Requirements:**
+   .. code-block:: bash
 
-- Python 3.9, 3.10, 3.11, or 3.12
-- For neural network modules (7+): NVIDIA GPU recommended but not required
-- For diffusion models (Module 12): 8GB RAM minimum, GPU strongly recommended
+      pip install -r requirements.txt
 
 Learning Modules
 ----------------
