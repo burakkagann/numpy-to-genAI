@@ -23,3 +23,26 @@
     margin-bottom: 1rem;
     font-weight: normal;
 }
+
+/* Incomplete/Coming Soon Exercises */
+.incomplete-exercise {
+    display: block;
+    padding: 0.25rem 0;
+    color: var(--pst-color-text-muted) !important;
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+    font-size: 0.95rem;
+}
+
+.incomplete-exercise::after {
+    content: " (Coming Soon)";
+    font-style: italic;
+    font-size: 0.85em;
+}
+
+/* Dark mode support */
+html[data-theme="dark"] .incomplete-exercise {
+    color: var(--pst-color-text-muted) !important;
+    opacity: 0.4;
+}

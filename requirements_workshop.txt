@@ -1,5 +1,5 @@
-# NumPy-to-GenAI Workshop Requirements
-# =====================================
+# Pixels2GenAI Workshop Requirements
+# ===================================
 # Minimal dependencies for the 6-module workshop:
 # - 1.1.1 RGB Basics
 # - 1.2.2 Cellular Automata (Game of Life)

@@ -1,5 +1,5 @@
 @echo off
-REM NumPy-to-GenAI Windows Build Script
+REM Pixels2GenAI Windows Build Script
 REM Windows-native replacement for Unix Makefile
 
 setlocal
@@ -18,7 +18,7 @@ echo Unknown target: %1
 goto help
 
 :help
-echo NumPy-to-GenAI Build System (Windows)
+echo Pixels2GenAI Build System (Windows)
 echo.
 echo Usage: make.bat [target]
 echo.

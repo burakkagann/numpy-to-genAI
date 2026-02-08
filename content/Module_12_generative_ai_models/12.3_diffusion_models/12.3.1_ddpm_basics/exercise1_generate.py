@@ -34,6 +34,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 from PIL import Image
 
+# Workshop utilities for device detection
+from workshop_utils import get_device_with_confirmation
+
 
 # =============================================================================
 # Configuration
@@ -48,8 +51,7 @@ TIMESTEPS = 1000
 # Model checkpoint path
 MODEL_PATH = 'models/ddpm_african_fabrics.pt'
 
-# Generation settings
-NUM_SAMPLES = 16         # Number of images to generate
+# Generation settings (NUM_SAMPLES set dynamically based on device)
 SAMPLING_STEPS = 250     # Reduced steps using DDIM (faster)
 RANDOM_SEED = 42         # For reproducible results
 
@@ -111,7 +113,7 @@ def load_model(model_path, device='cpu'):
         print("\nTo use this script, you need to either:")
         print("1. Complete Exercise 3 to train your own model")
         print("2. Download pre-trained weights from GitHub Releases:")
-        print("   https://github.com/burakkagann/numpy-to-genAI/releases/tag/v1.0.0-ddpm-weights")
+        print("   https://github.com/burakkagann/Pixels2GenAI/releases/tag/v1.0.0-ddpm-weights")
         print("\nUsing randomly initialized weights (output will be noise)")
 
     diffusion.to(device)
@@ -207,9 +209,9 @@ def main():
     print("DDPM African Fabric Pattern Generator")
     print("=" * 60)
 
-    # Check for GPU
-    device = 'cuda' if torch.cuda.is_available() else 'cpu'
-    print(f"\nDevice: {device}")
+    # Device detection with user confirmation
+    # Returns device and recommended sample count (GPU: 16, CPU: 4)
+    device, num_samples = get_device_with_confirmation(task_type="generation")
 
     # Load model
     diffusion = load_model(MODEL_PATH, device)
@@ -217,7 +219,7 @@ def main():
     # Generate samples
     samples = generate_samples(
         diffusion,
-        num_samples=NUM_SAMPLES,
+        num_samples=num_samples,
         seed=RANDOM_SEED,
         device=device
     )
@@ -225,7 +227,7 @@ def main():
     print(f"\nGenerated {len(samples)} fabric patterns")
 
     # Create and save grid
-    grid_size = int(np.ceil(np.sqrt(NUM_SAMPLES)))
+    grid_size = int(np.ceil(np.sqrt(num_samples)))
     grid = create_grid(samples, grid_size)
 
     plt.figure(figsize=(10, 10))

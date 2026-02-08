@@ -25,7 +25,7 @@ extensions = [
     'myst_parser',
     ]
 
-exclude_patterns = ['experimental', '_build', 'Thumbs.db', '.DS_Store', 'stylegan_env', '.venv', 'venv', '*_env', 'solutions']
+exclude_patterns = ['experimental', '_build', 'Thumbs.db', '.DS_Store', 'stylegan_env', '.venv', 'venv', '*_env', 'solutions', 'workshop_env*', 'workshop-files', '_backups']
 
 language = 'en'
 templates_path = ['_templates']
@@ -90,18 +90,18 @@ html_js_files = [
     'carousel.js',
 ]
 html_theme_options = {
-    "source_repository": "https://github.com/burakkagann/numpy-to-genAI",
+    "source_repository": "https://github.com/burakkagann/Pixels2GenAI",
     "source_branch": "main",
     "source_directory": "",
     "logo": {
-        "text": "Pixels to GenAI",
+        "text": "Pixels2GenAI",
         "image_light": "favicon-192x192.png",
         "image_dark": "favicon-192x192.png",
     },
     "icon_links": [
         {
             "name": "GitHub",
-            "url": "https://github.com/burakkagann/numpy-to-genAI",
+            "url": "https://github.com/burakkagann/Pixels2GenAI",
             "icon": "fa-brands fa-github",
         },
     ],

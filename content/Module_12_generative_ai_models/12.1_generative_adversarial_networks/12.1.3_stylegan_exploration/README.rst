@@ -284,7 +284,7 @@ Hands-On Exercises
 
    Exercises 1 and 2 require a pre-trained checkpoint. Download the checkpoint before proceeding:
 
-   1. Download ``model_99.pt`` (~189 MB) from `GitHub Releases <https://github.com/BurakKagan/numpy-to-genAI/releases/tag/stylegan-checkpoint>`_
+   1. Download ``model_99.pt`` (~189 MB) from `GitHub Releases <https://github.com/burakkagann/Pixels2GenAI/releases/tag/stylegan-checkpoint>`_
    2. Create the folder ``models/african_fabrics/`` in this exercise directory
    3. Place the downloaded file in ``models/african_fabrics/model_99.pt``
 

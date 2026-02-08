@@ -35,6 +35,13 @@ import matplotlib.pyplot as plt
 from PIL import Image
 import numpy as np
 
+# Workshop utilities for device detection and training parameters
+from workshop_utils import (
+    get_device_with_confirmation,
+    get_training_params,
+    confirm_cpu_training
+)
+
 
 # =============================================================================
 # Configuration
@@ -43,12 +50,10 @@ import numpy as np
 # Dataset path (relative to DCGAN module where preprocessed data exists)
 DATASET_PATH = '../../12.1_generative_adversarial_networks/12.1.2_dcgan_art/african_fabric_processed'
 
-# Training parameters
+# Training parameters (BATCH_SIZE and GRADIENT_ACCUMULATE set dynamically based on device)
 IMAGE_SIZE = 64          # Image dimensions (64x64)
-BATCH_SIZE = 32          # Batch size for training
 LEARNING_RATE = 2e-4     # Adam learning rate
 TRAIN_STEPS = 100000     # Total training steps (~100 epochs with 1059 images)
-GRADIENT_ACCUMULATE = 2  # Gradient accumulation steps
 
 # Model parameters
 BASE_CHANNELS = 64       # Base channel count for U-Net
@@ -185,12 +190,19 @@ def train():
     os.makedirs('training_progress', exist_ok=True)
     os.makedirs('models', exist_ok=True)
 
-    # Check for GPU
-    device = 'cuda' if torch.cuda.is_available() else 'cpu'
-    print(f"\nDevice: {device}")
+    # Device detection with user confirmation
+    device, _ = get_device_with_confirmation(task_type="training")
+
+    # Get device-appropriate training parameters
+    params = get_training_params(device)
+    batch_size = params['batch_size']
+    gradient_accumulate = params['gradient_accumulate']
+    use_amp = params['amp']
+    estimated_time = params['estimated_time']
+
+    # For CPU training, require explicit confirmation
     if device == 'cpu':
-        print("Warning: Training on CPU will be very slow (days instead of hours)")
-        print("Consider using a GPU-enabled environment.")
+        confirm_cpu_training(params)
 
     # Create model and diffusion
     print("\nInitializing model...")
@@ -203,27 +215,30 @@ def train():
     print(f"Model size: ~{num_params * 4 / 1e6:.1f} MB")
 
     # Estimate training time
-    steps_per_epoch = num_images // BATCH_SIZE
+    steps_per_epoch = num_images // batch_size
     total_epochs = TRAIN_STEPS // steps_per_epoch
     print(f"\nTraining configuration:")
+    print(f"  - Device: {device.upper()}")
     print(f"  - Images: {num_images}")
-    print(f"  - Batch size: {BATCH_SIZE}")
+    print(f"  - Batch size: {batch_size}")
+    print(f"  - Gradient accumulation: {gradient_accumulate}")
+    print(f"  - Mixed precision (AMP): {use_amp}")
     print(f"  - Steps per epoch: {steps_per_epoch}")
     print(f"  - Total steps: {TRAIN_STEPS}")
     print(f"  - Estimated epochs: {total_epochs}")
-    print(f"  - Estimated time: 4-6 hours (RTX 5070Ti)")
+    print(f"  - Estimated time: {estimated_time}")
 
     # Create trainer
     print("\nStarting training...")
     trainer = Trainer(
         diffusion,
         DATASET_PATH,
-        train_batch_size=BATCH_SIZE,
+        train_batch_size=batch_size,
         train_lr=LEARNING_RATE,
         train_num_steps=TRAIN_STEPS,
-        gradient_accumulate_every=GRADIENT_ACCUMULATE,
+        gradient_accumulate_every=gradient_accumulate,
         ema_decay=0.995,
-        amp=True,  # Mixed precision for faster training
+        amp=use_amp,  # Only use mixed precision on GPU
         results_folder=RESULTS_DIR,
         save_and_sample_every=1000,  # Save checkpoint every 1000 steps
         num_samples=16
@@ -266,7 +281,13 @@ def generate_checkpoint_samples():
     print("Generating Checkpoint Samples")
     print("=" * 60)
 
-    device = 'cuda' if torch.cuda.is_available() else 'cpu'
+    # Detect best available device
+    if torch.cuda.is_available():
+        device = 'cuda'
+    elif hasattr(torch.backends, 'mps') and torch.backends.mps.is_available():
+        device = 'mps'
+    else:
+        device = 'cpu'
 
     # Create model
     model = create_model()

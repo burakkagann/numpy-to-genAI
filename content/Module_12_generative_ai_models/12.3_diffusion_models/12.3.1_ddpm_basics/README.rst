@@ -37,6 +37,43 @@ By the end of this exercise, you will:
 3. **Train a DDPM from scratch**: Complete training pipeline on the African fabric dataset
 4. **Compare generative approaches**: Evaluate DDPM output against DCGAN and StyleGAN results
 
+Installation Options
+--------------------
+
+Choose your installation based on your hardware:
+
+**Option A: CPU-Only (Recommended for Workshop)**
+
+Faster installation (~2-5 minutes), works on all systems:
+
+.. code-block:: bash
+
+   pip install -r requirements_workshop_cpu.txt
+
+.. note::
+
+   CPU inference is slower (~2-5 minutes for 4 samples vs ~30 seconds for 16 samples on GPU).
+   Training on CPU is not recommended (24-48 hours vs 4-6 hours on GPU).
+
+**Option B: GPU-Enabled (NVIDIA CUDA)**
+
+For faster inference and training:
+
+.. code-block:: bash
+
+   pip install -r requirements_workshop_gpu.txt
+
+Requires NVIDIA GPU with CUDA support. Installation takes 15-30 minutes.
+
+**Device Detection**
+
+All exercise scripts auto-detect your hardware and adjust parameters accordingly:
+
+- GPU detected: 16 samples, ~30 seconds
+- CPU mode: 4 samples, ~2-5 minutes
+
+You will be prompted to confirm before each script runs.
+
 Quick Start
 ===========
 
@@ -61,7 +98,7 @@ Before diving into theory, let us see what diffusion models can generate. This r
 
       **Option B: Direct Download**
 
-      1. Visit: https://github.com/burakkagann/numpy-to-genAI/releases/tag/v1.0.0-ddpm-weights
+      1. Visit: https://github.com/burakkagann/Pixels2GenAI/releases/tag/v1.0.0-ddpm-weights
       2. Download ``ddpm_african_fabrics.pt`` (546 MB)
       3. Place it in the ``models/`` folder
 

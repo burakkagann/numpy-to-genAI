@@ -33,6 +33,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 from PIL import Image
 
+# Workshop utilities for device detection
+from workshop_utils import get_device_with_confirmation
+
 # Optional: imageio for GIF creation
 try:
     import imageio.v2 as imageio
@@ -94,7 +97,7 @@ def load_model(model_path, sampling_steps=250, device='cpu'):
             model.load_state_dict(checkpoint)
     else:
         print(f"Warning: Model not found at '{model_path}'")
-        print("Download from: https://github.com/burakkagann/numpy-to-genAI/releases/tag/v1.0.0-ddpm-weights")
+        print("Download from: https://github.com/burakkagann/Pixels2GenAI/releases/tag/v1.0.0-ddpm-weights")
         print("Using random weights (output will be noise)")
 
     diffusion.to(device)
@@ -366,9 +369,8 @@ def main():
     print("DDPM Parameter Exploration")
     print("=" * 60)
 
-    # Check for GPU
-    device = 'cuda' if torch.cuda.is_available() else 'cpu'
-    print(f"\nDevice: {device}")
+    # Device detection with user confirmation
+    device, _ = get_device_with_confirmation(task_type="exploration")
 
     # Run explorations
     print("\n" + "~" * 60)

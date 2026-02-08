@@ -1,5 +1,5 @@
 (function() {
-  var href = 'https://github.com/burakkagann/numpy-to-genAI';
+  var href = 'https://github.com/burakkagann/Pixels2GenAI';
   var link = document.createElement('a');
   link.className = 'github-float-link';
   link.href = href;

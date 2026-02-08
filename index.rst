@@ -64,28 +64,43 @@ Repository
 
 The source code is available on GitHub:
 
-`https://github.com/burakkagann/numpy-to-genAI <https://github.com/burakkagann/numpy-to-genAI>`__
+`https://github.com/burakkagann/Pixels2GenAI <https://github.com/burakkagann/Pixels2GenAI>`__
 
 Clone the repository:
 
 .. code-block:: bash
 
-   git clone https://github.com/burakkagann/numpy-to-genAI.git
-   cd numpy-to-genAI
+   git clone https://github.com/burakkagann/Pixels2GenAI.git
+   cd Pixels2GenAI
 
 
 Installation
 ------------
 
-To execute the examples, you need to install the libraries in :download:`requirements.txt`.
-Install them with:
+**Option 1: Using pyproject.toml (Recommended)**
 
-:::
+.. code-block:: bash
+
+   # Core dependencies (Modules 0-6)
+   pip install .
+
+   # With machine learning packages (Modules 7-13)
+   pip install .[ml]
+
+   # All optional dependencies
+   pip install .[all]
+
+**Option 2: Using requirements.txt**
+
+.. code-block:: bash
 
    pip install -r requirements.txt
 
-If you are using the `Anaconda distribution <https://www.anaconda.com/>`__,
-you should have all necessary libraries already.
+**System Requirements:**
+
+- Python 3.9, 3.10, 3.11, or 3.12
+- For neural network modules (7+): NVIDIA GPU recommended but not required
+- For diffusion models (Module 12): 8GB RAM minimum, GPU strongly recommended
 
 Learning Modules
 ----------------
@@ -119,6 +134,10 @@ Learning Modules
 
       1.1.1 - Color Basics <content/Module_01_pixel_fundamentals/1.1_grayscale_color_basics/1.1.1_color_basics/README.rst>
 
+   .. raw:: html
+
+      <span class="incomplete-exercise">1.1.2 - Color Theory Spaces</span>
+
    **1.2 - Pixel Manipulation Patterns**
 
    .. toctree::
@@ -127,6 +146,10 @@ Learning Modules
       1.2.1 - Random Patterns <content/Module_01_pixel_fundamentals/1.2_pixel_manipulation_patterns/1.2.1_random_patterns/README.rst>
       1.2.2 - Cellular Automata <content/Module_01_pixel_fundamentals/1.2_pixel_manipulation_patterns/1.2.2_cellular_automata/README.rst>
 
+   .. raw:: html
+
+      <span class="incomplete-exercise">1.2.3 - Reaction Diffusion</span>
+
    **1.3 - Structured Compositions**
 
    .. toctree::
@@ -134,6 +157,11 @@ Learning Modules
 
       1.3.1 - Flags <content/Module_01_pixel_fundamentals/1.3_structured_compositions/1.3.1_flags/README.rst>
       1.3.2 - Repeat <content/Module_01_pixel_fundamentals/1.3_structured_compositions/1.3.2_repeat/README.rst>
+
+   .. raw:: html
+
+      <span class="incomplete-exercise">1.3.3 - Truchet Tiles</span>
+      <span class="incomplete-exercise">1.3.4 - Wang Tiles</span>
 
 .. dropdown:: Module 2: Geometry & Mathematics
 
@@ -149,6 +177,10 @@ Learning Modules
       2.1.2 - Triangles <content/Module_02_geometry_mathematics/2.1_basic_shapes_primitives/2.1.2_triangles/README.rst>
       2.1.3 - Circles <content/Module_02_geometry_mathematics/2.1_basic_shapes_primitives/2.1.3_circles/README.rst>
       2.1.4 - Stars <content/Module_02_geometry_mathematics/2.1_basic_shapes_primitives/2.1.4_stars/README.rst>
+
+   .. raw:: html
+
+      <span class="incomplete-exercise">2.1.5 - Polygons & Polyhedra</span>
 
    **2.2 - Coordinate Systems & Fields**
 
@@ -167,6 +199,11 @@ Learning Modules
 
       2.3.2 - Rose Curves <content/Module_02_geometry_mathematics/2.3_mathematical_art/2.3.2_rose_curves/README.rst>
       2.3.3 - Harmonograph Simulation <content/Module_02_geometry_mathematics/2.3_mathematical_art/2.3.3_harmonograph_simulation/README.rst>
+
+   .. raw:: html
+
+      <span class="incomplete-exercise">2.3.1 - Lissajous Curves</span>
+      <span class="incomplete-exercise">2.3.4 - Strange Attractors</span>
 
 .. dropdown:: Module 3: Transformations & Effects
 
@@ -191,7 +228,10 @@ Learning Modules
       3.2.1 - Mask <content/Module_03_transformations_effects/3.2_masking_compositing/3.2.1_mask/README.rst>
       3.2.2 - Memegen <content/Module_03_transformations_effects/3.2_masking_compositing/3.2.2_memegen/README.rst>
       3.2.3 - Shadow <content/Module_03_transformations_effects/3.2_masking_compositing/3.2.3_shadow/README.rst>
-      3.2.4 - Blend Modes <content/Module_03_transformations_effects/3.2_masking_compositing/3.2.4_blend_modes/README.rst>
+
+   .. raw:: html
+
+      <span class="incomplete-exercise">3.2.4 - Blend Modes</span>
 
    **3.3 - Artistic Filters**
 
@@ -201,8 +241,11 @@ Learning Modules
       3.3.1 - Warhol <content/Module_03_transformations_effects/3.3_artistic_filters/3.3.1_warhol/README.rst>
       3.3.2 - Puzzle <content/Module_03_transformations_effects/3.3_artistic_filters/3.3.2_puzzle/README.rst>
       3.3.3 - Hexpanda <content/Module_03_transformations_effects/3.3_artistic_filters/3.3.3_hexpanda/README.rst>
-      3.3.4 - Voronoi Diagrams <content/Module_03_transformations_effects/3.3_artistic_filters/3.3.4_voronoi_diagrams/README.rst>
       3.3.5 - Delaunay Triangulation <content/Module_03_transformations_effects/3.3_artistic_filters/3.3.5_delaunay_triangulation/README.rst>
+
+   .. raw:: html
+
+      <span class="incomplete-exercise">3.3.4 - Voronoi Diagrams</span>
 
    **3.4 - Signal Processing**
 
@@ -227,8 +270,11 @@ Learning Modules
       4.1.1 - Fractal Square <content/Module_04_fractals_recursion/4.1_classical_fractals/4.1.1_fractal_square/README.rst>
       4.1.2 - Dragon Curve <content/Module_04_fractals_recursion/4.1_classical_fractals/4.1.2_dragon_curve/README.rst>
       4.1.3 - Mandelbrot <content/Module_04_fractals_recursion/4.1_classical_fractals/4.1.3_mandelbrot/README.rst>
-      4.1.4 - Julia Sets <content/Module_04_fractals_recursion/4.1_classical_fractals/4.1.4_julia_sets/README.rst>
-      4.1.5 - Sierpinski <content/Module_04_fractals_recursion/4.1_classical_fractals/4.1.5_sierpinski/README.rst>
+
+   .. raw:: html
+
+      <span class="incomplete-exercise">4.1.4 - Julia Sets</span>
+      <span class="incomplete-exercise">4.1.5 - Sierpinski</span>
 
    **4.2 - Natural Fractals**
 
@@ -236,9 +282,12 @@ Learning Modules
       :maxdepth: 1
 
       4.2.1 - Fractal Trees <content/Module_04_fractals_recursion/4.2_natural_fractals/4.2.1_fractal_trees/README.rst>
-      4.2.2 - Lightning Bolts <content/Module_04_fractals_recursion/4.2_natural_fractals/4.2.2_lightning_bolts/README.rst>
-      4.2.3 - Fractal Landscapes <content/Module_04_fractals_recursion/4.2_natural_fractals/4.2.3_fractal_landscapes/README.rst>
-      4.2.4 - Diffusion Limited Aggregation <content/Module_04_fractals_recursion/4.2_natural_fractals/4.2.4_diffusion_limited_aggregation/README.rst>
+
+   .. raw:: html
+
+      <span class="incomplete-exercise">4.2.2 - Lightning Bolts</span>
+      <span class="incomplete-exercise">4.2.3 - Fractal Landscapes</span>
+      <span class="incomplete-exercise">4.2.4 - Diffusion Limited Aggregation</span>
 
    **4.3 - L-Systems**
 
@@ -246,8 +295,11 @@ Learning Modules
       :maxdepth: 1
 
       4.3.1 - Plant Generation <content/Module_04_fractals_recursion/4.3_l_systems/4.3.1_plant_generation/README.rst>
-      4.3.2 - Koch Snowflake <content/Module_04_fractals_recursion/4.3_l_systems/4.3.2_koch_snowflake/README.rst>
-      4.3.3 - Penrose Tiling <content/Module_04_fractals_recursion/4.3_l_systems/4.3.3_penrose_tiling/README.rst>
+
+   .. raw:: html
+
+      <span class="incomplete-exercise">4.3.2 - Koch Snowflake</span>
+      <span class="incomplete-exercise">4.3.3 - Penrose Tiling</span>
 
 .. dropdown:: Module 5: Simulation & Emergent Behavior
 
@@ -260,9 +312,12 @@ Learning Modules
       :maxdepth: 1
 
       5.1.1 - Sand <content/Module_05_simulation_emergent_behavior/5.1_particle_systems/5.1.1_sand/README.rst>
-      5.1.2 - Vortex <content/Module_05_simulation_emergent_behavior/5.1_particle_systems/5.1.2_vortex/README.rst>
-      5.1.3 - Fireworks Simulation <content/Module_05_simulation_emergent_behavior/5.1_particle_systems/5.1.3_fireworks_simulation/README.rst>
-      5.1.4 - Fluid Simulation <content/Module_05_simulation_emergent_behavior/5.1_particle_systems/5.1.4_fluid_simulation/README.rst>
+
+   .. raw:: html
+
+      <span class="incomplete-exercise">5.1.2 - Vortex</span>
+      <span class="incomplete-exercise">5.1.3 - Fireworks Simulation</span>
+      <span class="incomplete-exercise">5.1.4 - Fluid Simulation</span>
 
    **5.2 - Flocking & Swarms**
 
@@ -270,8 +325,11 @@ Learning Modules
       :maxdepth: 1
 
       5.2.1 - Boids <content/Module_05_simulation_emergent_behavior/5.2_flocking_swarms/5.2.1_boids/README.rst>
-      5.2.2 - Fish Schooling <content/Module_05_simulation_emergent_behavior/5.2_flocking_swarms/5.2.2_fish_schooling/README.rst>
-      5.2.3 - Ant Colony Optimization <content/Module_05_simulation_emergent_behavior/5.2_flocking_swarms/5.2.3_ant_colony_optimization/README.rst>
+
+   .. raw:: html
+
+      <span class="incomplete-exercise">5.2.2 - Fish Schooling</span>
+      <span class="incomplete-exercise">5.2.3 - Ant Colony Optimization</span>
 
    **5.3 - Physics Simulations**
 
@@ -279,20 +337,22 @@ Learning Modules
       :maxdepth: 1
 
       5.3.1 - Bouncing Ball <content/Module_05_simulation_emergent_behavior/5.3_physics_simulations/5.3.1_bouncing_ball/README.rst>
-      5.3.2 - N-Body Planet Simulation <content/Module_05_simulation_emergent_behavior/5.3_physics_simulations/5.3.2_nbody_planet_simulation/README.rst>
       5.3.3 - Double Pendulum Chaos <content/Module_05_simulation_emergent_behavior/5.3_physics_simulations/5.3.3_double_pendulum_chaos/README.rst>
-      5.3.4 - Cloth Rope Simulation <content/Module_05_simulation_emergent_behavior/5.3_physics_simulations/5.3.4_cloth_rope_simulation/README.rst>
-      5.3.5 - Magnetic Field Visualization <content/Module_05_simulation_emergent_behavior/5.3_physics_simulations/5.3.5_magnetic_field_visualization/README.rst>
+
+   .. raw:: html
+
+      <span class="incomplete-exercise">5.3.2 - N-Body Planet Simulation</span>
+      <span class="incomplete-exercise">5.3.4 - Cloth Rope Simulation</span>
+      <span class="incomplete-exercise">5.3.5 - Magnetic Field Visualization</span>
 
    **5.4 - Growth & Morphogenesis**
 
-   .. toctree::
-      :maxdepth: 1
+   .. raw:: html
 
-      5.4.1 - Eden Growth Model <content/Module_05_simulation_emergent_behavior/5.4_growth_morphogenesis/5.4.1_eden_growth_model/README.rst>
-      5.4.2 - Differential Growth <content/Module_05_simulation_emergent_behavior/5.4_growth_morphogenesis/5.4.2_differential_growth/README.rst>
-      5.4.3 - Space Colonization Algorithm <content/Module_05_simulation_emergent_behavior/5.4_growth_morphogenesis/5.4.3_space_colonization_algorithm/README.rst>
-      5.4.4 - Turing Patterns <content/Module_05_simulation_emergent_behavior/5.4_growth_morphogenesis/5.4.4_turing_patterns/README.rst>
+      <span class="incomplete-exercise">5.4.1 - Eden Growth Model</span>
+      <span class="incomplete-exercise">5.4.2 - Differential Growth</span>
+      <span class="incomplete-exercise">5.4.3 - Space Colonization Algorithm</span>
+      <span class="incomplete-exercise">5.4.4 - Turing Patterns</span>
 
 .. dropdown:: Module 6: Noise & Procedural Generation
 
@@ -305,38 +365,38 @@ Learning Modules
       :maxdepth: 1
 
       6.1.1 - Perlin Noise <content/Module_06_noise_procedural_generation/6.1_noise_functions/6.1.1_perlin_noise/README.rst>
-      6.1.2 - Simplex Noise <content/Module_06_noise_procedural_generation/6.1_noise_functions/6.1.2_simplex_noise/README.rst>
-      6.1.3 - Worley Noise <content/Module_06_noise_procedural_generation/6.1_noise_functions/6.1.3_worley_noise/README.rst>
-      6.1.4 - Colored Noise <content/Module_06_noise_procedural_generation/6.1_noise_functions/6.1.4_colored_noise/README.rst>
+
+   .. raw:: html
+
+      <span class="incomplete-exercise">6.1.2 - Simplex Noise</span>
+      <span class="incomplete-exercise">6.1.3 - Worley Noise</span>
+      <span class="incomplete-exercise">6.1.4 - Colored Noise</span>
 
    **6.2 - Terrain Generation**
 
-   .. toctree::
-      :maxdepth: 1
+   .. raw:: html
 
-      6.2.1 - Height Maps <content/Module_06_noise_procedural_generation/6.2_terrain_generation/6.2.1_height_maps/README.rst>
-      6.2.2 - Erosion Simulation <content/Module_06_noise_procedural_generation/6.2_terrain_generation/6.2.2_erosion_simulation/README.rst>
-      6.2.3 - Cave Generation <content/Module_06_noise_procedural_generation/6.2_terrain_generation/6.2.3_cave_generation/README.rst>
-      6.2.4 - Island Generation <content/Module_06_noise_procedural_generation/6.2_terrain_generation/6.2.4_island_generation/README.rst>
+      <span class="incomplete-exercise">6.2.1 - Height Maps</span>
+      <span class="incomplete-exercise">6.2.2 - Erosion Simulation</span>
+      <span class="incomplete-exercise">6.2.3 - Cave Generation</span>
+      <span class="incomplete-exercise">6.2.4 - Island Generation</span>
 
    **6.3 - Texture Synthesis**
 
-   .. toctree::
-      :maxdepth: 1
+   .. raw:: html
 
-      6.3.1 - Marble Wood Textures <content/Module_06_noise_procedural_generation/6.3_texture_synthesis/6.3.1_marble_wood_textures/README.rst>
-      6.3.2 - Cloud Generation <content/Module_06_noise_procedural_generation/6.3_texture_synthesis/6.3.2_cloud_generation/README.rst>
-      6.3.3 - Abstract Patterns <content/Module_06_noise_procedural_generation/6.3_texture_synthesis/6.3.3_abstract_patterns/README.rst>
-      6.3.4 - Procedural Materials <content/Module_06_noise_procedural_generation/6.3_texture_synthesis/6.3.4_procedural_materials/README.rst>
+      <span class="incomplete-exercise">6.3.1 - Marble Wood Textures</span>
+      <span class="incomplete-exercise">6.3.2 - Cloud Generation</span>
+      <span class="incomplete-exercise">6.3.3 - Abstract Patterns</span>
+      <span class="incomplete-exercise">6.3.4 - Procedural Materials</span>
 
    **6.4 - Wave & Interference Patterns**
 
-   .. toctree::
-      :maxdepth: 1
+   .. raw:: html
 
-      6.4.1 - Moire Patterns <content/Module_06_noise_procedural_generation/6.4_wave_interference_patterns/6.4.1_moire_patterns/README.rst>
-      6.4.2 - Wave Interference <content/Module_06_noise_procedural_generation/6.4_wave_interference_patterns/6.4.2_wave_interference/README.rst>
-      6.4.3 - Cymatics Visualization <content/Module_06_noise_procedural_generation/6.4_wave_interference_patterns/6.4.3_cymatics_visualization/README.rst>
+      <span class="incomplete-exercise">6.4.1 - Moire Patterns</span>
+      <span class="incomplete-exercise">6.4.2 - Wave Interference</span>
+      <span class="incomplete-exercise">6.4.3 - Cymatics Visualization</span>
 
 .. raw:: html
 
@@ -350,39 +410,35 @@ Learning Modules
 
    **7.1 - Clustering & Segmentation**
 
-   .. toctree::
-      :maxdepth: 1
+   .. raw:: html
 
-      7.1.1 - KMeans Clustering <content/Module_07_classical_machine_learning/7.1_clustering_segmentation/7.1.1_kmeans_clustering/README.rst>
-      7.1.2 - Meanshift Segmentation <content/Module_07_classical_machine_learning/7.1_clustering_segmentation/7.1.2_meanshift_segmentation/README.rst>
-      7.1.3 - DBSCAN Pattern Detection <content/Module_07_classical_machine_learning/7.1_clustering_segmentation/7.1.3_dbscan_pattern_detection/README.rst>
+      <span class="incomplete-exercise">7.1.1 - KMeans Clustering</span>
+      <span class="incomplete-exercise">7.1.2 - Meanshift Segmentation</span>
+      <span class="incomplete-exercise">7.1.3 - DBSCAN Pattern Detection</span>
 
    **7.2 - Classification & Recognition**
 
-   .. toctree::
-      :maxdepth: 1
+   .. raw:: html
 
-      7.2.1 - Decision Tree Classifier <content/Module_07_classical_machine_learning/7.2_classification_recognition/7.2.1_decision_tree_classifier/README.rst>
-      7.2.2 - Random Forests <content/Module_07_classical_machine_learning/7.2_classification_recognition/7.2.2_random_forests/README.rst>
-      7.2.3 - SVM Style Detection <content/Module_07_classical_machine_learning/7.2_classification_recognition/7.2.3_svm_style_detection/README.rst>
+      <span class="incomplete-exercise">7.2.1 - Decision Tree Classifier</span>
+      <span class="incomplete-exercise">7.2.2 - Random Forests</span>
+      <span class="incomplete-exercise">7.2.3 - SVM Style Detection</span>
 
    **7.3 - Dimensionality Reduction**
 
-   .. toctree::
-      :maxdepth: 1
+   .. raw:: html
 
-      7.3.1 - PCA Color Palette <content/Module_07_classical_machine_learning/7.3_dimensionality_reduction/7.3.1_pca_color_palette/README.rst>
-      7.3.2 - t-SNE Visualization <content/Module_07_classical_machine_learning/7.3_dimensionality_reduction/7.3.2_tsne_visualization/README.rst>
-      7.3.3 - UMAP Visualizations <content/Module_07_classical_machine_learning/7.3_dimensionality_reduction/7.3.3_umap_visualizations/README.rst>
+      <span class="incomplete-exercise">7.3.1 - PCA Color Palette</span>
+      <span class="incomplete-exercise">7.3.2 - t-SNE Visualization</span>
+      <span class="incomplete-exercise">7.3.3 - UMAP Visualizations</span>
 
    **7.4 - Statistical Methods**
 
-   .. toctree::
-      :maxdepth: 1
+   .. raw:: html
 
-      7.4.1 - Monte Carlo Sampling <content/Module_07_classical_machine_learning/7.4_statistical_methods/7.4.1_monte_carlo_sampling/README.rst>
-      7.4.2 - Markov Chains <content/Module_07_classical_machine_learning/7.4_statistical_methods/7.4.2_markov_chains/README.rst>
-      7.4.3 - Hidden Markov Models <content/Module_07_classical_machine_learning/7.4_statistical_methods/7.4.3_hidden_markov_models/README.rst>
+      <span class="incomplete-exercise">7.4.1 - Monte Carlo Sampling</span>
+      <span class="incomplete-exercise">7.4.2 - Markov Chains</span>
+      <span class="incomplete-exercise">7.4.3 - Hidden Markov Models</span>
 
 .. dropdown:: Module 8: Animation & Time
 
@@ -395,9 +451,12 @@ Learning Modules
       :maxdepth: 1
 
       8.1.1 - Image Transformations <content/Module_08_animation_time/8.1_animation_fundamentals/8.1.1_image_transformations/README.rst>
-      8.1.2 - Easing Functions <content/Module_08_animation_time/8.1_animation_fundamentals/8.1.2_easing_functions/README.rst>
-      8.1.3 - Interpolation Techniques <content/Module_08_animation_time/8.1_animation_fundamentals/8.1.3_interpolation_techniques/README.rst>
-      8.1.4 - Sprite Sheets <content/Module_08_animation_time/8.1_animation_fundamentals/8.1.4_sprite_sheets/README.rst>
+
+   .. raw:: html
+
+      <span class="incomplete-exercise">8.1.2 - Easing Functions</span>
+      <span class="incomplete-exercise">8.1.3 - Interpolation Techniques</span>
+      <span class="incomplete-exercise">8.1.4 - Sprite Sheets</span>
 
    **8.2 - Organic Motion**
 
@@ -406,8 +465,11 @@ Learning Modules
 
       8.2.1 - Flower Assembly <content/Module_08_animation_time/8.2_organic_motion/8.2.1_flower_assembly/README.rst>
       8.2.2 - Infinite Blossom <content/Module_08_animation_time/8.2_organic_motion/8.2.2_infinite_blossom/README.rst>
-      8.2.3 - Walk Cycles <content/Module_08_animation_time/8.2_organic_motion/8.2.3_walk_cycles/README.rst>
-      8.2.4 - Breathing Pulsing <content/Module_08_animation_time/8.2_organic_motion/8.2.4_breathing_pulsing/README.rst>
+
+   .. raw:: html
+
+      <span class="incomplete-exercise">8.2.3 - Walk Cycles</span>
+      <span class="incomplete-exercise">8.2.4 - Breathing Pulsing</span>
 
    **8.3 - Cinematic Effects**
 
@@ -416,17 +478,23 @@ Learning Modules
 
       8.3.1 - Star Wars Titles <content/Module_08_animation_time/8.3_cinematic_effects/8.3.1_starwars_titles/README.rst>
       8.3.2 - Thank You <content/Module_08_animation_time/8.3_cinematic_effects/8.3.2_thank_you/README.rst>
-      8.3.3 - Particle Text Reveals <content/Module_08_animation_time/8.3_cinematic_effects/8.3.3_particle_text_reveals/README.rst>
-      8.3.4 - Morphing Transitions <content/Module_08_animation_time/8.3_cinematic_effects/8.3.4_morphing_transitions/README.rst>
+
+   .. raw:: html
+
+      <span class="incomplete-exercise">8.3.3 - Particle Text Reveals</span>
+      <span class="incomplete-exercise">8.3.4 - Morphing Transitions</span>
 
    **8.4 - Generative Animation**
 
    .. toctree::
       :maxdepth: 1
 
-      8.4.1 - Music Visualization <content/Module_08_animation_time/8.4_generative_animation/8.4.1_music_visualization/README.rst>
-      8.4.2 - Data Driven Animation <content/Module_08_animation_time/8.4_generative_animation/8.4.2_data_driven_animation/README.rst>
       8.4.3 - Animated Fractals <content/Module_08_animation_time/8.4_generative_animation/8.4.3_animated_fractals/README.rst>
+
+   .. raw:: html
+
+      <span class="incomplete-exercise">8.4.1 - Music Visualization</span>
+      <span class="incomplete-exercise">8.4.2 - Data Driven Animation</span>
 
 .. dropdown:: Module 9: Introduction to Neural Networks
 
@@ -453,21 +521,19 @@ Learning Modules
 
    **9.3 - Training Dynamics**
 
-   .. toctree::
-      :maxdepth: 1
+   .. raw:: html
 
-      9.3.1 - Loss Landscape Visualization <content/Module_09_intro_neural_networks/9.3_training_dynamics/9.3.1_loss_landscape_visualization/README.rst>
-      9.3.2 - Gradient Descent Animation <content/Module_09_intro_neural_networks/9.3_training_dynamics/9.3.2_gradient_descent_animation/README.rst>
-      9.3.3 - Overfitting Underfitting Demos <content/Module_09_intro_neural_networks/9.3_training_dynamics/9.3.3_overfitting_underfitting_demos/README.rst>
+      <span class="incomplete-exercise">9.3.1 - Loss Landscape Visualization</span>
+      <span class="incomplete-exercise">9.3.2 - Gradient Descent Animation</span>
+      <span class="incomplete-exercise">9.3.3 - Overfitting Underfitting Demos</span>
 
    **9.4 - Feature Visualization**
 
-   .. toctree::
-      :maxdepth: 1
+   .. raw:: html
 
-      9.4.1 - DeepDream Implementation <content/Module_09_intro_neural_networks/9.4_feature_visualization/9.4.1_deepdream_implementation/README.rst>
-      9.4.2 - Feature Map Art <content/Module_09_intro_neural_networks/9.4_feature_visualization/9.4.2_feature_map_art/README.rst>
-      9.4.3 - Network Attention Visualization <content/Module_09_intro_neural_networks/9.4_feature_visualization/9.4.3_network_attention_visualization/README.rst>
+      <span class="incomplete-exercise">9.4.1 - DeepDream Implementation</span>
+      <span class="incomplete-exercise">9.4.2 - Feature Map Art</span>
+      <span class="incomplete-exercise">9.4.3 - Network Attention Visualization</span>
 
 .. raw:: html
 
@@ -486,35 +552,39 @@ Learning Modules
 
       10.1.1 - Node Networks <content/Module_10_touchdesigner_fundamentals/10.1_td_environment_workflow/10.1.1_node_networks/README.rst>
       10.1.2 - Python Integration Basics <content/Module_10_touchdesigner_fundamentals/10.1_td_environment_workflow/10.1.2_python_integration_basics/README.rst>
-      10.1.3 - Performance Monitoring <content/Module_10_touchdesigner_fundamentals/10.1_td_environment_workflow/10.1.3_performance_monitoring/README.rst>
+
+   .. raw:: html
+
+      <span class="incomplete-exercise">10.1.3 - Performance Monitoring</span>
 
    **10.2 - Recreating Static Exercises**
 
    .. toctree::
       :maxdepth: 1
 
-      10.2.1 - Core Exercises Realtime <content/Module_10_touchdesigner_fundamentals/10.2_recreating_static_exercises/10.2.1_core_exercises_realtime/README.rst>
       10.2.2 - Boids Flocking TD <content/Module_10_touchdesigner_fundamentals/10.2_recreating_static_exercises/10.2.2_boids_flocking_td/README.rst>
-      10.2.3 - Planet Simulation TD <content/Module_10_touchdesigner_fundamentals/10.2_recreating_static_exercises/10.2.3_planet_simulation_td/README.rst>
-      10.2.4 - Fractals Realtime <content/Module_10_touchdesigner_fundamentals/10.2_recreating_static_exercises/10.2.4_fractals_realtime/README.rst>
+
+   .. raw:: html
+
+      <span class="incomplete-exercise">10.2.1 - Core Exercises Realtime</span>
+      <span class="incomplete-exercise">10.2.3 - Planet Simulation TD</span>
+      <span class="incomplete-exercise">10.2.4 - Fractals Realtime</span>
 
    **10.3 - NumPy to TD Pipeline**
 
-   .. toctree::
-      :maxdepth: 1
+   .. raw:: html
 
-      10.3.1 - Script Operators <content/Module_10_touchdesigner_fundamentals/10.3_numpy_td_pipeline/10.3.1_script_operators/README.rst>
-      10.3.2 - Array Processing <content/Module_10_touchdesigner_fundamentals/10.3_numpy_td_pipeline/10.3.2_array_processing/README.rst>
-      10.3.3 - Custom Components <content/Module_10_touchdesigner_fundamentals/10.3_numpy_td_pipeline/10.3.3_custom_components/README.rst>
+      <span class="incomplete-exercise">10.3.1 - Script Operators</span>
+      <span class="incomplete-exercise">10.3.2 - Array Processing</span>
+      <span class="incomplete-exercise">10.3.3 - Custom Components</span>
 
    **10.4 - Interactive Controls**
 
-   .. toctree::
-      :maxdepth: 1
+   .. raw:: html
 
-      10.4.1 - UI Building <content/Module_10_touchdesigner_fundamentals/10.4_interactive_controls/10.4.1_ui_building/README.rst>
-      10.4.2 - Parameter Mapping <content/Module_10_touchdesigner_fundamentals/10.4_interactive_controls/10.4.2_parameter_mapping/README.rst>
-      10.4.3 - Preset Systems <content/Module_10_touchdesigner_fundamentals/10.4_interactive_controls/10.4.3_preset_systems/README.rst>
+      <span class="incomplete-exercise">10.4.1 - UI Building</span>
+      <span class="incomplete-exercise">10.4.2 - Parameter Mapping</span>
+      <span class="incomplete-exercise">10.4.3 - Preset Systems</span>
 
 .. dropdown:: Module 11: Interactive Systems
 
@@ -527,37 +597,41 @@ Learning Modules
       :maxdepth: 1
 
       11.1.1 - Webcam Processing <content/Module_11_interactive_systems/11.1_input_devices/11.1.1_webcam_processing/README.rst>
-      11.1.2 - Audio Reactivity <content/Module_11_interactive_systems/11.1_input_devices/11.1.2_audio_reactivity/README.rst>
-      11.1.3 - MIDI OSC Control <content/Module_11_interactive_systems/11.1_input_devices/11.1.3_midi_osc_control/README.rst>
-      11.1.4 - Kinect Leap Motion <content/Module_11_interactive_systems/11.1_input_devices/11.1.4_kinect_leap_motion/README.rst>
+
+   .. raw:: html
+
+      <span class="incomplete-exercise">11.1.2 - Audio Reactivity</span>
+      <span class="incomplete-exercise">11.1.3 - MIDI OSC Control</span>
+      <span class="incomplete-exercise">11.1.4 - Kinect Leap Motion</span>
 
    **11.2 - Computer Vision in TD**
 
    .. toctree::
       :maxdepth: 1
 
-      11.2.1 - Motion Detection <content/Module_11_interactive_systems/11.2_computer_vision_td/11.2.1_motion_detection/README.rst>
-      11.2.2 - Blob Tracking <content/Module_11_interactive_systems/11.2_computer_vision_td/11.2.2_blob_tracking/README.rst>
       11.2.3 - Face Detection <content/Module_11_interactive_systems/11.2_computer_vision_td/11.2.3_face_detection/README.rst>
-      11.2.4 - Optical Flow <content/Module_11_interactive_systems/11.2_computer_vision_td/11.2.4_optical_flow/README.rst>
+
+   .. raw:: html
+
+      <span class="incomplete-exercise">11.2.1 - Motion Detection</span>
+      <span class="incomplete-exercise">11.2.2 - Blob Tracking</span>
+      <span class="incomplete-exercise">11.2.4 - Optical Flow</span>
 
    **11.3 - Physical Computing**
 
-   .. toctree::
-      :maxdepth: 1
+   .. raw:: html
 
-      11.3.1 - Arduino Integration <content/Module_11_interactive_systems/11.3_physical_computing/11.3.1_arduino_integration/README.rst>
-      11.3.2 - DMX Lighting Control <content/Module_11_interactive_systems/11.3_physical_computing/11.3.2_dmx_lighting_control/README.rst>
-      11.3.3 - Projection Mapping Basics <content/Module_11_interactive_systems/11.3_physical_computing/11.3.3_projection_mapping_basics/README.rst>
+      <span class="incomplete-exercise">11.3.1 - Arduino Integration</span>
+      <span class="incomplete-exercise">11.3.2 - DMX Lighting Control</span>
+      <span class="incomplete-exercise">11.3.3 - Projection Mapping Basics</span>
 
    **11.4 - Network Communication**
 
-   .. toctree::
-      :maxdepth: 1
+   .. raw:: html
 
-      11.4.1 - Multi Machine Setups <content/Module_11_interactive_systems/11.4_network_communication/11.4.1_multi_machine_setups/README.rst>
-      11.4.2 - WebSocket WebRTC <content/Module_11_interactive_systems/11.4_network_communication/11.4.2_websocket_webrtc/README.rst>
-      11.4.3 - Remote Control Interfaces <content/Module_11_interactive_systems/11.4_network_communication/11.4.3_remote_control_interfaces/README.rst>
+      <span class="incomplete-exercise">11.4.1 - Multi Machine Setups</span>
+      <span class="incomplete-exercise">11.4.2 - WebSocket WebRTC</span>
+      <span class="incomplete-exercise">11.4.3 - Remote Control Interfaces</span>
 
 .. dropdown:: Module 12: Generative AI Models
 
@@ -618,35 +692,35 @@ Learning Modules
       :maxdepth: 1
 
       13.1.1 - MediaPipe Integration <content/Module_13_ai_touchdesigner_integration/13.1_ml_models_td/13.1.1_mediapipe_integration/README.rst>
-      13.1.2 - RunwayML Bridge <content/Module_13_ai_touchdesigner_integration/13.1_ml_models_td/13.1.2_runwayml_bridge/README.rst>
-      13.1.3 - ONNX Runtime <content/Module_13_ai_touchdesigner_integration/13.1_ml_models_td/13.1.3_onnx_runtime/README.rst>
+
+   .. raw:: html
+
+      <span class="incomplete-exercise">13.1.2 - RunwayML Bridge</span>
+      <span class="incomplete-exercise">13.1.3 - ONNX Runtime</span>
 
    **13.2 - Real-time AI Effects**
 
-   .. toctree::
-      :maxdepth: 1
+   .. raw:: html
 
-      13.2.1 - Style Transfer Live <content/Module_13_ai_touchdesigner_integration/13.2_realtime_ai_effects/13.2.1_style_transfer_live/README.rst>
-      13.2.2 - Realtime Segmentation <content/Module_13_ai_touchdesigner_integration/13.2_realtime_ai_effects/13.2.2_realtime_segmentation/README.rst>
-      13.2.3 - Pose Driven Effects <content/Module_13_ai_touchdesigner_integration/13.2_realtime_ai_effects/13.2.3_pose_driven_effects/README.rst>
+      <span class="incomplete-exercise">13.2.1 - Style Transfer Live</span>
+      <span class="incomplete-exercise">13.2.2 - Realtime Segmentation</span>
+      <span class="incomplete-exercise">13.2.3 - Pose Driven Effects</span>
 
    **13.3 - Generative Models Live**
 
-   .. toctree::
-      :maxdepth: 1
+   .. raw:: html
 
-      13.3.1 - GAN Inference Optimization <content/Module_13_ai_touchdesigner_integration/13.3_generative_models_live/13.3.1_gan_inference_optimization/README.rst>
-      13.3.2 - Latent Space Navigation UI <content/Module_13_ai_touchdesigner_integration/13.3_generative_models_live/13.3.2_latent_space_navigation_ui/README.rst>
-      13.3.3 - Model Switching Systems <content/Module_13_ai_touchdesigner_integration/13.3_generative_models_live/13.3.3_model_switching_systems/README.rst>
+      <span class="incomplete-exercise">13.3.1 - GAN Inference Optimization</span>
+      <span class="incomplete-exercise">13.3.2 - Latent Space Navigation UI</span>
+      <span class="incomplete-exercise">13.3.3 - Model Switching Systems</span>
 
    **13.4 - Hybrid Pipelines**
 
-   .. toctree::
-      :maxdepth: 1
+   .. raw:: html
 
-      13.4.1 - Preprocessing TD <content/Module_13_ai_touchdesigner_integration/13.4_hybrid_pipelines/13.4.1_preprocessing_td/README.rst>
-      13.4.2 - Python ML Processing <content/Module_13_ai_touchdesigner_integration/13.4_hybrid_pipelines/13.4.2_python_ml_processing/README.rst>
-      13.4.3 - Post Processing Chains <content/Module_13_ai_touchdesigner_integration/13.4_hybrid_pipelines/13.4.3_post_processing_chains/README.rst>
+      <span class="incomplete-exercise">13.4.1 - Preprocessing TD</span>
+      <span class="incomplete-exercise">13.4.2 - Python ML Processing</span>
+      <span class="incomplete-exercise">13.4.3 - Post Processing Chains</span>
 
 .. raw:: html
 
@@ -664,37 +738,37 @@ Learning Modules
       :maxdepth: 1
 
       14.1.1 - APIs Scraping <content/Module_14_data_as_material/14.1_data_sources/14.1.1_apis_scraping/README.rst>
-      14.1.2 - Sensor Networks <content/Module_14_data_as_material/14.1_data_sources/14.1.2_sensor_networks/README.rst>
       14.1.3 - Social Media Streams <content/Module_14_data_as_material/14.1_data_sources/14.1.3_social_media_streams/README.rst>
       14.1.4 - Environmental Data <content/Module_14_data_as_material/14.1_data_sources/14.1.4_environmental_data/README.rst>
 
+   .. raw:: html
+
+      <span class="incomplete-exercise">14.1.2 - Sensor Networks</span>
+
    **14.2 - Visualization Techniques**
 
-   .. toctree::
-      :maxdepth: 1
+   .. raw:: html
 
-      14.2.1 - Network Graphs <content/Module_14_data_as_material/14.2_visualization_techniques/14.2.1_network_graphs/README.rst>
-      14.2.2 - Flow Visualization <content/Module_14_data_as_material/14.2_visualization_techniques/14.2.2_flow_visualization/README.rst>
-      14.2.3 - Multidimensional Scaling <content/Module_14_data_as_material/14.2_visualization_techniques/14.2.3_multidimensional_scaling/README.rst>
-      14.2.4 - Time Series Art <content/Module_14_data_as_material/14.2_visualization_techniques/14.2.4_time_series_art/README.rst>
+      <span class="incomplete-exercise">14.2.1 - Network Graphs</span>
+      <span class="incomplete-exercise">14.2.2 - Flow Visualization</span>
+      <span class="incomplete-exercise">14.2.3 - Multidimensional Scaling</span>
+      <span class="incomplete-exercise">14.2.4 - Time Series Art</span>
 
    **14.3 - Sonification**
 
-   .. toctree::
-      :maxdepth: 1
+   .. raw:: html
 
-      14.3.1 - Data Sound Mapping <content/Module_14_data_as_material/14.3_sonification/14.3.1_data_sound_mapping/README.rst>
-      14.3.2 - Granular Synthesis <content/Module_14_data_as_material/14.3_sonification/14.3.2_granular_synthesis/README.rst>
-      14.3.3 - Rhythmic Patterns <content/Module_14_data_as_material/14.3_sonification/14.3.3_rhythmic_patterns/README.rst>
+      <span class="incomplete-exercise">14.3.1 - Data Sound Mapping</span>
+      <span class="incomplete-exercise">14.3.2 - Granular Synthesis</span>
+      <span class="incomplete-exercise">14.3.3 - Rhythmic Patterns</span>
 
    **14.4 - Physical Data Sculptures**
 
-   .. toctree::
-      :maxdepth: 1
+   .. raw:: html
 
-      14.4.1 - 3D Printing Preparation <content/Module_14_data_as_material/14.4_physical_data_sculptures/14.4.1_3d_printing_preparation/README.rst>
-      14.4.2 - Laser Cutting Patterns <content/Module_14_data_as_material/14.4_physical_data_sculptures/14.4.2_laser_cutting_patterns/README.rst>
-      14.4.3 - CNC Toolpaths <content/Module_14_data_as_material/14.4_physical_data_sculptures/14.4.3_cnc_toolpaths/README.rst>
+      <span class="incomplete-exercise">14.4.1 - 3D Printing Preparation</span>
+      <span class="incomplete-exercise">14.4.2 - Laser Cutting Patterns</span>
+      <span class="incomplete-exercise">14.4.3 - CNC Toolpaths</span>
 
 .. dropdown:: Module 15: Capstone Project - Eternal Flow
 
