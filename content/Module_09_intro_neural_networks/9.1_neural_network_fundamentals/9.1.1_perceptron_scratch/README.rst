@@ -10,9 +10,9 @@
 Overview
 ========
 
-The perceptron is the simplest neural network, yet it contains all the fundamental concepts that power modern deep learning. In this exercise, you will build a working perceptron classifier using only NumPy, learning how neural networks learn from data by adjusting weights to minimize errors.
+Rosenblatt built the first perceptron in 1958 using three operations: multiply inputs by weights, sum the products, and check if the result crosses a threshold [LeCun2015a]_. We will build a working binary classifier in about 30 lines of NumPy. No frameworks, no hidden magic.
 
-Frank Rosenblatt introduced the perceptron in 1958 as a computational model inspired by biological neurons [Rosenblatt1958]_. Despite its simplicity, the perceptron sparked the field of artificial intelligence and remains the foundation for understanding more complex neural networks. By implementing one from scratch, you will develop intuition for how neural networks learn that no amount of reading about pre-built frameworks can provide.
+Frank Rosenblatt introduced the perceptron in 1958 as a computational model inspired by biological neurons [Rosenblatt1958]_. It was the first machine that could learn to classify data [Crevier1993]_. The same weight-update rule still runs inside networks with billions of parameters today. When you write the weight update yourself, you see exactly where learning happens: right after each wrong prediction.
 
 Learning Objectives
 -------------------
@@ -28,63 +28,31 @@ By the end of this exercise, you will be able to:
 Quick Start: See It In Action
 =============================
 
-Run this code to train a perceptron and visualize its learned decision boundary:
+Download and run the script to train a perceptron and visualize its learned decision boundary:
 
-.. code-block:: python
-   :caption: Train a perceptron classifier
-   :linenos:
+:download:`Download simple_perceptron.py <simple_perceptron.py>`
 
-   import numpy as np
+.. code-block:: bash
 
-   np.random.seed(42)
-
-   class Perceptron:
-       def __init__(self, input_size, learning_rate=0.1):
-           self.weights = np.random.randn(input_size) * 0.01
-           self.bias = 0.0
-           self.learning_rate = learning_rate
-
-       def forward(self, x):
-           weighted_sum = np.dot(self.weights, x) + self.bias
-           return 1 if weighted_sum >= 0 else 0
-
-       def train(self, X, y, epochs=100):
-           for epoch in range(epochs):
-               for i in range(len(X)):
-                   y_pred = self.forward(X[i])
-                   error = y[i] - y_pred
-                   if error != 0:
-                       self.weights += self.learning_rate * error * X[i]
-                       self.bias += self.learning_rate * error
-
-   # Generate linearly separable data
-   class_0 = np.random.randn(50, 2) * 0.5 + [-1, -1]
-   class_1 = np.random.randn(50, 2) * 0.5 + [1, 1]
-   X = np.vstack([class_0, class_1])
-   y = np.array([0] * 50 + [1] * 50)
-
-   # Train the perceptron
-   perceptron = Perceptron(input_size=2)
-   perceptron.train(X, y, epochs=100)
-   print(f"Learned weights: {perceptron.weights}")
+   python simple_perceptron.py
 
 .. figure:: perceptron_output.png
    :width: 450px
    :align: center
    :alt: Decision boundary learned by perceptron showing blue and orange regions separated by a line, with data points colored by class
 
-   The trained perceptron divides the feature space into two regions. Orange points (Class 0) cluster in the lower-left, while blue points (Class 1) cluster in the upper-right. The decision boundary is where the perceptron transitions from predicting 0 to predicting 1.
+   The trained perceptron divides the feature space into two regions.
 
-The perceptron learns by adjusting its weights whenever it makes an error. After training, the weights define a linear boundary that separates the two classes. This simple learning rule is remarkably powerful for linearly separable data.
+The perceptron learns by adjusting its weights whenever it makes an error. After training, the weights define a linear boundary that separates the two classes. If a straight line can separate the two classes, this learning rule will find it. Novikoff proved that in 1962.
 
 
 Core Concepts
 =============
 
-Concept 1: What is a Perceptron?
---------------------------------
+Core Concept 1: What is a Perceptron?
+--------------------------------------
 
-A **perceptron** is the simplest possible neural network, consisting of just one artificial neuron. It was inspired by biological neurons in the brain, which receive signals from other neurons, combine them, and produce an output signal [McCulloch1943]_.
+Imagine taking two numbers, multiplying each by a weight, adding them up with a bias term, and checking whether the total is positive or negative. That check decides the output: 1 or 0. This is what a **perceptron** does. It was modeled on a simplified view of biological neurons [McCulloch1943]_, where dendrites receive signals, the cell body combines them, and the axon fires if the total exceeds a threshold.
 
 The perceptron takes multiple numerical inputs, multiplies each by a corresponding weight, adds them together with a bias term, and applies an activation function to produce a binary output (0 or 1). Mathematically:
 
@@ -104,17 +72,17 @@ Where:
    :align: center
    :alt: Diagram showing perceptron architecture with input nodes x1 and x2, weights w1 and w2, summation node, step activation, and output y
 
-   The perceptron architecture. Inputs are multiplied by weights, summed with a bias, then passed through a step activation function to produce binary output.
+   Perceptron architecture: inputs, weights, summation, and step activation. Diagram generated with Claude - Opus 4.5.
 
 The weights determine how much each input contributes to the output. A large positive weight means that input strongly influences the output toward 1, while a large negative weight pushes it toward 0. The bias acts like a threshold, shifting when the perceptron fires.
 
-.. admonition:: Did You Know?
+.. admonition:: Historical Note
 
-   In 1969, Minsky and Papert proved that a single perceptron cannot learn the XOR function [Minsky1969]_. This limitation contributed to the first "AI winter" when funding for neural network research dried up. It took multi-layer networks (with hidden layers) to overcome this limitation, but those required new training algorithms like backpropagation.
+   In 1969, Minsky and Papert proved that a single perceptron cannot learn the XOR function [Minsky1969]_. This limitation contributed to the first "AI winter" when funding for neural network research dried up [Crevier1993]_. It took multi-layer networks (with hidden layers) to overcome this limitation, but those required new training algorithms like backpropagation.
 
 
-Concept 2: The Forward Pass
----------------------------
+Core Concept 2: The Forward Pass
+---------------------------------
 
 The **forward pass** is how the perceptron makes predictions. Given an input, it computes the weighted sum of inputs plus bias, then applies the step activation function to produce output.
 
@@ -128,6 +96,7 @@ The **forward pass** is how the perceptron makes predictions. Given an input, it
        Compute the perceptron output for input x.
        """
        # Step 1: Compute weighted sum (dot product + bias)
+       # Formula: z = w1*x1 + w2*x2 + ... + wn*xn + bias
        weighted_sum = np.dot(self.weights, x) + self.bias
 
        # Step 2: Apply step activation function
@@ -136,7 +105,7 @@ The **forward pass** is how the perceptron makes predictions. Given an input, it
        else:
            return 0
 
-**Line 6** computes the weighted sum using NumPy's dot product. This is the linear combination of inputs and weights: w1*x1 + w2*x2 + ... + b.
+**Line 6** computes the weighted sum using NumPy's dot product [NumPyDocs911]_. This is the linear combination of inputs and weights: w1*x1 + w2*x2 + ... + b.
 
 **Line 9** applies the step function. If the weighted sum is non-negative, the perceptron outputs 1 (predicts Class 1). Otherwise, it outputs 0 (predicts Class 0).
 
@@ -147,11 +116,11 @@ The forward pass is essentially drawing a line through the feature space. Points
    :align: center
    :alt: Scatter plot showing two clusters of points, orange in lower-left and blue in upper-right, that can be separated by a straight line
 
-   Linearly separable data. The perceptron can learn to separate these two clusters with a straight line (decision boundary).
+   Two clusters separable by a straight line.
 
 
-Concept 3: Learning from Errors
--------------------------------
+Core Concept 3: Learning from Errors
+-------------------------------------
 
 The perceptron learns through the **perceptron learning rule**, one of the earliest machine learning algorithms [Rosenblatt1958]_. The key insight is simple: if the prediction is wrong, adjust the weights to make it less wrong next time.
 
@@ -189,11 +158,33 @@ The **learning rate** controls how much the weights change on each update. A lar
 
    Watch the decision boundary evolve during training. Initially random, it gradually rotates to separate the two classes correctly.
 
-**Convergence Theorem**: If the data is linearly separable, the perceptron learning rule is guaranteed to find a separating boundary in a finite number of steps [Haykin2009]_. This result, formally proven by Albert Novikoff in 1962, was one of the first convergence proofs in machine learning.
+.. figure:: concept3_comparison.png
+   :width: 700px
+   :align: center
+   :alt: Side-by-side comparison showing best decision boundary on left and training error progression chart on right
+
+   Best decision boundary (left) and error over epochs (right). Diagram generated with Claude - Opus 4.5.
+
+.. admonition:: Why Does the Error Oscillate?
+   :class: note
+
+   You may notice the error count fluctuates rather than decreasing smoothly. This is a fundamental property of the basic perceptron algorithm:
+
+   1. **Online Learning**: The perceptron updates weights after each misclassified point, not after seeing all data. Fixing one point may break another.
+
+   2. **Perceptron Cycling Theorem**: When data is **not** linearly separable (as with our deliberate outliers), the perceptron will eventually cycle through the same weight configurations forever [Block1962]_. It cannot converge because no single line can correctly classify all points.
+
+   3. **No Memory of Best Solution**: The basic perceptron does not track which weights performed best. It simply keeps updating.
+
+   This limitation led to the **Pocket Algorithm** [Gallant1990]_, which keeps the best-performing weights "in its pocket" while continuing to train. Modern neural networks address this through batch learning, early stopping, and saving model checkpoints.
+
+**Convergence Theorem**: If the data is linearly separable, the perceptron learning rule is guaranteed to find a separating boundary in a finite number of steps [Haykin2009]_. This result, formally proven by Albert Novikoff in 1962, was one of the first convergence proofs in machine learning [Novikoff1963]_.
 
 
 Hands-On Exercises
 ==================
+
+Now it is time to apply what you've learned with three progressively challenging exercises. Each builds on the previous one using the **Execute → Modify → Create** approach [Sweller1985]_, [Mayer2020]_.
 
 Exercise 1: Execute and Explore
 -------------------------------
@@ -248,7 +239,7 @@ Experiment with the learning rate to understand its effect on training.
    :align: center
    :alt: Four panels showing decision boundaries for different learning rates, from slow (0.01) to very fast (1.0)
 
-   Comparison of decision boundaries learned with different learning rates. All eventually converge for linearly separable data, but the number of epochs varies.
+   Decision boundaries for different learning rates. Diagram generated with Claude - Opus 4.5.
 
 **Goal 2**: Modify the data distribution
 
@@ -415,6 +406,8 @@ Now that you understand how perceptrons create decision boundaries, use multiple
 
 :download:`Download Solution <geometric_art_solution.py>`
 
+The solution uses the Pillow library [PillowDocs911]_ to save the generated image.
+
 **Experiments to try**:
 
 * Change the number of perceptrons (3-6 work well)
@@ -422,12 +415,22 @@ Now that you understand how perceptrons create decision boundaries, use multiple
 * Create your own color palette
 * Add gradients within regions based on distance to boundaries
 
+.. note:: Implementation Note
+
+   The perceptron implementations in this exercise are inspired by the
+   following foundational references:
+
+   - Rosenblatt, F. (1958). *The Perceptron: A Probabilistic Model for Information Storage and Organization in the Brain*, Psychological Review — the original perceptron algorithm and learning rule
+   - scikit-learn Perceptron, https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Perceptron.html — modern reference implementation of the perceptron classifier
+
 
 Summary
 =======
 
 Key Takeaways
 -------------
+
+The perceptron taught us one update rule: when wrong, nudge the weights by (error x input x learning rate). This same rule, repeated billions of times across millions of weights, trains modern neural networks [Goodfellow2016a]_:
 
 * A **perceptron** is a single artificial neuron that computes a weighted sum of inputs, adds a bias, and applies a step activation function
 * The **forward pass** transforms inputs to outputs: y = step(w dot x + b)
@@ -458,6 +461,14 @@ References
 
 .. [Haykin2009] Haykin, S. (2009). *Neural Networks and Learning Machines* (3rd ed.). Pearson. ISBN: 978-0-13-147139-9
 
+.. [Novikoff1963] Novikoff, A. B. J. (1963). On convergence proofs for perceptrons. In *Proceedings of the Symposium on the Mathematical Theory of Automata* (Vol. 12, pp. 615-622). Polytechnic Institute of Brooklyn.
+
+.. [Block1962] Block, H. D. (1962). The perceptron: A model for brain functioning. *Reviews of Modern Physics*, 34(1), 123-135. https://doi.org/10.1103/RevModPhys.34.123
+
+.. [Gallant1990] Gallant, S. I. (1990). Perceptron-based learning algorithms. *IEEE Transactions on Neural Networks*, 1(2), 179-191. https://doi.org/10.1109/72.80230
+
+.. [Crevier1993] Crevier, D. (1993). *AI: The Tumultuous History of the Search for Artificial Intelligence*. Basic Books. ISBN: 978-0-465-02997-6
+
 .. [Goodfellow2016a] Goodfellow, I., Bengio, Y., & Courville, A. (2016). *Deep Learning*. MIT Press. ISBN: 978-0-262-03561-3. https://www.deeplearningbook.org/
 
 .. [LeCun2015a] LeCun, Y., Bengio, Y., & Hinton, G. (2015). Deep learning. *Nature*, 521(7553), 436-444. https://doi.org/10.1038/nature14539
@@ -465,3 +476,7 @@ References
 .. [NumPyDocs911] NumPy Developers. (2024). NumPy linear algebra (numpy.dot). *NumPy Documentation*. https://numpy.org/doc/stable/reference/generated/numpy.dot.html
 
 .. [PillowDocs911] Clark, A., et al. (2024). *Pillow: Python Imaging Library* (Version 10.2.0). Python Software Foundation. https://pillow.readthedocs.io/
+
+.. [Sweller1985] Sweller, J. (1985). Optimizing cognitive load in instructional design. *Instructional Science*, 14(3), 195-218.
+
+.. [Mayer2020] Mayer, R. E. (2020). *Multimedia Learning* (3rd ed.). Cambridge University Press. ISBN: 978-1-316-63896-8
