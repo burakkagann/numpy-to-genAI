@@ -222,15 +222,11 @@ Learning Modules
 
    **3.2 - Masking & Compositing**
 
-   .. toctree::
-      :maxdepth: 1
-
-      3.2.1 - Mask <content/Module_03_transformations_effects/3.2_masking_compositing/3.2.1_mask/README.rst>
-      3.2.2 - Memegen <content/Module_03_transformations_effects/3.2_masking_compositing/3.2.2_memegen/README.rst>
-      3.2.3 - Shadow <content/Module_03_transformations_effects/3.2_masking_compositing/3.2.3_shadow/README.rst>
-
    .. raw:: html
 
+      <span class="incomplete-exercise">3.2.1 - Mask</span>
+      <span class="incomplete-exercise">3.2.2 - Meme Generator</span>
+      <span class="incomplete-exercise">3.2.3 - Shadow</span>
       <span class="incomplete-exercise">3.2.4 - Blend Modes</span>
 
    **3.3 - Artistic Filters**
@@ -239,12 +235,12 @@ Learning Modules
       :maxdepth: 1
 
       3.3.1 - Warhol <content/Module_03_transformations_effects/3.3_artistic_filters/3.3.1_warhol/README.rst>
-      3.3.2 - Puzzle <content/Module_03_transformations_effects/3.3_artistic_filters/3.3.2_puzzle/README.rst>
       3.3.3 - Hexpanda <content/Module_03_transformations_effects/3.3_artistic_filters/3.3.3_hexpanda/README.rst>
       3.3.5 - Delaunay Triangulation <content/Module_03_transformations_effects/3.3_artistic_filters/3.3.5_delaunay_triangulation/README.rst>
 
    .. raw:: html
 
+      <span class="incomplete-exercise">3.3.2 - Puzzle (Array Concatenation)</span>
       <span class="incomplete-exercise">3.3.4 - Voronoi Diagrams</span>
 
    **3.4 - Signal Processing**
@@ -253,9 +249,12 @@ Learning Modules
       :maxdepth: 1
 
       3.4.1 - Convolution <content/Module_03_transformations_effects/3.4_signal_processing/3.4.1_convolution/README.rst>
-      3.4.2 - Edge Detection <content/Module_03_transformations_effects/3.4_signal_processing/3.4.2_edge_detection/README.rst>
-      3.4.3 - Contour Lines <content/Module_03_transformations_effects/3.4_signal_processing/3.4.3_contour_lines/README.rst>
-      3.4.4 - Fourier Art <content/Module_03_transformations_effects/3.4_signal_processing/3.4.4_fourier_art/README.rst>
+
+   .. raw:: html
+
+      <span class="incomplete-exercise">3.4.2 - Edge Detection (Sobel Operator)</span>
+      <span class="incomplete-exercise">3.4.3 - Contour Lines</span>
+      <span class="incomplete-exercise">3.4.4 - Fourier Art</span>
 
 .. dropdown:: Module 4: Fractals & Recursion
 
@@ -291,13 +290,9 @@ Learning Modules
 
    **4.3 - L-Systems**
 
-   .. toctree::
-      :maxdepth: 1
-
-      4.3.1 - Plant Generation <content/Module_04_fractals_recursion/4.3_l_systems/4.3.1_plant_generation/README.rst>
-
    .. raw:: html
 
+      <span class="incomplete-exercise">4.3.1 - Plant Generation</span>
       <span class="incomplete-exercise">4.3.2 - Koch Snowflake</span>
       <span class="incomplete-exercise">4.3.3 - Penrose Tiling</span>
 
@@ -336,11 +331,11 @@ Learning Modules
    .. toctree::
       :maxdepth: 1
 
-      5.3.1 - Bouncing Ball <content/Module_05_simulation_emergent_behavior/5.3_physics_simulations/5.3.1_bouncing_ball/README.rst>
       5.3.3 - Double Pendulum Chaos <content/Module_05_simulation_emergent_behavior/5.3_physics_simulations/5.3.3_double_pendulum_chaos/README.rst>
 
    .. raw:: html
 
+      <span class="incomplete-exercise">5.3.1 - Bouncing Ball Animation</span>
       <span class="incomplete-exercise">5.3.2 - N-Body Planet Simulation</span>
       <span class="incomplete-exercise">5.3.4 - Cloth Rope Simulation</span>
       <span class="incomplete-exercise">5.3.5 - Magnetic Field Visualization</span>
@@ -447,13 +442,9 @@ Learning Modules
 
    **8.1 - Animation Fundamentals**
 
-   .. toctree::
-      :maxdepth: 1
-
-      8.1.1 - Image Transformations <content/Module_08_animation_time/8.1_animation_fundamentals/8.1.1_image_transformations/README.rst>
-
    .. raw:: html
 
+      <span class="incomplete-exercise">8.1.1 - Image Transformations</span>
       <span class="incomplete-exercise">8.1.2 - Easing Functions</span>
       <span class="incomplete-exercise">8.1.3 - Interpolation Techniques</span>
       <span class="incomplete-exercise">8.1.4 - Sprite Sheets</span>
@@ -463,11 +454,11 @@ Learning Modules
    .. toctree::
       :maxdepth: 1
 
-      8.2.1 - Flower Assembly <content/Module_08_animation_time/8.2_organic_motion/8.2.1_flower_assembly/README.rst>
       8.2.2 - Infinite Blossom <content/Module_08_animation_time/8.2_organic_motion/8.2.2_infinite_blossom/README.rst>
 
    .. raw:: html
 
+      <span class="incomplete-exercise">8.2.1 - Flower Assembly</span>
       <span class="incomplete-exercise">8.2.3 - Walk Cycles</span>
       <span class="incomplete-exercise">8.2.4 - Breathing Pulsing</span>
 
@@ -486,14 +477,10 @@ Learning Modules
 
    **8.4 - Generative Animation**
 
-   .. toctree::
-      :maxdepth: 1
-
-      8.4.3 - Animated Fractals <content/Module_08_animation_time/8.4_generative_animation/8.4.3_animated_fractals/README.rst>
-
    .. raw:: html
 
       <span class="incomplete-exercise">8.4.1 - Music Visualization</span>
+      <span class="incomplete-exercise">8.4.3 - Animated Fractals</span>
       <span class="incomplete-exercise">8.4.2 - Data Driven Animation</span>
 
 .. dropdown:: Module 9: Introduction to Neural Networks
@@ -512,12 +499,11 @@ Learning Modules
 
    **9.2 - Network Architectures**
 
-   .. toctree::
-      :maxdepth: 1
+   .. raw:: html
 
-      9.2.1 - Feedforward Networks <content/Module_09_intro_neural_networks/9.2_network_architectures/9.2.1_feedforward_networks/README.rst>
-      9.2.2 - Convolutional Networks Visualization <content/Module_09_intro_neural_networks/9.2_network_architectures/9.2.2_convolutional_networks_visualization/README.rst>
-      9.2.3 - Recurrent Networks Sequences <content/Module_09_intro_neural_networks/9.2_network_architectures/9.2.3_recurrent_networks_sequences/README.rst>
+      <span class="incomplete-exercise">9.2.1 - Feedforward Networks</span>
+      <span class="incomplete-exercise">9.2.2 - Convolutional Networks Visualization</span>
+      <span class="incomplete-exercise">9.2.3 - Recurrent Networks for Sequences</span>
 
    **9.3 - Training Dynamics**
 
@@ -551,22 +537,18 @@ Learning Modules
       :maxdepth: 1
 
       10.1.1 - Node Networks <content/Module_10_touchdesigner_fundamentals/10.1_td_environment_workflow/10.1.1_node_networks/README.rst>
-      10.1.2 - Python Integration Basics <content/Module_10_touchdesigner_fundamentals/10.1_td_environment_workflow/10.1.2_python_integration_basics/README.rst>
 
    .. raw:: html
 
+      <span class="incomplete-exercise">10.1.2 - Python Integration Basics</span>
       <span class="incomplete-exercise">10.1.3 - Performance Monitoring</span>
 
    **10.2 - Recreating Static Exercises**
 
-   .. toctree::
-      :maxdepth: 1
-
-      10.2.2 - Boids Flocking TD <content/Module_10_touchdesigner_fundamentals/10.2_recreating_static_exercises/10.2.2_boids_flocking_td/README.rst>
-
    .. raw:: html
 
       <span class="incomplete-exercise">10.2.1 - Core Exercises Realtime</span>
+      <span class="incomplete-exercise">10.2.2 - Boids Flocking in TouchDesigner</span>
       <span class="incomplete-exercise">10.2.3 - Planet Simulation TD</span>
       <span class="incomplete-exercise">10.2.4 - Fractals Realtime</span>
 
@@ -593,13 +575,9 @@ Learning Modules
 
    **11.1 - Input Devices**
 
-   .. toctree::
-      :maxdepth: 1
-
-      11.1.1 - Webcam Processing <content/Module_11_interactive_systems/11.1_input_devices/11.1.1_webcam_processing/README.rst>
-
    .. raw:: html
 
+      <span class="incomplete-exercise">11.1.1 - Webcam Processing</span>
       <span class="incomplete-exercise">11.1.2 - Audio Reactivity</span>
       <span class="incomplete-exercise">11.1.3 - MIDI OSC Control</span>
       <span class="incomplete-exercise">11.1.4 - Kinect Leap Motion</span>
@@ -665,14 +643,13 @@ Learning Modules
       12.3.1 - DDPM Basics <content/Module_12_generative_ai_models/12.3_diffusion_models/12.3.1_ddpm_basics/README.rst>
       12.3.2 - ControlNet Guided Generation <content/Module_12_generative_ai_models/12.3_diffusion_models/12.3.2_controlnet_guided_generation/README.rst>
 
-   **12.4 - Language Models for Art**
+   **12.4 - Bridging Paradigms**
 
    .. toctree::
       :maxdepth: 1
 
-      12.4.1 - CLIP Guidance <content/Module_12_generative_ai_models/12.4_language_models_art/12.4.1_clip_guidance/README.rst>
-      12.4.2 - Prompt Engineering <content/Module_12_generative_ai_models/12.4_language_models_art/12.4.2_prompt_engineering/README.rst>
-      12.4.3 - Text to Image Pipelines <content/Module_12_generative_ai_models/12.4_language_models_art/12.4.3_text_to_image_pipelines/README.rst>
+      12.4.1 - Neural Style Transfer <content/Module_12_generative_ai_models/12.4_bridging_paradigms/12.4.1_neural_style_transfer/README.rst>
+      12.4.2 - VQ-VAE and VQ-GAN <content/Module_12_generative_ai_models/12.4_bridging_paradigms/12.4.2_vqvae_vqgan/README.rst>
 
    **12.5 - Personalization & Efficiency**
 
@@ -681,6 +658,21 @@ Learning Modules
 
       12.5.1 - DreamBooth Personalization <content/Module_12_generative_ai_models/12.5_personalization_efficiency/12.5.1_dreambooth_personalization/README.rst>
 
+   **12.6 - Transformer Generation**
+
+   .. toctree::
+      :maxdepth: 1
+
+      12.6.1 - Taming Transformers <content/Module_12_generative_ai_models/12.6_transformer_generation/12.6.1_taming_transformers/README.rst>
+      12.6.2 - Diffusion Transformer (DiT) <content/Module_12_generative_ai_models/12.6_transformer_generation/12.6.2_diffusion_transformer_dit/README.rst>
+
+   **12.7 - Modern Frontiers**
+
+   .. toctree::
+      :maxdepth: 1
+
+      12.7.1 - Flow Matching <content/Module_12_generative_ai_models/12.7_modern_frontiers/12.7.1_flow_matching/README.rst>
+
 .. dropdown:: Module 13: AI + TouchDesigner Integration
 
 
@@ -688,13 +680,9 @@ Learning Modules
 
    **13.1 - ML Models in TD**
 
-   .. toctree::
-      :maxdepth: 1
-
-      13.1.1 - MediaPipe Integration <content/Module_13_ai_touchdesigner_integration/13.1_ml_models_td/13.1.1_mediapipe_integration/README.rst>
-
    .. raw:: html
 
+      <span class="incomplete-exercise">13.1.1 - MediaPipe Integration</span>
       <span class="incomplete-exercise">13.1.2 - RunwayML Bridge</span>
       <span class="incomplete-exercise">13.1.3 - ONNX Runtime</span>
 
@@ -734,16 +722,12 @@ Learning Modules
 
    **14.1 - Data Sources**
 
-   .. toctree::
-      :maxdepth: 1
-
-      14.1.1 - APIs Scraping <content/Module_14_data_as_material/14.1_data_sources/14.1.1_apis_scraping/README.rst>
-      14.1.3 - Social Media Streams <content/Module_14_data_as_material/14.1_data_sources/14.1.3_social_media_streams/README.rst>
-      14.1.4 - Environmental Data <content/Module_14_data_as_material/14.1_data_sources/14.1.4_environmental_data/README.rst>
-
    .. raw:: html
 
+      <span class="incomplete-exercise">14.1.1 - APIs and Data Scraping</span>
       <span class="incomplete-exercise">14.1.2 - Sensor Networks</span>
+      <span class="incomplete-exercise">14.1.3 - Social Media Streams</span>
+      <span class="incomplete-exercise">14.1.4 - Environmental Data</span>
 
    **14.2 - Visualization Techniques**
 
