@@ -645,11 +645,10 @@ Learning Modules
 
    **12.4 - Bridging Paradigms**
 
-   .. toctree::
-      :maxdepth: 1
+   .. raw:: html
 
-      12.4.1 - Neural Style Transfer <content/Module_12_generative_ai_models/12.4_bridging_paradigms/12.4.1_neural_style_transfer/README.rst>
-      12.4.2 - VQ-VAE and VQ-GAN <content/Module_12_generative_ai_models/12.4_bridging_paradigms/12.4.2_vqvae_vqgan/README.rst>
+      <span class="incomplete-exercise">12.4.1 - Neural Style Transfer</span>
+      <span class="incomplete-exercise">12.4.2 - VQ-VAE and VQ-GAN</span>
 
    **12.5 - Personalization & Efficiency**
 
@@ -660,11 +659,10 @@ Learning Modules
 
    **12.6 - Transformer Generation**
 
-   .. toctree::
-      :maxdepth: 1
+   .. raw:: html
 
-      12.6.1 - Taming Transformers <content/Module_12_generative_ai_models/12.6_transformer_generation/12.6.1_taming_transformers/README.rst>
-      12.6.2 - Diffusion Transformer (DiT) <content/Module_12_generative_ai_models/12.6_transformer_generation/12.6.2_diffusion_transformer_dit/README.rst>
+      <span class="incomplete-exercise">12.6.1 - Taming Transformers</span>
+      <span class="incomplete-exercise">12.6.2 - Diffusion Transformer (DiT)</span>
 
    **12.7 - Modern Frontiers**
 
