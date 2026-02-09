@@ -36,9 +36,7 @@
 }
 
 .incomplete-exercise::after {
-    content: " (Coming Soon)";
-    font-style: italic;
-    font-size: 0.85em;
+    content: "";
 }
 
 /* Dark mode support */
